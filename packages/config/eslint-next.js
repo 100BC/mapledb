@@ -60,10 +60,9 @@ module.exports = {
     ]
   },
   ignorePatterns: [
-    '**/*.js',
-    '**/*.json',
     'node_modules',
     'public',
+    'next-env.d.ts',
     'styles',
     '.next',
     'coverage',
