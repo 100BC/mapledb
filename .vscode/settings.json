@@ -11,49 +11,13 @@
   "editor.formatOnSave": true,
 
   // Code Spell Checker
-  "cSpell.words": [
-    "bandcamp",
-    "Brunswicker",
-    "Cloudinary",
-    "dedup",
-    "demonym",
-    "demonyms",
-    "Favourite",
-    "firestore",
-    "minmax",
-    "MIXINS",
-    "Mooseical",
-    "Mooseical's",
-    "msapplication",
-    "noindex",
-    "Nunavummiuq",
-    "preconnect",
-    "Québec",
-    "Québécois",
-    "recaptcha",
-    "Saskatchewanian",
-    "Scotian",
-    "sitekey",
-    "soundcloud",
-    "spotify",
-    "stylelint",
-    "Subgenres",
-    "Territorian",
-    "unoptimized",
-    "urql",
-    "youtube",
-    "Yukoner"
-  ],
+  "cSpell.words": ["Mooseical", "nextjs", "turborepo"],
   "cSpell.ignorePaths": [
     "node_modules",
     ".vscode",
-    ".prettierignore",
-    ".prettierrc.json",
-    ".stylelintrc.json",
     "package.json",
-    "next.config.js",
-    ".env.local",
-    "pnpm-lock.yaml"
+    "pnpm-*.yaml",
+    "prettierrc.json"
   ],
 
   // Peacock
