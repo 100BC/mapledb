@@ -63,7 +63,7 @@ importers:
       react-dom: 17.0.2_react@17.0.2
       react-google-recaptcha: 2.1.0_react@17.0.2
       react-hook-form: 7.27.0_react@17.0.2
-      ui: link:../../packages/ui
+      ui: link:../../libs/ui
       urql: 2.1.3_graphql@16.3.0+react@17.0.2
     devDependencies:
       '@svgr/webpack': 6.2.1
@@ -73,7 +73,7 @@ importers:
       '@types/react-google-recaptcha': 2.1.4
       eslint: 8.9.0
       eslint-config: link:../../config/eslint-config
-      global-theme: link:../../packages/global-theme
+      global-theme: link:../../libs/global-theme
       next-transpile-modules: 9.0.0
       sass: 1.49.8
       stylelint: 14.5.1
@@ -124,13 +124,33 @@ importers:
   config/tsconfig:
     specifiers: {}
 
-  packages/global-theme:
+  libs/generic-types:
+    specifiers:
+      eslint-config: workspace:*
+      tsconfig: workspace:*
+      typescript: ^4.5.5
+    devDependencies:
+      eslint-config: link:../../config/eslint-config
+      tsconfig: link:../../config/tsconfig
+      typescript: 4.5.5
+
+  libs/global-theme:
     specifiers:
       sass: ^1.49.8
     dependencies:
       sass: 1.49.8
 
-  packages/ui:
+  libs/style-helpers:
+    specifiers:
+      eslint-config: workspace:*
+      tsconfig: workspace:*
+      typescript: ^4.5.5
+    devDependencies:
+      eslint-config: link:../../config/eslint-config
+      tsconfig: link:../../config/tsconfig
+      typescript: 4.5.5
+
+  libs/ui:
     specifiers:
       '@types/react': ^17.0.39
       eslint: ^8.9.0
@@ -145,26 +165,6 @@ importers:
     devDependencies:
       '@types/react': 17.0.39
       eslint: 8.9.0
-      eslint-config: link:../../config/eslint-config
-      tsconfig: link:../../config/tsconfig
-      typescript: 4.5.5
-
-  utils/generic-types:
-    specifiers:
-      eslint-config: workspace:*
-      tsconfig: workspace:*
-      typescript: ^4.5.5
-    devDependencies:
-      eslint-config: link:../../config/eslint-config
-      tsconfig: link:../../config/tsconfig
-      typescript: 4.5.5
-
-  utils/style-helpers:
-    specifiers:
-      eslint-config: workspace:*
-      tsconfig: workspace:*
-      typescript: ^4.5.5
-    devDependencies:
       eslint-config: link:../../config/eslint-config
       tsconfig: link:../../config/tsconfig
       typescript: 4.5.5
