@@ -1,6 +1,7 @@
 {
-  "name": "turborepo-basic-shared",
+  "name": "mooseical",
   "version": "0.0.0",
+  "description": "Mooseical Monorepo",
   "private": true,
   "workspaces": [
     "apps/*",
