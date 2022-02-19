@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint:code": "eslint src --ext .js,.jsx,.ts,.tsx"
+    "lint:code": "eslint src --ext .js,.jsx,.ts,.tsx",
+    "clean": "rm -rf node_modules .turbo"
   },
   "dependencies": {
     "next": "12.0.8",

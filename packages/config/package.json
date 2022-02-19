@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf node_modules .turbo"
+  },
   "files": [
     "eslint-next.js",
     "eslint-server.js"
@@ -21,8 +24,5 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-security": "^1.4.0"
-  },
-  "peerDependencies": {
-    "eslint": "^8.9.0"
   }
 }

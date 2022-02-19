@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/index.ts",
   "scripts": {
-    "lint:code": "eslint src --ext .js,.ts"
+    "lint:code": "eslint src --ext .js,.ts",
+    "clean": "rm -rf node_modules .turbo"
   },
   "license": "ISC",
   "devDependencies": {
