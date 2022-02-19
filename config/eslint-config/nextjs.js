@@ -68,5 +68,6 @@ module.exports = {
     '.turbo',
     '.eslintrc.js',
     'next.config.js',
+    'dist',
   ],
 };
