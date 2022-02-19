@@ -8,6 +8,6 @@
   "files": [
     "base.json",
     "nextjs.json",
-    "server.json"
+    "node.json"
   ]
 }

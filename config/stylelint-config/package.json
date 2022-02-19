@@ -1,5 +1,5 @@
 {
-  "name": "config-stylelint",
+  "name": "stylelint-config",
   "version": "0.0.0",
   "private": true,
   "scripts": {

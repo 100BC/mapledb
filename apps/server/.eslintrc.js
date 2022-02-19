@@ -1,5 +1,5 @@
 module.exports = {
-  ...require('config-eslint/node'),
+  ...require('eslint-config/node'),
   parserOptions: {
     tsconfigRootDir: __dirname,
     project: './tsconfig.json',

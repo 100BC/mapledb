@@ -13,15 +13,15 @@ importers:
   apps/server:
     specifiers:
       '@types/node': ^17.0.18
-      config-eslint: workspace:*
       eslint: ^8.9.0
+      eslint-config: workspace:*
       nodemon: ^2.0.15
       tsconfig: workspace:*
       typescript: ^4.5.5
     devDependencies:
       '@types/node': 17.0.18
-      config-eslint: link:../../config/config-eslint
       eslint: 8.9.0
+      eslint-config: link:../../config/eslint-config
       nodemon: 2.0.15
       tsconfig: link:../../config/tsconfig
       typescript: 4.5.5
@@ -30,15 +30,15 @@ importers:
     specifiers:
       '@types/node': ^17.0.18
       '@types/react': 17.0.37
-      config-eslint: workspace:*
-      config-stylelint: workspace:*
       eslint: ^8.9.0
+      eslint-config: workspace:*
       next: 12.0.8
       next-transpile-modules: 9.0.0
       react: 17.0.2
       react-dom: 17.0.2
       sass: ^1.49.8
       stylelint: ^14.5.1
+      stylelint-config: workspace:*
       tsconfig: workspace:*
       typescript: ^4.5.5
       ui: workspace:*
@@ -50,16 +50,16 @@ importers:
     devDependencies:
       '@types/node': 17.0.18
       '@types/react': 17.0.37
-      config-eslint: link:../../config/config-eslint
-      config-stylelint: link:../../config/config-stylelint
       eslint: 8.9.0
+      eslint-config: link:../../config/eslint-config
       next-transpile-modules: 9.0.0
       sass: 1.49.8
       stylelint: 14.5.1
+      stylelint-config: link:../../config/stylelint-config
       tsconfig: link:../../config/tsconfig
       typescript: 4.5.5
 
-  config/config-eslint:
+  config/eslint-config:
     specifiers:
       '@typescript-eslint/eslint-plugin': ^5.12.0
       '@typescript-eslint/parser': ^5.12.0
@@ -89,7 +89,7 @@ importers:
       eslint-plugin-react-hooks: 4.3.0
       eslint-plugin-security: 1.4.0
 
-  config/config-stylelint:
+  config/stylelint-config:
     specifiers:
       stylelint-config-prettier: ^9.0.3
       stylelint-config-recess-order: ^3.0.0
@@ -106,15 +106,15 @@ importers:
     specifiers:
       '@types/react': ^17.0.39
       '@types/react-dom': ^17.0.11
-      config-eslint: workspace:*
       eslint: ^8.9.0
+      eslint-config: workspace:*
       tsconfig: workspace:*
       typescript: ^4.5.5
     devDependencies:
       '@types/react': 17.0.39
       '@types/react-dom': 17.0.11
-      config-eslint: link:../../config/config-eslint
       eslint: 8.9.0
+      eslint-config: link:../../config/eslint-config
       tsconfig: link:../../config/tsconfig
       typescript: 4.5.5
 
