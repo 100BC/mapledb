@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Button from '@components/Button';
+import Button from 'ui/Button';
 import Layout from '@components/Layout';
 
 const Web = () => {

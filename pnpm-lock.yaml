@@ -162,12 +162,14 @@ importers:
       next: 12.0.8
       react: 17.0.2
       sass: ^1.49.8
+      style-helpers: workspace:*
       tsconfig: workspace:*
       typescript: ^4.5.5
     dependencies:
       generic-types: link:../generic-types
       next: 12.0.8_react@17.0.2+sass@1.49.8
       react: 17.0.2
+      style-helpers: link:../style-helpers
     devDependencies:
       '@types/react': 17.0.39
       eslint: 8.9.0
