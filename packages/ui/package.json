@@ -2,17 +2,19 @@
   "name": "ui",
   "version": "0.0.0",
   "main": "./index.tsx",
-  "types": "./index.tsx",
   "private": true,
   "scripts": {
     "clean": "rm -rf node_modules .turbo .pnpm-debug.log",
     "lint:code": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
+  "dependencies": {
+    "next": "12.0.8",
+    "react": "17.0.2"
+  },
   "devDependencies": {
     "@types/react": "^17.0.39",
-    "@types/react-dom": "^17.0.11",
-    "eslint-config": "workspace:*",
     "eslint": "^8.9.0",
+    "eslint-config": "workspace:*",
     "tsconfig": "workspace:*",
     "typescript": "^4.5.5"
   }

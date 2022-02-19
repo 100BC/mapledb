@@ -11,7 +11,14 @@
   "editor.formatOnSave": true,
 
   // Code Spell Checker
-  "cSpell.words": ["Mooseical", "nextjs", "turborepo"],
+  "cSpell.words": [
+    "cloudinary",
+    "Mooseical",
+    "nextjs",
+    "stylelint",
+    "svgr",
+    "turborepo"
+  ],
   "cSpell.ignorePaths": [
     "node_modules",
     ".vscode",
