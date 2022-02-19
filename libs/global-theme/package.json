@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "main": "index.scss",
+  "files": [
+    "globals.scss"
+  ],
   "scripts": {
     "clean": "rm -rf node_modules .turbo .pnpm-debug.log"
   },

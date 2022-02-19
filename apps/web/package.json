@@ -20,6 +20,7 @@
     "react-dom": "^17.0.2",
     "react-google-recaptcha": "^2.1.0",
     "react-hook-form": "^7.27.0",
+    "style-helpers": "workspace:*",
     "ui": "workspace:*",
     "urql": "^2.1.3"
   },

@@ -1,4 +1,5 @@
 @use '~global-theme' as *;
+@use '~global-theme/globals' as *;
 
 .root {
   color: $theme-400;
