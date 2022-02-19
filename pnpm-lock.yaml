@@ -47,6 +47,7 @@ importers:
       react-google-recaptcha: ^2.1.0
       react-hook-form: ^7.27.0
       sass: ^1.49.8
+      style-helpers: workspace:*
       stylelint: ^14.5.1
       stylelint-config: workspace:*
       tsconfig: workspace:*
@@ -63,6 +64,7 @@ importers:
       react-dom: 17.0.2_react@17.0.2
       react-google-recaptcha: 2.1.0_react@17.0.2
       react-hook-form: 7.27.0_react@17.0.2
+      style-helpers: link:../../libs/style-helpers
       ui: link:../../libs/ui
       urql: 2.1.3_graphql@16.3.0+react@17.0.2
     devDependencies:
