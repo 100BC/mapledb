@@ -1,0 +1,14 @@
+{
+  "name": "type-helpers",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.ts",
+  "scripts": {
+    "clean": "rm -rf node_modules .turbo .pnpm-debug.log"
+  },
+  "devDependencies": {
+    "eslint-config": "workspace:*",
+    "tsconfig": "workspace:*",
+    "typescript": "^4.5.5"
+  }
+}

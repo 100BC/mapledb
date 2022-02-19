@@ -120,6 +120,16 @@ importers:
       tsconfig: link:../../config/tsconfig
       typescript: 4.5.5
 
+  packages/type-helpers:
+    specifiers:
+      eslint-config: workspace:*
+      tsconfig: workspace:*
+      typescript: ^4.5.5
+    devDependencies:
+      eslint-config: link:../../config/eslint-config
+      tsconfig: link:../../config/tsconfig
+      typescript: 4.5.5
+
   packages/ui:
     specifiers:
       '@types/react': ^17.0.39
