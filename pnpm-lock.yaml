@@ -110,26 +110,6 @@ importers:
     dependencies:
       sass: 1.49.8
 
-  packages/style-helpers:
-    specifiers:
-      eslint-config: workspace:*
-      tsconfig: workspace:*
-      typescript: ^4.5.5
-    devDependencies:
-      eslint-config: link:../../config/eslint-config
-      tsconfig: link:../../config/tsconfig
-      typescript: 4.5.5
-
-  packages/type-helpers:
-    specifiers:
-      eslint-config: workspace:*
-      tsconfig: workspace:*
-      typescript: ^4.5.5
-    devDependencies:
-      eslint-config: link:../../config/eslint-config
-      tsconfig: link:../../config/tsconfig
-      typescript: 4.5.5
-
   packages/ui:
     specifiers:
       '@types/react': ^17.0.39
@@ -142,6 +122,26 @@ importers:
       '@types/react': 17.0.39
       '@types/react-dom': 17.0.11
       eslint: 8.9.0
+      eslint-config: link:../../config/eslint-config
+      tsconfig: link:../../config/tsconfig
+      typescript: 4.5.5
+
+  utils/generic-types:
+    specifiers:
+      eslint-config: workspace:*
+      tsconfig: workspace:*
+      typescript: ^4.5.5
+    devDependencies:
+      eslint-config: link:../../config/eslint-config
+      tsconfig: link:../../config/tsconfig
+      typescript: 4.5.5
+
+  utils/style-helpers:
+    specifiers:
+      eslint-config: workspace:*
+      tsconfig: workspace:*
+      typescript: ^4.5.5
+    devDependencies:
       eslint-config: link:../../config/eslint-config
       tsconfig: link:../../config/tsconfig
       typescript: 4.5.5

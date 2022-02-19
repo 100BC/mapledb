@@ -6,12 +6,14 @@
   "workspaces": [
     "apps/*",
     "packages/*",
-    "config/*"
+    "config/*",
+    "utils/*"
   ],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "clean": "turbo run clean && rm -rf node_modules .turbo .pnpm-debug.log",
+    "clean:install": "pnpm clean && pnpm install",
     "lint:code": "turbo run lint:code",
     "lint:styles": "turbo run lint:styles",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
