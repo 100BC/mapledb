@@ -2,7 +2,16 @@
   "extends": "tsconfig/nextjs.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "outDir": ".next"
+    "outDir": ".next",
+    "paths": {
+      "@assets/*": ["./src/assets/*"],
+      "@components/*": ["./src/components/*"],
+      "@gcp/*": ["./src/gcp/*"],
+      "@graphql/*": ["./src/graphql/*"],
+      "@public/*": ["./public/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@utils/*": ["./src/utils/*"]
+    }
   },
   "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx", "@types.d.ts"],
   "exclude": ["node_modules", ".eslintrc.js"]
