@@ -65,8 +65,6 @@ module.exports = {
     'next-env.d.ts',
     'styles',
     '.next',
-    'coverage',
-    'dist',
     '.turbo',
     '.eslintrc.js',
   ],

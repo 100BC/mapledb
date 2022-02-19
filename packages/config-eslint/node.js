@@ -12,16 +12,12 @@ module.exports = {
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
     ecmaVersion: 12,
     sourceType: 'module',
-    project: './tsconfig.json',
   },
   settings: {
-    next: {
-      rootDir: ['apps/web/*', 'packages/*/'],
+    node: {
+      tryExtensions: ['.js', '.json', '.node', '.ts'],
     },
   },
   rules: {
@@ -39,11 +35,5 @@ module.exports = {
     'import/prefer-default-export': 0,
     'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
   },
-  ignorePatterns: [
-    'node_modules',
-    '.turbo',
-    'dist',
-    'coverage',
-    '.eslintrc.js',
-  ],
+  ignorePatterns: ['node_modules', '.turbo', 'dist', '.eslintrc.js'],
 };

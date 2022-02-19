@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "@types/node": "^17.0.18",
-    "config": "workspace:*",
+    "config-eslint": "workspace:*",
     "eslint": "^8.9.0",
     "nodemon": "^2.0.15",
     "tsconfig": "workspace:*",

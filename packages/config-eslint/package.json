@@ -1,13 +1,13 @@
 {
-  "name": "config",
+  "name": "config-eslint",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "clean": "rm -rf node_modules .turbo"
   },
   "files": [
-    "eslint-next.js",
-    "eslint-server.js"
+    "next.js",
+    "node.js"
   ],
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.12.0",
