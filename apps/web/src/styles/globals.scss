@@ -1,3 +1,5 @@
+@use '~global-theme' as *;
+
 .root {
-  color: red;
+  color: $red-400;
 }

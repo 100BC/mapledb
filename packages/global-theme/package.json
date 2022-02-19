@@ -1,0 +1,12 @@
+{
+  "name": "global-theme",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.scss",
+  "scripts": {
+    "clean": "rm -rf node_modules .turbo"
+  },
+  "dependencies": {
+    "sass": "^1.49.8"
+  }
+}
