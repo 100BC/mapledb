@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.ts",
   "scripts": {
-    "lint:code": "eslint . --ext .js,.ts"
+    "lint:code": "eslint src --ext .js,.ts"
   },
   "license": "ISC",
   "devDependencies": {
