@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint:code": "eslint src --ext .js,.jsx,.ts,.tsx",
+    "lint:styles": "stylelint 'src/styles/**/*.scss'",
     "clean": "rm -rf node_modules .turbo"
   },
   "dependencies": {
@@ -19,8 +20,11 @@
     "@types/node": "^17.0.18",
     "@types/react": "17.0.37",
     "config": "workspace:*",
+    "config-stylelint": "workspace:*",
     "eslint": "^8.9.0",
     "next-transpile-modules": "9.0.0",
+    "sass": "^1.49.8",
+    "stylelint": "^14.5.1",
     "tsconfig": "workspace:*",
     "typescript": "^4.5.5"
   }

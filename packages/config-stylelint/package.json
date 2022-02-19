@@ -1,0 +1,14 @@
+{
+  "name": "config-stylelint",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf node_modules .turbo"
+  },
+  "main": "index.json",
+  "dependencies": {
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-recess-order": "^3.0.0",
+    "stylelint-config-standard-scss": "^3.0.0"
+  }
+}

@@ -7,6 +7,9 @@
     "lint:code": {
       "outputs": []
     },
+    "lint:styles": {
+      "outputs": []
+    },
     "dev": {
       "cache": false
     },
