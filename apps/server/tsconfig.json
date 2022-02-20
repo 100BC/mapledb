@@ -1,5 +1,5 @@
 {
-  "extends": "tsconfig/node.json",
+  "extends": "@mooseical/tsconfig/node.json",
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "dist",

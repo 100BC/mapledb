@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 
-import MetaTags, { MetaTagProps } from 'ui/MetaTags';
+import MetaTags, { MetaTagProps } from '@mooseical/ui/MetaTags';
 import {
   DOMAIN_NAME,
   META_DESCRIPTION,

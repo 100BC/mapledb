@@ -1,7 +1,7 @@
 /* eslint-disable react/button-has-type */
 import React, { ReactNode } from 'react';
 
-import { combine } from 'style-helpers';
+import { combine } from '@mooseical/style-helpers';
 import styles from './styles.module.scss';
 
 interface Props {

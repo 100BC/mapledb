@@ -1,5 +1,5 @@
 {
-  "extends": "tsconfig/base.json",
+  "extends": "@mooseical/tsconfig/base.json",
   "include": ["index.ts"],
   "exclude": ["node_modules", ".eslintrc.js"]
 }

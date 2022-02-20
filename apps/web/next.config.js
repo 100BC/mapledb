@@ -1,4 +1,7 @@
-const withTM = require('next-transpile-modules')(['ui', 'style-helpers']);
+const withTM = require('next-transpile-modules')([
+  '@mooseical/ui',
+  '@mooseical/style-helpers',
+]);
 
 module.exports = withTM({
   reactStrictMode: true,

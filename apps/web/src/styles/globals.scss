@@ -1,5 +1,5 @@
-@use '~global-theme' as *;
-@use '~global-theme/globals' as *;
+@use '~@mooseical/global-theme' as *;
+@use '~@mooseical/global-theme/globals' as *;
 
 .root {
   color: $theme-400;

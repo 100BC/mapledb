@@ -1,5 +1,5 @@
 {
-  "name": "global-theme",
+  "name": "@mooseical/global-theme",
   "version": "0.0.0",
   "private": true,
   "main": "index.scss",
