@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "files": [
-    "src/MetaTags",
-    "src/Button"
+    "MetaTags",
+    "Button"
   ],
   "scripts": {
     "clean": "rm -rf node_modules .turbo .pnpm-debug.log",

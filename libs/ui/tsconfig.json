@@ -1,5 +1,5 @@
 {
   "extends": "@mooseical/tsconfig/nextjs.json",
-  "include": ["src/**/*.tsx", "src/**/*.ts", "next-env.d.ts"],
+  "include": ["**/*.tsx", "**/*.ts"],
   "exclude": ["dist", "build", "node_modules"]
 }
