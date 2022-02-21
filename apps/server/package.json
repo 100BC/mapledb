@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "@mooseical/server",
   "version": "0.0.0",
   "main": "src/index.ts",
   "private": true,
