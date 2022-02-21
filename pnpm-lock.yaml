@@ -143,9 +143,14 @@ importers:
 
   libs/global-theme:
     specifiers:
+      '@mooseical/stylelint-config': workspace:*
       sass: ^1.49.8
+      stylelint: ^14.5.1
     dependencies:
       sass: 1.49.8
+    devDependencies:
+      '@mooseical/stylelint-config': link:../../config/stylelint-config
+      stylelint: 14.5.1
 
   libs/style-helpers:
     specifiers:
@@ -163,12 +168,14 @@ importers:
       '@mooseical/generic-types': workspace:^0.0.0
       '@mooseical/global-theme': workspace:*
       '@mooseical/style-helpers': workspace:*
+      '@mooseical/stylelint-config': workspace:*
       '@mooseical/tsconfig': workspace:*
       '@types/react': ^17.0.39
       eslint: ^8.9.0
       next: 12.0.8
       react: 17.0.2
       sass: ^1.49.8
+      stylelint: ^14.5.1
       typescript: ^4.5.5
     dependencies:
       '@mooseical/generic-types': link:../generic-types
@@ -178,10 +185,12 @@ importers:
     devDependencies:
       '@mooseical/eslint-config': link:../../config/eslint-config
       '@mooseical/global-theme': link:../global-theme
+      '@mooseical/stylelint-config': link:../../config/stylelint-config
       '@mooseical/tsconfig': link:../../config/tsconfig
       '@types/react': 17.0.39
       eslint: 8.9.0
       sass: 1.49.8
+      stylelint: 14.5.1
       typescript: 4.5.5
 
 packages:

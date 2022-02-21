@@ -7,9 +7,15 @@
     "globals.scss"
   ],
   "scripts": {
-    "clean": "rm -rf node_modules .turbo .pnpm-debug.log"
+    "clean": "rm -rf node_modules .turbo .pnpm-debug.log",
+    "lint:styles": "stylelint '**/*.scss'",
+    "format:styles": "stylelint '**/*.scss' --fix && prettier --write \"**/*.scss\""
   },
   "dependencies": {
     "sass": "^1.49.8"
+  },
+  "devDependencies": {
+    "@mooseical/stylelint-config": "workspace:*",
+    "stylelint": "^14.5.1"
   }
 }

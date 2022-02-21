@@ -10,6 +10,9 @@
     "lint:styles": {
       "outputs": []
     },
+    "format:styles": {
+      "outputs": []
+    },
     "dev": {
       "cache": false
     },

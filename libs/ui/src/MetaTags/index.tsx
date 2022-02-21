@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-import { AllOrNone } from 'generic-types';
+import { AllOrNone } from '@mooseical/generic-types';
 
 export type MetaTagProps = {
   title?: string;

@@ -15,6 +15,7 @@
     "clean:install": "pnpm clean && pnpm install",
     "lint:code": "turbo run lint:code",
     "lint:styles": "turbo run lint:styles",
+    "format:styles": "turbo run format:styles",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {

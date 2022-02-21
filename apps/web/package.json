@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint:code": "eslint src --ext .js,.jsx,.ts,.tsx",
-    "lint:styles": "stylelint 'src/styles/**/*.scss'",
+    "lint:styles": "stylelint 'src/**/*.scss'",
+    "format:styles": "stylelint '**/*.scss' --fix && prettier --write \"**/*.scss\"",
     "clean": "rm -rf node_modules .turbo .pnpm-debug.log"
   },
   "dependencies": {

@@ -3,12 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "files": [
-    "MetaTags",
-    "Button"
+    "src/MetaTags",
+    "src/Button"
   ],
   "scripts": {
     "clean": "rm -rf node_modules .turbo .pnpm-debug.log",
-    "lint:code": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint:code": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:styles": "stylelint '**/*.scss'",
+    "format:styles": "stylelint '**/*.scss' --fix && prettier --write \"**/*.scss\""
   },
   "dependencies": {
     "@mooseical/generic-types": "workspace:^0.0.0",
@@ -19,10 +21,12 @@
   "devDependencies": {
     "@mooseical/eslint-config": "workspace:*",
     "@mooseical/global-theme": "workspace:*",
+    "@mooseical/stylelint-config": "workspace:*",
     "@mooseical/tsconfig": "workspace:*",
     "@types/react": "^17.0.39",
     "eslint": "^8.9.0",
     "sass": "^1.49.8",
+    "stylelint": "^14.5.1",
     "typescript": "^4.5.5"
   }
 }
