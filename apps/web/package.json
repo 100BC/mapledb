@@ -9,7 +9,7 @@
     "lint:code": "eslint src --ext .js,.jsx,.ts,.tsx",
     "lint:styles": "stylelint 'src/**/*.scss'",
     "format:styles": "stylelint 'src/**/*.scss' --fix && prettier --write \"src/**/*.scss\"",
-    "clean": "rm -rf node_modules .turbo .pnpm-debug.log"
+    "clean": "rm -rf node_modules .turbo .pnpm-debug.log .next"
   },
   "dependencies": {
     "@mooseical/style-helpers": "workspace:*",
