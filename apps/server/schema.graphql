@@ -1,0 +1,154 @@
+"""Cities of Canada"""
+type City {
+  id: Int!
+  name: String!
+  province: Province!
+}
+
+"""
+A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar Date
+
+"""Base level genres"""
+enum Genre {
+  COUNTRY
+  ELECTRONIC
+  EXPERIMENTAL
+  FOLK
+  JAZZ
+  METAL
+  POP
+  RAP
+  ROCK
+}
+
+"""Latest Release Date and Genre of a Musician"""
+type LatestInfo {
+  latestGenre: Genre!
+  latestRelease: Date!
+}
+
+"""Music of Canadian Musicians"""
+type Music {
+  appleLink: String
+  bandcampLink: String
+  copyright: String
+  hasCover: Boolean!
+  id: String!
+  instrumental: Boolean!
+  musicType: MusicType!
+  musicians: [Musician!]!
+  name: String!
+  nonCanadians: [String!]!
+  release: Date!
+  soundcloudLink: String
+  spotifyLink: String
+  subgenre: Subgenre!
+  youtubeLink: String
+}
+
+"""Type of Music Release"""
+enum MusicType {
+  ALBUM
+  EP
+  LIVE
+  OTHER
+  SINGLE
+}
+
+"""Musicians of Canada"""
+type Musician {
+  appleLink: String
+  bandcampLink: String
+  city: City!
+  disbanded: Date
+  id: String!
+  isGroup: Boolean!
+  latestInfo: LatestInfo
+  music(type: MusicType): [Music!]!
+  name: String!
+  soundcloudLink: String
+  spotifyLink: String
+  youtubeLink: String
+}
+
+type Mutation {
+  """Add a musical work; the musician must already exist in DB"""
+  musicAdd(appleLink: String, bandcampLink: String, copyright: String, cover: Upload, genre: Genre!, instrumental: Boolean!, musicType: MusicType!, musicianIds: [String!]!, name: String!, nonCanadians: [String!]!, release: Date!, soundcloudLink: String, spotifyLink: String, subgenre: String!, youtubeLink: String): Music!
+
+  """Deletes a musical work"""
+  musicDelete(id: String!): Music!
+
+  """Updates an existing musical work in the db"""
+  musicEdit(appleLink: String, bandcampLink: String, copyright: String, cover: Upload, genre: Genre, id: String!, instrumental: Boolean, musicType: MusicType, nonCanadians: [String!], release: Date, soundcloudLink: String, spotifyLink: String, subgenre: String, youtubeLink: String): Music!
+
+  """Add an Musician"""
+  musicianAdd(appleLink: String, bandcampLink: String, city: String!, disbanded: Date, isGroup: Boolean!, name: String!, province: Province!, soundcloudLink: String, spotifyLink: String, youtubeLink: String): Musician!
+
+  """Deletes a musician and all their music"""
+  musicianDelete(id: String!): Musician!
+
+  """Edit a Musician"""
+  musicianEdit(appleLink: String, bandcampLink: String, city: String, disbanded: Date, id: String!, isGroup: Boolean, province: Province, soundcloudLink: String, spotifyLink: String, youtubeLink: String): Musician!
+}
+
+"""Argument values for ordering"""
+enum OrderByArgument {
+  DATE_ADDED
+  RELEASE
+}
+
+"""Provinces and Territories of Canada"""
+enum Province {
+  AB
+  BC
+  MB
+  NB
+  NL
+  NS
+  NT
+  NU
+  ON
+  PE
+  QC
+  SK
+  YT
+}
+
+type Query {
+  """Find a specific song, album, ep or other music by Id"""
+  music(id: String!): Music!
+
+  """Returns how many music of specified type exists in the db"""
+  musicCount(genre: Genre, type: [MusicType!]): Int!
+
+  """
+  Return up to 20 musical works ordered by release date, optional subgenre and type of music query
+  """
+  musicList(genre: Genre, skip: Int, take: Int!, type: [MusicType!]): [Music!]!
+
+  """Find a specific Musician"""
+  musician(id: String!): Musician!
+
+  """Returns how many musicians exists in the db"""
+  musicianCount(province: Province): Int!
+
+  """
+  Return up to 20 musicians ordered by their latest release date, optional province queries
+  """
+  musicianList(orderBy: OrderByArgument, province: Province, skip: Int, take: Int!): [Musician!]!
+
+  """Return the subgenres in the db and how many musical works they have"""
+  subgenreList(genre: [Genre!], take: Int): [Subgenre!]!
+}
+
+"""Subgenres of musical works on the site"""
+type Subgenre {
+  genre: Genre!
+  id: Int!
+  name: String!
+}
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload

@@ -35,5 +35,5 @@ module.exports = {
     'import/prefer-default-export': 0,
     'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
   },
-  ignorePatterns: ['node_modules', '.turbo', 'dist', '.eslintrc.js'],
+  ignorePatterns: ['node_modules', '.turbo', 'dist', '.eslintrc.js', 'prisma'],
 };

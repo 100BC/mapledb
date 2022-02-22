@@ -3,8 +3,12 @@
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "dist",
-    "rootDir": "./src"
+    "paths": {
+      "@server": ["./src/server.ts"],
+      "@schema/*": ["src/schema/*"],
+      "@utils/*": ["./src/utils/*"]
+    }
   },
   "include": ["./src/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "killPort.js", "prisma/*"]
 }

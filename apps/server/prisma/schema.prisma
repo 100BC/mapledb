@@ -1,0 +1,108 @@
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["extendedIndexes"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Province {
+  AB
+  BC
+  MB
+  NB
+  NL
+  NS
+  NT
+  NU
+  ON
+  PE
+  QC
+  SK
+  YT
+}
+
+enum Genre {
+  COUNTRY
+  ELECTRONIC
+  EXPERIMENTAL
+  FOLK
+  JAZZ
+  METAL
+  POP
+  RAP
+  ROCK
+}
+
+enum MusicType {
+  ALBUM
+  EP
+  SINGLE
+  LIVE
+  OTHER
+}
+
+model City {
+  id        Int        @id @default(autoincrement()) @db.SmallInt
+  name      String     @db.VarChar(255)
+  province  Province
+  musicians Musician[]
+
+  @@unique([name, province])
+}
+
+model Subgenre {
+  id    Int     @id @default(autoincrement()) @db.SmallInt
+  name  String  @unique @db.VarChar(255)
+  genre Genre
+  music Music[]
+}
+
+model Musician {
+  id             String          @id @db.VarChar(255)
+  name           String          @db.VarChar(255)
+  dateAdded      DateTime        @default(now())
+  city           City            @relation(fields: [cityId], references: [id])
+  cityId         Int             @db.SmallInt
+  music          MusicianMusic[]
+  isGroup        Boolean         @default(false)
+  appleLink      String?         @unique @db.VarChar(255)
+  bandcampLink   String?         @unique @db.VarChar(255)
+  soundcloudLink String?         @unique @db.VarChar(255)
+  spotifyLink    String?         @unique @db.VarChar(255)
+  youtubeLink    String?         @unique @db.VarChar(255)
+  disbanded      DateTime?       @db.Date
+}
+
+model Music {
+  id             String          @id @db.VarChar(255)
+  name           String          @db.VarChar(255)
+  musicType      MusicType
+  release        DateTime        @db.Date
+  dateAdded      DateTime        @default(now())
+  hasCover       Boolean         @default(false)
+  instrumental   Boolean         @default(false)
+  subgenre       Subgenre        @relation(fields: [subgenreId], references: [id])
+  subgenreId     Int             @db.SmallInt
+  musicians      MusicianMusic[]
+  nonCanadians   String[]        @db.VarChar(255)
+  appleLink      String?         @unique @db.VarChar(255)
+  bandcampLink   String?         @unique @db.VarChar(255)
+  soundcloudLink String?         @unique @db.VarChar(255)
+  spotifyLink    String?         @unique @db.VarChar(255)
+  youtubeLink    String?         @unique @db.VarChar(255)
+  copyright      String?         @db.VarChar(255)
+
+  @@index([musicType, release(sort: Desc)])
+}
+
+model MusicianMusic {
+  musicianRef Musician @relation(fields: [musicianId], references: [id])
+  musicianId  String   @db.VarChar(255)
+  musicRef    Music    @relation(fields: [musicId], references: [id], onDelete: Cascade)
+  musicId     String   @db.VarChar(255)
+
+  @@id([musicianId, musicId])
+}

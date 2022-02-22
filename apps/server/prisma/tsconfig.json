@@ -1,0 +1,7 @@
+{
+  "extends": "@mooseical/tsconfig/base.json",
+  "compilerOptions": {
+    "baseUrl": "."
+  },
+  "include": ["./seed.ts", "./seed/**/*.ts"]
+}
