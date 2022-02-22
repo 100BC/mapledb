@@ -9,7 +9,7 @@ const createSubgenres = async () => {
 export default createSubgenres;
 
 export const pickRandomGenre = () => {
-  return subgenres[Math.floor(Math.random() * subgenres.length)];
+  return subgenres[Math.floor(Math.random() * subgenres.length)]!;
 };
 
 export enum Genre {

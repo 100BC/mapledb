@@ -7,7 +7,7 @@ export const createCities = async () => {
 };
 
 export const pickRandomCity = () => {
-  return cities[Math.floor(Math.random() * cities.length)];
+  return cities[Math.floor(Math.random() * cities.length)]!;
 };
 
 enum Province {
