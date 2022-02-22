@@ -3,6 +3,10 @@
   "version": "0.0.0",
   "main": "src/index.ts",
   "private": true,
+  "engines": {
+    "node": ">=16",
+    "pnpm": ">=6"
+  },
   "scripts": {
     "start": "node -r dotenv/config dist/index.js",
     "dev": "nodemon --watch src/ -r dotenv/config -r tsconfig-paths/register -T src/index.ts",

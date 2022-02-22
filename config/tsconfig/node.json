@@ -3,9 +3,9 @@
   "display": "Server",
   "extends": "./base.json",
   "compilerOptions": {
-    "target": "es6",
-    "noEmit": false,
+    "lib": ["ES2021"],
     "module": "commonjs",
-    "sourceMap": true
+    "noEmit": false,
+    "target": "ES2021"
   }
 }
