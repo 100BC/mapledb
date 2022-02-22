@@ -15,8 +15,9 @@
   "dependencies": {
     "@mooseical/generic-types": "workspace:^0.0.0",
     "@mooseical/style-helpers": "workspace:*",
-    "next": "12.0.8",
-    "react": "17.0.2"
+    "next": "^12.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@mooseical/eslint-config": "workspace:*",
