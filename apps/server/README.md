@@ -20,7 +20,7 @@ Fastify Server for Mooseical
 
 Make sure the postgresql database is running
 
-Open website on http://localhost:3000/
+Open altair playground http://localhost:3002/
 
 ```
 pnpm dev
@@ -104,7 +104,6 @@ SECRET_QUERY_KEY="1234"
 SECRET_MUTATION_KEY="1234"
 
 NODE_ENV="development"
-PORT="5000"
 
 CLOUDINARY_API_KEY=""
 CLOUDINARY_API_SECRET=""

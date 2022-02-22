@@ -1,6 +1,6 @@
 {
   "events": {
-    "crash": "node -r dotenv/config killPort.js"
+    "crash": "node kill-port 3002"
   },
   "delay": "5000"
 }
