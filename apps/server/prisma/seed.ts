@@ -1,8 +1,8 @@
-import prisma from './seed/prismaClient';
-import { createCities } from './seed/city';
-import { createMusician } from './seed/musician';
-import createSubgenres from './seed/subgenre';
-import { createCollab } from './seed/collab';
+import prisma from './generators/prismaClient';
+import { createCities } from './generators/city';
+import { createMusician } from './generators/musician';
+import createSubgenres from './generators/subgenre';
+import { createCollab } from './generators/collab';
 
 const main = async () => {
   if (process.env.NODE_ENV !== 'development')
