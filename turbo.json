@@ -4,13 +4,7 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"]
     },
-    "lint:code": {
-      "outputs": []
-    },
-    "lint:styles": {
-      "outputs": []
-    },
-    "format:styles": {
+    "lint": {
       "outputs": []
     },
     "dev": {

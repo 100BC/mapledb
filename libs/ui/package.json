@@ -7,10 +7,8 @@
     "Button"
   ],
   "scripts": {
-    "clean": "rm -rf node_modules .turbo .pnpm-debug.log",
-    "lint:code": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint:styles": "stylelint '**/*.scss'",
-    "format:styles": "stylelint '**/*.scss' --fix && prettier --write \"**/*.scss\""
+    "lint": "eslint --fix '**/*.{ts,tsx}' & stylelint --fix '**/*.scss'",
+    "clean": "rm -rf node_modules .turbo .pnpm-debug.log"
   },
   "dependencies": {
     "@mooseical/generic-types": "workspace:^0.0.0",

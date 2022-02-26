@@ -8,8 +8,7 @@
   ],
   "scripts": {
     "clean": "rm -rf node_modules .turbo .pnpm-debug.log",
-    "lint:styles": "stylelint '**/*.scss'",
-    "format:styles": "stylelint '**/*.scss' --fix && prettier --write \"**/*.scss\""
+    "lint": "stylelint --fix '**/*.scss'"
   },
   "dependencies": {
     "sass": "^1.49.8"
