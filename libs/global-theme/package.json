@@ -11,10 +11,10 @@
     "lint": "stylelint --fix '**/*.scss'"
   },
   "dependencies": {
-    "sass": "^1.49.8"
+    "sass": "^1.49.9"
   },
   "devDependencies": {
     "@mooseical/stylelint-config": "workspace:*",
-    "stylelint": "^14.5.1"
+    "stylelint": "^14.5.3"
   }
 }
