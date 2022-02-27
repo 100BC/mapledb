@@ -34,7 +34,7 @@
     ".vscode",
     "package.json",
     "pnpm-*.yaml",
-    "prettierrc.json"
+    ".prettierrc.json"
   ],
 
   // Peacock
