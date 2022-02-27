@@ -21,7 +21,7 @@ module.exports = {
   },
   settings: {
     next: {
-      rootDir: ['apps/web/*', 'packages/*/'],
+      rootDir: ['../../apps/*', '../../libs/*'],
     },
   },
   rules: {
