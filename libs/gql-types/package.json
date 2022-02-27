@@ -1,0 +1,33 @@
+{
+  "name": "@mooseical/gql-types",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "generate": "graphql-codegen --config codegen.yml",
+    "lint": "eslint --fix '**/*.{ts,tsx}' && stylelint --fix '**/*.scss'",
+    "clean": "rm -rf node_modules .turbo .pnpm-debug.log"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "urql": "^2.2.0",
+    "graphql-tag": "^2.12.6"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^2.6.2",
+    "@graphql-codegen/typescript": "^2.4.5",
+    "@graphql-codegen/typescript-operations": "^2.3.2",
+    "@graphql-codegen/typescript-urql": "^3.5.3",
+    "@mooseical/eslint-config": "workspace:*",
+    "@mooseical/tsconfig": "workspace:^0.0.0",
+    "eslint": "^8.10.0",
+    "graphql": "^16.3.0",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.5"
+  },
+  "peerDependencies": {
+    "urql": "^2.2.0"
+  }
+}

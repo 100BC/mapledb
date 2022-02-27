@@ -1,0 +1,78 @@
+fragment musicCard on Music {
+  id
+  name
+  hasCover
+  instrumental
+  musicians {
+    id
+    name
+  }
+  nonCanadians
+  release
+  subgenre {
+    name
+  }
+  musicType
+}
+
+fragment musicianCard on Musician {
+  id
+  name
+  city {
+    name
+    province
+  }
+  latestInfo {
+    latestRelease
+    latestGenre
+  }
+}
+
+query GetNewReleases($takeMusic: Int!, $takeMusicians: Int!) {
+  albumList: musicList(take: $takeMusic, type: [ALBUM]) {
+    ...musicCard
+  }
+
+  epList: musicList(take: $takeMusic, type: [EP]) {
+    ...musicCard
+  }
+
+  singleList: musicList(take: $takeMusic, type: [SINGLE]) {
+    ...musicCard
+  }
+
+  musicianList(take: $takeMusicians, orderBy: DATE_ADDED) {
+    ...musicianCard
+  }
+}
+
+query GetManyMusic(
+  $take: Int!
+  $skip: Int
+  $genre: Genre
+  $type: [MusicType!]
+) {
+  musicList(take: $take, skip: $skip, genre: $genre, type: $type) {
+    ...musicCard
+  }
+
+  musicCount(genre: $genre, type: $type)
+}
+
+query GetManyMusicians(
+  $take: Int!
+  $skip: Int
+  $province: Province
+  $orderBy: OrderByArgument
+) {
+  musicianList(
+    take: $take
+    skip: $skip
+    province: $province
+    orderBy: $orderBy
+  ) {
+    ...musicianCard
+  }
+
+  musicianCount(province: $province)
+}

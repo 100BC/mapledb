@@ -1,0 +1,70 @@
+fragment musicianRelease on Music {
+  id
+  name
+  hasCover
+  release
+  instrumental
+  subgenre {
+    name
+  }
+}
+
+query GetMusic($id: String!) {
+  music(id: $id) {
+    name
+    musicians {
+      id
+      name
+    }
+    nonCanadians
+    release
+    hasCover
+    instrumental
+    musicType
+    copyright
+    subgenre {
+      name
+    }
+    appleLink
+    bandcampLink
+    soundcloudLink
+    spotifyLink
+    youtubeLink
+  }
+}
+
+query GetMusician($id: String!) {
+  musician(id: $id) {
+    name
+    city {
+      name
+      province
+    }
+    latestInfo {
+      latestRelease
+    }
+    appleLink
+    bandcampLink
+    soundcloudLink
+    spotifyLink
+    youtubeLink
+    isGroup
+    disbanded
+    albums: music(type: ALBUM) {
+      ...musicianRelease
+    }
+    eps: music(type: EP) {
+      ...musicianRelease
+    }
+
+    singles: music(type: SINGLE) {
+      ...musicianRelease
+    }
+    live: music(type: LIVE) {
+      ...musicianRelease
+    }
+    other: music(type: OTHER) {
+      ...musicianRelease
+    }
+  }
+}

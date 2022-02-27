@@ -1,6 +1,7 @@
 {
   // Stylelint
   "stylelint.validate": ["css", "postcss", "scss"],
+  "stylelint.packageManager": "pnpm",
   "editor.codeActionsOnSave": {
     "source.fixAll.stylelint": true
   },
@@ -27,7 +28,8 @@
     "stylelint",
     "Subgenres",
     "svgr",
-    "turborepo"
+    "turborepo",
+    "urql"
   ],
   "cSpell.ignorePaths": [
     "node_modules",

@@ -1,0 +1,24 @@
+overwrite: true
+schema: '../../apps/server/schema.graphql'
+documents: '../../apps/**/*.graphql'
+generates:
+  schema.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-urql
+config:
+  onlyOperationTypes: true
+  skipTypename: true
+  avoidOptionals:
+    field: true
+    inputValue: false
+    object: false
+    defaultValue: false
+  scalars:
+    Upload: File
+    Date: string
+hooks:
+  afterAllFileWrite:
+    - eslint --fix
+    - prettier --write
