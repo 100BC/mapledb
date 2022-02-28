@@ -1,22 +1,22 @@
 {
-  "name": "@mooseical/gql-types",
+  "name": "@mooseical/schema",
   "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
+  "files": [
+    "operations.generated.ts",
+    "types.generated.ts"
+  ],
   "scripts": {
     "generate": "graphql-codegen --config codegen.yml",
     "lint": "eslint --fix '**/*.{ts,tsx}' && stylelint --fix '**/*.scss'",
     "clean": "rm -rf node_modules .turbo .pnpm-debug.log"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "graphql-tag": "^2.12.6",
     "urql": "^2.2.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^2.6.2",
+    "@graphql-codegen/import-types-preset": "^2.1.12",
     "@graphql-codegen/typescript": "^2.4.5",
     "@graphql-codegen/typescript-document-nodes": "^2.2.5",
     "@graphql-codegen/typescript-operations": "^2.3.2",

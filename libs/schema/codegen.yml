@@ -16,6 +16,25 @@ generates:
       importOperationTypesFrom: Operations
       documentMode: external
       importDocumentNodeExternallyFrom: ./types.generated
+
+  gen/types.ts:
+    plugins:
+      - typescript
+      # - typescript-document-nodes
+    config:
+      nameSuffix: Document
+  gen/operations.ts:
+    preset: import-types
+    presetConfig:
+      typesPath: ./types
+    plugins:
+      - typescript-operations
+      - typescript-urql
+    config:
+      documentMode: graphql-tag
+      importOperationTypesFrom: ''
+      # documentMode: external
+      # importDocumentNodeExternallyFrom: ./types.generated
 config:
   onlyOperationTypes: true
   skipTypename: true

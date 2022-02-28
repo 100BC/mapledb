@@ -91,7 +91,7 @@ importers:
     specifiers:
       '@mooseical/eslint-config': workspace:*
       '@mooseical/global-theme': workspace:*
-      '@mooseical/gql-types': workspace:^0.0.0
+      '@mooseical/schema': workspace:*
       '@mooseical/style-helpers': workspace:*
       '@mooseical/stylelint-config': workspace:*
       '@mooseical/tsconfig': workspace:*
@@ -117,7 +117,7 @@ importers:
       typescript: ^4.5.5
       urql: ^2.2.0
     dependencies:
-      '@mooseical/gql-types': link:../../libs/gql-types
+      '@mooseical/schema': link:../../libs/schema
       '@mooseical/style-helpers': link:../../libs/style-helpers
       '@mooseical/ui': link:../../libs/ui
       firebase: 9.6.7
@@ -215,7 +215,7 @@ importers:
       '@mooseical/stylelint-config': link:../../config/stylelint-config
       stylelint: 14.5.3
 
-  libs/gql-types:
+  libs/schema:
     specifiers:
       '@graphql-codegen/cli': ^2.6.2
       '@graphql-codegen/import-types-preset': ^2.1.12
