@@ -1,0 +1,14 @@
+@use '~@mooseical/global-theme' as *;
+
+.input {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: $font-400;
+  background: none;
+  border: 0;
+  outline: none;
+  transition: border 500ms;
+}

@@ -1,0 +1,38 @@
+@use '~@mooseical/global-theme' as *;
+
+.nav {
+  position: fixed;
+  top: auto;
+  bottom: 0;
+  z-index: 100;
+  display: none;
+  text-align: center;
+  background: $red-600;
+  box-shadow: 0 0 1rem $black;
+
+  @media only screen and (max-width: $tablet) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 8px;
+  }
+
+  > a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: $white;
+    text-transform: uppercase;
+
+    &:focus,
+    &:hover {
+      outline: 0;
+
+      path + path {
+        stroke: $black;
+      }
+    }
+  }
+}

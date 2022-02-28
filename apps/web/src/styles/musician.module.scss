@@ -1,0 +1,17 @@
+@use '~@mooseical/global-theme' as *;
+
+.info {
+  width: fit-content;
+  margin: 0 auto 4rem;
+  font-size: 2rem;
+  text-align: start;
+  list-style: none;
+
+  > li {
+    margin: 1rem 0;
+  }
+
+  address {
+    display: inline;
+  }
+}

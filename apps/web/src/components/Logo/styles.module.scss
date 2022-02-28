@@ -1,0 +1,15 @@
+@use '~@mooseical/global-theme' as *;
+
+.logo {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  gap: 1rem;
+  align-items: center;
+  width: fit-content;
+  font-family: 'Cherry Swash', cursive;
+
+  svg {
+    width: 60px;
+    height: 60px;
+  }
+}

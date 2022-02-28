@@ -1,0 +1,27 @@
+@use '~@mooseical/global-theme' as *;
+
+.footer {
+  max-width: $max-width;
+  padding-bottom: 2rem;
+  margin: auto;
+  font-size: 1rem;
+
+  @media only screen and (max-width: $tablet) {
+    padding-bottom: 10rem;
+  }
+
+  hr {
+    width: 50%;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 1.8em;
+  }
+
+  nav a {
+    margin: 0 7px 12px;
+  }
+}

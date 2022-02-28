@@ -1,0 +1,99 @@
+@use '~@mooseical/global-theme' as *;
+
+$header-transition: 0.3s ease-out;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  margin: 0;
+  color: $white;
+  text-align: center;
+  background: $red-600;
+
+  @media only screen and (max-width: $tablet) {
+    display: none;
+  }
+}
+
+.logo {
+  display: hidden;
+  font-size: 0;
+  transform: translateX(-40rem);
+
+  svg {
+    width: 0;
+    height: 0;
+  }
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 2rem;
+  max-width: 1920px;
+  padding: 0 4rem;
+  margin: auto;
+}
+
+.middleNav {
+  display: flex;
+  grid-column: 2;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  max-width: $max-width;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: $white;
+  list-style: none;
+  transition: padding $header-transition;
+
+  > li {
+    flex: 0 1 25%;
+  }
+}
+
+.link {
+  display: inline-block;
+  padding: 0.4rem;
+  border-radius: 5px;
+  transition: background 0.2s;
+
+  &:hover {
+    color: inherit;
+    background: $red-500;
+  }
+}
+
+.logoContainer {
+  display: flex;
+}
+
+.large {
+  @media only screen and (max-width: $laptop) {
+    display: flex;
+  }
+
+  .logo {
+    font-size: 3rem;
+    transition: transform $header-transition, font-size $header-transition;
+    transform: translateX(0);
+
+    svg {
+      width: 50px;
+      height: 50px;
+      transition: height $header-transition;
+    }
+  }
+
+  > ul {
+    padding: 1rem 0;
+  }
+}
+
+.boxShadow {
+  box-shadow: 0 0 10px $black;
+  transition: box-shadow $header-transition;
+}

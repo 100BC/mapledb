@@ -91,6 +91,7 @@ importers:
     specifiers:
       '@mooseical/eslint-config': workspace:*
       '@mooseical/global-theme': workspace:*
+      '@mooseical/gql-types': workspace:^0.0.0
       '@mooseical/style-helpers': workspace:*
       '@mooseical/stylelint-config': workspace:*
       '@mooseical/tsconfig': workspace:*
@@ -116,6 +117,7 @@ importers:
       typescript: ^4.5.5
       urql: ^2.2.0
     dependencies:
+      '@mooseical/gql-types': link:../../libs/gql-types
       '@mooseical/style-helpers': link:../../libs/style-helpers
       '@mooseical/ui': link:../../libs/ui
       firebase: 9.6.7
@@ -216,6 +218,7 @@ importers:
   libs/gql-types:
     specifiers:
       '@graphql-codegen/cli': ^2.6.2
+      '@graphql-codegen/import-types-preset': ^2.1.12
       '@graphql-codegen/typescript': ^2.4.5
       '@graphql-codegen/typescript-document-nodes': ^2.2.5
       '@graphql-codegen/typescript-operations': ^2.3.2
@@ -233,6 +236,7 @@ importers:
       urql: 2.2.0_graphql@16.3.0
     devDependencies:
       '@graphql-codegen/cli': 2.6.2_graphql@16.3.0+typescript@4.5.5
+      '@graphql-codegen/import-types-preset': 2.1.12_graphql@16.3.0
       '@graphql-codegen/typescript': 2.4.5_graphql@16.3.0
       '@graphql-codegen/typescript-document-nodes': 2.2.5_graphql@16.3.0
       '@graphql-codegen/typescript-operations': 2.3.2_graphql@16.3.0
@@ -2131,6 +2135,16 @@ packages:
     resolution: {integrity: sha512-9FqhNjKQWpQ3fGnSOCovHOm+yhhiorKEqYLAfd525jWavunDJcx8rOW6i6ozAh+FbwcYMkL7b+3j4UR/30MpoQ==}
     dev: false
 
+  /@graphql-codegen/add/3.1.1_graphql@16.3.0:
+    resolution: {integrity: sha512-XkVwcqosa0CVBlL1HaQT0gp+EUfhuQE3LzrEpzMQLwchxaj/NPVYtOJL6MUHaYDsHzLqxWrufjfbeB3y2NQgRw==}
+    peerDependencies:
+      graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+    dependencies:
+      '@graphql-codegen/plugin-helpers': 2.4.1_graphql@16.3.0
+      graphql: 16.3.0
+      tslib: 2.3.1
+    dev: true
+
   /@graphql-codegen/cli/2.6.2_graphql@16.3.0+typescript@4.5.5:
     resolution: {integrity: sha512-UO75msoVgvLEvfjCezM09cQQqp32+mR8Ma1ACsBpr7nroFvHbgcu2ulx1cMovg4sxDBCsvd9Eq/xOOMpARUxtw==}
     hasBin: true
@@ -2198,6 +2212,21 @@ packages:
       '@graphql-tools/utils': 8.6.2_graphql@16.3.0
       graphql: 16.3.0
       tslib: 2.3.1
+    dev: true
+
+  /@graphql-codegen/import-types-preset/2.1.12_graphql@16.3.0:
+    resolution: {integrity: sha512-nFipXzsLJnjZY06PKBovg1hxnueB5n/RSlBPYA29ymahEenNR1vMejbq8/+iuRoxexLuYVSVnJAEcqoBriUKrg==}
+    peerDependencies:
+      graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+    dependencies:
+      '@graphql-codegen/add': 3.1.1_graphql@16.3.0
+      '@graphql-codegen/plugin-helpers': 2.4.1_graphql@16.3.0
+      '@graphql-codegen/visitor-plugin-common': 2.7.1_graphql@16.3.0
+      graphql: 16.3.0
+      tslib: 2.3.1
+    transitivePeerDependencies:
+      - encoding
+      - supports-color
     dev: true
 
   /@graphql-codegen/plugin-helpers/2.4.1_graphql@16.3.0:

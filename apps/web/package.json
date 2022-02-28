@@ -10,6 +10,7 @@
     "clean": "rm -rf node_modules .turbo .pnpm-debug.log .next"
   },
   "dependencies": {
+    "@mooseical/gql-types": "workspace:^0.0.0",
     "@mooseical/style-helpers": "workspace:*",
     "@mooseical/ui": "workspace:*",
     "firebase": "^9.6.7",

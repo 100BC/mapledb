@@ -1,0 +1,22 @@
+@use '~@mooseical/global-theme' as *;
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5rem;
+  justify-content: center;
+  margin: 1rem auto 4rem;
+
+  > a {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 10px;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+
+  img {
+    background: none;
+  }
+}

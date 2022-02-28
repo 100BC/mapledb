@@ -1,0 +1,22 @@
+@use '~@mooseical/global-theme' as *;
+
+.list {
+  > li {
+    display: inline;
+  }
+
+  > li + li::before {
+    font-weight: 300;
+    color: $red-300;
+    content: ' & ';
+  }
+}
+
+.va {
+  font-size: 1.2em;
+  line-height: 1.4;
+}
+
+.nonCad {
+  font-weight: 300;
+}

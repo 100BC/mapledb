@@ -1,0 +1,48 @@
+@use '~@mooseical/global-theme' as *;
+
+.section {
+  > h1 {
+    font-size: 3.8rem;
+  }
+}
+
+.logoContainer {
+  display: inline-block;
+  margin: 2rem auto 0;
+}
+
+.logo {
+  width: fit-content;
+  margin-left: calc(-40px - 1rem); // half the width of image - grid gap
+  font-size: 8rem;
+
+  svg {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  @media only screen and (max-width: $tablet) {
+    margin-left: calc(-32px - 1rem); // half the width of image - grid gap
+    font-size: 6.4rem;
+
+    svg {
+      width: 64px;
+      height: 64px;
+    }
+  }
+
+  @media only screen and (max-width: $phone) {
+    margin-left: calc(-25px - 1rem); // half the width of image - grid gap
+    font-size: 5rem;
+
+    svg {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
+
+.logoTitle {
+  font-size: 3.4rem;
+  font-weight: 300;
+}

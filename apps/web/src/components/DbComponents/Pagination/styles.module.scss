@@ -1,0 +1,66 @@
+@use '~@mooseical/global-theme' as *;
+
+.pagination {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  max-width: 500px;
+  margin: 8rem auto 0;
+  font-size: 3rem;
+  list-style: none;
+
+  > li > a {
+    display: block;
+    width: 3.45rem; // checked devtools, 4.5px padding on height
+  }
+
+  @media only screen and (max-width: $phone) {
+    font-size: 2.4rem;
+
+    > li > a {
+      width: 2.76rem;
+    }
+  }
+
+  > li > button {
+    display: flex;
+    align-items: center;
+    padding: 0;
+
+    > svg {
+      width: 3rem;
+    }
+
+    &:disabled {
+      > svg {
+        fill: $bg-300;
+      }
+    }
+
+    &:not(:disabled):hover {
+      cursor: pointer;
+
+      > svg {
+        fill: $red-300;
+      }
+    }
+  }
+}
+
+.active {
+  background: $red-500;
+  border-radius: 50%;
+
+  &:hover {
+    color: $white;
+    background: $red-300;
+  }
+}
+
+.suggest {
+  display: block;
+  margin: 4rem 0 0;
+  font-size: 2rem;
+}

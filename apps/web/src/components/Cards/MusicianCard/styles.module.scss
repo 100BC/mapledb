@@ -1,0 +1,60 @@
+@use '~@mooseical/global-theme' as *;
+
+.musicianCard {
+  padding: 1rem 1.2rem;
+  margin-top: 1rem;
+  text-align: start;
+  background-color: $bg-300;
+  border-radius: 8px;
+  box-shadow: 0 0 2px $black;
+
+  > h2 {
+    transition: color 0.2s;
+  }
+
+  > address {
+    margin: 1rem 0;
+    font-size: 2rem;
+  }
+
+  > time {
+    display: block;
+    margin: 1.4rem 0 0;
+    font-size: 1.7rem;
+
+    > i {
+      white-space: pre;
+    }
+  }
+
+  &:hover {
+    > *:not(h2) {
+      color: $font-400;
+    }
+  }
+
+  &:focus-visible {
+    outline: 1px dotted;
+  }
+}
+
+.name {
+  font-size: 2.2rem;
+  font-weight: bold;
+  border-bottom: 2px solid $red-400;
+}
+
+.genres {
+  all: unset;
+
+  > li {
+    display: inline;
+    font-size: 1.8rem;
+  }
+
+  > li + li {
+    &::before {
+      content: ', ';
+    }
+  }
+}

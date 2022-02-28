@@ -1,0 +1,33 @@
+@use '~@mooseical/global-theme' as *;
+
+.grid {
+  display: grid;
+  max-width: $max-width;
+  margin: 2.4rem 0 4rem;
+}
+
+.music {
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 3.2rem;
+
+  @media only screen and (max-width: $phone) {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  }
+}
+
+.autoFill {
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+
+  @media only screen and (max-width: $phone) {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  }
+}
+
+.musician {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 3rem;
+
+  @media only screen and (max-width: $phone) {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}

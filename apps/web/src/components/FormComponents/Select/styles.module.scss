@@ -1,0 +1,16 @@
+@use '~@mooseical/global-theme' as *;
+
+.select {
+  width: 100%;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: inherit;
+  background: 0;
+  border: 0;
+  outline: 0;
+  appearance: caret;
+
+  > option {
+    background-color: $bg-300;
+  }
+}

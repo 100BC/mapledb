@@ -1,0 +1,9 @@
+@use '~@mooseical/global-theme' as *;
+
+.error {
+  margin: 4rem auto;
+
+  > div {
+    margin-top: 2rem;
+  }
+}

@@ -1,0 +1,82 @@
+@use '~@mooseical/global-theme' as *;
+
+.buttonRow {
+  display: flex;
+  gap: 1.4rem;
+  justify-content: center;
+  margin-top: 3rem;
+
+  > button,
+  > a {
+    display: grid;
+    grid-template-columns: 1fr 16px;
+    gap: 5px;
+    align-items: center;
+  }
+}
+
+.section {
+  margin-bottom: 6rem;
+
+  > hr {
+    max-width: 60ch;
+    height: 1px;
+    margin-bottom: 2rem;
+    background: $font-400;
+  }
+
+  > ul a,
+  > p a {
+    color: $red-300;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  > p {
+    max-width: 60ch;
+    margin: auto;
+    line-height: 1.8;
+    text-align: start;
+  }
+
+  > ul {
+    max-width: 60ch;
+    padding: 10px 60px;
+    margin: auto;
+    text-align: start;
+    list-style: square;
+
+    > li {
+      margin: 0.5rem 0;
+      line-height: 1.6;
+    }
+  }
+}
+
+.about {
+  > hr:first-of-type {
+    margin-bottom: 5rem;
+  }
+}
+
+.email {
+  font-size: 2rem;
+}
+
+.lastUpdated {
+  display: block;
+  margin: 2rem 0 0;
+}
+
+.spotify {
+  display: inline-grid;
+  grid-template-columns: 1fr 16px;
+  gap: 5px;
+  align-items: center;
+
+  > svg {
+    fill: $font-400;
+  }
+}

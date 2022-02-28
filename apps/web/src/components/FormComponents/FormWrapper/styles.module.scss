@@ -1,0 +1,18 @@
+@use '~@mooseical/global-theme' as *;
+
+.form {
+  max-width: 500px;
+  margin: 0 auto 2rem;
+
+  > h3 {
+    width: 100%;
+    margin-top: 40px;
+    border-bottom: 4px solid;
+  }
+}
+
+.submittingPage {
+  margin: 40px auto;
+  font-size: 3.2em;
+  font-weight: bolder;
+}

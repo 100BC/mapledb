@@ -1,0 +1,40 @@
+@use '~@mooseical/global-theme' as *;
+
+.buttonRow {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-evenly;
+  margin-bottom: 4rem;
+
+  @media only screen and (max-width: $tablet) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    > a {
+      justify-content: space-between;
+    }
+  }
+
+  > a {
+    flex: 0 1 10%;
+    padding: 1rem;
+    border-radius: 14px;
+  }
+}
+
+.active {
+  color: $white;
+  background: $red-600;
+  border: 2px solid $red-600;
+
+  &:hover {
+    color: $white;
+    background: $red-500;
+    border: 2px solid $red-500;
+  }
+}
+
+.inactive {
+  color: $font-400;
+  border: 2px solid $bg-300;
+}
