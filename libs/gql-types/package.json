@@ -12,12 +12,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "urql": "^2.2.0",
-    "graphql-tag": "^2.12.6"
+    "graphql-tag": "^2.12.6",
+    "urql": "^2.2.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^2.6.2",
     "@graphql-codegen/typescript": "^2.4.5",
+    "@graphql-codegen/typescript-document-nodes": "^2.2.5",
     "@graphql-codegen/typescript-operations": "^2.3.2",
     "@graphql-codegen/typescript-urql": "^3.5.3",
     "@mooseical/eslint-config": "workspace:*",

@@ -217,6 +217,7 @@ importers:
     specifiers:
       '@graphql-codegen/cli': ^2.6.2
       '@graphql-codegen/typescript': ^2.4.5
+      '@graphql-codegen/typescript-document-nodes': ^2.2.5
       '@graphql-codegen/typescript-operations': ^2.3.2
       '@graphql-codegen/typescript-urql': ^3.5.3
       '@mooseical/eslint-config': workspace:*
@@ -228,17 +229,18 @@ importers:
       typescript: ^4.5.5
       urql: ^2.2.0
     dependencies:
+      graphql: 16.3.0
       graphql-tag: 2.12.6_graphql@16.3.0
       urql: 2.2.0_graphql@16.3.0
     devDependencies:
       '@graphql-codegen/cli': 2.6.2_graphql@16.3.0+typescript@4.5.5
       '@graphql-codegen/typescript': 2.4.5_graphql@16.3.0
+      '@graphql-codegen/typescript-document-nodes': 2.2.5_graphql@16.3.0
       '@graphql-codegen/typescript-operations': 2.3.2_graphql@16.3.0
       '@graphql-codegen/typescript-urql': 3.5.3_e20029557891e0afb887c44ec7f516f8
       '@mooseical/eslint-config': link:../../config/eslint-config
       '@mooseical/tsconfig': link:../../config/tsconfig
       eslint: 8.10.0
-      graphql: 16.3.0
       prettier: 2.5.1
       typescript: 4.5.5
 
@@ -2221,6 +2223,21 @@ packages:
       '@graphql-tools/utils': 8.6.2_graphql@16.3.0
       graphql: 16.3.0
       tslib: 2.3.1
+    dev: true
+
+  /@graphql-codegen/typescript-document-nodes/2.2.5_graphql@16.3.0:
+    resolution: {integrity: sha512-Ez/u9YhsBCVv96cB1NC4AeW03xZAtO1zPSTzte4wAkiOWDcnEuCfVNVAodvLeooc8Ru9Pz9P46sLpEVDZgpZJg==}
+    peerDependencies:
+      graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+    dependencies:
+      '@graphql-codegen/plugin-helpers': 2.4.1_graphql@16.3.0
+      '@graphql-codegen/visitor-plugin-common': 2.7.1_graphql@16.3.0
+      auto-bind: 4.0.0
+      graphql: 16.3.0
+      tslib: 2.3.1
+    transitivePeerDependencies:
+      - encoding
+      - supports-color
     dev: true
 
   /@graphql-codegen/typescript-operations/2.3.2_graphql@16.3.0:

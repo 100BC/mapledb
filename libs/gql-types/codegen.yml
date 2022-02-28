@@ -2,11 +2,20 @@ overwrite: true
 schema: '../../apps/server/schema.graphql'
 documents: '../../apps/**/*.graphql'
 generates:
-  schema.ts:
+  types.generated.ts:
     plugins:
       - typescript
       - typescript-operations
+      - typescript-document-nodes
+    config:
+      nameSuffix: Document
+  operations.generated.ts:
+    plugins:
       - typescript-urql
+    config:
+      importOperationTypesFrom: Operations
+      documentMode: external
+      importDocumentNodeExternallyFrom: ./types.generated
 config:
   onlyOperationTypes: true
   skipTypename: true
@@ -21,4 +30,4 @@ config:
 hooks:
   afterAllFileWrite:
     - eslint --fix
-    - prettier --write
+    - prettier --write --config '../../.prettierrc.json'
