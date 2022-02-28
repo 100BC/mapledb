@@ -1,13 +1,22 @@
 import React from 'react';
 import type { AppProps /* AppContext */ } from 'next/app';
+import { Provider as UrqlProvider } from 'urql';
 
-// import { gqlClient, ssrCache } from '@graphql/gqlClient';
+import { gqlClient, ssrCache } from '@graphql/gqlClient';
 
 import 'normalize.css';
 import '@styles/globals.scss';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-  return <Component {...pageProps} />;
+  if (pageProps.urqlState) {
+    ssrCache.restoreData(pageProps.urqlState);
+  }
+
+  return (
+    <UrqlProvider value={gqlClient}>
+      <Component {...pageProps} />
+    </UrqlProvider>
+  );
 };
 
 // Only uncomment this method if you have blocking data requirements for
