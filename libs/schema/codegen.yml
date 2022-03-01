@@ -5,24 +5,24 @@ generates:
     documents: '../../apps/**/*.graphql'
     plugins:
       - typescript
-  web/operations.ts:
+  web.ts:
     documents: '../../apps/web/**/*.graphql'
     preset: import-types
     presetConfig:
-      typesPath: ..
+      typesPath: .
     plugins:
       - typescript-operations
       - typescript-document-nodes
     config:
       nameSuffix: Document
-  web/hooks.ts:
+  ../../apps/web/src/graphql/hooks.ts:
     documents: '../../apps/web/**/*.graphql'
     plugins:
       - typescript-urql
     config:
       importOperationTypesFrom: Operations
       documentMode: external
-      importDocumentNodeExternallyFrom: ./operations
+      importDocumentNodeExternallyFrom: '@mooseical/schema/web'
 config:
   onlyOperationTypes: true
   skipTypename: true

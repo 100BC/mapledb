@@ -3,7 +3,7 @@ import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 
 import { gqlClient, ssrCache } from '@graphql/gqlClient';
-import { GetMusicDocument, useGetMusicQuery } from '@mooseical/schema/web';
+import { GetMusicDocument } from '@mooseical/schema/web';
 import styles from '@styles/music.module.scss';
 import ExternalLinks from '@components/ExternalLinks';
 import MusicianLinkList from '@components/MusicianLinkList';
@@ -14,6 +14,7 @@ import useCreateImageUrl from '@utils/hooks/useCreateImageUrl';
 import useDateParser from '@utils/hooks/useDateParser';
 import useMusicianDescParser from '@utils/hooks/useMusicianDescParser';
 import useMusicTypeParser from '@utils/hooks/useMusicTypeParser';
+import { useGetMusicQuery } from '@graphql/hooks';
 
 interface Props {
   musicId: string;

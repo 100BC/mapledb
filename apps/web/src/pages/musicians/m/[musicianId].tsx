@@ -4,10 +4,7 @@ import Link from 'next/link';
 
 import { gqlClient, ssrCache } from '@graphql/gqlClient';
 import { MusicType } from '@mooseical/schema';
-import {
-  GetMusicianDocument,
-  useGetMusicianQuery,
-} from '@mooseical/schema/web';
+import { GetMusicianDocument } from '@mooseical/schema/web';
 import ExternalLinks from '@components/ExternalLinks';
 import Layout from '@components/Layout';
 import styles from '@styles/musician.module.scss';
@@ -17,6 +14,7 @@ import DbContainer from '@components/DbComponents/DbContainer';
 import GqlContainer from '@components/GqlContainer';
 import useDateParser from '@utils/hooks/useDateParser';
 import useYearParser from '@utils/hooks/useYearParser';
+import { useGetMusicianQuery } from '@graphql/hooks';
 
 interface Props {
   musicianId: string;

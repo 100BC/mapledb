@@ -2,10 +2,7 @@ import React from 'react';
 import { GetServerSideProps } from 'next';
 
 import { Province } from '@mooseical/schema';
-import {
-  GetManyMusiciansDocument,
-  useGetManyMusiciansQuery,
-} from '@mooseical/schema/web';
+import { GetManyMusiciansDocument } from '@mooseical/schema/web';
 import { gqlClient, ssrCache } from '@graphql/gqlClient';
 import { MUSICIAN_QUERY_SIZE } from '@mooseical/constants';
 import Layout from '@components/Layout';
@@ -17,6 +14,7 @@ import Pagination from '@components/DbComponents/Pagination';
 import musicianSSRValidator from '@utils/validators/musicianSSRValidator';
 import GqlContainer from '@components/GqlContainer';
 import useProvinceParser from '@utils/hooks/useProvinceParser';
+import { useGetManyMusiciansQuery } from '@graphql/hooks';
 
 interface Props {
   province: Province | null;

@@ -3,10 +3,7 @@ import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 
 import { gqlClient, ssrCache } from '@graphql/gqlClient';
-import {
-  GetNewReleasesDocument,
-  useGetNewReleasesQuery,
-} from '@mooseical/schema/web';
+import { GetNewReleasesDocument } from '@mooseical/schema/web';
 import Layout, { DOMAIN_NAME } from '@components/Layout';
 import setSSRCache from '@utils/setSSRCache';
 import DbContainer from '@components/DbComponents/DbContainer';
@@ -15,6 +12,7 @@ import MusicianCard from '@components/Cards/MusicianCard';
 import styles from '@styles/home.module.scss';
 import Logo from '@components/Logo';
 import GqlContainer from '@components/GqlContainer';
+import { useGetNewReleasesQuery } from '@graphql/hooks';
 
 const gqlVariables = { takeMusic: 4, takeMusicians: 4 };
 

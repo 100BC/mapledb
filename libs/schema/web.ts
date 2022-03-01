@@ -1,5 +1,5 @@
 import gql from 'graphql-tag';
-import * as Types from '..';
+import * as Types from '.';
 
 export type MusicianReleaseFragment = {
   id: string;

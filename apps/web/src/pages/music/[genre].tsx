@@ -2,10 +2,7 @@ import React from 'react';
 import { GetServerSideProps } from 'next';
 
 import { Genre, MusicType } from '@mooseical/schema';
-import {
-  GetManyMusicDocument,
-  useGetManyMusicQuery,
-} from '@mooseical/schema/web';
+import { GetManyMusicDocument } from '@mooseical/schema/web';
 import { gqlClient, ssrCache } from '@graphql/gqlClient';
 import { MUSIC_QUERY_SIZE } from '@mooseical/constants';
 import Layout from '@components/Layout';
@@ -18,6 +15,7 @@ import DbContainer from '@components/DbComponents/DbContainer';
 import Pagination from '@components/DbComponents/Pagination';
 import MusicCard from '@components/Cards/MusicCard';
 import useGenreParser from '@utils/hooks/useGenreParser';
+import { useGetManyMusicQuery } from '@graphql/hooks';
 
 interface Props {
   genre: Genre | null;
