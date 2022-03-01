@@ -12,6 +12,7 @@ importers:
 
   apps/server:
     specifiers:
+      '@mooseical/constants': workspace:^1.0.0
       '@mooseical/eslint-config': workspace:*
       '@mooseical/tsconfig': workspace:*
       '@pothos/core': ^3.3.2
@@ -49,6 +50,7 @@ importers:
       typescript: ^4.5.5
       zod: ^3.12.0
     dependencies:
+      '@mooseical/constants': link:../../libs/constants
       '@pothos/core': 3.3.2_graphql@16.3.0
       '@pothos/plugin-complexity': 3.1.2_graphql@16.3.0
       '@pothos/plugin-scope-auth': 3.4.1_graphql@16.3.0

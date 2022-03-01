@@ -3,7 +3,7 @@ import { CombinedError } from 'urql';
 
 import ErrorComponent from '@components/ErrorComponent';
 import Spinner from '@components/Spinner';
-import { AllOrNone } from '@utils/interfaces';
+import { AllOrNone } from '@mooseical/generics';
 
 type Props = {
   fetching: boolean;

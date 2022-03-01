@@ -7,7 +7,9 @@ import {
   META_DESCRIPTION,
   META_TITLE,
   SITE_NAME,
-} from '@utils/constants';
+} from './defaults';
+
+export * from './defaults';
 
 type Props = {
   className?: string;

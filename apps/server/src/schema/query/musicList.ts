@@ -1,5 +1,5 @@
 import builder from '@schema/builder';
-import { MUSIC_QUERY_SIZE } from '@utils/constants';
+import { MUSIC_QUERY_SIZE } from '@mooseical/constants';
 import { logger } from '@server';
 import { MusicObject } from '@schema/types/Music';
 import { GenreEnum, MusicTypeEnum } from '@schema/types/Enums';

@@ -7,8 +7,7 @@ import {
   GetNewReleasesDocument,
   useGetNewReleasesQuery,
 } from '@mooseical/schema/web';
-import { DOMAIN_NAME } from '@utils/constants';
-import Layout from '@components/Layout';
+import Layout, { DOMAIN_NAME } from '@components/Layout';
 import setSSRCache from '@utils/setSSRCache';
 import DbContainer from '@components/DbComponents/DbContainer';
 import MusicCard from '@components/Cards/MusicCard';

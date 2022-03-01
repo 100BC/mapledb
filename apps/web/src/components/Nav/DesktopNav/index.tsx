@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import Logo from '@components/Logo';
-import { combine, conditional } from '@utils/styleHelpers';
+import { combine, conditional } from '@mooseical/style-helpers';
 import styles from './styles.module.scss';
 
 const DesktopNav = () => {
