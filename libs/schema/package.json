@@ -1,6 +1,7 @@
 {
   "name": "@mooseical/schema",
   "version": "0.0.0",
+  "private": true,
   "files": [
     "types.ts",
     "web/*.ts"

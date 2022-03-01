@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@mooseical/eslint-config": "workspace:*",
-    "@mooseical/global-theme": "workspace:*",
+    "@mooseical/theme": "workspace:*",
     "@mooseical/stylelint-config": "workspace:*",
     "@mooseical/tsconfig": "workspace:*",
     "@types/node": "^16.11.26",

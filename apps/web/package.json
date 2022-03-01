@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@mooseical/eslint-config": "workspace:*",
-    "@mooseical/global-theme": "workspace:*",
+    "@mooseical/theme": "workspace:*",
     "@mooseical/stylelint-config": "workspace:*",
     "@mooseical/tsconfig": "workspace:*",
     "@svgr/webpack": "^6.2.1",
