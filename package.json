@@ -14,11 +14,13 @@
     "generate": "turbo run generate",
     "clean": "turbo run clean && rm -rf node_modules .turbo .pnpm-debug.log",
     "clean:install": "pnpm clean && pnpm install",
+    "kill-ports": "kill-port 3000 3001 3002",
     "lint": "turbo run lint",
     "format": "prettier --write '**/*.{ts,tsx,md}'"
   },
   "devDependencies": {
     "prettier": "^2.5.1",
+    "kill-port": "^1.6.1",
     "turbo": "latest"
   },
   "engines": {

@@ -1,6 +1,0 @@
-{
-  "events": {
-    "crash": "node kill-port 3002"
-  },
-  "delay": "5000"
-}
