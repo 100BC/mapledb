@@ -2,8 +2,8 @@
   "name": "@mooseical/schema",
   "version": "0.0.0",
   "files": [
-    "operations.generated.ts",
-    "types.generated.ts"
+    "types.ts",
+    "web/*.ts"
   ],
   "scripts": {
     "generate": "graphql-codegen --config codegen.yml",

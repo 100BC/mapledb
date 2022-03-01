@@ -1,7 +1,7 @@
 const withTM = require('next-transpile-modules')([
   '@mooseical/ui',
   '@mooseical/style-helpers',
-  '@mooseical/gql-types',
+  '@mooseical/schema',
 ]);
 
 module.exports = withTM({

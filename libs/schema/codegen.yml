@@ -1,40 +1,28 @@
 overwrite: true
 schema: '../../apps/server/schema.graphql'
-documents: '../../apps/**/*.graphql'
 generates:
-  types.generated.ts:
+  types.ts:
+    documents: '../../apps/**/*.graphql'
     plugins:
       - typescript
+  web/operations.ts:
+    documents: '../../apps/web/**/*.graphql'
+    preset: import-types
+    presetConfig:
+      typesPath: ../types
+    plugins:
       - typescript-operations
       - typescript-document-nodes
     config:
       nameSuffix: Document
-  operations.generated.ts:
+  web/hooks.ts:
+    documents: '../../apps/web/**/*.graphql'
     plugins:
       - typescript-urql
     config:
       importOperationTypesFrom: Operations
       documentMode: external
-      importDocumentNodeExternallyFrom: ./types.generated
-
-  gen/types.ts:
-    plugins:
-      - typescript
-      # - typescript-document-nodes
-    config:
-      nameSuffix: Document
-  gen/operations.ts:
-    preset: import-types
-    presetConfig:
-      typesPath: ./types
-    plugins:
-      - typescript-operations
-      - typescript-urql
-    config:
-      documentMode: graphql-tag
-      importOperationTypesFrom: ''
-      # documentMode: external
-      # importDocumentNodeExternallyFrom: ./types.generated
+      importDocumentNodeExternallyFrom: ./operations
 config:
   onlyOperationTypes: true
   skipTypename: true
