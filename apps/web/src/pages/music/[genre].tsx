@@ -1,14 +1,13 @@
 import React from 'react';
 import { GetServerSideProps } from 'next';
 
+import { Genre, MusicType } from '@mooseical/schema';
 import {
-  Genre,
   GetManyMusicDocument,
-  MusicType,
   useGetManyMusicQuery,
-} from '@graphql/schema';
+} from '@mooseical/schema/web';
 import { gqlClient, ssrCache } from '@graphql/gqlClient';
-import { MUSIC_QUERY_SIZE } from '@utils/constants';
+import { MUSIC_QUERY_SIZE } from '@mooseical/constants';
 import Layout from '@components/Layout';
 import setSSRCache from '@utils/setSSRCache';
 import MusicTypeFilter from '@components/DbComponents/MusicTypeFilter';

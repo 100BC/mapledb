@@ -10,6 +10,8 @@
     "clean": "rm -rf node_modules .turbo .pnpm-debug.log .next"
   },
   "dependencies": {
+    "@mooseical/constants": "workspace:*",
+    "@mooseical/generic-types": "workspace:*",
     "@mooseical/schema": "workspace:*",
     "@mooseical/style-helpers": "workspace:*",
     "@mooseical/ui": "workspace:*",
@@ -25,8 +27,8 @@
   },
   "devDependencies": {
     "@mooseical/eslint-config": "workspace:*",
-    "@mooseical/theme": "workspace:*",
     "@mooseical/stylelint-config": "workspace:*",
+    "@mooseical/theme": "workspace:*",
     "@mooseical/tsconfig": "workspace:*",
     "@svgr/webpack": "^6.2.1",
     "@types/node": "^16.11.26",

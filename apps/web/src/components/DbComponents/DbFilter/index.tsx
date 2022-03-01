@@ -2,7 +2,7 @@ import React, { ChangeEvent } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
-import { Genre, Province } from '@mooseical/gql-types/types.generated';
+import { Genre, Province } from '@mooseical/schema';
 import { conditional } from '@mooseical/style-helpers';
 import getProvinceName from '@utils/functions/getProvinceName';
 import styles from './styles.module.scss';

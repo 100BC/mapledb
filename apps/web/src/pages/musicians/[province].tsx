@@ -1,13 +1,13 @@
 import React from 'react';
 import { GetServerSideProps } from 'next';
 
+import { Province } from '@mooseical/schema';
 import {
   GetManyMusiciansDocument,
-  Province,
   useGetManyMusiciansQuery,
-} from '@graphql/schema';
+} from '@mooseical/schema/web';
 import { gqlClient, ssrCache } from '@graphql/gqlClient';
-import { MUSICIAN_QUERY_SIZE } from '@utils/constants';
+import { MUSICIAN_QUERY_SIZE } from '@mooseical/constants';
 import Layout from '@components/Layout';
 import setSSRCache from '@utils/setSSRCache';
 import { DbFilter } from '@components/DbComponents/DbFilter';

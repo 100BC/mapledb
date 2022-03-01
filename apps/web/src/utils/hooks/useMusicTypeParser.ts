@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { MusicType } from '@graphql/schema';
+import { MusicType } from '@mooseical/schema';
 
 const useMusicTypeParser = (musicType: MusicType | undefined) => {
   const musicTypeParsed = useMemo(() => {

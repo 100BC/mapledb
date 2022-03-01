@@ -2,9 +2,9 @@
   "name": "@mooseical/schema",
   "version": "0.0.0",
   "private": true,
+  "main": "index.ts",
   "files": [
-    "types.ts",
-    "web/*.ts"
+    "web"
   ],
   "scripts": {
     "generate": "graphql-codegen --config codegen.yml",

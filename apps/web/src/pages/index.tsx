@@ -6,7 +6,7 @@ import { gqlClient, ssrCache } from '@graphql/gqlClient';
 import {
   GetNewReleasesDocument,
   useGetNewReleasesQuery,
-} from '@mooseical/gql-types/types.generated';
+} from '@mooseical/schema/web';
 import { DOMAIN_NAME } from '@utils/constants';
 import Layout from '@components/Layout';
 import setSSRCache from '@utils/setSSRCache';

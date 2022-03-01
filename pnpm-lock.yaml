@@ -89,7 +89,9 @@ importers:
 
   apps/web:
     specifiers:
+      '@mooseical/constants': workspace:*
       '@mooseical/eslint-config': workspace:*
+      '@mooseical/generic-types': workspace:*
       '@mooseical/schema': workspace:*
       '@mooseical/style-helpers': workspace:*
       '@mooseical/stylelint-config': workspace:*
@@ -116,6 +118,8 @@ importers:
       typescript: ^4.5.5
       urql: ^2.2.0
     dependencies:
+      '@mooseical/constants': link:../../libs/constants
+      '@mooseical/generic-types': link:../../libs/generic-types
       '@mooseical/schema': link:../../libs/schema
       '@mooseical/style-helpers': link:../../libs/style-helpers
       '@mooseical/ui': link:../../libs/ui
@@ -191,6 +195,16 @@ importers:
 
   config/tsconfig:
     specifiers: {}
+
+  libs/constants:
+    specifiers:
+      '@mooseical/eslint-config': workspace:*
+      '@mooseical/tsconfig': workspace:*
+      typescript: ^4.5.5
+    devDependencies:
+      '@mooseical/eslint-config': link:../../config/eslint-config
+      '@mooseical/tsconfig': link:../../config/tsconfig
+      typescript: 4.5.5
 
   libs/generic-types:
     specifiers:

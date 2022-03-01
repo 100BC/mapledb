@@ -3,11 +3,11 @@ import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 
 import { gqlClient, ssrCache } from '@graphql/gqlClient';
+import { MusicType } from '@mooseical/schema';
 import {
   GetMusicianDocument,
-  MusicType,
   useGetMusicianQuery,
-} from '@graphql/schema';
+} from '@mooseical/schema/web';
 import ExternalLinks from '@components/ExternalLinks';
 import Layout from '@components/Layout';
 import styles from '@styles/musician.module.scss';

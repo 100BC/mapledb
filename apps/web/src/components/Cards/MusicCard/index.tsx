@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { MusicType } from '@mooseical/gql-types/types.generated';
+import { MusicType } from '@mooseical/schema';
 import useCreateImageUrl from '@utils/hooks/useCreateImageUrl';
 import useDateParser from '@utils/hooks/useDateParser';
 import useMusicianDescParser from '@utils/hooks/useMusicianDescParser';

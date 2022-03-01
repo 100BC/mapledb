@@ -1,5 +1,6 @@
-import { Province } from '@graphql/schema';
 import { useMemo } from 'react';
+
+import { Province } from '@mooseical/schema';
 
 const useProvinceParser = (province: Province | null) => {
   const provinceParsed = useMemo(() => {

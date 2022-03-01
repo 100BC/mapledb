@@ -1,8 +1,8 @@
 import React, { Fragment, HTMLAttributes } from 'react';
 import Link from 'next/link';
 
-import { MusicCardFragment } from '@graphql/schema';
-import { combine } from '@utils/styleHelpers';
+import { MusicCardFragment } from '@mooseical/schema/web';
+import { combine } from '@mooseical/style-helpers';
 import styles from './styles.module.scss';
 
 interface Props {

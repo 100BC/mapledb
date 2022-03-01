@@ -1,4 +1,4 @@
-import { Genre } from '@graphql/schema';
+import { Genre } from '@mooseical/schema';
 import { useMemo } from 'react';
 
 const useGenreParser = (genre: Genre | null) => {

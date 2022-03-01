@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { MUSICIAN_QUERY_SIZE, MUSIC_QUERY_SIZE } from '@utils/constants';
+import { MUSICIAN_QUERY_SIZE, MUSIC_QUERY_SIZE } from '@mooseical/constants';
 import LeftArrow from '@assets/svg/leftArrow.svg';
 import RightArrow from '@assets/svg/rightArrow.svg';
 import { conditional } from '@mooseical/style-helpers';

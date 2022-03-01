@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 
 import MetaTags, { MetaTagProps } from '@mooseical/ui/MetaTags';
+import { XOR } from '@mooseical/generic-types';
 import {
   DOMAIN_NAME,
   META_DESCRIPTION,
@@ -11,13 +12,15 @@ import {
 type Props = {
   className?: string;
   children?: ReactNode;
-} & MetaTagProps;
+} & MetaTagProps &
+  XOR<{ canonicalUrl?: string }, { canonicalUrlPath?: string }>;
 
 const Layout = (props: Props) => {
   const {
     title = META_TITLE,
     description = META_DESCRIPTION,
     canonicalUrl = DOMAIN_NAME,
+    canonicalUrlPath = '',
     noIndex,
     className,
     children,
@@ -28,7 +31,7 @@ const Layout = (props: Props) => {
       <MetaTags
         title={title}
         description={description}
-        canonicalUrl={canonicalUrl}
+        canonicalUrl={[canonicalUrl, canonicalUrlPath].join('')}
         siteName={SITE_NAME}
         noIndex={noIndex}
         {...ogp}

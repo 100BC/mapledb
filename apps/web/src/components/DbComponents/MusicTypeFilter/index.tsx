@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { MusicType } from '@mooseical/gql-types/types.generated';
+import { MusicType } from '@mooseical/schema';
 import { conditional } from '@mooseical/style-helpers';
 import styles from './styles.module.scss';
 

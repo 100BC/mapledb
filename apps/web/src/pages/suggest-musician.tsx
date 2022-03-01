@@ -10,7 +10,7 @@ import {
   FormWrapper,
   ReCaptcha,
 } from '@components/FormComponents';
-import Button from '@components/Button';
+import Button from '@mooseical/ui/Button';
 
 interface FormData {
   musician: string;
