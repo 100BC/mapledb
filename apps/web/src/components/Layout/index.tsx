@@ -2,6 +2,9 @@ import React, { ReactNode } from 'react';
 
 import MetaTags, { MetaTagProps } from '@mooseical/ui/MetaTags';
 import { XOR } from '@mooseical/generics';
+import DesktopNav from '@components/Nav/DesktopNav';
+import Footer from '@components/Footer';
+import MobileNav from '@components/Nav/MobileNav';
 import {
   DOMAIN_NAME,
   META_DESCRIPTION,
@@ -38,7 +41,10 @@ const Layout = (props: Props) => {
         noIndex={noIndex}
         {...ogp}
       />
+      <DesktopNav />
       <main className={className}>{children}</main>
+      <Footer />
+      <MobileNav />
     </>
   );
 };
