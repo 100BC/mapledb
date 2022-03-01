@@ -13,7 +13,7 @@
     "dev": "turbo run dev --parallel",
     "generate": "turbo run generate",
     "clean": "turbo run clean && rm -rf node_modules .turbo .pnpm-debug.log",
-    "clean:install": "pnpm clean && pnpm install",
+    "clean:install": "turbo run clean && pnpm install && turbo run generate",
     "kill-ports": "kill-port 3000 3001 3002",
     "lint": "turbo run lint",
     "format": "prettier --write '**/*.{ts,tsx,md}'"

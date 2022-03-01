@@ -12,8 +12,7 @@
     "clean": "rm -rf node_modules .turbo .pnpm-debug.log"
   },
   "dependencies": {
-    "graphql-tag": "^2.12.6",
-    "urql": "^2.2.0"
+    "graphql-tag": "^2.12.6"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^2.6.2",
