@@ -7,7 +7,7 @@
 
   > li + li::before {
     font-weight: 300;
-    color: $red-300;
+    color: $theme-300;
     content: ' & ';
   }
 }

@@ -5,7 +5,7 @@ import { Provider as UrqlProvider } from 'urql';
 import { gqlClient, ssrCache } from '@graphql/gqlClient';
 
 import 'normalize.css';
-import '@styles/global.scss';
+import '@styles/globals.scss';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   if (pageProps.urqlState) {

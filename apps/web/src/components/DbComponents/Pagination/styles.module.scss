@@ -43,19 +43,19 @@
       cursor: pointer;
 
       > svg {
-        fill: $red-300;
+        fill: $theme-300;
       }
     }
   }
 }
 
 .active {
-  background: $red-500;
+  background: $theme-500;
   border-radius: 50%;
 
   &:hover {
     color: $white;
-    background: $red-300;
+    background: $theme-300;
   }
 }
 
