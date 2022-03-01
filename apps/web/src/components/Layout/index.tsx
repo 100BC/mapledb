@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 
 import MetaTags, { MetaTagProps } from '@mooseical/ui/MetaTags';
-import { XOR } from '@mooseical/generic-types';
+import { XOR } from '@mooseical/generics';
 import {
   DOMAIN_NAME,
   META_DESCRIPTION,

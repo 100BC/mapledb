@@ -91,7 +91,7 @@ importers:
     specifiers:
       '@mooseical/constants': workspace:*
       '@mooseical/eslint-config': workspace:*
-      '@mooseical/generic-types': workspace:*
+      '@mooseical/generics': workspace:*
       '@mooseical/schema': workspace:*
       '@mooseical/style-helpers': workspace:*
       '@mooseical/stylelint-config': workspace:*
@@ -119,7 +119,7 @@ importers:
       urql: ^2.2.0
     dependencies:
       '@mooseical/constants': link:../../libs/constants
-      '@mooseical/generic-types': link:../../libs/generic-types
+      '@mooseical/generics': link:../../libs/generics
       '@mooseical/schema': link:../../libs/schema
       '@mooseical/style-helpers': link:../../libs/style-helpers
       '@mooseical/ui': link:../../libs/ui
@@ -206,7 +206,7 @@ importers:
       '@mooseical/tsconfig': link:../../config/tsconfig
       typescript: 4.5.5
 
-  libs/generic-types:
+  libs/generics:
     specifiers:
       '@mooseical/eslint-config': workspace:*
       '@mooseical/tsconfig': workspace:*
@@ -273,7 +273,7 @@ importers:
   libs/ui:
     specifiers:
       '@mooseical/eslint-config': workspace:*
-      '@mooseical/generic-types': workspace:^0.0.0
+      '@mooseical/generics': workspace:*
       '@mooseical/style-helpers': workspace:*
       '@mooseical/stylelint-config': workspace:*
       '@mooseical/theme': workspace:*
@@ -289,7 +289,7 @@ importers:
       stylelint: ^14.5.3
       typescript: ^4.5.5
     dependencies:
-      '@mooseical/generic-types': link:../generic-types
+      '@mooseical/generics': link:../generics
       '@mooseical/style-helpers': link:../style-helpers
       next: 12.1.0_770cdee6eac9f5b17619eec686780a53
       react: 17.0.2

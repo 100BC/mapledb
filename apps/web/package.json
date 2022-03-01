@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@mooseical/constants": "workspace:*",
-    "@mooseical/generic-types": "workspace:*",
+    "@mooseical/generics": "workspace:*",
     "@mooseical/schema": "workspace:*",
     "@mooseical/style-helpers": "workspace:*",
     "@mooseical/ui": "workspace:*",
