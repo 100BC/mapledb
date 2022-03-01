@@ -5,8 +5,7 @@ import CopySVG from '@assets/svg/copy.svg';
 import LaunchSVG from '@assets/svg/launch.svg';
 import styles from '@styles/about.module.scss';
 import Layout from '@components/Layout';
-import Button from '@mooseical/ui/Button';
-import ButtonLink from '@mooseical/ui/Button/ButtonLink';
+import { Button, ButtonLink } from '@mooseical/ui/Button';
 
 const Contact = () => {
   const [loading, setLoading] = useState(false);
