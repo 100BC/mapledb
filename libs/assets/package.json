@@ -1,0 +1,9 @@
+{
+  "name": "@mooseical/assets",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Shareable Pictures and SVG Assets",
+  "files": [
+    "**/*.svg"
+  ]
+}

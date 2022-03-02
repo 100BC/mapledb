@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
 import Spinner from '@mooseical/ui/Spinner';
-import CopySVG from '@assets/svg/copy.svg';
-import LaunchSVG from '@assets/svg/launch.svg';
+import CopySVG from '@mooseical/assets/svg/copy.svg';
+import LaunchSVG from '@mooseical/assets/svg/launch.svg';
 import styles from '@styles/about.module.scss';
 import Layout from '@components/Layout';
 import { Button, ButtonLink } from '@mooseical/ui/Button';

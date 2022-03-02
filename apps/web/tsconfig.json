@@ -4,7 +4,6 @@
     "baseUrl": ".",
     "outDir": ".next",
     "paths": {
-      "@assets/*": ["./src/assets/*"],
       "@components/*": ["./src/components/*"],
       "@gcp/*": ["./src/gcp/*"],
       "@graphql/*": ["./src/graphql/*"],

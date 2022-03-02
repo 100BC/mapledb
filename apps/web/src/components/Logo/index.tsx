@@ -1,7 +1,7 @@
 import React from 'react';
 
-import LogoSvg from '@assets/svg/logo.svg';
-import LogoAltSvg from '@assets/svg/logo-white.svg';
+import LogoSvg from '@mooseical/assets/svg/logo.svg';
+import LogoAltSvg from '@mooseical/assets/svg/logo-white.svg';
 import { combine } from '@mooseical/style-helpers';
 import styles from './styles.module.scss';
 

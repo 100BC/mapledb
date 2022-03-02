@@ -11,6 +11,7 @@
     "clean": "rm -rf node_modules .turbo .pnpm-debug.log"
   },
   "dependencies": {
+    "@mooseical/assets": "workspace:*",
     "@mooseical/generics": "workspace:*",
     "@mooseical/style-helpers": "workspace:*",
     "next": "^12.1.0",
