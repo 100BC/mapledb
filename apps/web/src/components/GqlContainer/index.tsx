@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { CombinedError } from 'urql';
 
 import ErrorComponent from '@components/ErrorComponent';
-import Spinner from '@components/Spinner';
+import Spinner from '@mooseical/ui/Spinner';
 import { AllOrNone } from '@mooseical/generics';
 
 type Props = {

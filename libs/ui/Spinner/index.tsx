@@ -1,7 +1,7 @@
 import React from 'react';
 
-import LogoSvg from '@assets/svg/logo.svg';
 import { combine } from '@mooseical/style-helpers';
+import LogoSvg from '../assets/logo.svg';
 import styles from './styles.module.scss';
 
 interface Props {

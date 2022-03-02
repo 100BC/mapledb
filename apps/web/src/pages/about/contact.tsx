@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import Spinner from '@components/Spinner';
+import Spinner from '@mooseical/ui/Spinner';
 import CopySVG from '@assets/svg/copy.svg';
 import LaunchSVG from '@assets/svg/launch.svg';
 import styles from '@styles/about.module.scss';

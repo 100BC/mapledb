@@ -1,0 +1,14 @@
+@use '~styles/abstracts' as *;
+
+.imageContainer {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  max-width: 200px;
+  margin: auto;
+
+  > input {
+    width: 225px;
+    margin-top: 1rem;
+  }
+}

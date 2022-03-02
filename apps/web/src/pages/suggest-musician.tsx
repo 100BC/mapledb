@@ -9,7 +9,7 @@ import {
   Select,
   FormWrapper,
   ReCaptcha,
-} from '@components/FormComponents';
+} from '@mooseical/ui/FormComponents';
 import Button from '@mooseical/ui/Button';
 
 interface FormData {
