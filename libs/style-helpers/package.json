@@ -4,7 +4,8 @@
   "private": true,
   "main": "index.ts",
   "scripts": {
-    "clean": "rm -rf node_modules .turbo .pnpm-debug.log"
+    "clean": "rm -rf node_modules .turbo .pnpm-debug.log",
+    "lint": "tsc --noEmit --incremental false && eslint --fix '**/*.ts'"
   },
   "devDependencies": {
     "@mooseical/eslint-config": "workspace:*",
