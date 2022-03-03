@@ -1,0 +1,12 @@
+@use '~@mooseical/theme' as *;
+
+.section {
+  margin-top: 4rem;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4rem;
+  font-size: 3.4rem;
+}

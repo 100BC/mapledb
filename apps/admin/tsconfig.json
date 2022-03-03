@@ -1,0 +1,17 @@
+{
+  "extends": "@mooseical/tsconfig/nextjs.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": ".next",
+    "paths": {
+      "@components/*": ["./src/components/*"],
+      "@gcp/*": ["./src/gcp/*"],
+      "@graphql/*": ["./src/graphql/*"],
+      "@public/*": ["./public/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@utils/*": ["./src/utils/*"]
+    }
+  },
+  "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx", "@types"],
+  "exclude": ["node_modules", ".eslintrc.js"]
+}

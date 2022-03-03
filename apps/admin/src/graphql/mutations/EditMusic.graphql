@@ -1,0 +1,36 @@
+mutation EditMusic(
+  $id: String!
+  $release: Date
+  $subgenre: String
+  $genre: Genre
+  $instrumental: Boolean
+  $cover: Upload
+  $appleLink: String
+  $bandcampLink: String
+  $soundcloudLink: String
+  $spotifyLink: String
+  $youtubeLink: String
+  $musicType: MusicType
+  $nonCanadians: [String!]
+  $copyright: String
+) {
+  musicEdit(
+    id: $id
+    release: $release
+    subgenre: $subgenre
+    genre: $genre
+    instrumental: $instrumental
+    cover: $cover
+    appleLink: $appleLink
+    bandcampLink: $bandcampLink
+    soundcloudLink: $soundcloudLink
+    spotifyLink: $spotifyLink
+    youtubeLink: $youtubeLink
+    musicType: $musicType
+    nonCanadians: $nonCanadians
+    copyright: $copyright
+  ) {
+    id
+    name
+  }
+}

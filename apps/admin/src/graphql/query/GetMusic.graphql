@@ -1,0 +1,20 @@
+query GetMusic($id: String!) {
+  music(id: $id) {
+    id
+    nonCanadians
+    release
+    hasCover
+    subgenre {
+      name
+      genre
+    }
+    copyright
+    instrumental
+    appleLink
+    bandcampLink
+    soundcloudLink
+    spotifyLink
+    youtubeLink
+    musicType
+  }
+}

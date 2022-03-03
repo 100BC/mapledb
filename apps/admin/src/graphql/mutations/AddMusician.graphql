@@ -1,0 +1,28 @@
+mutation AddMusician(
+  $name: String!
+  $city: String!
+  $province: Province!
+  $appleLink: String
+  $bandcampLink: String
+  $soundcloudLink: String
+  $spotifyLink: String
+  $youtubeLink: String
+  $isGroup: Boolean!
+  $disbanded: Date
+) {
+  musicianAdd(
+    name: $name
+    city: $city
+    province: $province
+    appleLink: $appleLink
+    bandcampLink: $bandcampLink
+    soundcloudLink: $soundcloudLink
+    spotifyLink: $spotifyLink
+    youtubeLink: $youtubeLink
+    isGroup: $isGroup
+    disbanded: $disbanded
+  ) {
+    id
+    name
+  }
+}

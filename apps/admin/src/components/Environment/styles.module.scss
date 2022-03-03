@@ -1,0 +1,9 @@
+@use '~styles/abstracts' as *;
+
+.dev {
+  color: green;
+}
+
+.prod {
+  color: $red-500;
+}

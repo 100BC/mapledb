@@ -1,0 +1,38 @@
+mutation AddMusic(
+  $name: String!
+  $musicianIds: [String!]!
+  $release: Date!
+  $subgenre: String!
+  $genre: Genre!
+  $instrumental: Boolean!
+  $musicType: MusicType!
+  $cover: Upload
+  $appleLink: String
+  $bandcampLink: String
+  $soundcloudLink: String
+  $spotifyLink: String
+  $youtubeLink: String
+  $nonCanadians: [String!]!
+  $copyright: String
+) {
+  musicAdd(
+    name: $name
+    musicianIds: $musicianIds
+    release: $release
+    subgenre: $subgenre
+    genre: $genre
+    instrumental: $instrumental
+    musicType: $musicType
+    cover: $cover
+    appleLink: $appleLink
+    bandcampLink: $bandcampLink
+    soundcloudLink: $soundcloudLink
+    spotifyLink: $spotifyLink
+    youtubeLink: $youtubeLink
+    nonCanadians: $nonCanadians
+    copyright: $copyright
+  ) {
+    id
+    name
+  }
+}
