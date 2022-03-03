@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint --fix 'src/**/*.{ts,tsx}' && stylelint --fix 'src/**/*.scss'",
+    "lint": "tsc --noEmit --incremental false && eslint --fix 'src/**/*.{ts,tsx}' && stylelint --fix 'src/**/*.scss'",
     "clean": "rm -rf node_modules .turbo .pnpm-debug.log .next"
   },
   "dependencies": {

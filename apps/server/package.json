@@ -16,7 +16,7 @@
     "db:push": "prisma db push && prisma format",
     "db:migrate": "prisma migrate dev && prisma format",
     "db:reset": "prisma migrate reset",
-    "lint": "eslint --fix 'src/**/*.ts'",
+    "lint": "tsc --noEmit --incremental false && eslint --fix 'src/**/*.ts'",
     "clean": "rm -rf node_modules .turbo .pnpm-debug.log dist"
   },
   "prisma": {

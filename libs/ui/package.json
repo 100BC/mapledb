@@ -7,7 +7,7 @@
     "Button"
   ],
   "scripts": {
-    "lint": "eslint --fix '**/*.{ts,tsx}' && stylelint --fix '**/*.scss'",
+    "lint": "tsc --noEmit --incremental false && eslint --fix '**/*.{ts,tsx}' && stylelint --fix '**/*.scss'",
     "clean": "rm -rf node_modules .turbo .pnpm-debug.log"
   },
   "dependencies": {
