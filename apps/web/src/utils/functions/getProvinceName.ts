@@ -1,4 +1,4 @@
-import { Province } from '@graphql/schema';
+import { Province } from '@mooseical/schema';
 
 const getProvinceName = (province: Province | null) => {
   switch (province) {
