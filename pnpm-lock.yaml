@@ -203,10 +203,12 @@ importers:
     specifiers:
       '@mooseical/eslint-config': workspace:*
       '@mooseical/tsconfig': workspace:*
+      eslint: ^8.10.0
       typescript: ^4.6.2
     devDependencies:
       '@mooseical/eslint-config': link:../../config/eslint-config
       '@mooseical/tsconfig': link:../../config/tsconfig
+      eslint: 8.10.0
       typescript: 4.6.2
 
   libs/generics:
