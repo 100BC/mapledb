@@ -15,7 +15,7 @@
     "@mooseical/generics": "workspace:*",
     "@mooseical/schema": "workspace:*",
     "@mooseical/style-helpers": "workspace:*",
-    "@mooseical/ui": "workspace:*",
+    "@mooseical/shared": "workspace:*",
     "firebase": "^9.6.7",
     "graphql": "^16.3.0",
     "next": "^12.1.0",

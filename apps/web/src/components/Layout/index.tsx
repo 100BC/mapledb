@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 
-import MetaTags, { MetaTagProps } from '@mooseical/ui/MetaTags';
+import MetaTags, { MetaTagProps } from '@mooseical/shared/components/MetaTags';
 import { XOR } from '@mooseical/generics';
 import DesktopNav from '@components/Nav/DesktopNav';
 import Footer from '@components/Footer';

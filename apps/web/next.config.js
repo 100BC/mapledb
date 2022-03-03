@@ -1,5 +1,5 @@
 const withTM = require('next-transpile-modules')([
-  '@mooseical/ui',
+  '@mooseical/shared',
   '@mooseical/style-helpers',
   '@mooseical/schema',
 ]);

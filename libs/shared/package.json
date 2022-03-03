@@ -1,10 +1,10 @@
 {
-  "name": "@mooseical/ui",
+  "name": "@mooseical/shared",
   "version": "0.0.0",
   "private": true,
   "files": [
-    "MetaTags",
-    "Button"
+    "components/**/*.tsx",
+    "hooks/**/*.ts"
   ],
   "scripts": {
     "lint": "tsc --noEmit --incremental false && eslint --fix '**/*.{ts,tsx}' && stylelint --fix '**/*.scss'",

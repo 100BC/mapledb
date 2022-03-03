@@ -9,8 +9,8 @@ import {
   Select,
   FormWrapper,
   ReCaptcha,
-} from '@mooseical/ui/FormComponents';
-import Button from '@mooseical/ui/Button';
+} from '@mooseical/shared/components/FormComponents';
+import Button from '@mooseical/shared/components/Button';
 
 interface FormData {
   musician: string;
