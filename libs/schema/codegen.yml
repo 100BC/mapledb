@@ -2,7 +2,7 @@ overwrite: true
 schema: '../../apps/server/schema.graphql'
 generates:
   index.ts:
-    documents: '../../apps/**/*.graphql'
+    documents: '../../apps/web/**/*.graphql'
     plugins:
       - typescript
   web.ts:
@@ -23,6 +23,24 @@ generates:
       importOperationTypesFrom: Operations
       documentMode: external
       importDocumentNodeExternallyFrom: '@mooseical/schema/web'
+  admin.ts:
+    documents: '../../apps/admin/**/*.graphql'
+    preset: import-types
+    presetConfig:
+      typesPath: .
+    plugins:
+      - typescript-operations
+      - typescript-document-nodes
+    config:
+      nameSuffix: Document
+  ../../apps/admin/src/graphql/hooks.ts:
+    documents: '../../apps/admin/**/*.graphql'
+    plugins:
+      - typescript-urql
+    config:
+      importOperationTypesFrom: Operations
+      documentMode: external
+      importDocumentNodeExternallyFrom: '@mooseical/schema/admin'
 config:
   onlyOperationTypes: true
   skipTypename: true
