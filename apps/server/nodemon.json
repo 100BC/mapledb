@@ -1,0 +1,6 @@
+{
+  "events": {
+    "crash": "cd ../.. && pnpm kill-port 3002"
+  },
+  "delay": "5000"
+}
