@@ -10,6 +10,7 @@ interface ButtonProps {
   disabled?: boolean;
   children: ReactNode;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 export const Button = ({
@@ -18,6 +19,7 @@ export const Button = ({
   disabled = false,
   children,
   className,
+  style,
 }: ButtonProps) => {
   return (
     <button
@@ -26,6 +28,7 @@ export const Button = ({
       onClick={onClick}
       disabled={disabled}
       className={combine(styles.button, className)}
+      style={style}
     >
       {children}
     </button>
@@ -37,6 +40,7 @@ interface ButtonLinkProps {
   children: ReactNode;
   className?: string;
   title?: string;
+  style?: React.CSSProperties;
 }
 
 export const ButtonLink = ({
@@ -44,10 +48,15 @@ export const ButtonLink = ({
   className,
   children,
   title,
+  style,
 }: ButtonLinkProps) => {
   return (
     <Link href={href}>
-      <a title={title} className={combine(styles.button, className)}>
+      <a
+        title={title}
+        className={combine(styles.button, className)}
+        style={style}
+      >
         {children}
       </a>
     </Link>

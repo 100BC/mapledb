@@ -1,11 +1,11 @@
-@use '~styles/abstracts' as *;
+@use '~@mooseical/theme' as *;
 
 .header {
   position: sticky;
   top: 0;
   z-index: 100;
   color: $white;
-  background: $red-600;
+  background: $theme-600;
 
   > nav {
     display: flex;

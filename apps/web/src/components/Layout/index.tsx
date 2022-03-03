@@ -31,6 +31,7 @@ const Layout = (props: Props) => {
     children,
     ...ogp
   } = props;
+
   return (
     <>
       <MetaTags

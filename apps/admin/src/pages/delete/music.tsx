@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import Layout from '@components/Layout';
-import { useDeleteMusicMutation } from '@graphql/schema';
-import Spinner from '@components/Spinner';
+import { useDeleteMusicMutation } from '@graphql/hooks';
+import Spinner from '@mooseical/shared/components/Spinner';
 import Environment from '@components/Environment';
-import { FormError, TextInput, SubmitButton } from '@components/FormComponents';
+import {
+  FormError,
+  TextInput,
+} from '@mooseical/shared/components/FormComponents';
 import MusicDeleted from '@components/MusicDeleted';
+import Button from '@mooseical/shared/components/Button';
 
 interface Form {
   id: string;
@@ -71,7 +75,9 @@ const DeleteMusic = () => {
           />
           <FormError error={errors.id} />
 
-          <SubmitButton text="Delete" />
+          <Button type="submit" style={{ marginTop: '4rem' }}>
+            Delete
+          </Button>
         </form>
       )}
     </Layout>

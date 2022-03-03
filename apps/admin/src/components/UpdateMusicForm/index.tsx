@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { FieldError, useForm } from 'react-hook-form';
 
+import { Genre, MusicType } from '@mooseical/schema';
 import {
-  Genre,
   GetMusicQuery,
-  MusicType,
   EditMusicMutationVariables,
-} from '@graphql/schema';
+} from '@mooseical/schema/admin';
 import validateLinks from '@utils/validateLinks';
 import {
   Checkbox,
@@ -14,9 +13,9 @@ import {
   ImageInput,
   Select,
   TextInput,
-} from '@components/FormComponents';
-import useCreateImageUrl from '@utils/hooks/useCreateImageUrl';
-import Button from '@components/Button';
+} from '@mooseical/shared/components/FormComponents';
+import useCreateImageUrl from '@mooseical/shared/hooks/useCreateImageUrl';
+import Button from '@mooseical/shared/components/Button';
 
 interface Props {
   musicData: GetMusicQuery['music'];
@@ -43,9 +42,10 @@ export interface Form {
 }
 
 const UpdateMusicForm = ({ musicData, onUpdateMusic }: Props) => {
-  const imageUrl = useCreateImageUrl({
+  const { imageUrl } = useCreateImageUrl({
     musicId: musicData.id,
     hasCover: musicData.hasCover,
+    maxWidth: 400,
   });
 
   const [nonCanadians, setNonCanadians] = useState(

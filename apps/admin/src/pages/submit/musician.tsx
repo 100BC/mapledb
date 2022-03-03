@@ -2,18 +2,19 @@ import React, { useState } from 'react';
 import { FieldError, useForm } from 'react-hook-form';
 
 import Layout from '@components/Layout';
-import { Province, useAddMusicianMutation } from '@graphql/schema';
-import Spinner from '@components/Spinner';
+import { Province } from '@mooseical/schema';
+import { useAddMusicianMutation } from '@graphql/hooks';
+import Spinner from '@mooseical/shared/components/Spinner';
 import MusicianSubmitted from '@components/MusicianSubmitted';
 import Environment from '@components/Environment';
 import validateLinks from '@utils/validateLinks';
 import {
   FormError,
   TextInput,
-  SubmitButton,
   Checkbox,
   Select,
-} from '@components/FormComponents';
+} from '@mooseical/shared/components/FormComponents';
+import Button from '@mooseical/shared/components/Button';
 
 interface Form {
   musician: string;
@@ -225,7 +226,9 @@ const MusicianSubmit = () => {
           />
           <FormError error={errors.disbanded} />
 
-          <SubmitButton />
+          <Button type="submit" style={{ marginTop: '4rem' }}>
+            Submit
+          </Button>
         </form>
       )}
     </Layout>

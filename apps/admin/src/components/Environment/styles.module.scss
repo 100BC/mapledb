@@ -1,9 +1,9 @@
-@use '~styles/abstracts' as *;
+@use '~@mooseical/theme' as *;
 
 .dev {
   color: green;
 }
 
 .prod {
-  color: $red-500;
+  color: $theme-500;
 }

@@ -1,16 +1,11 @@
 import React from 'react';
 import type { AppProps /* AppContext */ } from 'next/app';
 import { Provider as UrqlProvider } from 'urql';
-import { setConfig as CloudinaryConfig } from 'cloudinary-build-url';
 
 import { gqlClient, ssrCache } from '@graphql/gqlClient';
 
 import 'normalize.css';
 import '@styles/global.scss';
-
-CloudinaryConfig({
-  cloudName: 'mooseical',
-});
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   if (pageProps.urqlState) {

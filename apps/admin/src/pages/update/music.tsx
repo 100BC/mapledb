@@ -2,17 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import Layout from '@components/Layout';
-import {
-  EditMusicMutationVariables,
-  useGetMusicQuery,
-  useEditMusicMutation,
-} from '@graphql/schema';
+import { EditMusicMutationVariables } from '@mooseical/schema/admin';
+import { useGetMusicQuery, useEditMusicMutation } from '@graphql/hooks';
 import Environment from '@components/Environment';
-import { FormError, TextInput } from '@components/FormComponents';
-import Spinner from '@components/Spinner';
+import {
+  FormError,
+  TextInput,
+} from '@mooseical/shared/components/FormComponents';
+import Spinner from '@mooseical/shared/components/Spinner';
 import UpdateMusicForm from '@components/UpdateMusicForm';
 import MusicUpdated from '@components/MusicUpdated';
-import Button from '@components/Button';
+import Button from '@mooseical/shared/components/Button';
 
 interface Form {
   id: string;

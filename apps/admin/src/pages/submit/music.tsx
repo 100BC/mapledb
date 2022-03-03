@@ -3,8 +3,9 @@ import { FieldError, useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 
 import Layout from '@components/Layout';
-import { Genre, MusicType, useAddMusicMutation } from '@graphql/schema';
-import Spinner from '@components/Spinner';
+import { Genre, MusicType } from '@mooseical/schema';
+import { useAddMusicMutation } from '@graphql/hooks';
+import Spinner from '@mooseical/shared/components/Spinner';
 import MusicSubmitted from '@components/MusicSubmitted';
 import Environment from '@components/Environment';
 import validateLinks from '@utils/validateLinks';
@@ -14,8 +15,8 @@ import {
   TextInput,
   Select,
   ImageInput,
-} from '@components/FormComponents';
-import Button from '@components/Button';
+} from '@mooseical/shared/components/FormComponents';
+import Button from '@mooseical/shared/components/Button';
 
 interface Form {
   musicianId: string[];

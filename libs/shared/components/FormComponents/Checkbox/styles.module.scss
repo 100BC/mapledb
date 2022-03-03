@@ -1,4 +1,4 @@
-@use '~styles/abstracts' as *;
+@use '~@mooseical/theme' as *;
 
 .checkbox {
   position: relative;
@@ -18,7 +18,7 @@
     opacity: 0;
 
     &:focus-visible + span {
-      outline: $red-400 solid 2px;
+      outline: $theme-400 solid 2px;
     }
   }
 }
@@ -35,7 +35,7 @@
 .checked,
 .checkedGrey {
   position: relative;
-  background: $red-300;
+  background: $theme-300;
 
   &::after {
     position: absolute;
