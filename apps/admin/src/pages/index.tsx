@@ -1,9 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
+import { signOut } from 'firebase/auth';
 
 import Layout from '@components/Layout';
 import styles from '@styles/home.module.scss';
 import Environment from '@components/Environment';
+import { auth } from '@gcp/client';
 
 const Home = () => {
   return (
@@ -37,6 +39,13 @@ const Home = () => {
             <a>Delete Music</a>
           </Link>
         </div>
+        <button
+          type="button"
+          className={styles.signOut}
+          onClick={() => signOut(auth)}
+        >
+          Sign Out
+        </button>
       </section>
     </Layout>
   );
