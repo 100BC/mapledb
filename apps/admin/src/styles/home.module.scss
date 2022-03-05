@@ -2,16 +2,30 @@
 
 .section {
   margin-top: 4rem;
+
+  > h2 {
+    max-width: 200px;
+    margin: auto;
+    font-weight: 600;
+    border-bottom: 1px solid;
+  }
 }
 
 .row {
   display: flex;
-  justify-content: space-between;
-  margin-top: 4rem;
-  font-size: 3.4rem;
+  flex-direction: column;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+
+  > a {
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 2rem;
+  }
 }
 
 .signOut {
-  margin-top: 8rem;
-  font-size: 3.4rem;
+  margin-top: 4rem;
+  font-size: 2rem;
 }
