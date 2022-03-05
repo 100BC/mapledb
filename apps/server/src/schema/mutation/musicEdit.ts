@@ -7,6 +7,7 @@ import uploadCover from '@utils/imageUtils/uploadCover';
 import { cloudinaryDelete } from '@utils/imageUtils/cloudinaryFunctions';
 import { MusicObject } from '@schema/types/Music';
 import { GenreEnum, MusicTypeEnum } from '@schema/types/Enums';
+import parseNullableField from '@utils/helpers/parseNullableField';
 
 export const musicEdit = builder.mutationField('musicEdit', (t) => {
   return t.field({
@@ -116,20 +117,14 @@ export const musicEdit = builder.mutationField('musicEdit', (t) => {
           }),
           hasCover,
           instrumental: instrumental ?? undefined,
-          appleLink: appleLink === null || appleLink ? appleLink : undefined,
-          bandcampLink:
-            bandcampLink === null || bandcampLink ? bandcampLink : undefined,
-          soundcloudLink:
-            soundcloudLink === null || soundcloudLink
-              ? soundcloudLink
-              : undefined,
-          spotifyLink:
-            spotifyLink === null || spotifyLink ? spotifyLink : undefined,
-          youtubeLink:
-            youtubeLink === null || youtubeLink ? youtubeLink : undefined,
+          appleLink: parseNullableField(appleLink),
+          bandcampLink: parseNullableField(bandcampLink),
+          soundcloudLink: parseNullableField(soundcloudLink),
+          spotifyLink: parseNullableField(spotifyLink),
+          youtubeLink: parseNullableField(youtubeLink),
           musicType: musicType || undefined,
           nonCanadians: nonCanadians || undefined,
-          copyright: copyright === null || copyright ? copyright : undefined,
+          copyright: parseNullableField(copyright),
         },
       });
 

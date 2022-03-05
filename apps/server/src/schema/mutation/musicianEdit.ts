@@ -5,6 +5,7 @@ import { logger } from '@server';
 import musicianExistsValidator from '@utils/validators/musicianExistsValidator';
 import { MusicianObject } from '@schema/types/MusicianRef';
 import { ProvinceEnum } from '@schema/types/Enums';
+import parseNullableField from '@utils/helpers/parseNullableField';
 
 export const musicianEdit = builder.mutationField('musicianEdit', (t) => {
   return t.field({
@@ -90,19 +91,13 @@ export const musicianEdit = builder.mutationField('musicianEdit', (t) => {
               },
             },
           }),
-          appleLink: appleLink === null || appleLink ? appleLink : undefined,
-          bandcampLink:
-            bandcampLink === null || bandcampLink ? bandcampLink : undefined,
-          soundcloudLink:
-            soundcloudLink === null || soundcloudLink
-              ? soundcloudLink
-              : undefined,
-          spotifyLink:
-            spotifyLink === null || spotifyLink ? spotifyLink : undefined,
-          youtubeLink:
-            youtubeLink === null || youtubeLink ? youtubeLink : undefined,
+          appleLink: parseNullableField(appleLink),
+          bandcampLink: parseNullableField(bandcampLink),
+          soundcloudLink: parseNullableField(soundcloudLink),
+          spotifyLink: parseNullableField(spotifyLink),
+          youtubeLink: parseNullableField(youtubeLink),
           isGroup: isGroup || undefined,
-          disbanded: disbanded || undefined,
+          disbanded: parseNullableField(disbanded),
         },
       });
 
