@@ -10,7 +10,7 @@ export const createMusic = async (
   musicianIds: string[],
   testMusic: string | null = null
 ) => {
-  const musicId = faker.unique(faker.lorem.slug);
+  const musicId = testMusic || faker.unique(faker.lorem.slug);
   const releaseDate = faker.date.past().toISOString();
   const pickMusicType = musicType[
     Math.floor(Math.random() * musicType.length)
@@ -18,7 +18,7 @@ export const createMusic = async (
 
   await prisma.music.create({
     data: {
-      id: testMusic || musicId,
+      id: musicId,
       name:
         testMusic || Math.random() < 0.5
           ? faker.name.jobDescriptor()

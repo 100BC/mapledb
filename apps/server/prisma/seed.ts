@@ -28,7 +28,7 @@ const main = async () => {
   await Promise.all(collabPromise);
   console.log('Created 25 collaborations');
 
-  await createMusician('test');
+  await createMusician('Test');
   console.log('Create test Musician');
 };
 

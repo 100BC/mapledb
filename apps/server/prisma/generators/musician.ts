@@ -5,14 +5,15 @@ import { pickRandomCity } from './city';
 import prisma from './prismaClient';
 
 export const createMusician = async (testMusician: string | null = null) => {
-  const musicianName = faker.name.findName();
-  const musicianId = faker.unique(faker.lorem.slug);
+  const musicianId =
+    testMusician?.toLowerCase() || faker.unique(faker.lorem.slug);
+  const musicianName = testMusician || faker.name.findName();
   const cityObj = pickRandomCity();
 
   await prisma.musician.create({
     data: {
-      id: testMusician || musicianId,
-      name: testMusician || musicianName,
+      id: musicianId,
+      name: musicianName,
       city: {
         connect: {
           name_province: { name: cityObj.name, province: cityObj.province },
@@ -31,10 +32,7 @@ export const createMusician = async (testMusician: string | null = null) => {
   const musicPromise: Promise<boolean>[] = [];
   for (let i = 0; i < 10; i++) {
     musicPromise.push(
-      createMusic(
-        [testMusician || musicianId],
-        testMusician ? `testMusic-${i}` : null
-      )
+      createMusic([musicianId], testMusician ? `testMusic-${i}` : null)
     );
   }
 
