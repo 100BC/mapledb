@@ -116,15 +116,17 @@ const MusicianEdit = () => {
       <h1>Edit Musician</h1>
       <hr />
       <Environment />
-      {loading ? (
-        <Spinner />
-      ) : (
-        <SearchBar
-          placeholder="Find Musician"
-          id="music-search"
-          searchFunction={(s) => searchMusician(s)}
-        />
-      )}
+      <div style={{ margin: '4rem 0' }}>
+        {loading ? (
+          <Spinner />
+        ) : (
+          <SearchBar
+            placeholder="Find Musician"
+            id="music-search"
+            searchFunction={(s) => searchMusician(s)}
+          />
+        )}
+      </div>
       {searchResults.error && <div>{searchResults.error.message}</div>}
       {editMusicianResults.error && (
         <div style={{ marginTop: '4rem' }}>

@@ -8,6 +8,8 @@ interface Props {
   placeholder?: string;
   id?: string;
   searchFunction: (arg0: string) => void;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 interface Form {
@@ -18,6 +20,8 @@ export const SearchBar = ({
   placeholder = 'Search',
   id = 'search-bar',
   searchFunction,
+  className,
+  style,
 }: Props) => {
   const { register, handleSubmit } = useForm<Form>();
 
@@ -26,7 +30,7 @@ export const SearchBar = ({
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} className={className} style={style}>
       <div className={styles.search}>
         <label htmlFor="search-bar">{placeholder}</label>
         <input
@@ -37,7 +41,7 @@ export const SearchBar = ({
           {...register('search', { required: 'true' })}
         />
         <button type="submit">
-          <SearchSvg arialabel="search" />
+          <SearchSvg />
         </button>
       </div>
     </form>
