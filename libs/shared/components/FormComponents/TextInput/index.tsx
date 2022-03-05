@@ -9,11 +9,19 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 
 export const TextInput = forwardRef(
   (
-    { label, id, name, onChange, onBlur, type = 'text' }: Props,
+    {
+      label,
+      id,
+      name,
+      onChange,
+      onBlur,
+      type = 'text',
+      disabled = false,
+    }: Props,
     ref: ForwardedRef<HTMLInputElement>
   ) => {
     return (
-      <InputWrapper id={id} label={label}>
+      <InputWrapper id={id} label={label} disabled={disabled}>
         <input
           ref={ref}
           id={id}
@@ -23,6 +31,7 @@ export const TextInput = forwardRef(
           className={styles.input}
           placeholder=""
           type={type}
+          disabled={disabled}
         />
       </InputWrapper>
     );

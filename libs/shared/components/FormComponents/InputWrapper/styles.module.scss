@@ -48,3 +48,12 @@
     transform: scale(0.8) translateY(-5em);
   }
 }
+
+.disabled {
+  color: $grey;
+  border-bottom: 2px solid $grey;
+
+  &::after {
+    background: $grey;
+  }
+}
