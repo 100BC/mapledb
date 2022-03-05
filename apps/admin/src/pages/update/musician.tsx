@@ -15,13 +15,14 @@ import {
 } from '@utils/parseLinks';
 
 const MusicianEdit = () => {
+  const [loading, setLoading] = useState(false);
+  const [uploaded, setUploaded] = useState(false);
   const [editMusicianResults, editMusician] = useEditMusicianMutation();
   const [musicianId, setMusicianId] = useState<string | null>(null);
-  const [{ data: searchData, fetching: searching, error: searchError }] =
-    useGetMusicianQuery({
-      variables: { id: musicianId! },
-      pause: !musicianId,
-    });
+  const [searchResults] = useGetMusicianQuery({
+    variables: { id: musicianId! },
+    pause: !musicianId,
+  });
   const methods = useForm<MusicianFormProps>();
   const {
     setValue,
@@ -29,45 +30,49 @@ const MusicianEdit = () => {
   } = methods;
 
   useEffect(() => {
-    if (searchData) {
-      setValue('musician', searchData.musician.name, { shouldDirty: false });
-      setValue('city', searchData.musician.city.name, { shouldDirty: false });
-      setValue('province', searchData.musician.city.province, {
+    if (editMusicianResults.fetching || searchResults.fetching)
+      setLoading(true);
+    else setLoading(false);
+  }, [editMusicianResults.fetching, searchResults.fetching]);
+
+  useEffect(() => {
+    if (editMusicianResults.data) setUploaded(true);
+  }, [editMusicianResults.data]);
+
+  useEffect(() => {
+    if (searchResults.data?.musician) {
+      const data = searchResults.data.musician;
+      setValue('musician', data.name, { shouldDirty: false });
+      setValue('city', data.city.name, { shouldDirty: false });
+      setValue('province', data.city.province, {
         shouldDirty: false,
       });
-      setValue('isGroup', searchData.musician.isGroup, {
+      setValue('isGroup', data.isGroup, {
         shouldDirty: false,
       });
-      setValue('disbanded', searchData.musician.disbanded || undefined, {
+      setValue('disbanded', data.disbanded || undefined, {
         shouldDirty: false,
       });
-      setValue('links.apple', searchData.musician.appleLink || undefined, {
+      setValue('links.apple', data.appleLink || undefined, {
         shouldDirty: false,
       });
-      setValue(
-        'links.bandcamp',
-        searchData.musician.bandcampLink || undefined,
-        {
-          shouldDirty: false,
-        }
-      );
-      setValue(
-        'links.soundcloud',
-        searchData.musician.soundcloudLink || undefined,
-        {
-          shouldDirty: false,
-        }
-      );
-      setValue('links.spotify', searchData.musician.spotifyLink || undefined, {
+      setValue('links.bandcamp', data.bandcampLink || undefined, {
         shouldDirty: false,
       });
-      setValue('links.youtube', searchData.musician.youtubeLink || undefined, {
+      setValue('links.soundcloud', data.soundcloudLink || undefined, {
+        shouldDirty: false,
+      });
+      setValue('links.spotify', data.spotifyLink || undefined, {
+        shouldDirty: false,
+      });
+      setValue('links.youtube', data.youtubeLink || undefined, {
         shouldDirty: false,
       });
     }
-  }, [searchData, setValue]);
+  }, [searchResults.data?.musician, setValue]);
 
   const searchMusician = (searchQuery: string) => {
+    setUploaded(false);
     setMusicianId(searchQuery);
   };
 
@@ -95,27 +100,14 @@ const MusicianEdit = () => {
     };
 
     await editMusician(payload);
-
-    // setSubmitting(true);
-    // await editMusician(payload).then((result) => {
-    //   if (result.error) {
-    //     setErrorMessage(result.error.message);
-    //   }
-    // });
   };
-
-  // const resetFields = (shouldReset: boolean) => {
-  //   if (shouldReset) methods.reset();
-  //   setErrorMessage(null);
-  //   setSubmitting(false);
-  // };
 
   return (
     <Layout>
       <h1>Edit Musician</h1>
       <hr />
       <Environment />
-      {searching || editMusicianResults.fetching ? (
+      {loading ? (
         <Spinner />
       ) : (
         <SearchBar
@@ -124,25 +116,24 @@ const MusicianEdit = () => {
           searchFunction={(s) => searchMusician(s)}
         />
       )}
-      {searchError && <div>{searchError.message}</div>}
+      {searchResults.error && <div>{searchResults.error.message}</div>}
       {editMusicianResults.error && (
-        <div>{editMusicianResults.error.message}</div>
-      )}
-      {editMusicianResults.data && (
-        <div>
-          <h2>Updated Musician: {searchData?.musician.name}</h2>
+        <div style={{ marginTop: '4rem' }}>
+          {editMusicianResults.error.message}
         </div>
       )}
-      {searchData &&
-        !editMusicianResults.data &&
-        !editMusicianResults.fetching &&
-        !editMusicianResults.error && (
-          <FormProvider {...methods}>
-            <form onSubmit={methods.handleSubmit(onSubmit)}>
-              <MusicianFormGeneric isEditing />
-            </form>
-          </FormProvider>
-        )}
+      {uploaded && (
+        <h2 style={{ marginTop: '8rem' }}>
+          Updated Musician: <b>{editMusicianResults.data?.musicianEdit.name}</b>
+        </h2>
+      )}
+      {!uploaded && !loading && searchResults.data && (
+        <FormProvider {...methods}>
+          <form onSubmit={methods.handleSubmit(onSubmit)}>
+            <MusicianFormGeneric isEditing />
+          </form>
+        </FormProvider>
+      )}
     </Layout>
   );
 };
