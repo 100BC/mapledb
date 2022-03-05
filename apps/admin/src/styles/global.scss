@@ -1,8 +1,13 @@
 @use '~@mooseical/theme' as *;
 @use '~@mooseical/theme/globals' as *;
 
+$bg-400: hsl(60, 9%, 91%);
+$font-400: $black;
+
 body {
   font-family: Roboto, sans-serif;
+  color: $font-400;
+  background: $bg-400;
 }
 
 h1 {
@@ -30,6 +35,6 @@ hr {
 }
 
 form {
-  width: 60%;
+  max-width: 450px;
   margin: auto;
 }
