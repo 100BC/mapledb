@@ -77,26 +77,35 @@ const MusicianEdit = () => {
   };
 
   const onSubmit = async (data: MusicianFormProps) => {
-    const appleLink = parseNullableStringField(data.links.apple);
-    const bandcampLink = parseNullableStringField(data.links.bandcamp);
-    const soundcloudLink = parseNullableStringField(data.links.soundcloud);
-    const spotifyLink = parseNullableStringField(data.links.spotify);
-    const youtubeLink = parseNullableStringField(data.links.youtube);
-    const disbanded = parseNullableDateField(data.disbanded);
-
     const payload = {
       id: musicianId!,
       city: dirtyFields.city ? data.city.trim() : undefined,
       province: dirtyFields.province ? data.province : undefined,
-      appleLink: dirtyFields.links?.apple ? appleLink : undefined,
-      bandcampLink: dirtyFields.links?.bandcamp ? bandcampLink : undefined,
-      soundcloudLink: dirtyFields.links?.soundcloud
-        ? soundcloudLink
-        : undefined,
-      spotifyLink: dirtyFields.links?.spotify ? spotifyLink : undefined,
-      youtubeLink: dirtyFields.links?.youtube ? youtubeLink : undefined,
       isGroup: dirtyFields.isGroup ? data.isGroup : undefined,
-      disbanded: dirtyFields.disbanded ? disbanded : undefined,
+      appleLink: parseNullableStringField(
+        !!dirtyFields.links?.apple,
+        data.links.apple
+      ),
+      bandcampLink: parseNullableStringField(
+        !!dirtyFields.links?.bandcamp,
+        data.links.bandcamp
+      ),
+      soundcloudLink: parseNullableStringField(
+        !!dirtyFields.links?.soundcloud,
+        data.links.soundcloud
+      ),
+      spotifyLink: parseNullableStringField(
+        !!dirtyFields.links?.spotify,
+        data.links.spotify
+      ),
+      youtubeLink: parseNullableStringField(
+        !!dirtyFields.links?.youtube,
+        data.links.youtube
+      ),
+      disbanded: parseNullableDateField(
+        !!dirtyFields.disbanded,
+        data.disbanded
+      ),
     };
 
     await editMusician(payload);
