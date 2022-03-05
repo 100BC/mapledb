@@ -66,9 +66,8 @@ fastify.register(helmet, {
 fastify.register(cors, {
   origin: [
     'http://localhost:3000',
-    `http://localhost:${process.env.PORT || 5000}`,
+    'http://localhost:3001',
     'https://www.mooseical.com',
-    'https://api.mooseical.com',
   ],
 });
 
