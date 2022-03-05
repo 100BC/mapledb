@@ -1,6 +1,7 @@
 import builder from '@schema/builder';
 import { MusicianObject } from '@schema/types/MusicianRef';
 import { logger } from '@server';
+import { cloudinaryDelete } from '@utils/imageUtils/cloudinaryFunctions';
 import musicianExistsValidator from '@utils/validators/musicianExistsValidator';
 
 export const musicianDelete = builder.mutationField('musicianDelete', (t) => {
@@ -21,6 +22,14 @@ export const musicianDelete = builder.mutationField('musicianDelete', (t) => {
       await musicianExistsValidator({
         musicianId: id,
         prisma: ctx.prisma,
+      });
+
+      const musicWithCovers = await ctx.prisma.music.findMany({
+        where: { musicians: { some: { musicianId: id } }, hasCover: true },
+      });
+
+      musicWithCovers.forEach((piece) => {
+        cloudinaryDelete(piece.id);
       });
 
       await ctx.prisma.music.deleteMany({
