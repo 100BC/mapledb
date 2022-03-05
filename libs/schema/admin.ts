@@ -63,6 +63,21 @@ export type EditMusicMutationVariables = Types.Exact<{
 
 export type EditMusicMutation = { musicEdit: { id: string; name: string } };
 
+export type EditMusicianMutationVariables = Types.Exact<{
+  id: Types.Scalars['String'];
+  city?: Types.InputMaybe<Types.Scalars['String']>;
+  province?: Types.InputMaybe<Types.Province>;
+  appleLink?: Types.InputMaybe<Types.Scalars['String']>;
+  bandcampLink?: Types.InputMaybe<Types.Scalars['String']>;
+  soundcloudLink?: Types.InputMaybe<Types.Scalars['String']>;
+  spotifyLink?: Types.InputMaybe<Types.Scalars['String']>;
+  youtubeLink?: Types.InputMaybe<Types.Scalars['String']>;
+  isGroup?: Types.InputMaybe<Types.Scalars['Boolean']>;
+  disbanded?: Types.InputMaybe<Types.Scalars['Date']>;
+}>;
+
+export type EditMusicianMutation = { musicianEdit: { name: string } };
+
 export type GetMusicQueryVariables = Types.Exact<{
   id: Types.Scalars['String'];
 }>;
@@ -82,6 +97,24 @@ export type GetMusicQuery = {
     youtubeLink: string | null;
     musicType: Types.MusicType;
     subgenre: { name: string; genre: Types.Genre };
+  };
+};
+
+export type GetMusicianQueryVariables = Types.Exact<{
+  id: Types.Scalars['String'];
+}>;
+
+export type GetMusicianQuery = {
+  musician: {
+    name: string;
+    appleLink: string | null;
+    bandcampLink: string | null;
+    soundcloudLink: string | null;
+    spotifyLink: string | null;
+    youtubeLink: string | null;
+    isGroup: boolean;
+    disbanded: string | null;
+    city: { name: string; province: Types.Province };
   };
 };
 
@@ -201,6 +234,35 @@ export const EditMusicDocument = gql`
     }
   }
 `;
+export const EditMusicianDocument = gql`
+  mutation EditMusician(
+    $id: String!
+    $city: String
+    $province: Province
+    $appleLink: String
+    $bandcampLink: String
+    $soundcloudLink: String
+    $spotifyLink: String
+    $youtubeLink: String
+    $isGroup: Boolean
+    $disbanded: Date
+  ) {
+    musicianEdit(
+      id: $id
+      city: $city
+      province: $province
+      appleLink: $appleLink
+      bandcampLink: $bandcampLink
+      soundcloudLink: $soundcloudLink
+      spotifyLink: $spotifyLink
+      youtubeLink: $youtubeLink
+      isGroup: $isGroup
+      disbanded: $disbanded
+    ) {
+      name
+    }
+  }
+`;
 export const GetMusicDocument = gql`
   query GetMusic($id: String!) {
     music(id: $id) {
@@ -220,6 +282,24 @@ export const GetMusicDocument = gql`
       spotifyLink
       youtubeLink
       musicType
+    }
+  }
+`;
+export const GetMusicianDocument = gql`
+  query GetMusician($id: String!) {
+    musician(id: $id) {
+      name
+      city {
+        name
+        province
+      }
+      appleLink
+      bandcampLink
+      soundcloudLink
+      spotifyLink
+      youtubeLink
+      isGroup
+      disbanded
     }
   }
 `;

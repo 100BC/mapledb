@@ -1,0 +1,16 @@
+query GetMusician($id: String!) {
+  musician(id: $id) {
+    name
+    city {
+      name
+      province
+    }
+    appleLink
+    bandcampLink
+    soundcloudLink
+    spotifyLink
+    youtubeLink
+    isGroup
+    disbanded
+  }
+}

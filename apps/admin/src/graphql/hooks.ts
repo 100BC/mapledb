@@ -31,11 +31,30 @@ export function useEditMusicMutation() {
   >(Operations.EditMusicDocument);
 }
 
+export function useEditMusicianMutation() {
+  return Urql.useMutation<
+    Operations.EditMusicianMutation,
+    Operations.EditMusicianMutationVariables
+  >(Operations.EditMusicianDocument);
+}
+
 export function useGetMusicQuery(
   options: Omit<Urql.UseQueryArgs<Operations.GetMusicQueryVariables>, 'query'>
 ) {
   return Urql.useQuery<Operations.GetMusicQuery>({
     query: Operations.GetMusicDocument,
+    ...options,
+  });
+}
+
+export function useGetMusicianQuery(
+  options: Omit<
+    Urql.UseQueryArgs<Operations.GetMusicianQueryVariables>,
+    'query'
+  >
+) {
+  return Urql.useQuery<Operations.GetMusicianQuery>({
+    query: Operations.GetMusicianDocument,
     ...options,
   });
 }
