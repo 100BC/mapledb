@@ -24,6 +24,13 @@ export function useDeleteMusicMutation() {
   >(Operations.DeleteMusicDocument);
 }
 
+export function useDeleteMusicianMutation() {
+  return Urql.useMutation<
+    Operations.DeleteMusicianMutation,
+    Operations.DeleteMusicianMutationVariables
+  >(Operations.DeleteMusicianDocument);
+}
+
 export function useEditMusicMutation() {
   return Urql.useMutation<
     Operations.EditMusicMutation,
@@ -55,6 +62,18 @@ export function useGetMusicianQuery(
 ) {
   return Urql.useQuery<Operations.GetMusicianQuery>({
     query: Operations.GetMusicianDocument,
+    ...options,
+  });
+}
+
+export function useGetMusicianNameQuery(
+  options: Omit<
+    Urql.UseQueryArgs<Operations.GetMusicianNameQueryVariables>,
+    'query'
+  >
+) {
+  return Urql.useQuery<Operations.GetMusicianNameQuery>({
+    query: Operations.GetMusicianNameDocument,
     ...options,
   });
 }

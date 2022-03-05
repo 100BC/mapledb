@@ -42,6 +42,12 @@ export type DeleteMusicMutationVariables = Types.Exact<{
 
 export type DeleteMusicMutation = { musicDelete: { id: string; name: string } };
 
+export type DeleteMusicianMutationVariables = Types.Exact<{
+  id: Types.Scalars['String'];
+}>;
+
+export type DeleteMusicianMutation = { musicianDelete: { name: string } };
+
 export type EditMusicMutationVariables = Types.Exact<{
   id: Types.Scalars['String'];
   release?: Types.InputMaybe<Types.Scalars['Date']>;
@@ -118,6 +124,12 @@ export type GetMusicianQuery = {
   };
 };
 
+export type GetMusicianNameQueryVariables = Types.Exact<{
+  id: Types.Scalars['String'];
+}>;
+
+export type GetMusicianNameQuery = { musician: { name: string } };
+
 export const AddMusicDocument = gql`
   mutation AddMusic(
     $name: String!
@@ -192,6 +204,13 @@ export const DeleteMusicDocument = gql`
   mutation DeleteMusic($id: String!) {
     musicDelete(id: $id) {
       id
+      name
+    }
+  }
+`;
+export const DeleteMusicianDocument = gql`
+  mutation DeleteMusician($id: String!) {
+    musicianDelete(id: $id) {
       name
     }
   }
@@ -300,6 +319,13 @@ export const GetMusicianDocument = gql`
       youtubeLink
       isGroup
       disbanded
+    }
+  }
+`;
+export const GetMusicianNameDocument = gql`
+  query getMusicianName($id: String!) {
+    musician(id: $id) {
+      name
     }
   }
 `;

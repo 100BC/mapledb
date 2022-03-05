@@ -14,3 +14,9 @@ query GetMusician($id: String!) {
     disbanded
   }
 }
+
+query getMusicianName($id: String!) {
+  musician(id: $id) {
+    name
+  }
+}

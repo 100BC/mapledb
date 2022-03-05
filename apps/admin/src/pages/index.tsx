@@ -10,9 +10,8 @@ import { auth } from '@gcp/client';
 const Home = () => {
   return (
     <Layout noIndex>
-      <h1>Welcome</h1>
+      <h1>Mooseical Admin</h1>
       <hr />
-      <h2>What would you like to do?</h2>
       <Environment />
       <section className={styles.section}>
         <h2>Musician</h2>
