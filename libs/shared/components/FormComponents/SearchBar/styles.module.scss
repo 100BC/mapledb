@@ -1,0 +1,29 @@
+@use '~@mooseical/theme' as *;
+
+.search {
+  display: flex;
+  justify-content: center;
+
+  > label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  > button {
+    background: $theme-400;
+    border: 2px solid;
+
+    &:hover {
+      color: $black;
+
+      > svg {
+        fill: $black;
+      }
+    }
+  }
+}
