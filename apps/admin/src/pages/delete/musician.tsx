@@ -50,7 +50,7 @@ const DeleteMusician = () => {
           <Spinner />
         ) : (
           <SearchBar
-            placeholder="Find Musician by Id"
+            placeholder="Find Musician by id"
             id="music-search"
             searchFunction={(s) => searchMusician(s)}
           />

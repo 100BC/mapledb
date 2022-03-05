@@ -121,7 +121,7 @@ const MusicianEdit = () => {
           <Spinner />
         ) : (
           <SearchBar
-            placeholder="Find Musician"
+            placeholder="Find Musician by id"
             id="music-search"
             searchFunction={(s) => searchMusician(s)}
           />
