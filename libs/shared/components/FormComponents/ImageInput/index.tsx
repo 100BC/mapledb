@@ -9,6 +9,9 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   imageAlt: string;
 }
 
+const placeholderImg =
+  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mMsKC//DwAFHAJfGcMDnAAAAABJRU5ErkJggg==';
+
 export const ImageInput = forwardRef(
   (
     { name, id, onChange, onBlur, label, image, imageAlt }: Props,
@@ -21,9 +24,10 @@ export const ImageInput = forwardRef(
           layout="intrinsic"
           width={200}
           height={200}
-          src={image || '/grey.png'}
+          src={image || placeholderImg}
+          placeholder="blur"
+          blurDataURL={placeholderImg}
           alt={imageAlt}
-          unoptimized
           objectFit="cover"
         />
         <input
