@@ -19,7 +19,6 @@ interface FormData {
   links: {
     apple: string;
     bandcamp: string;
-    soundcloud: string;
     spotify: string;
     youtube: string;
   };
@@ -56,9 +55,6 @@ const SuggestMusician = () => {
       links: {
         ...(data.links.apple && { apple: data.links.apple.trim() }),
         ...(data.links.bandcamp && { bandcamp: data.links.bandcamp.trim() }),
-        ...(data.links.soundcloud && {
-          soundcloud: data.links.soundcloud.trim(),
-        }),
         ...(data.links.spotify && { spotify: data.links.spotify.trim() }),
         ...(data.links.youtube && { youtube: data.links.youtube.trim() }),
       },
@@ -159,20 +155,6 @@ const SuggestMusician = () => {
         <FormError
           error={errors.links?.bandcamp?.type === 'pattern'}
           message="Malformed Bandcamp URL"
-        />
-
-        <TextInput
-          id="links.soundcloud"
-          {...register('links.soundcloud', {
-            validate: { required: () => validateLinks(getValues('links')) },
-            pattern:
-              /((http:\/\/(soundcloud\.com\/.*|soundcloud\.com\/.*\/.*|soundcloud\.com\/.*\/sets\/.*|soundcloud\.com\/groups\/.*|snd\.sc\/.*))|(https:\/\/(soundcloud\.com\/.*|soundcloud\.com\/.*\/.*|soundcloud\.com\/.*\/sets\/.*|soundcloud\.com\/groups\/.*)))/i,
-          })}
-          label="SoundCloud"
-        />
-        <FormError
-          error={errors.links?.soundcloud?.type === 'pattern'}
-          message="Malformed Soundcloud URL"
         />
 
         <TextInput

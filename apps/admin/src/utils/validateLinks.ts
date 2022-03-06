@@ -1,7 +1,6 @@
 interface Links {
   apple?: string;
   bandcamp?: string;
-  soundcloud?: string;
   spotify?: string;
   youtube?: string;
 }

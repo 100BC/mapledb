@@ -21,7 +21,6 @@ export const musicianAdd = builder.mutationField('musicianAdd', (t) => {
       province: t.arg({ type: ProvinceEnum, required: true }),
       appleLink: t.arg.string(),
       bandcampLink: t.arg.string(),
-      soundcloudLink: t.arg.string(),
       spotifyLink: t.arg.string(),
       youtubeLink: t.arg.string(),
       isGroup: t.arg.boolean({ required: true }),
@@ -36,7 +35,6 @@ export const musicianAdd = builder.mutationField('musicianAdd', (t) => {
         province,
         appleLink,
         bandcampLink,
-        soundcloudLink,
         spotifyLink,
         youtubeLink,
         isGroup,
@@ -48,7 +46,6 @@ export const musicianAdd = builder.mutationField('musicianAdd', (t) => {
       linksValidator({
         apple: appleLink,
         bandcamp: bandcampLink,
-        soundcloud: soundcloudLink,
         spotify: spotifyLink,
         youtube: youtubeLink,
       });
@@ -67,7 +64,6 @@ export const musicianAdd = builder.mutationField('musicianAdd', (t) => {
           },
           appleLink,
           bandcampLink,
-          soundcloudLink,
           spotifyLink,
           youtubeLink,
           isGroup,

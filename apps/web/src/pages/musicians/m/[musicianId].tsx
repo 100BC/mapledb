@@ -29,7 +29,6 @@ const MusicianDisplay = ({ musicianId }: Props) => {
     name,
     appleLink,
     bandcampLink,
-    soundcloudLink,
     spotifyLink,
     youtubeLink,
     city,
@@ -65,7 +64,6 @@ const MusicianDisplay = ({ musicianId }: Props) => {
             <ExternalLinks
               apple={appleLink}
               bandcamp={bandcampLink}
-              soundcloud={soundcloudLink}
               spotify={spotifyLink}
               youtube={youtubeLink}
             />

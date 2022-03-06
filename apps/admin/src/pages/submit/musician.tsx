@@ -27,7 +27,6 @@ const SubmitMusician = () => {
       province: data.province,
       appleLink: data.links.apple?.trim() || null,
       bandcampLink: data.links.bandcamp?.trim() || null,
-      soundcloudLink: data.links.soundcloud?.trim() || null,
       spotifyLink: data.links.spotify?.trim() || null,
       youtubeLink: data.links.youtube?.trim() || null,
       isGroup: data.isGroup,

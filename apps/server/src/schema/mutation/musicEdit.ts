@@ -27,7 +27,6 @@ export const musicEdit = builder.mutationField('musicEdit', (t) => {
       cover: t.arg({ type: 'Upload' }),
       appleLink: t.arg.string(),
       bandcampLink: t.arg.string(),
-      soundcloudLink: t.arg.string(),
       spotifyLink: t.arg.string(),
       youtubeLink: t.arg.string(),
       nonCanadians: t.arg.stringList({
@@ -47,7 +46,6 @@ export const musicEdit = builder.mutationField('musicEdit', (t) => {
         cover,
         appleLink,
         bandcampLink,
-        soundcloudLink,
         spotifyLink,
         nonCanadians,
         youtubeLink,
@@ -72,7 +70,6 @@ export const musicEdit = builder.mutationField('musicEdit', (t) => {
       linksValidator({
         apple: appleLink,
         bandcamp: bandcampLink,
-        soundcloud: soundcloudLink,
         spotify: spotifyLink,
         youtube: youtubeLink,
         isUpdate: true,
@@ -116,7 +113,6 @@ export const musicEdit = builder.mutationField('musicEdit', (t) => {
           instrumental: instrumental ?? undefined,
           appleLink: parseNullableField(appleLink),
           bandcampLink: parseNullableField(bandcampLink),
-          soundcloudLink: parseNullableField(soundcloudLink),
           spotifyLink: parseNullableField(spotifyLink),
           youtubeLink: parseNullableField(youtubeLink),
           musicType: musicType || undefined,

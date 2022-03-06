@@ -12,7 +12,6 @@ export type AddMusicMutationVariables = Types.Exact<{
   cover?: Types.InputMaybe<Types.Scalars['Upload']>;
   appleLink?: Types.InputMaybe<Types.Scalars['String']>;
   bandcampLink?: Types.InputMaybe<Types.Scalars['String']>;
-  soundcloudLink?: Types.InputMaybe<Types.Scalars['String']>;
   spotifyLink?: Types.InputMaybe<Types.Scalars['String']>;
   youtubeLink?: Types.InputMaybe<Types.Scalars['String']>;
   nonCanadians: Array<Types.Scalars['String']> | Types.Scalars['String'];
@@ -27,7 +26,6 @@ export type AddMusicianMutationVariables = Types.Exact<{
   province: Types.Province;
   appleLink?: Types.InputMaybe<Types.Scalars['String']>;
   bandcampLink?: Types.InputMaybe<Types.Scalars['String']>;
-  soundcloudLink?: Types.InputMaybe<Types.Scalars['String']>;
   spotifyLink?: Types.InputMaybe<Types.Scalars['String']>;
   youtubeLink?: Types.InputMaybe<Types.Scalars['String']>;
   isGroup: Types.Scalars['Boolean'];
@@ -57,7 +55,6 @@ export type EditMusicMutationVariables = Types.Exact<{
   cover?: Types.InputMaybe<Types.Scalars['Upload']>;
   appleLink?: Types.InputMaybe<Types.Scalars['String']>;
   bandcampLink?: Types.InputMaybe<Types.Scalars['String']>;
-  soundcloudLink?: Types.InputMaybe<Types.Scalars['String']>;
   spotifyLink?: Types.InputMaybe<Types.Scalars['String']>;
   youtubeLink?: Types.InputMaybe<Types.Scalars['String']>;
   musicType?: Types.InputMaybe<Types.MusicType>;
@@ -75,7 +72,6 @@ export type EditMusicianMutationVariables = Types.Exact<{
   province?: Types.InputMaybe<Types.Province>;
   appleLink?: Types.InputMaybe<Types.Scalars['String']>;
   bandcampLink?: Types.InputMaybe<Types.Scalars['String']>;
-  soundcloudLink?: Types.InputMaybe<Types.Scalars['String']>;
   spotifyLink?: Types.InputMaybe<Types.Scalars['String']>;
   youtubeLink?: Types.InputMaybe<Types.Scalars['String']>;
   isGroup?: Types.InputMaybe<Types.Scalars['Boolean']>;
@@ -99,7 +95,6 @@ export type GetMusicQuery = {
     instrumental: boolean;
     appleLink: string | null;
     bandcampLink: string | null;
-    soundcloudLink: string | null;
     spotifyLink: string | null;
     youtubeLink: string | null;
     musicType: Types.MusicType;
@@ -123,7 +118,6 @@ export type GetMusicianQuery = {
     name: string;
     appleLink: string | null;
     bandcampLink: string | null;
-    soundcloudLink: string | null;
     spotifyLink: string | null;
     youtubeLink: string | null;
     isGroup: boolean;
@@ -150,7 +144,6 @@ export const AddMusicDocument = gql`
     $cover: Upload
     $appleLink: String
     $bandcampLink: String
-    $soundcloudLink: String
     $spotifyLink: String
     $youtubeLink: String
     $nonCanadians: [String!]!
@@ -167,7 +160,6 @@ export const AddMusicDocument = gql`
       cover: $cover
       appleLink: $appleLink
       bandcampLink: $bandcampLink
-      soundcloudLink: $soundcloudLink
       spotifyLink: $spotifyLink
       youtubeLink: $youtubeLink
       nonCanadians: $nonCanadians
@@ -185,7 +177,6 @@ export const AddMusicianDocument = gql`
     $province: Province!
     $appleLink: String
     $bandcampLink: String
-    $soundcloudLink: String
     $spotifyLink: String
     $youtubeLink: String
     $isGroup: Boolean!
@@ -197,7 +188,6 @@ export const AddMusicianDocument = gql`
       province: $province
       appleLink: $appleLink
       bandcampLink: $bandcampLink
-      soundcloudLink: $soundcloudLink
       spotifyLink: $spotifyLink
       youtubeLink: $youtubeLink
       isGroup: $isGroup
@@ -233,7 +223,6 @@ export const EditMusicDocument = gql`
     $cover: Upload
     $appleLink: String
     $bandcampLink: String
-    $soundcloudLink: String
     $spotifyLink: String
     $youtubeLink: String
     $musicType: MusicType
@@ -249,7 +238,6 @@ export const EditMusicDocument = gql`
       cover: $cover
       appleLink: $appleLink
       bandcampLink: $bandcampLink
-      soundcloudLink: $soundcloudLink
       spotifyLink: $spotifyLink
       youtubeLink: $youtubeLink
       musicType: $musicType
@@ -268,7 +256,6 @@ export const EditMusicianDocument = gql`
     $province: Province
     $appleLink: String
     $bandcampLink: String
-    $soundcloudLink: String
     $spotifyLink: String
     $youtubeLink: String
     $isGroup: Boolean
@@ -280,7 +267,6 @@ export const EditMusicianDocument = gql`
       province: $province
       appleLink: $appleLink
       bandcampLink: $bandcampLink
-      soundcloudLink: $soundcloudLink
       spotifyLink: $spotifyLink
       youtubeLink: $youtubeLink
       isGroup: $isGroup
@@ -306,7 +292,6 @@ export const GetMusicDocument = gql`
       instrumental
       appleLink
       bandcampLink
-      soundcloudLink
       spotifyLink
       youtubeLink
       musicType
@@ -333,7 +318,6 @@ export const GetMusicianDocument = gql`
       }
       appleLink
       bandcampLink
-      soundcloudLink
       spotifyLink
       youtubeLink
       isGroup

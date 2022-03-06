@@ -7,7 +7,6 @@ query GetMusician($id: String!) {
     }
     appleLink
     bandcampLink
-    soundcloudLink
     spotifyLink
     youtubeLink
     isGroup

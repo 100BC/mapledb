@@ -3,7 +3,6 @@ import { logger } from '@server';
 interface Props {
   apple: string | null | undefined;
   bandcamp: string | null | undefined;
-  soundcloud: string | null | undefined;
   spotify: string | null | undefined;
   youtube: string | null | undefined;
   isUpdate?: boolean;
@@ -13,14 +12,11 @@ interface Props {
 const linksValidator = ({
   apple,
   bandcamp,
-  soundcloud,
   spotify,
   youtube,
   isUpdate = false,
 }: Props) => {
-  const allNull = [apple, bandcamp, soundcloud, spotify, youtube].every(
-    (link) => !link
-  );
+  const allNull = [apple, bandcamp, spotify, youtube].every((link) => !link);
   if (allNull && !isUpdate) {
     logger.error('No Urls provided');
     throw new Error('At least one link must be provided');
@@ -38,11 +34,11 @@ const linksValidator = ({
       )
     : true;
 
-  const soundcloudValid = soundcloud
-    ? /((http:\/\/(soundcloud\.com\/.*|soundcloud\.com\/.*\/.*|soundcloud\.com\/.*\/sets\/.*|soundcloud\.com\/groups\/.*|snd\.sc\/.*))|(https:\/\/(soundcloud\.com\/.*|soundcloud\.com\/.*\/.*|soundcloud\.com\/.*\/sets\/.*|soundcloud\.com\/groups\/.*)))/i.test(
-        soundcloud
-      )
-    : true;
+  // const soundcloudValid = soundcloud
+  //   ? /((http:\/\/(soundcloud\.com\/.*|soundcloud\.com\/.*\/.*|soundcloud\.com\/.*\/sets\/.*|soundcloud\.com\/groups\/.*|snd\.sc\/.*))|(https:\/\/(soundcloud\.com\/.*|soundcloud\.com\/.*\/.*|soundcloud\.com\/.*\/sets\/.*|soundcloud\.com\/groups\/.*)))/i.test(
+  //       soundcloud
+  //     )
+  //   : true;
 
   const spotifyValid = spotify
     ? /((http:\/\/(open\.spotify\.com\/.*|spoti\.fi\/.*|play\.spotify\.com\/.*))|(https:\/\/(open\.spotify\.com\/.*|play\.spotify\.com\/.*)))/i.test(
@@ -56,13 +52,9 @@ const linksValidator = ({
       )
     : true;
 
-  const invalid = [
-    appleValid,
-    bandcampValid,
-    soundcloudValid,
-    spotifyValid,
-    youtubeValid,
-  ].some((link) => !link);
+  const invalid = [appleValid, bandcampValid, spotifyValid, youtubeValid].some(
+    (link) => !link
+  );
 
   // no false elements
   if (invalid) {
@@ -70,9 +62,7 @@ const linksValidator = ({
     throw new Error(
       `The following links are invalid:${appleValid ? '' : ' apple'}${
         bandcampValid ? '' : ' bandcamp'
-      }${soundcloudValid ? '' : ' soundcloud'}${
-        spotifyValid ? '' : ' spotify'
-      }${youtubeValid ? '' : ' youtube'}`
+      }${spotifyValid ? '' : ' spotify'}${youtubeValid ? '' : ' youtube'}`
     );
   }
 };

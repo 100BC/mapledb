@@ -52,7 +52,6 @@ const UpdateMusician = () => {
         disbanded: data.disbanded,
         'links.apple': data.appleLink,
         'links.bandcamp': data.bandcampLink,
-        'links.soundcloud': data.soundcloudLink,
         'links.spotify': data.spotifyLink,
         'links.youtube': data.youtubeLink,
       });
@@ -77,10 +76,6 @@ const UpdateMusician = () => {
       bandcampLink: parseNullableStringField(
         !!dirtyFields.links?.bandcamp,
         data.links.bandcamp
-      ),
-      soundcloudLink: parseNullableStringField(
-        !!dirtyFields.links?.soundcloud,
-        data.links.soundcloud
       ),
       spotifyLink: parseNullableStringField(
         !!dirtyFields.links?.spotify,

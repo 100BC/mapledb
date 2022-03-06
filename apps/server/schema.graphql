@@ -42,7 +42,6 @@ type Music {
   name: String!
   nonCanadians: [String!]!
   release: Date!
-  soundcloudLink: String
   spotifyLink: String
   subgenre: Subgenre!
   youtubeLink: String
@@ -68,29 +67,28 @@ type Musician {
   latestInfo: LatestInfo
   music(type: MusicType): [Music!]!
   name: String!
-  soundcloudLink: String
   spotifyLink: String
   youtubeLink: String
 }
 
 type Mutation {
   """Add a musical work; the musician must already exist in DB"""
-  musicAdd(appleLink: String, bandcampLink: String, copyright: String, cover: Upload, genre: Genre!, instrumental: Boolean!, musicType: MusicType!, musicianIds: [String!]!, name: String!, nonCanadians: [String!]!, release: Date!, soundcloudLink: String, spotifyLink: String, subgenre: String!, youtubeLink: String): Music!
+  musicAdd(appleLink: String, bandcampLink: String, copyright: String, cover: Upload, genre: Genre!, instrumental: Boolean!, musicType: MusicType!, musicianIds: [String!]!, name: String!, nonCanadians: [String!]!, release: Date!, spotifyLink: String, subgenre: String!, youtubeLink: String): Music!
 
   """Deletes a musical work"""
   musicDelete(id: String!): Music!
 
   """Updates an existing musical work in the db"""
-  musicEdit(appleLink: String, bandcampLink: String, copyright: String, cover: Upload, genre: Genre, id: String!, instrumental: Boolean, musicType: MusicType, nonCanadians: [String!], release: Date, soundcloudLink: String, spotifyLink: String, subgenre: String, youtubeLink: String): Music!
+  musicEdit(appleLink: String, bandcampLink: String, copyright: String, cover: Upload, genre: Genre, id: String!, instrumental: Boolean, musicType: MusicType, nonCanadians: [String!], release: Date, spotifyLink: String, subgenre: String, youtubeLink: String): Music!
 
   """Add an Musician"""
-  musicianAdd(appleLink: String, bandcampLink: String, city: String!, disbanded: Date, isGroup: Boolean!, name: String!, province: Province!, soundcloudLink: String, spotifyLink: String, youtubeLink: String): Musician!
+  musicianAdd(appleLink: String, bandcampLink: String, city: String!, disbanded: Date, isGroup: Boolean!, name: String!, province: Province!, spotifyLink: String, youtubeLink: String): Musician!
 
   """Deletes a musician and all their music"""
   musicianDelete(id: String!): Musician!
 
   """Edit a Musician"""
-  musicianEdit(appleLink: String, bandcampLink: String, city: String, disbanded: Date, id: String!, isGroup: Boolean, province: Province, soundcloudLink: String, spotifyLink: String, youtubeLink: String): Musician!
+  musicianEdit(appleLink: String, bandcampLink: String, city: String, disbanded: Date, id: String!, isGroup: Boolean, province: Province, spotifyLink: String, youtubeLink: String): Musician!
 }
 
 """Argument values for ordering"""

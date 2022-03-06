@@ -13,7 +13,6 @@ query GetMusic($id: String!) {
     instrumental
     appleLink
     bandcampLink
-    soundcloudLink
     spotifyLink
     youtubeLink
     musicType

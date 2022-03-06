@@ -42,7 +42,6 @@ const SubmitMusic = () => {
       cover: data.cover[0] || null,
       appleLink: data.links.apple?.trim() || null,
       bandcampLink: data.links.bandcamp?.trim() || null,
-      soundcloudLink: data.links.soundcloud?.trim() || null,
       spotifyLink: data.links.spotify?.trim() || null,
       youtubeLink: data.links.youtube?.trim() || null,
       nonCanadians: data.nonCanadians.filter((i) => i), // remove empty strings

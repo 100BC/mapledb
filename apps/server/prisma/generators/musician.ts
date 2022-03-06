@@ -21,7 +21,6 @@ export const createMusician = async (testMusician: string | null = null) => {
       },
       appleLink: `https://music.apple.com/us/album/${musicianId}`,
       bandcampLink: `https://${musicianId}.bandcamp.com/album/${musicianId}`,
-      soundcloudLink: `https://soundcloud.com/${musicianId}/sets/${musicianId}`,
       spotifyLink: `https://open.spotify.com/album/${musicianId}`,
       youtubeLink: `https://youtu.be/${musicianId}`,
       isGroup: Math.random() < 0.5,

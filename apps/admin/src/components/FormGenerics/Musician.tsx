@@ -25,7 +25,6 @@ export interface MusicianFormProps {
   links: {
     apple?: string;
     bandcamp?: string;
-    soundcloud?: string;
     spotify?: string;
     youtube?: string;
   };
@@ -106,7 +105,7 @@ const MusicianFormGeneric = ({ isEditing = false }: Props) => {
         message="Malformed Bandcamp URL"
       />
 
-      <TextInput
+      {/* <TextInput
         id="links.soundcloud"
         {...register('links.soundcloud', {
           validate: { required: () => validateLinks(getValues('links')) },
@@ -118,7 +117,7 @@ const MusicianFormGeneric = ({ isEditing = false }: Props) => {
       <FormError
         error={errors.links?.soundcloud?.type === 'pattern'}
         message="Malformed Soundcloud URL"
-      />
+      /> */}
 
       <TextInput
         id="links.spotify"

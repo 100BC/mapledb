@@ -23,7 +23,6 @@ export const Music = MusicianObject.implement({
     isGroup: t.exposeBoolean('isGroup'),
     appleLink: t.exposeString('appleLink', { nullable: true }),
     bandcampLink: t.exposeString('bandcampLink', { nullable: true }),
-    soundcloudLink: t.exposeString('soundcloudLink', { nullable: true }),
     spotifyLink: t.exposeString('spotifyLink', { nullable: true }),
     youtubeLink: t.exposeString('youtubeLink', { nullable: true }),
     music: t.field({

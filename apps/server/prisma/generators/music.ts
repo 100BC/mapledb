@@ -32,7 +32,6 @@ export const createMusic = async (
       instrumental: Math.random() < 0.1,
       appleLink: `https://music.apple.com/us/album/${musicId}`,
       bandcampLink: `https://${musicId}.bandcamp.com/album/${musicId}`,
-      soundcloudLink: `https://soundcloud.com/${musicId}/sets/${musicId}`,
       spotifyLink: `https://open.spotify.com/album/${musicId}`,
       youtubeLink: `https://youtu.be/${musicId}`,
       nonCanadians: Math.random() < 0.1 ? createNonCanadians() : [],

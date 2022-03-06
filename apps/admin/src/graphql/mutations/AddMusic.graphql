@@ -9,7 +9,6 @@ mutation AddMusic(
   $cover: Upload
   $appleLink: String
   $bandcampLink: String
-  $soundcloudLink: String
   $spotifyLink: String
   $youtubeLink: String
   $nonCanadians: [String!]!
@@ -26,7 +25,6 @@ mutation AddMusic(
     cover: $cover
     appleLink: $appleLink
     bandcampLink: $bandcampLink
-    soundcloudLink: $soundcloudLink
     spotifyLink: $spotifyLink
     youtubeLink: $youtubeLink
     nonCanadians: $nonCanadians

@@ -7,7 +7,6 @@ mutation EditMusic(
   $cover: Upload
   $appleLink: String
   $bandcampLink: String
-  $soundcloudLink: String
   $spotifyLink: String
   $youtubeLink: String
   $musicType: MusicType
@@ -23,7 +22,6 @@ mutation EditMusic(
     cover: $cover
     appleLink: $appleLink
     bandcampLink: $bandcampLink
-    soundcloudLink: $soundcloudLink
     spotifyLink: $spotifyLink
     youtubeLink: $youtubeLink
     musicType: $musicType

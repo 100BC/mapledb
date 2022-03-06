@@ -4,7 +4,6 @@ mutation EditMusician(
   $province: Province
   $appleLink: String
   $bandcampLink: String
-  $soundcloudLink: String
   $spotifyLink: String
   $youtubeLink: String
   $isGroup: Boolean
@@ -16,7 +15,6 @@ mutation EditMusician(
     province: $province
     appleLink: $appleLink
     bandcampLink: $bandcampLink
-    soundcloudLink: $soundcloudLink
     spotifyLink: $spotifyLink
     youtubeLink: $youtubeLink
     isGroup: $isGroup

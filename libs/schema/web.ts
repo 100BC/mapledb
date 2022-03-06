@@ -25,7 +25,6 @@ export type GetMusicQuery = {
     copyright: string | null;
     appleLink: string | null;
     bandcampLink: string | null;
-    soundcloudLink: string | null;
     spotifyLink: string | null;
     youtubeLink: string | null;
     musicians: Array<{ id: string; name: string }>;
@@ -42,7 +41,6 @@ export type GetMusicianQuery = {
     name: string;
     appleLink: string | null;
     bandcampLink: string | null;
-    soundcloudLink: string | null;
     spotifyLink: string | null;
     youtubeLink: string | null;
     isGroup: boolean;
@@ -260,7 +258,6 @@ export const GetMusicDocument = gql`
       }
       appleLink
       bandcampLink
-      soundcloudLink
       spotifyLink
       youtubeLink
     }
@@ -279,7 +276,6 @@ export const GetMusicianDocument = gql`
       }
       appleLink
       bandcampLink
-      soundcloudLink
       spotifyLink
       youtubeLink
       isGroup

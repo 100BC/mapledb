@@ -31,7 +31,6 @@ const MusicDisplay = ({ musicId }: Props) => {
     nonCanadians,
     appleLink,
     bandcampLink,
-    soundcloudLink,
     spotifyLink,
     youtubeLink,
     hasCover,
@@ -77,7 +76,6 @@ const MusicDisplay = ({ musicId }: Props) => {
             <ExternalLinks
               apple={appleLink}
               bandcamp={bandcampLink}
-              soundcloud={soundcloudLink}
               spotify={spotifyLink}
               youtube={youtubeLink}
             />

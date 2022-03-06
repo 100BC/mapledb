@@ -28,7 +28,6 @@ export const addMusic = builder.mutationField('musicAdd', (t) => {
       cover: t.arg({ type: 'Upload' }),
       appleLink: t.arg.string(),
       bandcampLink: t.arg.string(),
-      soundcloudLink: t.arg.string(),
       spotifyLink: t.arg.string(),
       youtubeLink: t.arg.string(),
       nonCanadians: t.arg.stringList({
@@ -49,7 +48,6 @@ export const addMusic = builder.mutationField('musicAdd', (t) => {
         cover,
         appleLink,
         bandcampLink,
-        soundcloudLink,
         spotifyLink,
         nonCanadians,
         youtubeLink,
@@ -65,7 +63,6 @@ export const addMusic = builder.mutationField('musicAdd', (t) => {
       linksValidator({
         apple: appleLink,
         bandcamp: bandcampLink,
-        soundcloud: soundcloudLink,
         spotify: spotifyLink,
         youtube: youtubeLink,
       });
@@ -92,7 +89,6 @@ export const addMusic = builder.mutationField('musicAdd', (t) => {
           instrumental,
           appleLink,
           bandcampLink,
-          soundcloudLink,
           spotifyLink,
           youtubeLink,
           nonCanadians,

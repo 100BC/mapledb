@@ -31,7 +31,6 @@ MusicObject.implement({
     }),
     appleLink: t.exposeString('appleLink', { nullable: true }),
     bandcampLink: t.exposeString('bandcampLink', { nullable: true }),
-    soundcloudLink: t.exposeString('soundcloudLink', { nullable: true }),
     spotifyLink: t.exposeString('spotifyLink', { nullable: true }),
     youtubeLink: t.exposeString('youtubeLink', { nullable: true }),
     copyright: t.exposeString('copyright', { nullable: true }),

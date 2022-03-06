@@ -7,18 +7,11 @@ import styles from './styles.module.scss';
 interface Props {
   apple?: string | null;
   bandcamp?: string | null;
-  soundcloud?: string | null;
   spotify?: string | null;
   youtube?: string | null;
 }
 
-const ExternalLinks = ({
-  apple,
-  bandcamp,
-  soundcloud,
-  spotify,
-  youtube,
-}: Props) => {
+const ExternalLinks = ({ apple, bandcamp, spotify, youtube }: Props) => {
   return (
     <div className={styles.links}>
       {apple && (
@@ -42,18 +35,6 @@ const ExternalLinks = ({
           >
             <BrandIcon src="bandcamp.png" brand="Bandcamp" />
             Bandcamp
-          </a>
-        </Link>
-      )}
-      {soundcloud && (
-        <Link href={soundcloud}>
-          <a
-            title="SoundCloud Link"
-            rel="external"
-            aria-label="External SoundCloud Link"
-          >
-            <BrandIcon src="soundcloud.png" brand="SoundCloud" />
-            SoundCloud
           </a>
         </Link>
       )}
