@@ -13,6 +13,7 @@ import {
   parseNullableDateField,
   parseNullableStringField,
 } from '@utils/parseLinks';
+import setValues from '@utils/setValues';
 
 const MusicianEdit = () => {
   const [loading, setLoading] = useState(false);
@@ -42,31 +43,17 @@ const MusicianEdit = () => {
   useEffect(() => {
     if (searchResults.data?.musician) {
       const data = searchResults.data.musician;
-      setValue('musician', data.name, { shouldDirty: false });
-      setValue('city', data.city.name, { shouldDirty: false });
-      setValue('province', data.city.province, {
-        shouldDirty: false,
-      });
-      setValue('isGroup', data.isGroup, {
-        shouldDirty: false,
-      });
-      setValue('disbanded', data.disbanded || undefined, {
-        shouldDirty: false,
-      });
-      setValue('links.apple', data.appleLink || undefined, {
-        shouldDirty: false,
-      });
-      setValue('links.bandcamp', data.bandcampLink || undefined, {
-        shouldDirty: false,
-      });
-      setValue('links.soundcloud', data.soundcloudLink || undefined, {
-        shouldDirty: false,
-      });
-      setValue('links.spotify', data.spotifyLink || undefined, {
-        shouldDirty: false,
-      });
-      setValue('links.youtube', data.youtubeLink || undefined, {
-        shouldDirty: false,
+      setValues(setValue, {
+        musician: data.name,
+        city: data.city.name,
+        province: data.city.province,
+        isGroup: data.isGroup,
+        disbanded: data.disbanded,
+        'links.apple': data.appleLink,
+        'links.bandcamp': data.bandcampLink,
+        'links.soundcloud': data.soundcloudLink,
+        'links.spotify': data.spotifyLink,
+        'links.youtube': data.youtubeLink,
       });
     }
   }, [searchResults.data?.musician, setValue]);
