@@ -1,0 +1,25 @@
+@use '~@mooseical/theme' as *;
+
+.marginTop {
+  margin-top: 4rem;
+}
+
+.extraMarginTop {
+  margin-top: 8rem;
+}
+
+.submittedBlock {
+  margin-top: 4rem;
+  font-size: 3rem;
+
+  > h2 {
+    font-weight: bold;
+  }
+}
+
+.submittedButtons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 4rem;
+}

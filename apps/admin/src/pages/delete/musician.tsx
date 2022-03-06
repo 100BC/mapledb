@@ -9,6 +9,7 @@ import Spinner from '@mooseical/shared/components/Spinner';
 import Environment from '@components/Environment';
 import { SearchBar } from '@mooseical/shared/components/FormComponents';
 import Button from '@mooseical/shared/components/Button';
+import styles from '@styles/forms.module.scss';
 
 const DeleteMusician = () => {
   const [loading, setLoading] = useState(false);
@@ -45,7 +46,7 @@ const DeleteMusician = () => {
       <h1>Delete Musician</h1>
       <hr />
       <Environment />
-      <div style={{ marginTop: '2rem' }}>
+      <div className={styles.marginTop}>
         {loading ? (
           <Spinner />
         ) : (
@@ -58,13 +59,13 @@ const DeleteMusician = () => {
       </div>
       {searchResults.error && <div>{searchResults.error.message}</div>}
       {deleteMusicianResults.error && (
-        <div style={{ marginTop: '4rem' }}>
+        <div className={styles.marginTop}>
           {deleteMusicianResults.error.message}
         </div>
       )}
 
       {searchResults.data?.musician && (
-        <div style={{ marginTop: '8rem' }}>
+        <div className={styles.extraMarginTop}>
           {deleted ? (
             <h2>Deleted {deleteMusicianResults.data?.musicianDelete.name}</h2>
           ) : (
@@ -74,7 +75,7 @@ const DeleteMusician = () => {
                 music?
               </h2>
               <Button
-                style={{ marginTop: '2rem' }}
+                className={styles.marginTop}
                 type="button"
                 onClick={handleDeleteMusician}
               >

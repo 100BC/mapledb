@@ -14,6 +14,7 @@ import {
   parseNullableStringField,
 } from '@utils/parseNullableFields';
 import setValues from '@utils/setValues';
+import styles from '@styles/forms.module.scss';
 
 const MusicianEdit = () => {
   const [loading, setLoading] = useState(false);
@@ -103,7 +104,7 @@ const MusicianEdit = () => {
       <h1>Edit Musician</h1>
       <hr />
       <Environment />
-      <div style={{ margin: '4rem 0' }}>
+      <div className={styles.marginTop}>
         {loading ? (
           <Spinner />
         ) : (
@@ -116,12 +117,12 @@ const MusicianEdit = () => {
       </div>
       {searchResults.error && <div>{searchResults.error.message}</div>}
       {editMusicianResults.error && (
-        <div style={{ marginTop: '4rem' }}>
+        <div className={styles.marginTop}>
           {editMusicianResults.error.message}
         </div>
       )}
       {uploaded && (
-        <h2 style={{ marginTop: '8rem' }}>
+        <h2 className={styles.extraMarginTop}>
           Updated Musician: <b>{editMusicianResults.data?.musicianEdit.name}</b>
         </h2>
       )}

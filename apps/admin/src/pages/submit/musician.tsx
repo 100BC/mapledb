@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { FormProvider, useForm } from 'react-hook-form';
 
 import Layout from '@components/Layout';
@@ -8,7 +9,7 @@ import Environment from '@components/Environment';
 import MusicianFormGeneric, {
   MusicianFormProps,
 } from '@components/FormGenerics/Musician';
-import Link from 'next/link';
+import styles from '@styles/forms.module.scss';
 
 const MusicianSubmit = () => {
   const [uploaded, setUploaded] = useState(false);
@@ -51,20 +52,23 @@ const MusicianSubmit = () => {
       <Environment />
       {addMusicianResults.fetching && <Spinner />}
       {addMusicianResults.error && (
-        <div style={{ marginTop: '4rem' }}>
+        <div className={styles.marginTop}>
           {addMusicianResults.error.message}
         </div>
       )}
       {uploaded && (
-        <div>
-          <button type="button" onClick={resetFields}>
-            Submit another artist?
-          </button>
-          <Link
-            href={`/submit/music?id=${addMusicianResults.data?.musicianAdd.id}`}
-          >
-            <a>Add music to {addMusicianResults.data?.musicianAdd.name}?</a>
-          </Link>
+        <div className={styles.submittedBlock}>
+          <h2>Submitted {addMusicianResults.data?.musicianAdd.name}</h2>
+          <div className={styles.submittedButtons}>
+            <button type="button" onClick={resetFields} aria-label="reset form">
+              Submit another artist?
+            </button>
+            <Link
+              href={`/submit/music?id=${addMusicianResults.data?.musicianAdd.id}`}
+            >
+              <a>Add music to {addMusicianResults.data?.musicianAdd.name}?</a>
+            </Link>
+          </div>
         </div>
       )}
       {!uploaded && !addMusicianResults.fetching && (
