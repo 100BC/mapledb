@@ -1,51 +1,22 @@
 import React, { useState } from 'react';
-import { FieldError, FormProvider, useForm } from 'react-hook-form';
-import { useRouter } from 'next/router';
+import { FormProvider, useForm } from 'react-hook-form';
 
 import Layout from '@components/Layout';
-import { Genre, MusicType } from '@mooseical/schema';
 import { useAddMusicMutation } from '@graphql/hooks';
 import Spinner from '@mooseical/shared/components/Spinner';
 import MusicSubmitted from '@components/MusicSubmitted';
 import Environment from '@components/Environment';
-import validateLinks from '@utils/validateLinks';
-import {
-  FormError,
-  Checkbox,
-  TextInput,
-  Select,
-  ImageInput,
-} from '@mooseical/shared/components/FormComponents';
-import Button from '@mooseical/shared/components/Button';
-import MusicFormGeneric from '@components/FormGenerics/Music';
-
-interface Form {
-  musicianId: string[];
-  name: string;
-  release: string;
-  subgenre: string;
-  genre: Genre;
-  instrumental: boolean;
-  musicType: MusicType;
-  cover: FileList;
-  nonCanadians: string[];
-  copyright?: string;
-  links: {
-    apple?: string;
-    bandcamp?: string;
-    soundcloud?: string;
-    spotify?: string;
-    youtube?: string;
-  };
-}
+import MusicFormGeneric, {
+  MusicFormProps,
+} from '@components/FormGenerics/Music';
 
 const SubmitMusic = () => {
   const [results, addMusic] = useAddMusicMutation();
   const [submitting, setSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const methods = useForm<Form>();
+  const methods = useForm<MusicFormProps>();
 
-  const onSubmit = async (data: Form) => {
+  const onSubmit = async (data: MusicFormProps) => {
     const payload = {
       name: data.name.trim(),
       musicianIds: data.musicianId.filter((i) => i), // remove empty strings
