@@ -69,12 +69,20 @@ const MusicFormGeneric = ({
 
   return (
     <>
+      <TextInput
+        id="name"
+        {...register('name', { required: true })}
+        label="Music Name *"
+        disabled={isEditing}
+      />
+      <FormError error={errors.name} />
+
       {Array.from({ length: numMusicians }, (_, i) => (
         <TextInput
           id={`musicianId.${i}`}
           {...register(`musicianId.${i}`, { required: true })}
           defaultValue={i === 0 ? router.query.id : undefined}
-          label={`MusicianId ${i + 1} *`}
+          label="Musician Id"
           key={i}
           disabled={isEditing}
         />
@@ -82,7 +90,7 @@ const MusicFormGeneric = ({
       {!isEditing && (
         <>
           <button type="button" onClick={() => setNumMusicians((n) => n + 1)}>
-            Add More MusicianId&apos;s
+            Add more Musicians
           </button>
           {numMusicians > 1 && (
             <button
@@ -92,7 +100,7 @@ const MusicFormGeneric = ({
                 setNumMusicians((n) => n - 1);
               }}
             >
-              Remove a MusicianId
+              Remove Musician
             </button>
           )}
         </>
@@ -108,7 +116,7 @@ const MusicFormGeneric = ({
       ))}
 
       <button type="button" onClick={() => setNonCanadians((n) => n + 1)}>
-        Add More nonCanadians
+        Add more nonCanadians
       </button>
       {nonCanadians > 1 && (
         <button type="button" onClick={() => setNonCanadians((n) => n - 1)}>
@@ -128,16 +136,6 @@ const MusicFormGeneric = ({
         <option value="OTHER">Other</option>
       </Select>
       <FormError error={errors.musicType} />
-
-      <TextInput
-        id="name"
-        {...register('name', { required: true })}
-        label="Music Name *"
-        disabled={isEditing}
-      />
-      <FormError error={errors.name} />
-
-      <TextInput id="label" {...register('copyright')} label="Copyright" />
 
       <TextInput
         id="release"
@@ -176,6 +174,8 @@ const MusicFormGeneric = ({
         <option value="METAL">Metal</option>
       </Select>
       <FormError error={errors.genre} />
+
+      <TextInput id="label" {...register('copyright')} label="Copyright" />
 
       <ImageInput
         id="cover"
