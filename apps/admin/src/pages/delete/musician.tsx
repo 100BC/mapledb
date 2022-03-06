@@ -12,10 +12,10 @@ import Button from '@mooseical/shared/components/Button';
 import styles from '@styles/forms.module.scss';
 
 const DeleteMusician = () => {
+  const [deleteMusicianResults, deleteMusician] = useDeleteMusicianMutation();
   const [loading, setLoading] = useState(false);
   const [deleted, setDeleted] = useState(false);
   const [musicianId, setMusicianId] = useState<string | null>(null);
-  const [deleteMusicianResults, deleteMusician] = useDeleteMusicianMutation();
   const [searchResults] = useGetMusicianNameQuery({
     variables: { id: musicianId! },
     pause: !musicianId,
@@ -66,9 +66,10 @@ const DeleteMusician = () => {
 
       {searchResults.data?.musician && (
         <div className={styles.extraMarginTop}>
-          {deleted ? (
+          {deleted && (
             <h2>Deleted {deleteMusicianResults.data?.musicianDelete.name}</h2>
-          ) : (
+          )}
+          {!deleted && !loading && (
             <>
               <h2>
                 Delete <b>{searchResults.data.musician.name}</b> and their

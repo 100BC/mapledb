@@ -50,7 +50,7 @@ const SubmitMusic = () => {
 
   return (
     <Layout noIndex>
-      <h1>Submit a Music Work</h1>
+      <h1>Submit Music</h1>
       <hr />
       <Environment />
       {addMusicResults.fetching && <Spinner />}

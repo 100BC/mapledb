@@ -9,9 +9,9 @@ import styles from '@styles/forms.module.scss';
 import { SearchBar } from '@mooseical/shared/components/FormComponents';
 
 const DeleteMusic = () => {
+  const [deleteMusicResults, deleteMusic] = useDeleteMusicMutation();
   const [loading, setLoading] = useState(false);
   const [deleted, setDeleted] = useState(false);
-  const [deleteMusicResults, deleteMusic] = useDeleteMusicMutation();
   const [musicId, setMusicId] = useState<string | null>(null);
   const [searchResults] = useGetMusicNameQuery({
     variables: { id: musicId! },

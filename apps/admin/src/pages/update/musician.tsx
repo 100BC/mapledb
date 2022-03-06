@@ -16,7 +16,7 @@ import {
 import setValues from '@utils/setValues';
 import styles from '@styles/forms.module.scss';
 
-const MusicianEdit = () => {
+const UpdateMusician = () => {
   const [loading, setLoading] = useState(false);
   const [uploaded, setUploaded] = useState(false);
   const [editMusicianResults, editMusician] = useEditMusicianMutation();
@@ -101,7 +101,7 @@ const MusicianEdit = () => {
 
   return (
     <Layout>
-      <h1>Edit Musician</h1>
+      <h1>Update Musician</h1>
       <hr />
       <Environment />
       <div className={styles.marginTop}>
@@ -139,4 +139,4 @@ const MusicianEdit = () => {
   );
 };
 
-export default MusicianEdit;
+export default UpdateMusician;

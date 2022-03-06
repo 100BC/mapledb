@@ -11,7 +11,7 @@ import MusicianFormGeneric, {
 } from '@components/FormGenerics/Musician';
 import styles from '@styles/forms.module.scss';
 
-const MusicianSubmit = () => {
+const SubmitMusician = () => {
   const [uploaded, setUploaded] = useState(false);
   const [addMusicianResults, addMusician] = useAddMusicianMutation();
   const methods = useForm<MusicianFormProps>();
@@ -47,7 +47,7 @@ const MusicianSubmit = () => {
 
   return (
     <Layout noIndex>
-      <h1>Add Musician</h1>
+      <h1>Submit Musician</h1>
       <hr />
       <Environment />
       {addMusicianResults.fetching && <Spinner />}
@@ -82,4 +82,4 @@ const MusicianSubmit = () => {
   );
 };
 
-export default MusicianSubmit;
+export default SubmitMusician;
