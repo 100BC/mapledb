@@ -10,6 +10,7 @@ import {
 } from '@mooseical/shared/components/FormComponents';
 import validateLinks from '@utils/validateLinks';
 import Button from '@mooseical/shared/components/Button';
+import styles from '@styles/forms.module.scss';
 
 interface Props {
   isEditing?: boolean;
@@ -165,7 +166,7 @@ const MusicianFormGeneric = ({ isEditing = false }: Props) => {
       />
       <FormError error={errors.disbanded} />
 
-      <Button type="submit" style={{ marginTop: '4rem' }}>
+      <Button type="submit" className={styles.marginTop}>
         Submit
       </Button>
     </>
