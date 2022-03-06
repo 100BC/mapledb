@@ -1,73 +1,118 @@
 import React, { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { FormProvider, useForm } from 'react-hook-form';
 
 import Layout from '@components/Layout';
-import { EditMusicMutationVariables } from '@mooseical/schema/admin';
 import { useGetMusicQuery, useEditMusicMutation } from '@graphql/hooks';
 import Environment from '@components/Environment';
-import {
-  FormError,
-  TextInput,
-} from '@mooseical/shared/components/FormComponents';
+import { SearchBar } from '@mooseical/shared/components/FormComponents';
 import Spinner from '@mooseical/shared/components/Spinner';
-import UpdateMusicForm from '@components/UpdateMusicForm';
-import MusicUpdated from '@components/MusicUpdated';
-import Button from '@mooseical/shared/components/Button';
-
-interface Form {
-  id: string;
-}
+import MusicFormGeneric, {
+  MusicFormProps,
+} from '@components/FormGenerics/Music';
+import styles from '@styles/forms.module.scss';
+import setValues from '@utils/setValues';
+import { parseNullableStringField } from '@utils/parseNullableFields';
 
 const UpdateMusic = () => {
-  const [results, updateMusic] = useEditMusicMutation();
-  const [submitting, setSubmitting] = useState(false);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [editMusicResults, updateMusic] = useEditMusicMutation();
+  const [loading, setLoading] = useState(false);
+  const [uploaded, setUploaded] = useState(false);
   const [musicId, setMusicId] = useState('');
-  const [{ data: musicData, fetching, error }] = useGetMusicQuery({
+  const [searchResults] = useGetMusicQuery({
     variables: { id: musicId },
     pause: !musicId,
   });
+  const methods = useForm<MusicFormProps>();
   const {
-    register,
-    reset,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<Form>();
+    setValue,
+    formState: { dirtyFields },
+  } = methods;
 
   useEffect(() => {
-    if (fetching) {
-      setErrorMessage(null);
-      setSubmitting(true);
-    } else if (!fetching && !error) {
-      setSubmitting(false);
-    }
+    if (editMusicResults.fetching || searchResults.fetching) setLoading(true);
+    else setLoading(false);
+  }, [editMusicResults.fetching, searchResults.fetching]);
 
-    if (error) {
-      setSubmitting(true);
-      setErrorMessage(error.message);
-    }
-  }, [error, fetching]);
+  useEffect(() => {
+    if (editMusicResults.data) setUploaded(true);
+  }, [editMusicResults.data]);
 
-  const onSubmit = async (data: Form) => {
-    setMusicId(data.id);
+  useEffect(() => {
+    if (searchResults.data?.music) {
+      const data = searchResults.data.music;
+      setValues(setValue, {
+        name: data.name,
+        instrumental: data.instrumental,
+        musicianId: [...data.musicians],
+        musicType: data.musicType,
+        release: data.release,
+        copyright: data.copyright,
+        subgenre: data.subgenre.name,
+        nonCanadians: data.nonCanadians,
+        genre: data.subgenre.genre,
+        'links.apple': data.appleLink,
+        'links.bandcamp': data.bandcampLink,
+        'links.soundcloud': data.soundcloudLink,
+        'links.spotify': data.spotifyLink,
+        'links.youtube': data.youtubeLink,
+      });
+
+      data.musicians.forEach((musician, i) =>
+        setValue(`musicianId.${i}`, musician.id, { shouldDirty: false })
+      );
+
+      data.nonCanadians.forEach((nonCanadian, i) =>
+        setValue(`nonCanadians.${i}`, nonCanadian, { shouldDirty: false })
+      );
+    }
+  }, [searchResults.data?.music, setValue]);
+
+  const onSubmit = async (data: MusicFormProps) => {
+    const payload = {
+      id: musicId,
+      release: dirtyFields.release ? data.release : undefined,
+      subgenre: dirtyFields.subgenre
+        ? data.subgenre.trim().toLowerCase()
+        : undefined,
+      genre: dirtyFields.genre ? data.genre : undefined,
+      instrumental: dirtyFields.instrumental ? data.instrumental : undefined,
+      musicType: dirtyFields.musicType ? data.musicType : undefined,
+      cover: data.deleteCover ? null : data.cover[0],
+      nonCanadians: dirtyFields.nonCanadians
+        ? data.nonCanadians.filter((i) => i) // remove empty strings
+        : undefined,
+      copyright: parseNullableStringField(
+        !!dirtyFields.copyright,
+        data.copyright
+      ),
+      appleLink: parseNullableStringField(
+        !!dirtyFields.links?.apple,
+        data.links.apple
+      ),
+      bandcampLink: parseNullableStringField(
+        !!dirtyFields.links?.bandcamp,
+        data.links.bandcamp
+      ),
+      soundcloudLink: parseNullableStringField(
+        !!dirtyFields.links?.soundcloud,
+        data.links.soundcloud
+      ),
+      spotifyLink: parseNullableStringField(
+        !!dirtyFields.links?.spotify,
+        data.links.spotify
+      ),
+      youtubeLink: parseNullableStringField(
+        !!dirtyFields.links?.youtube,
+        data.links.youtube
+      ),
+    };
+
+    await updateMusic(payload);
   };
 
-  const onUpdateMusic = async (payload: EditMusicMutationVariables) => {
-    setSubmitting(true);
-    await updateMusic(payload).then((result) => {
-      if (result.error) {
-        setErrorMessage(result.error.message);
-      }
-    });
-  };
-
-  const resetFields = (shouldReset: boolean) => {
-    if (shouldReset) {
-      reset();
-      setMusicId('');
-    }
-    setSubmitting(false);
-    setErrorMessage(null);
+  const searchMusic = (searchQuery: string) => {
+    setUploaded(false);
+    setMusicId(searchQuery);
   };
 
   return (
@@ -75,40 +120,40 @@ const UpdateMusic = () => {
       <h1>Update Music</h1>
       <hr />
       <Environment />
-      {submitting && (
-        <>
-          {errorMessage || (results.data && !fetching) ? (
-            <MusicUpdated
-              error={errorMessage}
-              music={results.data?.musicEdit.name}
-              resetForm={(shouldReset) => resetFields(shouldReset)}
+      <div className={styles.marginTop}>
+        {loading ? (
+          <Spinner />
+        ) : (
+          <>
+            <SearchBar
+              placeholder="Find Music by id"
+              id="music-search"
+              searchFunction={(s) => searchMusic(s)}
             />
-          ) : (
-            <Spinner />
-          )}
-        </>
+            {searchResults.error && <div>{searchResults.error.message}</div>}
+          </>
+        )}
+      </div>
+      {editMusicResults.error && (
+        <div className={styles.marginTop}>{editMusicResults.error.message}</div>
       )}
-      {!submitting && (
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <br />
-          <h2>Which musical work do you want to update?</h2>
-
-          <TextInput
-            id="id"
-            {...register('id', { required: true })}
-            label="Music Id"
-          />
-          <FormError error={errors.id} />
-
-          <Button type="submit">Look up music</Button>
-        </form>
+      {uploaded && (
+        <h2 className={styles.extraMarginTop}>
+          Updated Music: <b>{editMusicResults.data?.musicEdit.name}</b>
+        </h2>
       )}
-      {!submitting && musicId && musicData?.music && (
-        <UpdateMusicForm
-          musicData={musicData.music}
-          key={musicId}
-          onUpdateMusic={(payload) => onUpdateMusic(payload)}
-        />
+      {!uploaded && !loading && searchResults.data && (
+        <FormProvider {...methods}>
+          <form onSubmit={methods.handleSubmit(onSubmit)}>
+            <MusicFormGeneric
+              isEditing
+              musiciansLen={searchResults.data.music.musicians.length}
+              nonCadLen={searchResults.data.music.nonCanadians.length}
+              hasCover={searchResults.data.music.hasCover}
+              musicId={musicId}
+            />
+          </form>
+        </FormProvider>
       )}
     </Layout>
   );

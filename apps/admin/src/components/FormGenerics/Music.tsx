@@ -15,6 +15,10 @@ import Button from '@mooseical/shared/components/Button';
 
 interface Props {
   isEditing?: boolean;
+  musiciansLen?: number;
+  nonCadLen?: number;
+  hasCover?: boolean;
+  musicId?: string;
 }
 
 export interface MusicFormProps {
@@ -35,12 +39,27 @@ export interface MusicFormProps {
     spotify?: string;
     youtube?: string;
   };
+  deleteCover?: boolean;
 }
-const MusicFormGeneric = ({ isEditing = false }: Props) => {
+
+const baseCloudinaryUrl = 'https://res.cloudinary.com/mooseical/image/upload';
+const urlPrepend =
+  process.env.NEXT_PUBLIC_NODE_ENV === 'development' ? 'development' : 'music';
+
+const MusicFormGeneric = ({
+  isEditing = false,
+  musiciansLen = 1,
+  nonCadLen = 1,
+  hasCover,
+  musicId,
+}: Props) => {
+  const imgUrl = hasCover
+    ? `${baseCloudinaryUrl}/c_limit,q_auto,w_400,f_auto/${urlPrepend}/${musicId}`
+    : null;
   const router = useRouter();
-  const [numMusicians, setNumMusicians] = useState(1);
-  const [nonCanadians, setNonCanadians] = useState(1);
-  const [image, setImage] = useState<string | null>(null);
+  const [numMusicians, setNumMusicians] = useState(musiciansLen);
+  const [nonCanadians, setNonCanadians] = useState(Math.max(nonCadLen, 1));
+  const [image, setImage] = useState<string | null>(imgUrl);
   const {
     register,
     unregister,
@@ -60,20 +79,23 @@ const MusicFormGeneric = ({ isEditing = false }: Props) => {
           disabled={isEditing}
         />
       ))}
-
-      <button type="button" onClick={() => setNumMusicians((n) => n + 1)}>
-        Add More MusicianId&apos;s
-      </button>
-      {numMusicians > 1 && (
-        <button
-          type="button"
-          onClick={() => {
-            unregister(`musicianId.${numMusicians - 1}`);
-            setNumMusicians((n) => n - 1);
-          }}
-        >
-          Remove a MusicianId
-        </button>
+      {!isEditing && (
+        <>
+          <button type="button" onClick={() => setNumMusicians((n) => n + 1)}>
+            Add More MusicianId&apos;s
+          </button>
+          {numMusicians > 1 && (
+            <button
+              type="button"
+              onClick={() => {
+                unregister(`musicianId.${numMusicians - 1}`);
+                setNumMusicians((n) => n - 1);
+              }}
+            >
+              Remove a MusicianId
+            </button>
+          )}
+        </>
       )}
 
       {Array.from({ length: nonCanadians }, (_, i) => (
@@ -111,6 +133,7 @@ const MusicFormGeneric = ({ isEditing = false }: Props) => {
         id="name"
         {...register('name', { required: true })}
         label="Music Name *"
+        disabled={isEditing}
       />
       <FormError error={errors.name} />
 
@@ -166,6 +189,13 @@ const MusicFormGeneric = ({ isEditing = false }: Props) => {
         image={image}
         imageAlt="Music Cover"
       />
+      {isEditing && (
+        <Checkbox
+          id="deleteCover"
+          {...register('deleteCover')}
+          label="Delete Cover"
+        />
+      )}
 
       <TextInput
         id="links.apple"

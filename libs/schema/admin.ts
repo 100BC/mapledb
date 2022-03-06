@@ -91,6 +91,7 @@ export type GetMusicQueryVariables = Types.Exact<{
 export type GetMusicQuery = {
   music: {
     id: string;
+    name: string;
     nonCanadians: Array<string>;
     release: string;
     hasCover: boolean;
@@ -103,6 +104,7 @@ export type GetMusicQuery = {
     youtubeLink: string | null;
     musicType: Types.MusicType;
     subgenre: { name: string; genre: Types.Genre };
+    musicians: Array<{ id: string }>;
   };
 };
 
@@ -286,6 +288,7 @@ export const GetMusicDocument = gql`
   query GetMusic($id: String!) {
     music(id: $id) {
       id
+      name
       nonCanadians
       release
       hasCover
@@ -301,6 +304,9 @@ export const GetMusicDocument = gql`
       spotifyLink
       youtubeLink
       musicType
+      musicians {
+        id
+      }
     }
   }
 `;

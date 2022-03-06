@@ -1,6 +1,7 @@
 query GetMusic($id: String!) {
   music(id: $id) {
     id
+    name
     nonCanadians
     release
     hasCover
@@ -16,5 +17,8 @@ query GetMusic($id: String!) {
     spotifyLink
     youtubeLink
     musicType
+    musicians {
+      id
+    }
   }
 }
