@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { Province } from '@mooseical/schema';
+import { Province } from '@mooseical/schema/types';
 
 const useProvinceParser = (province: Province | null) => {
   const provinceParsed = useMemo(() => {

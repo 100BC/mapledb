@@ -1,7 +1,7 @@
 import React from 'react';
 import { FieldError, useFormContext } from 'react-hook-form';
 
-import { Province } from '@mooseical/schema';
+import { Province } from '@mooseical/schema/types';
 import {
   Checkbox,
   FormError,

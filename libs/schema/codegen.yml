@@ -1,11 +1,11 @@
 overwrite: true
 schema: '../../apps/server/schema.graphql'
 generates:
-  index.ts:
+  types/index.ts:
     documents: '../../apps/web/**/*.graphql'
     plugins:
       - typescript
-  web.ts:
+  types/web.ts:
     documents: '../../apps/web/**/*.graphql'
     preset: import-types
     presetConfig:
@@ -22,8 +22,8 @@ generates:
     config:
       importOperationTypesFrom: Operations
       documentMode: external
-      importDocumentNodeExternallyFrom: '@mooseical/schema/web'
-  admin.ts:
+      importDocumentNodeExternallyFrom: '@mooseical/schema/types/web'
+  types/admin.ts:
     documents: '../../apps/admin/**/*.graphql'
     preset: import-types
     presetConfig:
@@ -40,7 +40,7 @@ generates:
     config:
       importOperationTypesFrom: Operations
       documentMode: external
-      importDocumentNodeExternallyFrom: '@mooseical/schema/admin'
+      importDocumentNodeExternallyFrom: '@mooseical/schema/types/admin'
 config:
   onlyOperationTypes: true
   skipTypename: true

@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { MusicType } from '@mooseical/schema';
+import { MusicType } from '@mooseical/schema/types';
 
 const useMusicTypeParser = (musicType: MusicType | undefined) => {
   const musicTypeParsed = useMemo(() => {

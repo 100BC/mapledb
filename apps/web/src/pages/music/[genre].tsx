@@ -1,8 +1,8 @@
 import React from 'react';
 import { GetServerSideProps } from 'next';
 
-import { Genre, MusicType } from '@mooseical/schema';
-import { GetManyMusicDocument } from '@mooseical/schema/web';
+import { Genre, MusicType } from '@mooseical/schema/types';
+import { GetManyMusicDocument } from '@mooseical/schema/types/web';
 import { gqlClient, ssrCache } from '@graphql/gqlClient';
 import { MUSIC_QUERY_SIZE } from '@mooseical/constants';
 import Layout from '@components/Layout';

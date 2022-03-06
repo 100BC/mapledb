@@ -1,4 +1,4 @@
-import { Genre } from '@mooseical/schema';
+import { Genre } from '@mooseical/schema/types';
 import { useMemo } from 'react';
 
 const useGenreParser = (genre: Genre | null) => {

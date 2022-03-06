@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-import { MusicianCardFragment } from '@mooseical/schema/web';
+import { MusicianCardFragment } from '@mooseical/schema/types/web';
 import useDateParser from '@utils/hooks/useDateParser';
 import styles from './styles.module.scss';
 

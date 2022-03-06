@@ -1,4 +1,4 @@
-import { Province } from '@mooseical/schema';
+import { Province } from '@mooseical/schema/types';
 
 const getProvinceName = (province: Province | null) => {
   switch (province) {

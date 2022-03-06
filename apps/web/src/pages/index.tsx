@@ -3,7 +3,7 @@ import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 
 import { gqlClient, ssrCache } from '@graphql/gqlClient';
-import { GetNewReleasesDocument } from '@mooseical/schema/web';
+import { GetNewReleasesDocument } from '@mooseical/schema/types/web';
 import Layout, { DOMAIN_NAME } from '@components/Layout';
 import setSSRCache from '@utils/setSSRCache';
 import DbContainer from '@components/DbComponents/DbContainer';

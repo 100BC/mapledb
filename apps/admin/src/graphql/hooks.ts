@@ -1,4 +1,4 @@
-import * as Operations from '@mooseical/schema/admin';
+import * as Operations from '@mooseical/schema/types/admin';
 import * as Urql from 'urql';
 
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;

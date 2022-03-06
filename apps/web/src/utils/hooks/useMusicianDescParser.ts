@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { MusicCardFragment } from '@mooseical/schema/web';
+import { MusicCardFragment } from '@mooseical/schema/types/web';
 
 const useMusicianDescParser = (
   musicians: MusicCardFragment['musicians'] | undefined,

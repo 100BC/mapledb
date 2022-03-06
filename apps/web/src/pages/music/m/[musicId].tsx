@@ -3,7 +3,7 @@ import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 
 import { gqlClient, ssrCache } from '@graphql/gqlClient';
-import { GetMusicDocument } from '@mooseical/schema/web';
+import { GetMusicDocument } from '@mooseical/schema/types/web';
 import styles from '@styles/music.module.scss';
 import ExternalLinks from '@components/ExternalLinks';
 import MusicianLinkList from '@components/MusicianLinkList';

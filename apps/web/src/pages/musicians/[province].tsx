@@ -1,8 +1,8 @@
 import React from 'react';
 import { GetServerSideProps } from 'next';
 
-import { Province } from '@mooseical/schema';
-import { GetManyMusiciansDocument } from '@mooseical/schema/web';
+import { Province } from '@mooseical/schema/types';
+import { GetManyMusiciansDocument } from '@mooseical/schema/types/web';
 import { gqlClient, ssrCache } from '@graphql/gqlClient';
 import { MUSICIAN_QUERY_SIZE } from '@mooseical/constants';
 import Layout from '@components/Layout';

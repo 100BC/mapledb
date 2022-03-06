@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FieldError, useFormContext } from 'react-hook-form';
 
-import { Genre, MusicType } from '@mooseical/schema';
+import { Genre, MusicType } from '@mooseical/schema/types';
 import { AllOrNone } from '@mooseical/generics';
 import {
   Checkbox,
