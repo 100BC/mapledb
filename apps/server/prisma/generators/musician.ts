@@ -19,11 +19,11 @@ export const createMusician = async (testMusician: string | null = null) => {
           name_province: { name: cityObj.name, province: cityObj.province },
         },
       },
-      appleLink: faker.unique(faker.internet.url),
-      bandcampLink: faker.unique(faker.internet.url),
-      soundcloudLink: faker.unique(faker.internet.url),
-      spotifyLink: faker.unique(faker.internet.url),
-      youtubeLink: faker.unique(faker.internet.url),
+      appleLink: `https://music.apple.com/us/album/${musicianId}`,
+      bandcampLink: `https://${musicianId}.bandcamp.com/album/${musicianId}`,
+      soundcloudLink: `https://soundcloud.com/${musicianId}/sets/${musicianId}`,
+      spotifyLink: `https://open.spotify.com/album/${musicianId}`,
+      youtubeLink: `https://youtu.be/${musicianId}`,
       isGroup: Math.random() < 0.5,
       disbanded: Math.random() < 0.2 ? faker.date.past().toISOString() : null,
     },
@@ -32,7 +32,7 @@ export const createMusician = async (testMusician: string | null = null) => {
   const musicPromise: Promise<boolean>[] = [];
   for (let i = 0; i < 10; i++) {
     musicPromise.push(
-      createMusic([musicianId], testMusician ? `testMusic-${i}` : null)
+      createMusic([musicianId], testMusician ? `music-${i}` : null)
     );
   }
 
