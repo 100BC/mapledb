@@ -12,7 +12,7 @@ import { SearchBar } from '@mooseical/shared/components/FormComponents';
 import {
   parseNullableDateField,
   parseNullableStringField,
-} from '@utils/parseLinks';
+} from '@utils/parseNullableFields';
 import setValues from '@utils/setValues';
 
 const MusicianEdit = () => {
