@@ -108,14 +108,16 @@ const MusicianEdit = () => {
         {loading ? (
           <Spinner />
         ) : (
-          <SearchBar
-            placeholder="Find Musician by id"
-            id="music-search"
-            searchFunction={(s) => searchMusician(s)}
-          />
+          <>
+            <SearchBar
+              placeholder="Find Musician by id"
+              id="music-search"
+              searchFunction={(s) => searchMusician(s)}
+            />
+            {searchResults.error && <div>{searchResults.error.message}</div>}
+          </>
         )}
       </div>
-      {searchResults.error && <div>{searchResults.error.message}</div>}
       {editMusicianResults.error && (
         <div className={styles.marginTop}>
           {editMusicianResults.error.message}
