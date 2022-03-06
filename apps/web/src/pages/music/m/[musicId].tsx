@@ -10,7 +10,7 @@ import MusicianLinkList from '@components/MusicianLinkList';
 import Layout from '@components/Layout';
 import setSSRCache from '@utils/setSSRCache';
 import GqlContainer from '@components/GqlContainer';
-import useCreateImageUrl from '@mooseical/shared/hooks/useCreateImageUrl';
+import useCreateImageUrl from '@utils/hooks/useCreateImageUrl';
 import useDateParser from '@utils/hooks/useDateParser';
 import useMusicianDescParser from '@utils/hooks/useMusicianDescParser';
 import useMusicTypeParser from '@utils/hooks/useMusicTypeParser';
