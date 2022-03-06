@@ -6,6 +6,7 @@ import musicianExistsValidator from '@utils/validators/musicianExistsValidator';
 import { MusicianObject } from '@schema/types/MusicianRef';
 import { ProvinceEnum } from '@schema/types/Enums';
 import parseNullableField from '@utils/helpers/parseNullableField';
+import trimArgs from '@utils/helpers/trimArgs';
 
 export const musicianEdit = builder.mutationField('musicianEdit', (t) => {
   return t.field({
@@ -28,10 +29,6 @@ export const musicianEdit = builder.mutationField('musicianEdit', (t) => {
     },
     resolve: async (_parent, args, ctx) => {
       logger.info('Starting Musician Edit Mutation');
-      Object.values(args).forEach((argument) => {
-        if (typeof argument === 'string') return argument.trim();
-        return argument;
-      });
 
       const {
         id,
@@ -44,7 +41,7 @@ export const musicianEdit = builder.mutationField('musicianEdit', (t) => {
         youtubeLink,
         isGroup,
         disbanded,
-      } = args;
+      } = trimArgs(args);
 
       const musicianInfo = await musicianExistsValidator({
         musicianId: id,

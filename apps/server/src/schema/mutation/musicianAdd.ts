@@ -6,6 +6,7 @@ import frenchCityParser from '@utils/helpers/frenchCityParser';
 import { logger } from '@server';
 import { MusicianObject } from '@schema/types/MusicianRef';
 import { ProvinceEnum } from '@schema/types/Enums';
+import trimArgs from '@utils/helpers/trimArgs';
 
 export const musicianAdd = builder.mutationField('musicianAdd', (t) => {
   return t.field({
@@ -28,10 +29,6 @@ export const musicianAdd = builder.mutationField('musicianAdd', (t) => {
     },
     resolve: async (_parent, args, ctx) => {
       logger.info('Starting Musician Mutation');
-      Object.values(args).forEach((argument) => {
-        if (typeof argument === 'string') return argument.trim();
-        return argument;
-      });
 
       const {
         name,
@@ -44,7 +41,7 @@ export const musicianAdd = builder.mutationField('musicianAdd', (t) => {
         youtubeLink,
         isGroup,
         disbanded,
-      } = args;
+      } = trimArgs(args);
 
       const citySpelling = frenchCityParser(city);
 

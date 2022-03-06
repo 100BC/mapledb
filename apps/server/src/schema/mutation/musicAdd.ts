@@ -8,6 +8,7 @@ import { logger } from '@server';
 import uploadCover from '@utils/imageUtils/uploadCover';
 import { GenreEnum, MusicTypeEnum } from '@schema/types/Enums';
 import { MusicObject } from '@schema/types/Music';
+import trimArgs from '@utils/helpers/trimArgs';
 
 export const addMusic = builder.mutationField('musicAdd', (t) => {
   return t.field({
@@ -37,10 +38,6 @@ export const addMusic = builder.mutationField('musicAdd', (t) => {
     },
     resolve: async (_parent, args, ctx) => {
       logger.info('Starting Music Mutation');
-      Object.values(args).forEach((argument) => {
-        if (typeof argument === 'string') return argument.trim();
-        return argument;
-      });
 
       const {
         name,
@@ -58,7 +55,7 @@ export const addMusic = builder.mutationField('musicAdd', (t) => {
         youtubeLink,
         musicType,
         copyright,
-      } = args;
+      } = trimArgs(args);
 
       const musiciansData = await manyMusiciansExistsValidator({
         musicianIds,

@@ -8,6 +8,7 @@ import { cloudinaryDelete } from '@utils/imageUtils/cloudinaryFunctions';
 import { MusicObject } from '@schema/types/Music';
 import { GenreEnum, MusicTypeEnum } from '@schema/types/Enums';
 import parseNullableField from '@utils/helpers/parseNullableField';
+import trimArgs from '@utils/helpers/trimArgs';
 
 export const musicEdit = builder.mutationField('musicEdit', (t) => {
   return t.field({
@@ -36,10 +37,6 @@ export const musicEdit = builder.mutationField('musicEdit', (t) => {
     },
     resolve: async (_parent, args, ctx) => {
       logger.info('Starting Update Music Mutation');
-      Object.values(args).forEach((argument) => {
-        if (typeof argument === 'string') return argument.trim();
-        return argument;
-      });
 
       const {
         id,
@@ -56,7 +53,7 @@ export const musicEdit = builder.mutationField('musicEdit', (t) => {
         youtubeLink,
         musicType,
         copyright,
-      } = args;
+      } = trimArgs(args);
 
       const musicInfo = await musicExistsValidator({
         id,
