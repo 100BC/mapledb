@@ -1,20 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 
 import Layout from '@components/Layout';
 import { useAddMusicMutation } from '@graphql/hooks';
 import Spinner from '@mooseical/shared/components/Spinner';
-import MusicSubmitted from '@components/MusicSubmitted';
 import Environment from '@components/Environment';
 import MusicFormGeneric, {
   MusicFormProps,
 } from '@components/FormGenerics/Music';
+import styles from '@styles/forms.module.scss';
 
 const SubmitMusic = () => {
-  const [results, addMusic] = useAddMusicMutation();
-  const [submitting, setSubmitting] = useState(false);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [addMusicResults, addMusic] = useAddMusicMutation();
+  const [uploaded, setUploaded] = useState(false);
   const methods = useForm<MusicFormProps>();
+
+  useEffect(() => {
+    if (addMusicResults.data) setUploaded(true);
+  }, [addMusicResults.data]);
 
   const onSubmit = async (data: MusicFormProps) => {
     const payload = {
@@ -37,23 +40,12 @@ const SubmitMusic = () => {
       copyright: data.copyright || null,
     };
 
-    setSubmitting(true);
-    await addMusic(payload).then((result) => {
-      if (result.error) {
-        setErrorMessage(result.error.message);
-      }
-    });
+    await addMusic(payload);
   };
 
-  const resetFields = (shouldReset: boolean) => {
-    if (shouldReset) {
-      // reset();
-      // setImage(null);
-    }
-    // setNonCanadians(1);
-    // setNumMusicians(1);
-    setSubmitting(false);
-    setErrorMessage(null);
+  const resetFields = () => {
+    setUploaded(false);
+    methods.reset();
   };
 
   return (
@@ -61,20 +53,25 @@ const SubmitMusic = () => {
       <h1>Submit a Music Work</h1>
       <hr />
       <Environment />
-      {submitting && (
-        <>
-          {errorMessage || results.data?.musicAdd.name ? (
-            <MusicSubmitted
-              error={errorMessage}
-              music={results.data?.musicAdd.name}
-              resetForm={(shouldReset) => resetFields(shouldReset)}
-            />
-          ) : (
-            <Spinner />
-          )}
-        </>
+      {addMusicResults.fetching && <Spinner />}
+      {addMusicResults.error && (
+        <div className={styles.marginTop}>{addMusicResults.error.message}</div>
       )}
-      {!submitting && (
+      {uploaded && (
+        <div className={styles.submittedBlock}>
+          <h2>Submitted {addMusicResults.data?.musicAdd.name}</h2>
+
+          <button
+            type="button"
+            onClick={resetFields}
+            aria-label="reset form"
+            className={styles.marginTop}
+          >
+            Submit more music?
+          </button>
+        </div>
+      )}
+      {!uploaded && !addMusicResults.fetching && (
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
             <MusicFormGeneric />
