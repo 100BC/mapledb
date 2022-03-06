@@ -80,7 +80,7 @@ const MusicFormGeneric = ({
         <TextInput
           id={`musicianId.${i}`}
           {...register(`musicianId.${i}`, { required: true })}
-          label="Musician Id"
+          label="Musician Id *"
           key={i}
           disabled={isEditing}
         />
