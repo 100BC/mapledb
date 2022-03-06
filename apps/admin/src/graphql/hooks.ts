@@ -54,6 +54,18 @@ export function useGetMusicQuery(
   });
 }
 
+export function useGetMusicNameQuery(
+  options: Omit<
+    Urql.UseQueryArgs<Operations.GetMusicNameQueryVariables>,
+    'query'
+  >
+) {
+  return Urql.useQuery<Operations.GetMusicNameQuery>({
+    query: Operations.GetMusicNameDocument,
+    ...options,
+  });
+}
+
 export function useGetMusicianQuery(
   options: Omit<
     Urql.UseQueryArgs<Operations.GetMusicianQueryVariables>,

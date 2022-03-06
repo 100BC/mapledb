@@ -108,6 +108,12 @@ export type GetMusicQuery = {
   };
 };
 
+export type GetMusicNameQueryVariables = Types.Exact<{
+  id: Types.Scalars['String'];
+}>;
+
+export type GetMusicNameQuery = { music: { name: string } };
+
 export type GetMusicianQueryVariables = Types.Exact<{
   id: Types.Scalars['String'];
 }>;
@@ -307,6 +313,13 @@ export const GetMusicDocument = gql`
       musicians {
         id
       }
+    }
+  }
+`;
+export const GetMusicNameDocument = gql`
+  query GetMusicName($id: String!) {
+    music(id: $id) {
+      name
     }
   }
 `;

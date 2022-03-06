@@ -1,84 +1,85 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useEffect, useState } from 'react';
 
 import Layout from '@components/Layout';
-import { useDeleteMusicMutation } from '@graphql/hooks';
+import { useDeleteMusicMutation, useGetMusicNameQuery } from '@graphql/hooks';
 import Spinner from '@mooseical/shared/components/Spinner';
 import Environment from '@components/Environment';
-import {
-  FormError,
-  TextInput,
-} from '@mooseical/shared/components/FormComponents';
-import MusicDeleted from '@components/MusicDeleted';
 import Button from '@mooseical/shared/components/Button';
-
-interface Form {
-  id: string;
-}
+import styles from '@styles/forms.module.scss';
+import { SearchBar } from '@mooseical/shared/components/FormComponents';
 
 const DeleteMusic = () => {
-  const [results, deleteMusic] = useDeleteMusicMutation();
-  const [submitting, setSubmitting] = useState(false);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<Form>();
+  const [loading, setLoading] = useState(false);
+  const [deleted, setDeleted] = useState(false);
+  const [deleteMusicResults, deleteMusic] = useDeleteMusicMutation();
+  const [musicId, setMusicId] = useState<string | null>(null);
+  const [searchResults] = useGetMusicNameQuery({
+    variables: { id: musicId! },
+    pause: !musicId,
+  });
 
-  const onSubmit = async (data: Form) => {
-    const payload = {
-      id: data.id,
-    };
+  useEffect(() => {
+    if (deleteMusicResults.fetching || searchResults.fetching) setLoading(true);
+    else setLoading(false);
+  }, [deleteMusicResults.fetching, searchResults.fetching]);
 
-    setSubmitting(true);
-    await deleteMusic(payload).then((result) => {
-      if (result.error) {
-        setErrorMessage(result.error.message);
-      }
-    });
+  useEffect(() => {
+    if (deleteMusicResults.data) setDeleted(true);
+  }, [deleteMusicResults.data]);
+
+  const searchMusician = (searchQuery: string) => {
+    setDeleted(false);
+    setMusicId(searchQuery);
   };
 
-  const resetFields = (shouldReset: boolean) => {
-    if (shouldReset) {
-      reset();
-    }
-    setSubmitting(false);
-    setErrorMessage(null);
+  const handleDeleteMusician = async () => {
+    await deleteMusic({ id: musicId! });
+    setMusicId(null);
   };
 
   return (
     <Layout noIndex>
-      <h1>Delete a Musical Work</h1>
+      <h1>Delete Music</h1>
       <hr />
       <Environment />
-      {submitting && (
-        <>
-          {errorMessage || results.data?.musicDelete.name ? (
-            <MusicDeleted
-              error={errorMessage}
-              music={results.data?.musicDelete.name}
-              resetForm={(shouldReset) => resetFields(shouldReset)}
-            />
-          ) : (
-            <Spinner />
-          )}
-        </>
-      )}
-      {!submitting && (
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <TextInput
-            id="id"
-            {...register('id', { required: true })}
-            label="Music Id"
+      <div className={styles.marginTop}>
+        {loading ? (
+          <Spinner />
+        ) : (
+          <SearchBar
+            placeholder="Find Music by id"
+            id="music-search"
+            searchFunction={(s) => searchMusician(s)}
           />
-          <FormError error={errors.id} />
+        )}
+      </div>
+      {searchResults.error && <div>{searchResults.error.message}</div>}
+      {deleteMusicResults.error && (
+        <div className={styles.marginTop}>
+          {deleteMusicResults.error.message}
+        </div>
+      )}
 
-          <Button type="submit" style={{ marginTop: '4rem' }}>
-            Delete
-          </Button>
-        </form>
+      {searchResults.data?.music && (
+        <div className={styles.extraMarginTop}>
+          {deleted && (
+            <h2>Deleted {deleteMusicResults.data?.musicDelete.name}</h2>
+          )}
+          {!deleted && !loading && (
+            <>
+              <h2>
+                Delete <b>{searchResults.data.music.name}</b>?
+              </h2>
+              <Button
+                className={styles.marginTop}
+                type="button"
+                onClick={handleDeleteMusician}
+              >
+                Delete
+              </Button>
+            </>
+          )}
+        </div>
       )}
     </Layout>
   );
