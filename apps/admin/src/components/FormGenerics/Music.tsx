@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useRouter } from 'next/router';
 import { FieldError, useFormContext } from 'react-hook-form';
 
 import { Genre, MusicType } from '@mooseical/schema';
+import { AllOrNone } from '@mooseical/generics';
 import {
   Checkbox,
   FormError,
@@ -13,13 +13,13 @@ import {
 import validateLinks from '@utils/validateLinks';
 import Button from '@mooseical/shared/components/Button';
 
-interface Props {
-  isEditing?: boolean;
-  musiciansLen?: number;
-  nonCadLen?: number;
-  hasCover?: boolean;
-  musicId?: string;
-}
+type Props = AllOrNone<{
+  isEditing: true;
+  musiciansLen: number;
+  nonCadLen: number;
+  hasCover: boolean;
+  musicId: string;
+}>;
 
 export interface MusicFormProps {
   musicianId: string[];
@@ -47,7 +47,7 @@ const urlPrepend =
   process.env.NEXT_PUBLIC_NODE_ENV === 'development' ? 'development' : 'music';
 
 const MusicFormGeneric = ({
-  isEditing = false,
+  isEditing,
   musiciansLen = 1,
   nonCadLen = 1,
   hasCover,
@@ -56,7 +56,6 @@ const MusicFormGeneric = ({
   const imgUrl = hasCover
     ? `${baseCloudinaryUrl}/c_limit,q_auto,w_400,f_auto/${urlPrepend}/${musicId}`
     : null;
-  const router = useRouter();
   const [numMusicians, setNumMusicians] = useState(musiciansLen);
   const [nonCanadians, setNonCanadians] = useState(Math.max(nonCadLen, 1));
   const [image, setImage] = useState<string | null>(imgUrl);
@@ -81,7 +80,6 @@ const MusicFormGeneric = ({
         <TextInput
           id={`musicianId.${i}`}
           {...register(`musicianId.${i}`, { required: true })}
-          defaultValue={i === 0 ? router.query.id : undefined}
           label="Musician Id"
           key={i}
           disabled={isEditing}
@@ -207,7 +205,7 @@ const MusicFormGeneric = ({
         label="Apple Music"
       />
       <FormError
-        error={errors.links?.apple}
+        error={errors.links?.apple?.type === 'pattern'}
         message="Malformed Apple Music URL"
       />
 
@@ -221,7 +219,7 @@ const MusicFormGeneric = ({
         label="Bandcamp"
       />
       <FormError
-        error={errors.links?.bandcamp}
+        error={errors.links?.bandcamp?.type === 'pattern'}
         message="Malformed Bandcamp URL"
       />
 
@@ -235,7 +233,7 @@ const MusicFormGeneric = ({
         label="SoundCloud"
       />
       <FormError
-        error={errors.links?.soundcloud}
+        error={errors.links?.soundcloud?.type === 'pattern'}
         message="Malformed Soundcloud URL"
       />
 
@@ -249,18 +247,8 @@ const MusicFormGeneric = ({
         label="Spotify"
       />
       <FormError
-        error={errors.links?.spotify}
+        error={errors.links?.spotify?.type === 'pattern'}
         message="Malformed Spotify URL"
-      />
-
-      <FormError
-        error={
-          errors?.links &&
-          Object.values(errors.links).some(
-            (x) => (x as FieldError).type === 'required'
-          )
-        }
-        message="At least one link is needed"
       />
 
       <TextInput
@@ -275,6 +263,16 @@ const MusicFormGeneric = ({
       <FormError
         error={errors.links?.youtube?.type === 'pattern'}
         message="Malformed Youtube URL"
+      />
+
+      <FormError
+        error={
+          errors?.links &&
+          Object.values(errors.links).some(
+            (x) => (x as FieldError).type === 'required'
+          )
+        }
+        message="At least one link is needed"
       />
 
       <Button type="submit" style={{ marginTop: '4rem' }}>

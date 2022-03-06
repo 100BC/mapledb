@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import { useRouter } from 'next/router';
 
 import Layout from '@components/Layout';
 import { useAddMusicMutation } from '@graphql/hooks';
@@ -11,9 +12,17 @@ import MusicFormGeneric, {
 import styles from '@styles/forms.module.scss';
 
 const SubmitMusic = () => {
+  const router = useRouter();
+  const defaultMusicianId = useMemo(() => router.query.id, [router.query]);
   const [addMusicResults, addMusic] = useAddMusicMutation();
   const [uploaded, setUploaded] = useState(false);
-  const methods = useForm<MusicFormProps>();
+  const methods = useForm<MusicFormProps>({
+    defaultValues: {
+      musicianId: Array.isArray(defaultMusicianId)
+        ? undefined
+        : [defaultMusicianId],
+    },
+  });
 
   useEffect(() => {
     if (addMusicResults.data) setUploaded(true);
@@ -67,7 +76,7 @@ const SubmitMusic = () => {
             aria-label="reset form"
             className={styles.marginTop}
           >
-            Submit more music?
+            Submit more music{defaultMusicianId && ' to the same musician'}?
           </button>
         </div>
       )}
