@@ -28,8 +28,8 @@ const main = async () => {
   await Promise.all(collabPromise);
   console.log('Created 25 collaborations');
 
-  await createMusician('Test');
-  console.log('Create test Musician');
+  await createMusician('Musician');
+  console.log('Created Debug Musician');
 };
 
 main()
