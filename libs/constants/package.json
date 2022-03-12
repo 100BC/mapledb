@@ -2,10 +2,11 @@
   "name": "@mooseical/constants",
   "version": "1.0.0",
   "private": true,
-  "main": "index.ts",
+  "main": "dist/index.js",
   "scripts": {
+    "build": "tsc",
     "lint": "tsc --noEmit --incremental false && eslint --fix '**/*.ts'",
-    "clean": "rm -rf node_modules .turbo .pnpm-debug.log"
+    "clean": "rm -rf node_modules .turbo .pnpm-debug.log dist"
   },
   "devDependencies": {
     "@mooseical/eslint-config": "workspace:*",

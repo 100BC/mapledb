@@ -1,5 +1,9 @@
 {
-  "extends": "@mooseical/tsconfig/base.json",
+  "extends": "@mooseical/tsconfig/node.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "dist"
+  },
   "include": ["index.ts"],
-  "exclude": ["node_modules", ".eslintrc.js"]
+  "exclude": ["node_modules", ".eslintrc.js", "dist"]
 }

@@ -10,7 +10,9 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "dev": "pnpm kill-ports && turbo run dev --parallel",
+    "dev": "pnpm kill-ports && turbo run dev",
+    "start": "pnpm kill-ports && turbo run start --parallel",
+    "deploy": "turbo run deploy",
     "generate": "turbo run generate",
     "clean": "turbo run clean && rm -rf node_modules .turbo .pnpm-debug.log",
     "clean:install": "turbo run clean && pnpm install && turbo run generate",

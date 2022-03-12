@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --port 3001",
     "build": "next build",
-    "start": "next start",
+    "start": "next start --port 3001",
     "lint": "tsc --noEmit --incremental false && eslint --fix 'src/**/*.{ts,tsx}' && stylelint --fix 'src/**/*.scss'",
     "clean": "rm -rf node_modules .turbo .pnpm-debug.log .next"
   },
