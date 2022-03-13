@@ -5,6 +5,7 @@ generates:
     documents: '../../apps/web/**/*.graphql'
     plugins:
       - typescript
+
   types/web.ts:
     documents: '../../apps/web/**/*.graphql'
     preset: import-types
@@ -15,6 +16,7 @@ generates:
       - typescript-document-nodes
     config:
       nameSuffix: Document
+
   ../../apps/web/src/graphql/hooks.ts:
     documents: '../../apps/web/**/*.graphql'
     plugins:
@@ -23,6 +25,7 @@ generates:
       importOperationTypesFrom: Operations
       documentMode: external
       importDocumentNodeExternallyFrom: '@mooseical/schema/types/web'
+
   types/admin.ts:
     documents: '../../apps/admin/**/*.graphql'
     preset: import-types
@@ -33,6 +36,7 @@ generates:
       - typescript-document-nodes
     config:
       nameSuffix: Document
+
   ../../apps/admin/src/graphql/hooks.ts:
     documents: '../../apps/admin/**/*.graphql'
     plugins:
@@ -41,6 +45,7 @@ generates:
       importOperationTypesFrom: Operations
       documentMode: external
       importDocumentNodeExternallyFrom: '@mooseical/schema/types/admin'
+
 config:
   onlyOperationTypes: true
   skipTypename: true
@@ -52,6 +57,7 @@ config:
   scalars:
     Upload: File
     Date: string
+
 hooks:
   afterAllFileWrite:
     - eslint --fix
