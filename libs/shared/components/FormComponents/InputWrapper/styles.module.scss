@@ -25,7 +25,7 @@
     width: 100%;
     height: 4px;
     content: '';
-    background: $theme-300;
+    background-color: $theme-300;
     opacity: 0;
     transition: all 500ms ease;
     transform: scaleX(0);
@@ -54,6 +54,6 @@
   border-bottom: 2px solid $grey;
 
   &::after {
-    background: $grey;
+    background-color: $grey;
   }
 }

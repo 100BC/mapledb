@@ -39,7 +39,7 @@
 .checked,
 .checkedGrey {
   position: relative;
-  background: $theme-300;
+  background-color: $theme-300;
 
   &::after {
     position: absolute;

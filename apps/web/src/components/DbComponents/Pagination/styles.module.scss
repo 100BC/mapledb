@@ -50,12 +50,12 @@
 }
 
 .active {
-  background: $theme-500;
+  background-color: $theme-500;
   border-radius: 50%;
 
   &:hover {
     color: $white;
-    background: $theme-300;
+    background-color: $theme-300;
   }
 }
 

@@ -7,7 +7,7 @@ $font-400: $black;
 body {
   font-family: Roboto, sans-serif;
   color: $font-400;
-  background: $bg-400;
+  background-color: $bg-400;
 }
 
 h1 {
@@ -30,7 +30,7 @@ hr {
   max-width: 600px;
   height: 5px;
   margin-bottom: 10px;
-  background: $theme-400;
+  background-color: $theme-400;
   border: 0;
 }
 

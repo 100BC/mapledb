@@ -9,7 +9,7 @@ $header-transition: 0.3s ease-out;
   margin: 0;
   color: $white;
   text-align: center;
-  background: $theme-600;
+  background-color: $theme-600;
 
   @media only screen and (max-width: $tablet) {
     display: none;
@@ -63,7 +63,7 @@ $header-transition: 0.3s ease-out;
 
   &:hover {
     color: inherit;
-    background: $theme-500;
+    background-color: $theme-500;
   }
 }
 

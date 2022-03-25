@@ -5,18 +5,18 @@
   font-size: 1.6rem;
   font-weight: bold;
   color: $white;
-  background: $theme-500;
+  background-color: $theme-500;
   border-radius: 6px;
   transition: opacity 200ms, background 200ms;
 
   &:disabled {
     color: $font-400;
-    background: $grey;
+    background-color: $grey;
     opacity: 0.6;
   }
 
   &:hover:not(:disabled) {
     color: $white;
-    background: $theme-600;
+    background-color: $theme-600;
   }
 }

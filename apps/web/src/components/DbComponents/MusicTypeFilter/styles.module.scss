@@ -24,12 +24,12 @@
 
 .active {
   color: $white;
-  background: $theme-600;
+  background-color: $theme-600;
   border: 2px solid $theme-600;
 
   &:hover {
     color: $white;
-    background: $theme-500;
+    background-color: $theme-500;
     border: 2px solid $theme-500;
   }
 }
