@@ -64,11 +64,9 @@ fastify.register(helmet, {
 });
 
 fastify.register(cors, {
-  origin: [
-    'http://localhost:3000',
-    'http://localhost:3001',
-    'https://www.mooseical.com',
-  ],
+  origin: IS_DEV
+    ? ['http://localhost:3000', 'http://localhost:3001']
+    : ['https://www.mooseical.com', 'https://admin.mooseical.com'],
 });
 
 fastify.register(fastifyRateLimit, {
