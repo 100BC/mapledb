@@ -5,12 +5,12 @@
   font-size: 1.8rem;
   font-weight: bold;
   color: inherit;
-  background: 0;
+  background-color: transparent;
   border: 0;
   outline: 0;
   appearance: caret;
 
   > option {
-    background-color: inherit;
+    background-color: $bg-300;
   }
 }
