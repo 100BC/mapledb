@@ -25,5 +25,8 @@ query GetMusic($id: String!) {
 query GetMusicName($id: String!) {
   music(id: $id) {
     name
+    musicians {
+      name
+    }
   }
 }

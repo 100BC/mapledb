@@ -68,7 +68,14 @@ const DeleteMusic = () => {
           {!deleted && !loading && (
             <>
               <h2>
-                Delete <b>{searchResults.data.music.name}</b>?
+                Delete <b>{searchResults.data.music.name}</b> by{' '}
+                <b>
+                  {searchResults.data.music.musicians.map((musician, i) => {
+                    if (i === 0) return ` ${musician.name}`;
+                    return `& ${musician.name}`;
+                  })}
+                </b>
+                ?
               </h2>
               <Button
                 className={styles.marginTop}
