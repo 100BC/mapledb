@@ -87,7 +87,7 @@ jobs:
         with:
           path: |
             ${{ github.workspace }}/apps/admin/.next/cache
-          key: ${{ runner.os }}-admin-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('./{apps/admin/src,libs/shared/components}/**/*.{ts,tsx}') }}
+          key: ${{ runner.os }}-admin-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('./apps/admin/src/**/*.{ts,tsx}', './libs/shared/components/**/*.{ts,tsx}') }}
           restore-keys: |
             ${{ runner.os }}-admin-${{ hashFiles('**/pnpm-lock.yaml') }}-
 
@@ -105,7 +105,7 @@ jobs:
         with:
           path: |
             ${{ github.workspace }}/apps/web/.next/cache
-          key: ${{ runner.os }}-web-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('./{apps/web/src,libs/shared/components}/**/*.{ts,tsx}') }}
+          key: ${{ runner.os }}-web-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('./apps/web/src/**/*.{ts,tsx}', './libs/shared/components/**/*.{ts,tsx}') }}
           restore-keys: |
             ${{ runner.os }}-web-${{ hashFiles('**/pnpm-lock.yaml') }}-
 
