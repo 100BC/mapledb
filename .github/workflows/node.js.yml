@@ -115,6 +115,9 @@ jobs:
       - name: Build Admin
         run: pnpm build -F admin
 
+      - name: Build Generate
+        run: pnpm generate
+
       - name: Build Server
         run: pnpm build -F server
 
