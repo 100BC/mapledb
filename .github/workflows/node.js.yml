@@ -24,7 +24,7 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
 
-      - name: Create admin env file
+      - name: Create env files
         run: |
           cat << EOF > ./apps/admin/.env.local
           NODE_ENV="production"
@@ -67,37 +67,6 @@ jobs:
           NEXT_PUBLIC_APP_ID=${{ secrets.FIREBASE_CLIENT_APP_ID }}
           EOF
 
-      # - name: Create server env file
-      #   run: |
-      #     cat << EOF > ./apps/server/.env
-      #     NODE_ENV="production"
-      #     DATABASE_URL=${{ secrets.DATABASE_URL }}
-      #     SECRET_MUTATION_KEY=${{ secrets.SECRET_MUTATION_KEY }}
-      #     SECRET_QUERY_KEY=${{ secrets.SECRET_QUERY_KEY }}
-
-      #     CLOUDINARY_API_KEY=${{ secrets.CLOUDINARY_API_KEY }}
-      #     CLOUDINARY_API_SECRET=${{ secrets.CLOUDINARY_API_SECRET }}
-      #     EOF
-
-      # - name: Create web env file
-      #   run: |
-      #     cat << EOF > ./apps/web/.env.local
-      #     NODE_ENV="production"
-      #     NEXT_PUBLIC_NODE_ENV="production"
-      #     NEXT_PUBLIC_GRAPHQL_SERVER=${{secrets.GRAPHQL_SERVER}}
-      #     SECRET_API_KEY=${{ secrets.SECRET_QUERY_KEY }}
-
-      #     NEXT_PUBLIC_RECAPTCHA_KEY=${{ secrets.RECAPTCHA_SITE_KEY }}
-      #     SECRET_RECAPTCHA_KEY=${{ secrets.RECAPTCHA_SECRET_KEY }}
-
-      #     NEXT_PUBLIC_API_KEY=${{ secrets.FIREBASE_CLIENT_API_KEY }}
-      #     NEXT_PUBLIC_AUTH_DOMAIN=${{ secrets.FIREBASE_CLIENT_AUTH_DOMAIN }}
-      #     NEXT_PUBLIC_PROJECT_ID=${{ secrets.FIREBASE_PROJECT_ID }}
-      #     NEXT_PUBLIC_STORAGE_BUCKET=${{ secrets.FIREBASE_CLIENT_STORAGE_BUCKET }}
-      #     NEXT_PUBLIC_MESSAGING_SENDER_ID=${{ secrets.FIREBASE_CLIENT_MESSAGING_SENDER_ID }}
-      #     NEXT_PUBLIC_APP_ID=${{ secrets.FIREBASE_CLIENT_APP_ID }}
-      #     EOF
-
       - name: Install dependencies
         run: pnpm install
 
@@ -105,10 +74,9 @@ jobs:
       # - name: Lint & Type Check
       #   run: pnpm lint
 
-      - name: Restore web .next/build cache
+      - name: web .next/build cache
         uses: actions/cache@v3
         with:
-          # See here for caching with `yarn` https://github.com/actions/cache/blob/main/examples.md#node---yarn or you can leverage caching with actions/setup-node https://github.com/actions/setup-node
           path: ${{ github.workspace }}/apps/web/.next/cache
           # Generate a new cache whenever packages or source files change.
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('./apps/web/**.[jt]s', '**.[jt]sx') }}
@@ -116,10 +84,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('./apps/web/**.[jt]s', '**.[jt]sx') }}
 
-      - name: Restore admin .next/build cache
+      - name: admin .next/build cache
         uses: actions/cache@v3
         with:
-          # See here for caching with `yarn` https://github.com/actions/cache/blob/main/examples.md#node---yarn or you can leverage caching with actions/setup-node https://github.com/actions/setup-node
           path: ${{ github.workspace }}/apps/admin/.next/cache
           # Generate a new cache whenever packages or source files change.
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('./apps/admin/**.[jt]s', '**.[jt]sx') }}
