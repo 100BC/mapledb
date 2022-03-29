@@ -77,7 +77,9 @@ jobs:
       - name: Build Cache - Constants
         uses: actions/cache@v3
         with:
-          path: ${{ github.workspace }}/libs/constants/dist
+          path: |
+            ${{ github.workspace }}/libs/constants/dist
+            ${{ github.workspace }}/libs/constants/.turbo
           key: ${{ runner.os }}-constants-${{ hashFiles('./libs/constants/index.ts') }}
           restore-keys: |
             ${{ runner.os }}-constants-${{ hashFiles('./libs/constants/index.ts') }}
@@ -86,7 +88,8 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            ${{ github.workspace }}/apps/admin/.next/cache
+            ${{ github.workspace }}/apps/admin/.next
+            ${{ github.workspace }}/apps/admin/.turbo
           key: ${{ runner.os }}-admin-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('./apps/admin/src/**/*.ts', './apps/admin/src/**/*.tsx', './libs/shared/components/**/*.ts', './libs/shared/components/**/*.tsx') }}
           restore-keys: |
             ${{ runner.os }}-admin-${{ hashFiles('**/pnpm-lock.yaml') }}-
@@ -96,6 +99,7 @@ jobs:
         with:
           path: |
             ${{ github.workspace }}/apps/server/dist
+            ${{ github.workspace }}/apps/server/.turbo
           key: ${{ runner.os }}-server-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('./apps/server/src/**/*.ts', './apps/server/prisma/schema.prisma') }}
           restore-keys: |
             ${{ runner.os }}-server-${{ hashFiles('**/pnpm-lock.yaml') }}-
@@ -104,7 +108,8 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            ${{ github.workspace }}/apps/web/.next/cache
+            ${{ github.workspace }}/apps/web/.next
+            ${{ github.workspace }}/apps/web/.turbo
           key: ${{ runner.os }}-web-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('./apps/web/src/**/*.ts', './apps/web/src/**/*.tsx', './libs/shared/components/**/*.ts', './libs/shared/components/**/*.tsx') }}
           restore-keys: |
             ${{ runner.os }}-web-${{ hashFiles('**/pnpm-lock.yaml') }}-
