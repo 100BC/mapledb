@@ -26,7 +26,7 @@ jobs:
 
       - name: Create env files
         run: |
-          cat << EOF > ./apps/admin/.env.local
+          cat << EOF > ${{ github.workspace }}/apps/admin/.env.local
           NODE_ENV="production"
           NEXT_PUBLIC_NODE_ENV="production"
           NEXT_PUBLIC_GRAPHQL_SERVER=${{secrets.GRAPHQL_SERVER}}
@@ -40,7 +40,7 @@ jobs:
           NEXT_PUBLIC_APP_ID=${{ secrets.FIREBASE_CLIENT_APP_ID }}
           EOF
 
-          cat << EOF > ./apps/server/.env
+          cat << EOF > ${{ github.workspace }}/apps/server/.env
           NODE_ENV="production"
           DATABASE_URL=${{ secrets.DATABASE_URL }}
           SECRET_MUTATION_KEY=${{ secrets.SECRET_MUTATION_KEY }}
@@ -50,7 +50,7 @@ jobs:
           CLOUDINARY_API_SECRET=${{ secrets.CLOUDINARY_API_SECRET }}
           EOF
 
-          cat << EOF > ./apps/web/.env.local
+          cat << EOF > ${{ github.workspace }}/apps/web/.env.local
           NODE_ENV="production"
           NEXT_PUBLIC_NODE_ENV="production"
           NEXT_PUBLIC_GRAPHQL_SERVER=${{secrets.GRAPHQL_SERVER}}
@@ -74,19 +74,40 @@ jobs:
       # - name: Lint & Type Check
       #   run: pnpm lint
 
-      - name: Build Cache
+      - name: Build Cache - Constants
+        uses: actions/cache@v3
+        with:
+          path: ${{ github.workspace }}/libs/constants/dist/tsconfig.tsbuildinfo
+          key: ${{ runner.os }}-constants-${{ hashFiles('./libs/constants/index.ts) }}
+          restore-keys: |
+            ${{ runner.os }}-constants-${{ hashFiles('./libs/constants/index.ts) }}
+
+      - name: Build Cache - Admin
+        uses: actions/cache@v3
+        with:
+          path: |
+            ${{ github.workspace }}/apps/admin/.next/cache
+          key: ${{ runner.os }}-admin-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('./{apps/admin/src,libs/shared/components}/**/*.{ts,tsx}') }}
+          restore-keys: |
+            ${{ runner.os }}-admin-${{ hashFiles('**/pnpm-lock.yaml') }}-
+
+      - name: Build Cache - Server
+        uses: actions/cache@v3
+        with:
+          path: |
+            ${{ github.workspace }}/apps/server/dist/tsconfig.tsbuildinfo
+          key: ${{ runner.os }}-server-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('./apps/server/src/**/*.ts') }}
+          restore-keys: |
+            ${{ runner.os }}-server-${{ hashFiles('**/pnpm-lock.yaml') }}-
+
+      - name: Build Cache - Web
         uses: actions/cache@v3
         with:
           path: |
             ${{ github.workspace }}/apps/web/.next/cache
-            ${{ github.workspace }}/apps/admin/.next/cache
-            ${{ github.workspace }}/apps/server/dist/tsconfig.tsbuildinfo
-            ${{ github.workspace }}/libs/constants/dist/tsconfig.tsbuildinfo
-          # Generate a new cache whenever packages or source files change.
-          key: ${{ runner.os }}-mooseical-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**/*.[jt]s', '**/*.[jt]sx') }}
-          # If source files changed but packages didn't, rebuild from a prior cache.
+          key: ${{ runner.os }}-web-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('./{apps/web/src,libs/shared/components}/**/*.{ts,tsx}') }}
           restore-keys: |
-            ${{ runner.os }}-mooseical-${{ hashFiles('**/pnpm-lock.yaml') }}-
+            ${{ runner.os }}-web-${{ hashFiles('**/pnpm-lock.yaml') }}-
 
       - name: Build
         run: pnpm build
