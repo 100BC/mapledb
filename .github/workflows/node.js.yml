@@ -113,7 +113,7 @@ jobs:
         run: pnpm build
 
       - name: Migrate Database
-        run: pnpm prisma migrate deploy
+        run: pnpm -F server db:deploy
 
       - name: Start
         run: cd ~ && pm2 reload ecosystem.config.js
