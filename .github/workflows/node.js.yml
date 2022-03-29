@@ -109,8 +109,20 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-web-${{ hashFiles('**/pnpm-lock.yaml') }}-
 
-      - name: Build
-        run: pnpm build
+      - name: Build Constants
+        run: pnpm build -F constants
+
+      - name: Build Admin
+        run: pnpm build -F admin
+
+      - name: Build Server
+        run: pnpm build -F server
+
+      - name: Build Web
+        run: pnpm build -F web
+
+      # - name: Build
+      #   run: pnpm build
 
       - name: Start
         run: cd ~ && pm2 reload ecosystem.config.js
