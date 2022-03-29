@@ -79,8 +79,8 @@ jobs:
       - name: Install dependencies and Generate Files
         run: pnpm install && pnpm -F server generate
 
-      - name: Check Types
-        run: pnpm lint
+      # - name: Check Types
+      #   run: pnpm lint
 
       # Have to build each separately because of limited RAM
       # Use pnpm build when ram ~1GB
