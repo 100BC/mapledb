@@ -77,27 +77,16 @@ jobs:
           EOF
 
       - name: Install dependencies and Generate Files
-        run: pnpm install && pnpm -F server generate
+        run: pnpm install
 
       # - name: Check Types
       #   run: pnpm lint
 
-      # Have to build each separately because of limited RAM
-      # Use pnpm build when ram ~1GB
       - name: Build Constants
         run: pnpm build -F constants
 
-      - name: Build Server
-        run: pnpm build -F server
-
-      - name: Build Web
-        run: pnpm build -F web
-
-      - name: Build Admin
-        run: pnpm build -F admin
-
-      - name: Migrate Database
-        run: pnpm -F server db:deploy
+      - name: Build
+        run: pnpm build
 
       - name: Deploy
         run: cd ~ && pm2 reload ecosystem.config.js
