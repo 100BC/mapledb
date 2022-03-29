@@ -74,25 +74,18 @@ jobs:
       # - name: Lint & Type Check
       #   run: pnpm lint
 
-      - name: web .next/build cache
+      - name: Build Cache
         uses: actions/cache@v3
         with:
-          path: ${{ github.workspace }}/apps/web/.next/cache
+          path: |
+            ${{ github.workspace }}/apps/web/.next/cache
+            ${{ github.workspace }}/apps/admin/.next/cache
+            ${{ github.workspace }}/apps/server/dist/tsconfig.tsbuildinfo
           # Generate a new cache whenever packages or source files change.
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('./apps/web/**.[jt]s', '**.[jt]sx') }}
+          key: ${{ runner.os }}-mooseical-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('./apps/web/**.[jt]s', '**.[jt]sx') }}
-
-      - name: admin .next/build cache
-        uses: actions/cache@v3
-        with:
-          path: ${{ github.workspace }}/apps/admin/.next/cache
-          # Generate a new cache whenever packages or source files change.
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('./apps/admin/**.[jt]s', '**.[jt]sx') }}
-          # If source files changed but packages didn't, rebuild from a prior cache.
-          restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('./apps/admin/**.[jt]s', '**.[jt]sx') }}
+            ${{ runner.os }}-mooseical-${{ hashFiles('**/pnpm-lock.yaml') }}-
 
       - name: Build
         run: pnpm build
