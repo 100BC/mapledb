@@ -4,7 +4,7 @@
   "private": true,
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc --build --clean && tsc",
+    "build": "tsc",
     "lint": "tsc --noEmit --incremental false && eslint --fix '**/*.ts'",
     "clean": "rm -rf node_modules .turbo .pnpm-debug.log dist"
   },

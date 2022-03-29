@@ -1,7 +1,7 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Node.js CI
+name: Production Deploy
 
 on:
   push:
@@ -74,6 +74,14 @@ jobs:
       # - name: Lint & Type Check
       #   run: pnpm lint
 
+      - name: Build Cache - Constants
+        uses: actions/cache@v3
+        with:
+          path: ${{ github.workspace }}/libs/constants/dist
+          key: ${{ runner.os }}-constants-${{ hashFiles('./libs/constants/index.ts') }}
+          restore-keys: |
+            ${{ runner.os }}-constants-${{ hashFiles('./libs/constants/index.ts') }}
+
       - name: Build Cache - Admin
         uses: actions/cache@v3
         with:
@@ -82,6 +90,15 @@ jobs:
           key: ${{ runner.os }}-admin-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('./apps/admin/src/**/*.ts', './apps/admin/src/**/*.tsx', './libs/shared/components/**/*.ts', './libs/shared/components/**/*.tsx') }}
           restore-keys: |
             ${{ runner.os }}-admin-${{ hashFiles('**/pnpm-lock.yaml') }}-
+
+      - name: Build Cache - Server
+        uses: actions/cache@v3
+        with:
+          path: |
+            ${{ github.workspace }}/apps/server/dist
+          key: ${{ runner.os }}-server-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('./apps/server/src/**/*.ts', './apps/server/prisma/schema.prisma') }}
+          restore-keys: |
+            ${{ runner.os }}-server-${{ hashFiles('**/pnpm-lock.yaml') }}-
 
       - name: Build Cache - Web
         uses: actions/cache@v3
@@ -94,6 +111,9 @@ jobs:
 
       - name: Build
         run: pnpm build
+
+      - name: Migrate Database
+        run: pnpm prisma migrate deploy
 
       - name: Start
         run: cd ~ && pm2 reload ecosystem.config.js
