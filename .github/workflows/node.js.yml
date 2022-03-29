@@ -80,7 +80,7 @@ jobs:
         run: pnpm install && pnpm -F server generate
 
       - name: Check Types
-        run: pnpm tsc --noEmit
+        run: pnpm lint
 
       # Have to build each separately because of limited RAM
       # Use pnpm build when ram ~1GB
