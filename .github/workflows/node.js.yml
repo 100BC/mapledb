@@ -77,7 +77,7 @@ jobs:
           EOF
 
       - name: Install dependencies and Generate Files
-        run: pnpm install && prisma generate
+        run: pnpm install && pnpm -F server generate
 
       - name: Check Types
         run: pnpm tsc --noEmit
