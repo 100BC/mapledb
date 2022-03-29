@@ -16,13 +16,6 @@ const PrivacyPolicy = () => {
       <hr />
       <section className={styles.section}>
         <p>
-          Mooseical currently only tracks website performance (Largest
-          Contentful Paint, First Input Delay, etc.) and uses that information
-          to make necessary improvements. The data collected has no identifying
-          information pertaining to any user and is only stored for 1 day.
-        </p>
-        <br />
-        <p>
           Mooseical uses Google reCAPTCHA to prevent spam when suggesting a
           musician via the Suggest Musician form. As such your use of reCAPTCHA
           is subject to{' '}
@@ -42,7 +35,7 @@ const PrivacyPolicy = () => {
           </Link>
         </p>
       </section>
-      <time className={styles.lastUpdated}>Last Updated: 2021-12-04</time>
+      <time className={styles.lastUpdated}>Last Updated: 2022-03-29</time>
     </Layout>
   );
 };
