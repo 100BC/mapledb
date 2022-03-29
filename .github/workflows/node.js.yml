@@ -11,11 +11,6 @@ jobs:
   build:
     runs-on: self-hosted
 
-    # strategy:
-    #   matrix:
-    #     node-version: [12.x, 14.x, 16.x]
-    #     # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
       - uses: actions/checkout@v3
 
@@ -79,18 +74,8 @@ jobs:
       - name: Install dependencies and Generate Files
         run: pnpm install
 
-      # - name: Check Types
-      #   run: pnpm lint
-
-      - name: Build Constants
-        run: pnpm build -F constants
-
-      - name: Build
-        run: pnpm build
+      - name: Deploy (generate,lint,build)
+        run: pnpm deploy
 
       - name: Deploy
         run: cd ~ && pm2 reload ecosystem.config.js
-
-      # - run: npm ci
-      # - run: npm run build --if-present
-      # - run: npm test
