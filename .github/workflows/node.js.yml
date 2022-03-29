@@ -5,24 +5,103 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
     runs-on: self-hosted
 
-    strategy:
-      matrix:
-        node-version: [12.x, 14.x, 16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    # strategy:
+    #   matrix:
+    #     node-version: [12.x, 14.x, 16.x]
+    #     # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+
+      - name: Create admin env file
+        run: |
+          cat << EOF > /apps/admin/.env.local
+          NODE_ENV="production"
+          NEXT_PUBLIC_NODE_ENV="production"
+          NEXT_PUBLIC_GRAPHQL_SERVER=${{secrets.GRAPHQL_SERVER}}
+          SECRET_API_KEY=${{ secrets.SECRET_MUTATION_KEY }}
+
+          NEXT_PUBLIC_API_KEY=${{ secrets.FIREBASE_CLIENT_API_KEY }}
+          NEXT_PUBLIC_AUTH_DOMAIN=${{ secrets.FIREBASE_CLIENT_AUTH_DOMAIN }}
+          NEXT_PUBLIC_PROJECT_ID=${{ secrets.FIREBASE_PROJECT_ID }}
+          NEXT_PUBLIC_STORAGE_BUCKET=${{ secrets.FIREBASE_CLIENT_STORAGE_BUCKET }}
+          NEXT_PUBLIC_MESSAGING_SENDER_ID=${{ secrets.FIREBASE_CLIENT_MESSAGING_SENDER_ID }}
+          NEXT_PUBLIC_APP_ID=${{ secrets.FIREBASE_CLIENT_APP_ID }}
+          EOF
+
+      - name: Create server env file
+        run: |
+          cat << EOF > /apps/server/.env
+          NODE_ENV="production"
+          DATABASE_URL=${{ secrets.DATABASE_URL }}
+          SECRET_MUTATION_KEY=${{ secrets.SECRET_MUTATION_KEY }}
+          SECRET_QUERY_KEY=${{ secrets.SECRET_QUERY_KEY }}
+
+          CLOUDINARY_API_KEY=${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET=${{ secrets.CLOUDINARY_API_SECRET }}
+          EOF
+
+      - name: Create web env file
+        run: |
+          cat << EOF > /apps/web/.env.local
+          NODE_ENV="production"
+          NEXT_PUBLIC_NODE_ENV="production"
+          NEXT_PUBLIC_GRAPHQL_SERVER=${{secrets.GRAPHQL_SERVER}}
+          SECRET_API_KEY=${{ secrets.SECRET_QUERY_KEY }}
+
+          NEXT_PUBLIC_RECAPTCHA_KEY=${{ secrets.RECAPTCHA_SITE_KEY }}
+          SECRET_RECAPTCHA_KEY=${{ secrets.RECAPTCHA_SECRET_KEY }}
+
+          NEXT_PUBLIC_API_KEY=${{ secrets.FIREBASE_CLIENT_API_KEY }}
+          NEXT_PUBLIC_AUTH_DOMAIN=${{ secrets.FIREBASE_CLIENT_AUTH_DOMAIN }}
+          NEXT_PUBLIC_PROJECT_ID=${{ secrets.FIREBASE_PROJECT_ID }}
+          NEXT_PUBLIC_STORAGE_BUCKET=${{ secrets.FIREBASE_CLIENT_STORAGE_BUCKET }}
+          NEXT_PUBLIC_MESSAGING_SENDER_ID=${{ secrets.FIREBASE_CLIENT_MESSAGING_SENDER_ID }}
+          NEXT_PUBLIC_APP_ID=${{ secrets.FIREBASE_CLIENT_APP_ID }}
+          EOF
+
+      - name: Install dependencies and Generate Files
+        run: pnpm install && prisma generate
+
+      - name: Check Types
+        run: pnpm tsc --noEmit
+
+      # Have to build each separately because of limited RAM
+      # Use pnpm build when ram ~1GB
+      - name: Build Constants
+        run: pnpm build -F constants
+
+      - name: Build Server
+        run: pnpm build -F server
+
+      - name: Build Web
+        run: pnpm build -F web
+
+      - name: Build Admin
+        run: pnpm build -F admin
+
+      - name: Migrate Database
+        run: pnpm -F server db:deploy
+
+      - name: Deploy
+        run: cd ~ && pm2 reload ecosystem.config.js
+
+      # - run: npm ci
+      # - run: npm run build --if-present
+      # - run: npm test
