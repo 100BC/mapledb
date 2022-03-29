@@ -78,9 +78,9 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/libs/constants/dist/tsconfig.tsbuildinfo
-          key: ${{ runner.os }}-constants-${{ hashFiles('./libs/constants/index.ts) }}
+          key: ${{ runner.os }}-constants-${{ hashFiles('./libs/constants/index.ts') }}
           restore-keys: |
-            ${{ runner.os }}-constants-${{ hashFiles('./libs/constants/index.ts) }}
+            ${{ runner.os }}-constants-${{ hashFiles('./libs/constants/index.ts') }}
 
       - name: Build Cache - Admin
         uses: actions/cache@v3
