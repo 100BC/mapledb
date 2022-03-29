@@ -7,7 +7,7 @@
     "web.ts"
   ],
   "scripts": {
-    "generate": "graphql-codegen --config codegen.yml",
+    "codegen": "graphql-codegen --config codegen.yml",
     "lint": "tsc --noEmit --incremental false && eslint --fix '**/*.ts'",
     "clean": "rm -rf node_modules .turbo .pnpm-debug.log"
   },

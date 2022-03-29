@@ -71,7 +71,7 @@ jobs:
           NEXT_PUBLIC_APP_ID=${{ secrets.FIREBASE_CLIENT_APP_ID }}
           EOF
 
-      - name: Install dependencies and Generate Files
+      - name: Install dependencies
         run: pnpm install
 
       - name: Deploy (generate,lint,build)

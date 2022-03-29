@@ -14,6 +14,7 @@
     "start": "pnpm kill-ports && turbo run start --parallel",
     "deploy": "turbo run deploy",
     "generate": "turbo run generate",
+    "codegen": "turbo run codegen",
     "clean": "turbo run clean && rm -rf node_modules .turbo .pnpm-debug.log",
     "clean:install": "turbo run clean && pnpm install && turbo run generate",
     "kill-ports": "kill-port 3000 3001 3002",
