@@ -74,8 +74,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Deploy (generate,lint,build)
-        run: pnpm deploy
+      - name: Lint & Type Check
+        run: pnpm lint
 
       - name: Deploy
+        run: pnpm build
+
+      - name: Start
         run: cd ~ && pm2 reload ecosystem.config.js
