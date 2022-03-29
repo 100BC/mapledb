@@ -74,14 +74,6 @@ jobs:
       # - name: Lint & Type Check
       #   run: pnpm lint
 
-      - name: Build Cache - Constants
-        uses: actions/cache@v3
-        with:
-          path: ${{ github.workspace }}/libs/constants/dist/tsconfig.tsbuildinfo
-          key: ${{ runner.os }}-constants
-          restore-keys: |
-            ${{ runner.os }}-constants
-
       - name: Build Cache - Admin
         uses: actions/cache@v3
         with:
@@ -90,15 +82,6 @@ jobs:
           key: ${{ runner.os }}-admin-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('./apps/admin/src/**/*.ts', './apps/admin/src/**/*.tsx', './libs/shared/components/**/*.ts', './libs/shared/components/**/*.tsx') }}
           restore-keys: |
             ${{ runner.os }}-admin-${{ hashFiles('**/pnpm-lock.yaml') }}-
-
-      - name: Build Cache - Server
-        uses: actions/cache@v3
-        with:
-          path: |
-            ${{ github.workspace }}/apps/server/dist/tsconfig.tsbuildinfo
-          key: ${{ runner.os }}-server-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('./apps/server/src/**/*.ts') }}
-          restore-keys: |
-            ${{ runner.os }}-server-${{ hashFiles('**/pnpm-lock.yaml') }}-
 
       - name: Build Cache - Web
         uses: actions/cache@v3
@@ -109,23 +92,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-web-${{ hashFiles('**/pnpm-lock.yaml') }}-
 
-      - name: Build Constants
-        run: pnpm build -F constants
-
-      - name: Build Admin
-        run: pnpm build -F admin
-
-      - name: Build Generate
-        run: pnpm generate
-
-      - name: Build Server
-        run: pnpm build -F server
-
-      - name: Build Web
-        run: pnpm build -F web
-
-      # - name: Build
-      #   run: pnpm build
+      - name: Build
+        run: pnpm build
 
       - name: Start
         run: cd ~ && pm2 reload ecosystem.config.js
