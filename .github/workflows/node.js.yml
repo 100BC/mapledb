@@ -30,7 +30,7 @@ jobs:
           NODE_ENV="production"
           NEXT_PUBLIC_NODE_ENV="production"
           NEXT_PUBLIC_GRAPHQL_SERVER=${{secrets.GRAPHQL_SERVER}}
-          SECRET_API_KEY=${{ secrets.SECRET_MUTATION_KEY }}
+          NEXT_PUBLIC_SECRET_API_KEY=${{ secrets.SECRET_MUTATION_KEY }}
 
           NEXT_PUBLIC_API_KEY=${{ secrets.FIREBASE_CLIENT_API_KEY }}
           NEXT_PUBLIC_AUTH_DOMAIN=${{ secrets.FIREBASE_CLIENT_AUTH_DOMAIN }}
@@ -78,7 +78,7 @@ jobs:
       # - name: Lint & Type Check
       #   run: pnpm lint
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         with:
           # See here for caching with `yarn` https://github.com/actions/cache/blob/main/examples.md#node---yarn or you can leverage caching with actions/setup-node https://github.com/actions/setup-node
           path: |
