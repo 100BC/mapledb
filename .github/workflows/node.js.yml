@@ -79,9 +79,7 @@ jobs:
         with:
           path: |
             ${{ github.workspace }}/node_modules/.cache/turbo
-          key: ${{ runner.os }}-turbo
-          restore-keys: |
-            ${{ runner.os }}-turbo
+          key: ${{ runner.os }}-turbo-${{ hashFiles('**/pnpm-lock.yaml') }}
 
       # - name: Build Cache - Admin
       #   uses: actions/cache@v3
