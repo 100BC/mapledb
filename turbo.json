@@ -5,7 +5,8 @@
       "outputs": []
     },
     "generate": {
-      "outputs": []
+      "outputs": [],
+      "cache": false
     },
     "build": {
       "dependsOn": ["generate", "^build"],
