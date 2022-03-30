@@ -74,23 +74,32 @@ jobs:
       # - name: Lint & Type Check
       #   run: pnpm lint
 
-      - name: Build Cache - Admin
+      - name: Turbo Repo Cache
         uses: actions/cache@v3
         with:
           path: |
-            ${{ github.workspace }}/apps/admin/.next/cache
-          key: ${{ runner.os }}-admin-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('./apps/admin/src/**/*.ts', './apps/admin/src/**/*.tsx', './libs/shared/components/**/*.ts', './libs/shared/components/**/*.tsx') }}
+            ${{ github.workspace }}/node_modules/.cache/turbo
+          key: ${{ runner.os }}-turbo
           restore-keys: |
-            ${{ runner.os }}-admin-${{ hashFiles('**/pnpm-lock.yaml') }}-
+            ${{ runner.os }}-turbo
 
-      - name: Build Cache - Web
-        uses: actions/cache@v3
-        with:
-          path: |
-            ${{ github.workspace }}/apps/web/.next/cache
-          key: ${{ runner.os }}-web-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('./apps/web/src/**/*.ts', './apps/web/src/**/*.tsx', './libs/shared/components/**/*.ts', './libs/shared/components/**/*.tsx') }}
-          restore-keys: |
-            ${{ runner.os }}-web-${{ hashFiles('**/pnpm-lock.yaml') }}-
+      # - name: Build Cache - Admin
+      #   uses: actions/cache@v3
+      #   with:
+      #     path: |
+      #       ${{ github.workspace }}/apps/admin/.next/cache
+      #     key: ${{ runner.os }}-admin-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('./apps/admin/src/**/*.ts', './apps/admin/src/**/*.tsx', './libs/shared/components/**/*.ts', './libs/shared/components/**/*.tsx') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-admin-${{ hashFiles('**/pnpm-lock.yaml') }}-
+
+      # - name: Build Cache - Web
+      #   uses: actions/cache@v3
+      #   with:
+      #     path: |
+      #       ${{ github.workspace }}/apps/web/.next/cache
+      #     key: ${{ runner.os }}-web-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('./apps/web/src/**/*.ts', './apps/web/src/**/*.tsx', './libs/shared/components/**/*.ts', './libs/shared/components/**/*.tsx') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-web-${{ hashFiles('**/pnpm-lock.yaml') }}-
 
       - name: Build
         run: pnpm build
