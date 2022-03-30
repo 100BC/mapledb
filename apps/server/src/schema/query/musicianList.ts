@@ -36,22 +36,29 @@ export const musicianList = builder.queryField('musicianList', (t) => {
             : [{ musicRef: { release: 'desc' } }],
         select: {
           musicianRef: true,
-          musicRef: {
-            select: {
-              subgenre: { select: { genre: true } },
-              release: true,
-            },
-          },
+          musicRef:
+            args.orderBy === 'RELEASE'
+              ? {
+                  select: {
+                    subgenre: { select: { genre: true } },
+                    release: true,
+                  },
+                }
+              : false,
         },
       });
 
-      return data.map((musician) => ({
-        latestInfo: {
-          latestRelease: musician.musicRef.release,
-          latestGenre: musician.musicRef.subgenre.genre,
-        },
-        ...musician.musicianRef,
-      }));
+      if (args.orderBy === 'RELEASE') {
+        return data.map((musician) => ({
+          latestInfo: {
+            latestRelease: musician.musicRef.release,
+            latestGenre: (musician.musicRef as any).subgenre.genre,
+          },
+          ...musician.musicianRef,
+        }));
+      }
+
+      return data.map((musician) => musician.musicianRef);
     },
   });
 });
