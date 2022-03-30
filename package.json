@@ -12,7 +12,7 @@
     "build": "turbo run build",
     "dev": "pnpm kill-ports && turbo run dev",
     "start": "pnpm kill-ports && turbo run start --parallel",
-    "deploy": "turbo run deploy",
+    "postinstall": "pnpm generate",
     "generate": "turbo run generate",
     "codegen": "turbo run codegen",
     "clean": "turbo run clean && rm -rf node_modules .turbo .pnpm-debug.log",

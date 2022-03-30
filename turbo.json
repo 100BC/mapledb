@@ -9,17 +9,14 @@
       "cache": false
     },
     "build": {
-      "dependsOn": ["generate", "^build"],
+      "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"]
     },
-    "deploy": {
-      "outputs": [],
-      "dependsOn": ["build", "lint"]
+    "start": {
+      "cache": false
     },
-    "start": {},
     "lint": {
-      "outputs": [],
-      "dependsOn": ["generate"]
+      "outputs": []
     },
     "dev": {
       "cache": false

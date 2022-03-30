@@ -70,9 +70,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Generate Prisma
-        run: pnpm generate
-
       # Not enough ram for lint + type check or deploy**
       # - name: Lint & Type Check
       #   run: pnpm lint
