@@ -1,0 +1,1 @@
+pg_dump mooseical > ~/db-backups/$(date +%F).sql
