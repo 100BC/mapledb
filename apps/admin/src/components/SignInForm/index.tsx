@@ -18,7 +18,7 @@ interface Form {
   authError?: string;
 }
 
-const SignIn = () => {
+const SignInForm = () => {
   const [submitting, setSubmitting] = useState(false);
   const {
     register,
@@ -84,4 +84,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignInForm;

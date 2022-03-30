@@ -8,12 +8,14 @@ import 'normalize.css';
 import '@styles/global.scss';
 import useAuth from '@utils/hooks/useAuth';
 import Spinner from '@mooseical/shared/components/Spinner';
+import SignInForm from '@components/SignInForm';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
+  const [currentUser, loading] = useAuth();
+
   if (pageProps.urqlState) {
     ssrCache.restoreData(pageProps.urqlState);
   }
-  const [, loading] = useAuth();
 
   return (
     <UrqlProvider value={gqlClient}>
@@ -22,7 +24,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           <Spinner />
         </div>
       ) : (
-        <Component {...pageProps} />
+        <>{currentUser ? <Component {...pageProps} /> : <SignInForm />}</>
       )}
     </UrqlProvider>
   );
