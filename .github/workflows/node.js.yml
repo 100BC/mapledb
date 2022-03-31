@@ -79,6 +79,8 @@ jobs:
         with:
           path: |
             ${{ github.workspace }}/node_modules/.cache/turbo
+            ${{ github.workspace }}/apps/admin/.next/cache
+            ${{ github.workspace }}/apps/web/.next/cache
           key: ${{ runner.os }}-turbo-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ github.run_id }}
           restore-keys: |
             ${{ runner.os }}-turbo-${{ hashFiles('**/pnpm-lock.yaml') }}-
