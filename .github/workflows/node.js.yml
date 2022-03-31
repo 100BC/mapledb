@@ -74,7 +74,7 @@ jobs:
       # - name: Lint & Type Check
       #   run: pnpm lint
 
-      - name: Turbo Repo Cache
+      - name: Cache
         uses: actions/cache@v3
         with:
           path: |
