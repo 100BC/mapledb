@@ -8,7 +8,7 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  deploy:
     runs-on: self-hosted
 
     steps:
@@ -74,7 +74,7 @@ jobs:
       # - name: Lint & Type Check
       #   run: pnpm lint
 
-      - name: Cache
+      - name: Use Cache
         uses: actions/cache@v3
         with:
           path: |
