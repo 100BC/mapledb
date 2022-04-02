@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 
@@ -35,10 +35,72 @@ const MusicianDisplay = ({ musicianId }: Props) => {
     isGroup,
     disbanded,
     latestInfo,
+    albums,
+    eps,
+    singles,
+    deluxe,
+    compilation,
+    remix,
+    live,
+    other,
   } = { ...data?.musician };
   const releaseDate = useDateParser(latestInfo?.latestRelease);
   const pluralMusician = isGroup ? 'Group' : 'Musician';
   const disbandedYear = useYearParser(disbanded);
+
+  const releases = useMemo(
+    () => [
+      {
+        title: 'Albums',
+        data: albums,
+        type: MusicType.Album,
+        priority: true,
+      },
+      {
+        title: 'EPs',
+        data: eps,
+        type: MusicType.Ep,
+        priority: !albums || albums.length === 0,
+      },
+      {
+        title: 'Singles',
+        data: singles,
+        type: MusicType.Single,
+        priority: !eps || eps.length === 0,
+      },
+      {
+        title: 'Deluxe Editions',
+        data: deluxe,
+        type: MusicType.Deluxe,
+        priority: !singles || singles.length === 0,
+      },
+      {
+        title: 'Compilations',
+        data: compilation,
+        type: MusicType.Compilation,
+        priority: !deluxe || deluxe.length === 0,
+      },
+      {
+        title: 'Remixes',
+        data: remix,
+        type: MusicType.Remix,
+        priority: !compilation || compilation.length === 0,
+      },
+      {
+        title: 'Live Releases',
+        data: live,
+        type: MusicType.Live,
+        priority: !remix || remix.length === 0,
+      },
+      {
+        title: 'Other Releases',
+        data: other,
+        type: MusicType.Other,
+        priority: !live || live.length === 0,
+      },
+    ],
+    [albums, eps, singles, deluxe, compilation, remix, live, other]
+  );
 
   return (
     <Layout
@@ -97,122 +159,23 @@ const MusicianDisplay = ({ musicianId }: Props) => {
                 )}
               </ul>
             </section>
-            {data.musician.albums.length > 0 && (
-              <section>
-                <h2>Albums</h2>
-                <hr />
-                <DbContainer type="music">
-                  {data.musician.albums.map((doc, i) => (
-                    <MusicCard
-                      key={doc.id}
-                      {...doc}
-                      musicType={MusicType.Album}
-                      imagePriority={i < 5}
-                    />
-                  ))}
-                </DbContainer>
-              </section>
-            )}
-            {data.musician.eps.length > 0 && (
-              <section>
-                <h2>EPs</h2>
-                <hr />
-                <DbContainer type="music">
-                  {data.musician.eps.map((doc) => (
-                    <MusicCard key={doc.id} {...doc} musicType={MusicType.Ep} />
-                  ))}
-                </DbContainer>
-              </section>
-            )}
-            {data.musician.singles.length > 0 && (
-              <section>
-                <h2>Non-Album Singles</h2>
-                <hr />
-                <DbContainer type="music">
-                  {data.musician.singles.map((doc) => (
-                    <MusicCard
-                      key={doc.id}
-                      {...doc}
-                      musicType={MusicType.Single}
-                    />
-                  ))}
-                </DbContainer>
-              </section>
-            )}
-            {data.musician.deluxe.length > 0 && (
-              <section>
-                <h2>Deluxe Editions</h2>
-                <hr />
-                <DbContainer type="music">
-                  {data.musician.deluxe.map((doc) => (
-                    <MusicCard
-                      key={doc.id}
-                      {...doc}
-                      musicType={MusicType.Deluxe}
-                    />
-                  ))}
-                </DbContainer>
-              </section>
-            )}
-            {data.musician.compilation.length > 0 && (
-              <section>
-                <h2>Compilations</h2>
-                <hr />
-                <DbContainer type="music">
-                  {data.musician.compilation.map((doc) => (
-                    <MusicCard
-                      key={doc.id}
-                      {...doc}
-                      musicType={MusicType.Compilation}
-                    />
-                  ))}
-                </DbContainer>
-              </section>
-            )}
-            {data.musician.remix.length > 0 && (
-              <section>
-                <h2>Remixes</h2>
-                <hr />
-                <DbContainer type="music">
-                  {data.musician.remix.map((doc) => (
-                    <MusicCard
-                      key={doc.id}
-                      {...doc}
-                      musicType={MusicType.Remix}
-                    />
-                  ))}
-                </DbContainer>
-              </section>
-            )}
-            {data.musician.live.length > 0 && (
-              <section>
-                <h2>Live Releases</h2>
-                <hr />
-                <DbContainer type="music">
-                  {data.musician.live.map((doc) => (
-                    <MusicCard
-                      key={doc.id}
-                      {...doc}
-                      musicType={MusicType.Live}
-                    />
-                  ))}
-                </DbContainer>
-              </section>
-            )}
-            {data.musician.other.length > 0 && (
-              <section>
-                <h2>Other Releases</h2>
-                <hr />
-                <DbContainer type="music">
-                  {data.musician.other.map((doc) => (
-                    <MusicCard
-                      key={doc.id}
-                      {...doc}
-                      musicType={MusicType.Other}
-                    />
-                  ))}
-                </DbContainer>
-              </section>
+            {releases.map((music) =>
+              music.data && music.data.length > 0 ? (
+                <section key={music.type}>
+                  <h2>{music.title}</h2>
+                  <hr />
+                  <DbContainer type="music">
+                    {music.data.map((doc, i) => (
+                      <MusicCard
+                        key={doc.id}
+                        {...doc}
+                        musicType={music.type}
+                        imagePriority={i < 5 && music.priority}
+                      />
+                    ))}
+                  </DbContainer>
+                </section>
+              ) : null
             )}
           </>
         )}
