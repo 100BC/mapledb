@@ -87,6 +87,22 @@ export type GetMusicianQuery = {
       instrumental: boolean;
       subgenre: { name: string };
     }>;
+    remix: Array<{
+      id: string;
+      name: string;
+      hasCover: boolean;
+      release: string;
+      instrumental: boolean;
+      subgenre: { name: string };
+    }>;
+    deluxe: Array<{
+      id: string;
+      name: string;
+      hasCover: boolean;
+      release: string;
+      instrumental: boolean;
+      subgenre: { name: string };
+    }>;
   };
 };
 
@@ -293,6 +309,12 @@ export const GetMusicianDocument = gql`
         ...musicianRelease
       }
       other: music(type: OTHER) {
+        ...musicianRelease
+      }
+      remix: music(type: REMIX) {
+        ...musicianRelease
+      }
+      deluxe: music(type: DELUXE) {
         ...musicianRelease
       }
     }

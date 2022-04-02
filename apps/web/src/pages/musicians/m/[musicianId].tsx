@@ -139,6 +139,36 @@ const MusicianDisplay = ({ musicianId }: Props) => {
                 </DbContainer>
               </section>
             )}
+            {data.musician.deluxe.length > 0 && (
+              <section>
+                <h2>Deluxe Editions</h2>
+                <hr />
+                <DbContainer type="music">
+                  {data.musician.deluxe.map((doc) => (
+                    <MusicCard
+                      key={doc.id}
+                      {...doc}
+                      musicType={MusicType.Deluxe}
+                    />
+                  ))}
+                </DbContainer>
+              </section>
+            )}
+            {data.musician.remix.length > 0 && (
+              <section>
+                <h2>Remixes</h2>
+                <hr />
+                <DbContainer type="music">
+                  {data.musician.remix.map((doc) => (
+                    <MusicCard
+                      key={doc.id}
+                      {...doc}
+                      musicType={MusicType.Remix}
+                    />
+                  ))}
+                </DbContainer>
+              </section>
+            )}
             {data.musician.live.length > 0 && (
               <section>
                 <h2>Live Releases</h2>

@@ -4,7 +4,7 @@ import createNonCanadians from './createNonCanadians';
 import prisma from './prismaClient';
 import { pickRandomGenre } from './subgenre';
 
-const musicType = ['ALBUM', 'EP', 'SINGLE', 'LIVE', 'OTHER'];
+const musicType = ['ALBUM', 'EP', 'SINGLE', 'LIVE', 'OTHER', 'DELUXE', 'REMIX'];
 
 export const createMusic = async (
   musicianIds: string[],

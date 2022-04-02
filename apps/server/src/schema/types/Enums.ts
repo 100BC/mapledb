@@ -36,7 +36,15 @@ export const GenreEnum = builder.enumType('Genre', {
 
 export const MusicTypeEnum = builder.enumType('MusicType', {
   description: 'Type of Music Release',
-  values: ['ALBUM', 'EP', 'SINGLE', 'LIVE', 'OTHER'] as const,
+  values: [
+    'ALBUM',
+    'EP',
+    'SINGLE',
+    'LIVE',
+    'OTHER',
+    'DELUXE',
+    'REMIX',
+  ] as const,
 });
 
 export const OrderByArgumentEnum = builder.enumType('OrderByArgument', {

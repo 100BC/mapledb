@@ -38,9 +38,11 @@ export enum Genre {
 /** Type of Music Release */
 export enum MusicType {
   Album = 'ALBUM',
+  Deluxe = 'DELUXE',
   Ep = 'EP',
   Live = 'LIVE',
   Other = 'OTHER',
+  Remix = 'REMIX',
   Single = 'SINGLE',
 }
 

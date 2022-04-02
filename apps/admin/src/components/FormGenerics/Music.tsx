@@ -130,6 +130,8 @@ const MusicFormGeneric = ({
         <option value="EP">EP</option>
         <option value="SINGLE">Single</option>
         <option value="LIVE">Live</option>
+        <option value="DELUXE">Deluxe</option>
+        <option value="REMIX">Remix</option>
         <option value="OTHER">Other</option>
       </Select>
       <FormError error={errors.musicType} />

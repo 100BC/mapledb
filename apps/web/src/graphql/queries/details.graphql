@@ -64,5 +64,11 @@ query GetMusician($id: String!) {
     other: music(type: OTHER) {
       ...musicianRelease
     }
+    remix: music(type: REMIX) {
+      ...musicianRelease
+    }
+    deluxe: music(type: DELUXE) {
+      ...musicianRelease
+    }
   }
 }
