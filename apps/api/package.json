@@ -15,7 +15,7 @@
     "db": "prisma studio",
     "db:deploy": "prisma migrate deploy",
     "db:push": "prisma db push && prisma format",
-    "db:migrate": "prisma migrate dev && prisma format",
+    "db:migrate": "prisma migrate dev",
     "db:reset": "prisma migrate reset",
     "lint": "tsc --noEmit --incremental false && eslint --fix 'src/**/*.ts'",
     "clean": "rm -rf node_modules .turbo .pnpm-debug.log dist"

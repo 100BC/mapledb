@@ -19,7 +19,8 @@
     "clean:install": "turbo run clean && pnpm install && turbo run generate",
     "kill-ports": "kill-port 3000 3001 3002",
     "lint": "turbo run lint",
-    "format": "prettier --write '**/*.{ts,tsx,md}'"
+    "format": "prettier --write '**/*.{ts,tsx,md}'",
+    "db:deploy": "turbo run db:deploy"
   },
   "devDependencies": {
     "kill-port": "^1.6.1",
