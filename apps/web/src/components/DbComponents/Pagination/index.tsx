@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import { MUSICIAN_QUERY_SIZE, MUSIC_QUERY_SIZE } from '@mooseical/constants';
-import LeftArrow from '@mooseical/assets/svg/leftArrow.svg';
-import RightArrow from '@mooseical/assets/svg/rightArrow.svg';
+import LeftArrow from '@assets/svg/leftArrow.svg';
+import RightArrow from '@assets/svg/rightArrow.svg';
 import { conditional } from '@mooseical/style-helpers';
 import { usePagination } from '@utils/hooks/usePagination';
 import styles from './styles.module.scss';

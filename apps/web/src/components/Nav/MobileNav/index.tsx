@@ -1,10 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
 
-import HomeSvg from '@mooseical/assets/svg/home.svg';
-import VinylSvg from '@mooseical/assets/svg/vinyl.svg';
-import MicSvg from '@mooseical/assets/svg/mic.svg';
-import SuggestSvg from '@mooseical/assets/svg/suggest.svg';
+import HomeSvg from '@assets/svg/home.svg';
+import VinylSvg from '@assets/svg/vinyl.svg';
+import MicSvg from '@assets/svg/mic.svg';
+import SuggestSvg from '@assets/svg/suggest.svg';
 import styles from './styles.module.scss';
 
 const MobileNav = () => {

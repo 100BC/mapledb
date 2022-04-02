@@ -10,7 +10,6 @@
     "clean": "rm -rf node_modules .turbo .pnpm-debug.log .next"
   },
   "dependencies": {
-    "@mooseical/assets": "workspace:^0.0.0",
     "@mooseical/constants": "workspace:*",
     "@mooseical/generics": "workspace:*",
     "@mooseical/schema": "workspace:*",

@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 import styles from '@styles/about.module.scss';
-import LaunchSVG from '@mooseical/assets/svg/launch.svg';
+import LaunchSVG from '@assets/svg/launch.svg';
 import Layout from '@components/Layout';
 
 const About = () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
-import SearchSvg from '@mooseical/assets/svg/search.svg';
+import SearchSvg from '@assets/svg/copy.svg';
 import styles from './styles.module.scss';
 
 interface Props {
