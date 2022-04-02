@@ -43,6 +43,12 @@ const useMusicTypeParser = (musicType: MusicType | undefined) => {
           capitalCase: 'Remix',
           lowerCase: 'remix',
         };
+      case 'COMPILATION':
+        return {
+          sentence: 'a compilation',
+          capitalCase: 'Compilation',
+          lowerCase: 'compilation',
+        };
       default:
         return {
           sentence: 'a musical work',

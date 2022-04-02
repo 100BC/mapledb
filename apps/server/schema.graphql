@@ -50,6 +50,7 @@ type Music {
 """Type of Music Release"""
 enum MusicType {
   ALBUM
+  COMPILATION
   DELUXE
   EP
   LIVE

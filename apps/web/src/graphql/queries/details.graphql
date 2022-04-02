@@ -70,5 +70,8 @@ query GetMusician($id: String!) {
     deluxe: music(type: DELUXE) {
       ...musicianRelease
     }
+    compilation: music(type: COMPILATION) {
+      ...musicianRelease
+    }
   }
 }

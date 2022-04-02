@@ -44,6 +44,7 @@ export const MusicTypeEnum = builder.enumType('MusicType', {
     'OTHER',
     'DELUXE',
     'REMIX',
+    'COMPILATION',
   ] as const,
 });
 

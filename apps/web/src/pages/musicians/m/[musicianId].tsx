@@ -154,6 +154,21 @@ const MusicianDisplay = ({ musicianId }: Props) => {
                 </DbContainer>
               </section>
             )}
+            {data.musician.compilation.length > 0 && (
+              <section>
+                <h2>Compilations</h2>
+                <hr />
+                <DbContainer type="music">
+                  {data.musician.compilation.map((doc) => (
+                    <MusicCard
+                      key={doc.id}
+                      {...doc}
+                      musicType={MusicType.Compilation}
+                    />
+                  ))}
+                </DbContainer>
+              </section>
+            )}
             {data.musician.remix.length > 0 && (
               <section>
                 <h2>Remixes</h2>

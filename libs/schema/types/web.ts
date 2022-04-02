@@ -103,6 +103,14 @@ export type GetMusicianQuery = {
       instrumental: boolean;
       subgenre: { name: string };
     }>;
+    compilation: Array<{
+      id: string;
+      name: string;
+      hasCover: boolean;
+      release: string;
+      instrumental: boolean;
+      subgenre: { name: string };
+    }>;
   };
 };
 
@@ -315,6 +323,9 @@ export const GetMusicianDocument = gql`
         ...musicianRelease
       }
       deluxe: music(type: DELUXE) {
+        ...musicianRelease
+      }
+      compilation: music(type: COMPILATION) {
         ...musicianRelease
       }
     }

@@ -39,7 +39,7 @@ const builder = new SchemaBuilder<{
     limit: {
       complexity: 1024,
       depth: 4,
-      breadth: 90,
+      breadth: 100,
     },
   },
 });
