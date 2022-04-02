@@ -89,7 +89,7 @@ jobs:
         run: pnpm build
 
       - name: Migrate Database
-        run: pnpm -F server db:deploy
+        run: pnpm -F api db:deploy
 
       - name: Start
         run: cd ~ && pm2 reload ecosystem.config.js
