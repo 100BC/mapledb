@@ -1,6 +1,5 @@
 const musicSSRValidator = (
   genreParam: string | string[] | undefined,
-  musicType: string | string[] | undefined,
   pageQuery: string | string[] | undefined
 ) => {
   if (
@@ -18,10 +17,6 @@ const musicSSRValidator = (
       'rock',
     ].includes(genreParam)
   ) {
-    return false;
-  }
-
-  if (Array.isArray(musicType)) {
     return false;
   }
 

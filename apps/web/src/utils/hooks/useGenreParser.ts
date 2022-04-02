@@ -1,9 +1,11 @@
-import { Genre } from '@mooseical/schema/types';
 import { useMemo } from 'react';
+
+import { Genre } from '@mooseical/schema/types';
+import { capitalCaseEnums } from '@utils/functions/stringFormatters';
 
 const useGenreParser = (genre: Genre | null) => {
   const capitalGenre = useMemo(
-    () => (genre ? genre[0] + genre.toLowerCase().slice(1) : ''),
+    () => (genre ? capitalCaseEnums(genre) : ''),
     [genre]
   );
 

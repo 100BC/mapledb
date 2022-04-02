@@ -4,53 +4,63 @@ import { useRouter } from 'next/router';
 
 import { MusicType } from '@mooseical/schema/types';
 import { conditional } from '@mooseical/style-helpers';
+import { capitalCaseEnums } from '@utils/functions/stringFormatters';
 import styles from './styles.module.scss';
 
 interface Props {
-  musicTypes: (MusicType.Album | MusicType.Ep | MusicType.Single)[] | null;
+  musicTypes: MusicType[] | null;
 }
 
 const MusicTypeFilter = ({ musicTypes }: Props) => {
   const router = useRouter();
-  const hasAlbum = !!musicTypes?.includes(MusicType.Album);
-  const hasEp = !!musicTypes?.includes(MusicType.Ep);
-  const hasSingle = !!musicTypes?.includes(MusicType.Single);
+  const orderedMusicTypes = [
+    MusicType.Album,
+    MusicType.Ep,
+    MusicType.Single,
+    MusicType.Deluxe,
+    MusicType.Compilation,
+    MusicType.Remix,
+    MusicType.Live,
+    MusicType.Other,
+  ];
 
   const handleUrl = useCallback(
-    (toggle: MusicType.Album | MusicType.Ep | MusicType.Single) => {
-      if (!musicTypes) {
-        return `?type=${toggle}`;
-      }
-      const queryExists = musicTypes.includes(toggle);
+    (toggle: MusicType) => {
+      if (!musicTypes) return toggle;
 
-      if (queryExists) {
-        if (musicTypes.length === 1) return '';
-
-        return `?type=${musicTypes.filter((val) => val !== toggle).join(',')}`;
+      if (musicTypes.includes(toggle)) {
+        return musicTypes.filter((type) => type !== toggle);
       }
 
-      return `?type=${[...musicTypes, toggle].join(',')}`;
+      return [...musicTypes, toggle];
     },
     [musicTypes]
   );
 
   return (
     <div className={styles.buttonRow}>
-      <Link href={`/music/${router.query.genre}${handleUrl(MusicType.Album)}`}>
-        <a className={conditional(hasAlbum, styles.active, styles.inactive)}>
-          Albums
-        </a>
-      </Link>
-      <Link href={`/music/${router.query.genre}${handleUrl(MusicType.Ep)}`}>
-        <a className={conditional(hasEp, styles.active, styles.inactive)}>
-          EPs
-        </a>
-      </Link>
-      <Link href={`/music/${router.query.genre}${handleUrl(MusicType.Single)}`}>
-        <a className={conditional(hasSingle, styles.active, styles.inactive)}>
-          Singles
-        </a>
-      </Link>
+      {Object.values(orderedMusicTypes).map((val) => (
+        <Link
+          href={{
+            pathname: '/music/[genre]',
+            query: {
+              genre: router.query.genre,
+              type: handleUrl(val),
+            },
+          }}
+          key={val}
+        >
+          <a
+            className={conditional(
+              !!musicTypes?.includes(val),
+              styles.active,
+              styles.inactive
+            )}
+          >
+            {val === MusicType.Ep ? 'EP' : capitalCaseEnums(val)}
+          </a>
+        </Link>
+      ))}
     </div>
   );
 };

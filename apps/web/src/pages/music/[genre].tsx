@@ -19,7 +19,7 @@ import { useGetManyMusicQuery } from '@graphql/hooks';
 
 interface Props {
   genre: Genre | null;
-  musicTypes: (MusicType.Album | MusicType.Ep | MusicType.Single)[] | null;
+  musicTypes: MusicType[] | null;
   skip: number;
   currentPage: number | null;
 }
@@ -30,7 +30,7 @@ const MusicGrid = ({ genre, musicTypes, skip, currentPage }: Props) => {
       take: MUSIC_QUERY_SIZE,
       skip,
       genre,
-      type: musicTypes || [MusicType.Album, MusicType.Ep, MusicType.Single],
+      type: musicTypes || Object.values(MusicType),
     },
   });
   const [
@@ -77,7 +77,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   params,
   query,
 }) => {
-  if (!musicSSRValidator(params?.genre, query.type, query.page)) {
+  if (!musicSSRValidator(params?.genre, query.page)) {
     return {
       notFound: true,
     };
@@ -85,11 +85,18 @@ export const getServerSideProps: GetServerSideProps = async ({
 
   setSSRCache(res, 1);
 
-  const musicTypes = query.type ? (query.type as string).split(',') : null;
+  let musicTypes = null;
+  if (Array.isArray(query.type)) {
+    musicTypes = query.type;
+  } else if (typeof query.type === 'string') {
+    musicTypes = [query.type];
+  }
 
   if (
     musicTypes &&
-    (!musicTypes.every((type) => ['ALBUM', 'EP', 'SINGLE'].includes(type)) ||
+    (!musicTypes.every((type) =>
+      (Object.values(MusicType) as string[]).includes(type)
+    ) ||
       musicTypes.length !== new Set(musicTypes).size)
   ) {
     return {
@@ -114,7 +121,7 @@ export const getServerSideProps: GetServerSideProps = async ({
       take: MUSIC_QUERY_SIZE,
       skip,
       genre,
-      type: musicTypes || [MusicType.Album, MusicType.Ep, MusicType.Single],
+      type: musicTypes || Object.values(MusicType),
     })
     .toPromise();
 
