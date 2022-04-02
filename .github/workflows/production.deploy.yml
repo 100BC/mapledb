@@ -40,7 +40,7 @@ jobs:
           NEXT_PUBLIC_APP_ID=${{ secrets.FIREBASE_CLIENT_APP_ID }}
           EOF
 
-          cat << EOF > ${{ github.workspace }}/apps/server/.env
+          cat << EOF > ${{ github.workspace }}/apps/api/.env
           NODE_ENV="production"
           DATABASE_URL=${{ secrets.DATABASE_URL }}
           SECRET_MUTATION_KEY=${{ secrets.SECRET_MUTATION_KEY }}

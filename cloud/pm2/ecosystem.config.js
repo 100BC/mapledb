@@ -1,8 +1,8 @@
 module.exports = {
   apps: [
     {
-      name: 'server',
-      cwd: '~/actions-runner/_work/mooseical/mooseical/apps/server',
+      name: 'api',
+      cwd: '~/actions-runner/_work/mooseical/mooseical/apps/api',
       script: 'pnpm',
       args: 'start',
       max_restarts: 3,

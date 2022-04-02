@@ -1,5 +1,5 @@
 overwrite: true
-schema: '../../apps/server/schema.graphql'
+schema: '../../apps/api/schema.graphql'
 generates:
   types/index.ts:
     documents: '../../apps/web/**/*.graphql'
