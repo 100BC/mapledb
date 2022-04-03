@@ -2,9 +2,8 @@ import React, { ChangeEvent } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
-import { Genre, Province } from '@mooseical/schema/types';
 import { conditional } from '@mooseical/style-helpers';
-import getProvinceName from '@utils/functions/getProvinceName';
+import useDbFilter from '@utils/hooks/useDbFilter';
 import styles from './styles.module.scss';
 
 interface Props {
@@ -12,12 +11,8 @@ interface Props {
 }
 
 export const DbFilter = ({ page }: Props) => {
-  const { push, query } = useRouter();
-
-  const useGenre = page === 'music';
-  const tabType = useGenre ? Genre : Province;
-  const queryType = query[useGenre ? 'genre' : 'province'];
-  const defaultText = useGenre ? 'All Genres' : 'Canada';
+  const { push } = useRouter();
+  const { queryValue, params } = useDbFilter(page);
 
   const onChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const endpoint = e.target.value;
@@ -35,38 +30,24 @@ export const DbFilter = ({ page }: Props) => {
           className={styles.select}
           id="select"
           name="genres"
-          value={queryType}
+          value={queryValue}
           onChange={(e) => onChange(e)}
         >
-          <option value="all">{defaultText}</option>
-          {Object.values(tabType).map((select) => (
-            <option value={select.toLowerCase()} key={select}>
-              {useGenre ? select.toLowerCase() : getProvinceName(select)}
+          {params.map((tab) => (
+            <option value={tab.value} key={tab.value}>
+              {tab.select ?? tab.title}
             </option>
           ))}
         </select>
       </div>
       <div className={styles.tabsContainer}>
-        <Link href={`/${page}/all`}>
-          <a
-            className={conditional(queryType === 'all', styles.active)}
-            title={`collection of Canadian ${page}`}
-          >
-            {defaultText}
-          </a>
-        </Link>
-        {Object.values(tabType).map((tab) => (
-          <Link href={`/${page}/${tab.toLowerCase()}`} key={tab}>
+        {params.map((tab) => (
+          <Link href={`/${page}/${tab.value}`} key={tab.value}>
             <a
-              className={conditional(
-                queryType === tab.toLowerCase(),
-                styles.active
-              )}
-              title={`collection of ${
-                useGenre ? tab.toLowerCase() : tab
-              } ${page}`}
+              className={conditional(queryValue === tab.value, styles.active)}
+              title={`${tab.title} ${page}`}
             >
-              {useGenre ? tab.toLowerCase() : tab}
+              {tab.title}
             </a>
           </Link>
         ))}
