@@ -12,8 +12,7 @@ import setSSRCache from '@utils/setSSRCache';
 import MusicCard from '@components/Cards/MusicCard';
 import DbContainer from '@components/DbComponents/DbContainer';
 import GqlContainer from '@components/GqlContainer';
-import useDateParser from '@utils/hooks/useDateParser';
-import useYearParser from '@utils/hooks/useYearParser';
+import useDateParser, { useYearParser } from '@utils/hooks/useDateParser';
 import { useGetMusicianQuery } from '@graphql/hooks';
 
 interface Props {
@@ -87,7 +86,7 @@ const MusicianDisplay = ({ musicianId }: Props) => {
         priority: !compilation || compilation.length === 0,
       },
       {
-        title: 'Live Releases',
+        title: 'Live Recordings',
         data: live,
         type: MusicType.Live,
         priority: !remix || remix.length === 0,

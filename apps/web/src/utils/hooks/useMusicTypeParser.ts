@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 
 import { MusicType } from '@mooseical/schema/types';
 
+// Sentence is needed for easier EP handling as it's all caps and starts with vowel
 const useMusicTypeParser = (musicType: MusicType | undefined) => {
   const musicTypeParsed = useMemo(() => {
     switch (musicType) {
@@ -39,9 +40,9 @@ const useMusicTypeParser = (musicType: MusicType | undefined) => {
         };
       case 'LIVE':
         return {
-          sentence: 'a live release',
-          capitalCase: 'Live Release',
-          lowerCase: 'live Release',
+          sentence: 'a live recording',
+          capitalCase: 'Live Recording',
+          lowerCase: 'live Recording',
         };
       case 'OTHER':
         return {

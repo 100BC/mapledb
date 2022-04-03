@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Link from 'next/link';
 
 import { MusicianCardFragment } from '@mooseical/schema/types/web';
 import useDateParser from '@utils/hooks/useDateParser';
+import { capitalCaseEnums } from '@utils/functions/stringFormatters';
 import styles from './styles.module.scss';
 
 const MusicianCard = (props: MusicianCardFragment) => {
   const { id, city, name, latestInfo } = props;
   const release = useDateParser(latestInfo?.latestRelease);
+  const capitalCaseType = useMemo(
+    () => capitalCaseEnums(latestInfo?.latestGenre || ''),
+    [latestInfo?.latestGenre]
+  );
 
   return (
     <Link href={`/musicians/m/${id}`}>
@@ -15,9 +20,7 @@ const MusicianCard = (props: MusicianCardFragment) => {
         <h2 className={styles.name}>{name}</h2>
         <address>{`${city?.name}, ${city?.province}`}</address>
         <ul className={styles.genres}>
-          {latestInfo?.latestGenre && (
-            <li>{latestInfo.latestGenre.toLowerCase()}</li>
-          )}
+          <li>{capitalCaseType}</li>
         </ul>
         <time>
           Latest Release: <i>{release}</i>

@@ -16,3 +16,16 @@ const useDateParser = (date: string | null | undefined) => {
 };
 
 export default useDateParser;
+
+export const useYearParser = (date: string | null | undefined) => {
+  const yearParsed = useMemo(() => {
+    if (!date) return null;
+
+    return new Date(date).toLocaleDateString('en-ca', {
+      timeZone: 'UTC',
+      year: 'numeric',
+    });
+  }, [date]);
+
+  return yearParsed;
+};

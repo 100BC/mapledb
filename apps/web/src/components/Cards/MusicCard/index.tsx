@@ -8,6 +8,7 @@ import useDateParser from '@utils/hooks/useDateParser';
 import useMusicianDescParser from '@utils/hooks/useMusicianDescParser';
 import MusicianLinkList from '@components/MusicianLinkList';
 import useMusicTypeParser from '@utils/hooks/useMusicTypeParser';
+import useSubgenreParser from '@utils/hooks/useSubgenreParser';
 import styles from './styles.module.scss';
 
 interface Props {
@@ -44,9 +45,8 @@ const MusicCard = ({
   });
   const date = useDateParser(release);
   const imgDesc = useMusicianDescParser(musicians, nonCanadians);
-
-  const { capitalCase: capitalCaseType, lowerCase: lowerCaseType } =
-    useMusicTypeParser(musicType);
+  const subgenreParsed = useSubgenreParser(subgenre.name);
+  const { capitalCase: capitalCaseType } = useMusicTypeParser(musicType);
 
   return (
     <div className={styles.musicCard}>
@@ -78,8 +78,8 @@ const MusicCard = ({
       )}
       <ul className={styles.desc}>
         <li className={styles.genre}>
-          {instrumental && 'instrumental '}
-          {subgenre?.name} {showMusicType && <>{lowerCaseType}</>}
+          {instrumental && 'Instrumental '}
+          {subgenreParsed} {showMusicType && <>{capitalCaseType}</>}
         </li>
         <li className={styles.time}>
           <time>{date}</time>
