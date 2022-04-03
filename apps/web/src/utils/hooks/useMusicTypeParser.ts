@@ -19,23 +19,17 @@ const useMusicTypeParser = (musicType: MusicType | undefined) => {
           capitalCase: 'Single',
           lowerCase: 'single',
         };
-      case 'LIVE':
-        return {
-          sentence: 'a live work',
-          capitalCase: 'Live Collection',
-          lowerCase: 'live collection',
-        };
-      case 'OTHER':
-        return {
-          sentence: 'a musical work',
-          capitalCase: 'Music',
-          lowerCase: 'music',
-        };
       case 'DELUXE':
         return {
           sentence: 'a deluxe release',
           capitalCase: 'Deluxe Release',
           lowerCase: 'deluxe release',
+        };
+      case 'COMPILATION':
+        return {
+          sentence: 'a compilation',
+          capitalCase: 'Compilation',
+          lowerCase: 'compilation',
         };
       case 'REMIX':
         return {
@@ -43,11 +37,17 @@ const useMusicTypeParser = (musicType: MusicType | undefined) => {
           capitalCase: 'Remix',
           lowerCase: 'remix',
         };
-      case 'COMPILATION':
+      case 'LIVE':
         return {
-          sentence: 'a compilation',
-          capitalCase: 'Compilation',
-          lowerCase: 'compilation',
+          sentence: 'a live release',
+          capitalCase: 'Live Release',
+          lowerCase: 'live Release',
+        };
+      case 'OTHER':
+        return {
+          sentence: 'a project',
+          capitalCase: 'Project',
+          lowerCase: 'project',
         };
       default:
         return {
