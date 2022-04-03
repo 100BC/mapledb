@@ -8,25 +8,6 @@
   border-radius: 8px;
   box-shadow: 0 0 2px $black;
 
-  > h2 {
-    transition: color 0.2s;
-  }
-
-  > address {
-    margin: 1rem 0;
-    font-size: 2rem;
-  }
-
-  > time {
-    display: block;
-    margin: 1.4rem 0 0;
-    font-size: 1.7rem;
-
-    > i {
-      white-space: pre;
-    }
-  }
-
   &:hover {
     > *:not(h2) {
       color: $font-400;
@@ -39,22 +20,26 @@
 }
 
 .name {
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: bold;
   border-bottom: 2px solid $theme-400;
+  transition: color 0.2s;
 }
 
-.genres {
-  all: unset;
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-top: 0.4rem;
+  font-size: 1.8rem;
+  list-style: none;
 
-  > li {
-    display: inline;
-    font-size: 1.8rem;
+  > li > address {
+    font-style: normal;
   }
 
-  > li + li {
-    &::before {
-      content: ', ';
-    }
+  > li > time {
+    font-size: 1.4rem;
   }
 }

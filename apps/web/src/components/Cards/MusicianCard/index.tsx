@@ -18,13 +18,15 @@ const MusicianCard = (props: MusicianCardFragment) => {
     <Link href={`/musicians/m/${id}`}>
       <a className={styles.musicianCard} title={name}>
         <h2 className={styles.name}>{name}</h2>
-        <address>{`${city?.name}, ${city?.province}`}</address>
-        <ul className={styles.genres}>
+        <ul className={styles.info}>
+          <li>
+            <address>{`${city?.name}, ${city?.province}`}</address>
+          </li>
           <li>{capitalCaseType}</li>
+          <li>
+            <time>Latest Release: {release}</time>
+          </li>
         </ul>
-        <time>
-          Latest Release: <i>{release}</i>
-        </time>
       </a>
     </Link>
   );
