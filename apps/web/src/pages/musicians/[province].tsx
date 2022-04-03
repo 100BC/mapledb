@@ -13,7 +13,7 @@ import MusicianCard from '@components/Cards/MusicianCard';
 import Pagination from '@components/DbComponents/Pagination';
 import musicianSSRValidator from '@utils/validators/musicianSSRValidator';
 import GqlContainer from '@components/GqlContainer';
-import useProvinceParser from '@utils/hooks/useProvinceParser';
+import useParseProvince from '@utils/hooks/useParseProvince';
 import { useGetManyMusiciansQuery } from '@graphql/hooks';
 
 interface Props {
@@ -27,11 +27,11 @@ const MusicianGrid = ({ province, skip, currentPage }: Props) => {
     variables: { take: MUSICIAN_QUERY_SIZE, skip, province },
   });
 
-  const { name: provinceName, demonym } = useProvinceParser(province);
+  const { name: provinceName, demonym } = useParseProvince(province);
 
   return (
     <Layout
-      title={`${demonym} Musicians Database | Mooseical`}
+      title={`Mooseical | ${demonym} Musicians Database`}
       description={`Explore the database of underground musicians based in ${provinceName} on Mooseical - Canadian Music Database.`}
       canonicalUrlPath={`/musicians/${province?.toLowerCase() ?? 'all'}`}
     >

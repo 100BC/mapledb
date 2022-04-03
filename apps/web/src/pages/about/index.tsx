@@ -8,7 +8,7 @@ import Layout from '@components/Layout';
 const About = () => {
   return (
     <Layout
-      title="About | Mooseical"
+      title="Mooseical | About"
       description="Goals and details about Mooseical - Canadian Music Database."
       canonicalUrlPath="/about"
       className={styles.about}

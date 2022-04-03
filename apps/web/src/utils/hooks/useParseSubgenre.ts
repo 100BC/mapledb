@@ -1,7 +1,7 @@
 import { capitalCaseWord } from '@utils/functions/stringFormatters';
 import { useMemo } from 'react';
 
-const useSubgenreParser = (subgenre: string) => {
+const useParseSubgenre = (subgenre: string) => {
   const subgenreParsed = useMemo(() => {
     return subgenre
       .split(' ')
@@ -12,4 +12,4 @@ const useSubgenreParser = (subgenre: string) => {
   return subgenreParsed;
 };
 
-export default useSubgenreParser;
+export default useParseSubgenre;

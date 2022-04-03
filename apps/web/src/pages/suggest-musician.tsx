@@ -79,7 +79,7 @@ const SuggestMusician = () => {
 
   return (
     <Layout
-      title="Suggest a Musician | Mooseical"
+      title="Mooseical | Suggest a Musician"
       description="Suggest a Canadian musician to be added to Mooseical's database."
       canonicalUrlPath="/suggest-musician"
     >

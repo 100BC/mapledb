@@ -14,7 +14,7 @@ import GqlContainer from '@components/GqlContainer';
 import DbContainer from '@components/DbComponents/DbContainer';
 import Pagination from '@components/DbComponents/Pagination';
 import MusicCard from '@components/Cards/MusicCard';
-import useGenreParser from '@utils/hooks/useGenreParser';
+import useParseGenre from '@utils/hooks/useParseGenre';
 import { useGetManyMusicQuery } from '@graphql/hooks';
 
 interface Props {
@@ -33,17 +33,12 @@ const MusicGrid = ({ genre, musicTypes, skip, currentPage }: Props) => {
       type: musicTypes || Object.values(MusicType),
     },
   });
-  const [
-    capitalGenre,
-    capitalGenreSpaced,
-    lowerCaseGenre,
-    lowerCaseGenreSpaced,
-  ] = useGenreParser(genre);
+  const [capitalGenre, lowerCaseGenre] = useParseGenre(genre);
 
   return (
     <Layout
-      title={`Canadian ${capitalGenreSpaced}Music Database | Mooseical`}
-      description={`Explore the database of ${lowerCaseGenreSpaced}music released by Underground Canadian Musicians on Mooseical - Canadian Music Database.`}
+      title={`Mooseical | ${capitalGenre} Music Database`}
+      description={`Explore the database of ${lowerCaseGenre} music released by Underground Canadian Musicians on Mooseical - Canadian Music Database.`}
       canonicalUrlPath={`/music/${lowerCaseGenre || 'all'}`}
     >
       <h1>Music Database</h1>

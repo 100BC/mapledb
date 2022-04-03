@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 import { MusicType } from '@mooseical/schema/types';
 import useCreateImageUrl from '@utils/hooks/useCreateImageUrl';
-import useDateParser from '@utils/hooks/useDateParser';
-import useMusicianDescCreate from '@utils/hooks/useMusicianDescCreate';
+import useParseDate from '@utils/hooks/useParseDate';
+import useCreateMusicianDesc from '@utils/hooks/useCreateMusicianDesc';
 import MusicianLinkList from '@components/MusicianLinkList';
-import useMusicTypeParser from '@utils/hooks/useMusicTypeParser';
-import useSubgenreParser from '@utils/hooks/useSubgenreParser';
+import useParseMusicType from '@utils/hooks/useParseMusicType';
+import useParseSubgenre from '@utils/hooks/useParseSubgenre';
 import styles from './styles.module.scss';
 
 interface Props {
@@ -43,20 +43,22 @@ const MusicCard = ({
     hasCover,
     maxWidth: 285,
   });
-  const date = useDateParser(release);
-  const imgDesc = useMusicianDescCreate(musicians, nonCanadians);
-  const subgenreParsed = useSubgenreParser(subgenre.name);
-  const { capitalCase: capitalCaseType } = useMusicTypeParser(musicType);
+  const date = useParseDate(release);
+  const imgDesc = useCreateMusicianDesc(musicians, nonCanadians);
+  const subgenreParsed = useParseSubgenre(subgenre.name);
+  const { capitalCase: capitalCaseType } = useParseMusicType(musicType);
+  const desc = useMemo(
+    () => `${capitalCaseType}: ${name}${musicians ? ` by ${imgDesc}` : ''}`,
+    [capitalCaseType, imgDesc, musicians, name]
+  );
 
   return (
     <div className={styles.musicCard}>
       <Link href={`/music/m/${id}`}>
-        <a title={`${capitalCaseType}: ${name}`}>
+        <a title={desc}>
           <Image
             src={imageUrl ?? '/images/missing.png'}
-            alt={`${capitalCaseType}: ${name}${
-              musicians ? ` by ${imgDesc}` : ''
-            }`}
+            alt={desc}
             layout="intrinsic"
             width={285}
             height={285}

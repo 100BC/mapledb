@@ -11,9 +11,9 @@ import Layout from '@components/Layout';
 import setSSRCache from '@utils/setSSRCache';
 import GqlContainer from '@components/GqlContainer';
 import useCreateImageUrl from '@utils/hooks/useCreateImageUrl';
-import useDateParser from '@utils/hooks/useDateParser';
-import useMusicianDescCreate from '@utils/hooks/useMusicianDescCreate';
-import useMusicTypeParser from '@utils/hooks/useMusicTypeParser';
+import useParseDate from '@utils/hooks/useParseDate';
+import useCreateMusicianDesc from '@utils/hooks/useCreateMusicianDesc';
+import useParseMusicType from '@utils/hooks/useParseMusicType';
 import { useGetMusicQuery } from '@graphql/hooks';
 
 interface Props {
@@ -48,13 +48,13 @@ const MusicDisplay = ({ musicId }: Props) => {
       maxWidth: 400,
     });
 
-  const musicianDesc = useMusicianDescCreate(musicians, nonCanadians);
-  const date = useDateParser(release);
-  const musicTypeParsed = useMusicTypeParser(musicType);
+  const musicianDesc = useCreateMusicianDesc(musicians, nonCanadians);
+  const date = useParseDate(release);
+  const musicTypeParsed = useParseMusicType(musicType);
 
   return (
     <Layout
-      title={`${name} | Mooseical`}
+      title={`Mooseical | ${name}`}
       ogpTitle={name}
       description={`View information on ${name}, ${musicTypeParsed.sentence} by ${musicianDesc} on Mooseical - Canadian Music Database`}
       canonicalUrlPath={`/music/m/${musicId}`}

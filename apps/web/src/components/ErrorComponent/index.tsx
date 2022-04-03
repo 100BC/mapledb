@@ -13,7 +13,7 @@ const ErrorComponent = ({ error, errorNum = 404 }: Props) => {
   return (
     <>
       <Head>
-        <title>{`${errorNum} | Mooseical`}</title>
+        <title>{`Mooseical | ${errorNum}`}</title>
         <meta name="robots" content="noindex" />
 
         <meta property="og:title" content={META_TITLE} />

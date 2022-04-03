@@ -4,6 +4,8 @@ import { CombinedError } from 'urql';
 import ErrorComponent from '@components/ErrorComponent';
 import Spinner from '@mooseical/shared/components/Spinner';
 import { AllOrNone } from '@mooseical/generics';
+import Head from 'next/head';
+import { DOMAIN_NAME, META_DESCRIPTION, META_TITLE } from '@components/Layout';
 
 type Props = {
   fetching: boolean;
@@ -21,7 +23,25 @@ const GqlContainer = ({
   errorComponent,
   errorStatusCode,
 }: Props) => {
-  if (fetching) return <Spinner />;
+  if (fetching)
+    return (
+      <>
+        <Head>
+          <title>Mooseical | Loading</title>
+          <meta name="robots" content="noindex" />
+
+          <meta property="og:title" content={META_TITLE} />
+          <meta name="twitter:title" content={META_TITLE} />
+
+          <meta name="description" content={META_DESCRIPTION} />
+          <meta property="og:description" content={META_DESCRIPTION} />
+          <meta name="twitter:description" content={META_DESCRIPTION} />
+
+          <meta property="og:url" content={DOMAIN_NAME} />
+        </Head>
+        <Spinner />
+      </>
+    );
 
   if (error) {
     if (errorComponent)

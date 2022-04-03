@@ -44,7 +44,7 @@ const Contact = () => {
 
   return (
     <Layout
-      title="Contact Me | Mooseical"
+      title="Mooseical | Contact"
       description="Contact Mooseical - Canadian Music Database."
       canonicalUrlPath="/about/contact"
       className={styles.about}

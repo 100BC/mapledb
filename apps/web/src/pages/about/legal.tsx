@@ -7,7 +7,7 @@ import Layout from '@components/Layout';
 const Legal = () => {
   return (
     <Layout
-      title="Legal | Mooseical"
+      title="Mooseical | Legal"
       description="Legal Information of Mooseical - Canadian Music Database."
       canonicalUrlPath="/about/legal"
       className={styles.about}

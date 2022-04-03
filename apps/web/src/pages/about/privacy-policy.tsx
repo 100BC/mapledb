@@ -7,7 +7,7 @@ import Layout from '@components/Layout';
 const PrivacyPolicy = () => {
   return (
     <Layout
-      title="Privacy Policy | Mooseical"
+      title="Mooseical | Privacy Policy"
       description="Privacy Policy of Mooseical - Canadian Music Database."
       canonicalUrlPath="/about/privacy-policy"
       className={styles.about}

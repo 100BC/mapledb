@@ -12,7 +12,7 @@ import setSSRCache from '@utils/setSSRCache';
 import MusicCard from '@components/Cards/MusicCard';
 import DbContainer from '@components/DbComponents/DbContainer';
 import GqlContainer from '@components/GqlContainer';
-import useDateParser, { useYearParser } from '@utils/hooks/useDateParser';
+import useParseDate, { useParseYear } from '@utils/hooks/useParseDate';
 import { useGetMusicianQuery } from '@graphql/hooks';
 
 interface Props {
@@ -43,9 +43,9 @@ const MusicianDisplay = ({ musicianId }: Props) => {
     live,
     other,
   } = { ...data?.musician };
-  const releaseDate = useDateParser(latestInfo?.latestRelease);
+  const releaseDate = useParseDate(latestInfo?.latestRelease);
   const pluralMusician = isGroup ? 'Group' : 'Musician';
-  const disbandedYear = useYearParser(disbanded);
+  const disbandedYear = useParseYear(disbanded);
 
   const releases = useMemo(
     () => [
@@ -103,13 +103,13 @@ const MusicianDisplay = ({ musicianId }: Props) => {
 
   return (
     <Layout
-      title={`${name} | Mooseical`}
+      title={`Mooseical | ${name}`}
       ogpTitle={name}
       description={`View information on ${name}, ${
         isGroup ? 'a musical group' : 'a musician'
       } based in ${city?.name}, ${
         city?.province
-      } Canada on Mooseical - Canadian Music Database.`}
+      } on Mooseical - Canadian Music Database.`}
       canonicalUrlPath={`/musicians/m/${musicianId}`}
     >
       <GqlContainer

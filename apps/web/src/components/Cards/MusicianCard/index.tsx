@@ -2,13 +2,13 @@ import React, { useMemo } from 'react';
 import Link from 'next/link';
 
 import { MusicianCardFragment } from '@mooseical/schema/types/web';
-import useDateParser from '@utils/hooks/useDateParser';
+import useParseDate from '@utils/hooks/useParseDate';
 import { capitalCaseEnums } from '@utils/functions/stringFormatters';
 import styles from './styles.module.scss';
 
 const MusicianCard = (props: MusicianCardFragment) => {
   const { id, city, name, latestInfo } = props;
-  const release = useDateParser(latestInfo?.latestRelease);
+  const release = useParseDate(latestInfo?.latestRelease);
   const capitalCaseGenre = useMemo(
     () => capitalCaseEnums(latestInfo?.latestGenre || ''),
     [latestInfo?.latestGenre]

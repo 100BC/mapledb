@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-const useDateParser = (date: string | null | undefined) => {
+const useParseDate = (date: string | null | undefined) => {
   const dateParsed = useMemo(() => {
     if (!date) return null;
 
@@ -15,9 +15,9 @@ const useDateParser = (date: string | null | undefined) => {
   return dateParsed;
 };
 
-export default useDateParser;
+export default useParseDate;
 
-export const useYearParser = (date: string | null | undefined) => {
+export const useParseYear = (date: string | null | undefined) => {
   const yearParsed = useMemo(() => {
     if (!date) return null;
 

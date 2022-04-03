@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 import { Province } from '@mooseical/schema/types';
 
-const useProvinceParser = (province: Province | null) => {
+const useParseProvince = (province: Province | null) => {
   const provinceParsed = useMemo(() => {
     switch (province) {
       case null:
@@ -50,4 +50,4 @@ const useProvinceParser = (province: Province | null) => {
   return provinceParsed;
 };
 
-export default useProvinceParser;
+export default useParseProvince;
