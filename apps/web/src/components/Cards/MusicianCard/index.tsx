@@ -9,7 +9,7 @@ import styles from './styles.module.scss';
 const MusicianCard = (props: MusicianCardFragment) => {
   const { id, city, name, latestInfo } = props;
   const release = useDateParser(latestInfo?.latestRelease);
-  const capitalCaseType = useMemo(
+  const capitalCaseGenre = useMemo(
     () => capitalCaseEnums(latestInfo?.latestGenre || ''),
     [latestInfo?.latestGenre]
   );
@@ -19,10 +19,10 @@ const MusicianCard = (props: MusicianCardFragment) => {
       <a className={styles.musicianCard} title={name}>
         <h2 className={styles.name}>{name}</h2>
         <ul className={styles.info}>
+          <li>{capitalCaseGenre}</li>
           <li>
             <address>{`${city?.name}, ${city?.province}`}</address>
           </li>
-          <li>{capitalCaseType}</li>
           <li>
             <time>Latest Release: {release}</time>
           </li>
