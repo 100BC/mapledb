@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 import { MusicCardFragment } from '@mooseical/schema/types/web';
 
-const useMusicianDescParser = (
+const useMusicianDescCreate = (
   musicians: MusicCardFragment['musicians'] | undefined,
   nonCanadians: MusicCardFragment['nonCanadians'] | undefined
 ) => {
@@ -23,4 +23,4 @@ const useMusicianDescParser = (
   return description;
 };
 
-export default useMusicianDescParser;
+export default useMusicianDescCreate;

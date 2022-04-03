@@ -16,21 +16,17 @@ const useDbFilter = (page: 'music' | 'musicians') => {
     () => query[useGenre ? 'genre' : 'province'],
     [query, useGenre]
   );
-  const defaultText = useMemo(
-    () => (useGenre ? 'All Genres' : 'Canada'),
-    [useGenre]
-  );
 
   const params = useMemo(() => {
     return [
-      { title: defaultText, value: 'all', select: null },
+      { title: useGenre ? 'All Genres' : 'Canada', value: 'all', select: null },
       ...(Object.values(tabType) as string[]).map((tab) => ({
         title: useGenre ? capitalCaseEnums(tab) : tab.toUpperCase(),
         value: tab.toLowerCase(),
         select: useGenre ? null : getProvinceName(tab as Province),
       })),
     ];
-  }, [tabType, defaultText, useGenre]);
+  }, [tabType, useGenre]);
 
   return { queryValue, params };
 };

@@ -12,7 +12,7 @@ import setSSRCache from '@utils/setSSRCache';
 import GqlContainer from '@components/GqlContainer';
 import useCreateImageUrl from '@utils/hooks/useCreateImageUrl';
 import useDateParser from '@utils/hooks/useDateParser';
-import useMusicianDescParser from '@utils/hooks/useMusicianDescParser';
+import useMusicianDescCreate from '@utils/hooks/useMusicianDescCreate';
 import useMusicTypeParser from '@utils/hooks/useMusicTypeParser';
 import { useGetMusicQuery } from '@graphql/hooks';
 
@@ -48,7 +48,7 @@ const MusicDisplay = ({ musicId }: Props) => {
       maxWidth: 400,
     });
 
-  const musicianDesc = useMusicianDescParser(musicians, nonCanadians);
+  const musicianDesc = useMusicianDescCreate(musicians, nonCanadians);
   const date = useDateParser(release);
   const musicTypeParsed = useMusicTypeParser(musicType);
 

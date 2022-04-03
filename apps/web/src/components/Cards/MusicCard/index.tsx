@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { MusicType } from '@mooseical/schema/types';
 import useCreateImageUrl from '@utils/hooks/useCreateImageUrl';
 import useDateParser from '@utils/hooks/useDateParser';
-import useMusicianDescParser from '@utils/hooks/useMusicianDescParser';
+import useMusicianDescCreate from '@utils/hooks/useMusicianDescCreate';
 import MusicianLinkList from '@components/MusicianLinkList';
 import useMusicTypeParser from '@utils/hooks/useMusicTypeParser';
 import useSubgenreParser from '@utils/hooks/useSubgenreParser';
@@ -44,7 +44,7 @@ const MusicCard = ({
     maxWidth: 285,
   });
   const date = useDateParser(release);
-  const imgDesc = useMusicianDescParser(musicians, nonCanadians);
+  const imgDesc = useMusicianDescCreate(musicians, nonCanadians);
   const subgenreParsed = useSubgenreParser(subgenre.name);
   const { capitalCase: capitalCaseType } = useMusicTypeParser(musicType);
 
