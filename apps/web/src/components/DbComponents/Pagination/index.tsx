@@ -42,14 +42,6 @@ const Pagination = ({ pageType, currentPage, totalCount }: Props) => {
     [pageType, router.query.genre, router.query.province]
   );
 
-  const musicType = useMemo(
-    () =>
-      pageType === 'music' && router.query.type
-        ? `&type=${router.query.type}`
-        : '',
-    [pageType, router.query.type]
-  );
-
   return (
     <>
       {paginationRange.length > 1 && (
@@ -60,7 +52,10 @@ const Pagination = ({ pageType, currentPage, totalCount }: Props) => {
               disabled={onFirstPage}
               aria-label="previous page"
               onClick={() =>
-                router.push(`${url}?page=${currentPage! - 1}${musicType}`)
+                router.push({
+                  pathname: url,
+                  query: { page: currentPage - 1, type: router.query.type },
+                })
               }
             >
               <LeftArrow />
@@ -72,7 +67,12 @@ const Pagination = ({ pageType, currentPage, totalCount }: Props) => {
             }
             return (
               <li key={pageNumber}>
-                <Link href={`${url}?page=${pageNumber}${musicType}`}>
+                <Link
+                  href={{
+                    pathname: url,
+                    query: { page: pageNumber, type: router.query.type },
+                  }}
+                >
                   <a
                     className={conditional(
                       currentPage === pageNumber,
@@ -91,9 +91,13 @@ const Pagination = ({ pageType, currentPage, totalCount }: Props) => {
               disabled={onLastPage}
               aria-label="next page"
               onClick={() =>
-                router.push(
-                  `${url}?page=${currentPage ? currentPage + 1 : 2}${musicType}`
-                )
+                router.push({
+                  pathname: url,
+                  query: {
+                    page: currentPage + 1,
+                    type: router.query.type,
+                  },
+                })
               }
             >
               <RightArrow />
