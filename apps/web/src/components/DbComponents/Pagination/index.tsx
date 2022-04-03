@@ -54,7 +54,10 @@ const Pagination = ({ pageType, currentPage, totalCount }: Props) => {
               onClick={() =>
                 router.push({
                   pathname: url,
-                  query: { page: currentPage - 1, type: router.query.type },
+                  query: {
+                    page: currentPage - 1,
+                    ...(router.query.type && { type: router.query.type }),
+                  },
                 })
               }
             >
@@ -70,7 +73,10 @@ const Pagination = ({ pageType, currentPage, totalCount }: Props) => {
                 <Link
                   href={{
                     pathname: url,
-                    query: { page: pageNumber, type: router.query.type },
+                    query: {
+                      page: pageNumber,
+                      ...(router.query.type && { type: router.query.type }),
+                    },
                   }}
                 >
                   <a
@@ -95,7 +101,7 @@ const Pagination = ({ pageType, currentPage, totalCount }: Props) => {
                   pathname: url,
                   query: {
                     page: currentPage + 1,
-                    type: router.query.type,
+                    ...(router.query.type && { type: router.query.type }),
                   },
                 })
               }
