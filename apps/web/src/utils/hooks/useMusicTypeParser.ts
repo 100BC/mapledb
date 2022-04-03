@@ -51,9 +51,9 @@ const useMusicTypeParser = (musicType: MusicType | undefined) => {
         };
       default:
         return {
-          sentence: 'a musical work',
-          capitalCase: 'Music',
-          lowerCase: 'music',
+          sentence: 'a project',
+          capitalCase: 'Project',
+          lowerCase: 'project',
         };
     }
   }, [musicType]);
