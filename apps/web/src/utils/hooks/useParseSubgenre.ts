@@ -3,10 +3,12 @@ import { useMemo } from 'react';
 
 const useParseSubgenre = (subgenre: string) => {
   const subgenreParsed = useMemo(() => {
-    if (subgenre === 'r&b') return 'R&B';
     return subgenre
       .split(' ')
-      .map((word) => capitalCaseWord(word))
+      .map((word) => {
+        if (word === 'r&b') return 'R&B';
+        return capitalCaseWord(word);
+      })
       .join(' ');
   }, [subgenre]);
 
