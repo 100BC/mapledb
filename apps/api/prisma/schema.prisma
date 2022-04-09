@@ -54,6 +54,7 @@ model City {
   musicians Musician[]
 
   @@unique([name, province])
+  @@map("city")
 }
 
 model Subgenre {
@@ -61,6 +62,8 @@ model Subgenre {
   name  String  @unique @db.VarChar(255)
   genre Genre
   music Music[]
+
+  @@map("subgenre")
 }
 
 model Musician {
@@ -77,6 +80,8 @@ model Musician {
   spotifyLink    String?         @unique @db.VarChar(255)
   youtubeLink    String?         @unique @db.VarChar(255)
   disbanded      DateTime?       @db.Date
+
+  @@map("musician")
 }
 
 model Music {
@@ -99,6 +104,7 @@ model Music {
   copyright      String?         @db.VarChar(255)
 
   @@index([musicType, release(sort: Desc)])
+  @@map("music")
 }
 
 model MusicianMusic {
@@ -108,4 +114,5 @@ model MusicianMusic {
   musicId     String   @db.VarChar(255)
 
   @@id([musicianId, musicId])
+  @@map("musician_music")
 }
