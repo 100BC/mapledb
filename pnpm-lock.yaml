@@ -9,7 +9,7 @@ importers:
       turbo: latest
     devDependencies:
       kill-port: 1.6.1
-      prettier: 2.6.2
+      prettier: 2.6.2 
       turbo: 1.2.1
 
   apps/admin:
