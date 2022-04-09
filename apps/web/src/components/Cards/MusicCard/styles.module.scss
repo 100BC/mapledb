@@ -2,10 +2,19 @@
 
 .musicCard {
   text-align: start;
+  background: $bg-300;
+  border-radius: 10px;
+  box-shadow: 0 0 10px $black;
 
-  li {
-    list-style-type: none;
+  &:hover {
+    > div > *:not(h2) {
+      color: $white;
+    }
   }
+}
+
+.info {
+  padding: 0 5px 1rem;
 }
 
 .musicName {
@@ -14,24 +23,27 @@
   font-weight: 600;
 }
 
-.musicianName {
-  > li {
-    font-size: 1.8rem;
-    line-height: 1.4;
-  }
-}
-
 .desc {
+  font-size: 1.4rem;
+  list-style-type: none;
+
   > li {
     margin: 0.8rem 0 0;
     font-weight: 300;
   }
 }
 
-.genre {
-  font-size: 1.4rem;
-}
+.musicians {
+  > li {
+    display: inline;
+    font-size: 1.8rem;
+    line-height: 1.4;
+  }
 
-.time {
-  font-size: 1.4rem;
+  > li + li {
+    &::before {
+      color: $theme-400;
+      content: ' & ';
+    }
+  }
 }

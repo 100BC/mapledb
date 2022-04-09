@@ -53,41 +53,41 @@ const MusicCard = ({
   );
 
   return (
-    <div className={styles.musicCard}>
-      <Link href={`/music/m/${id}`}>
-        <a title={desc}>
-          <Image
-            src={imageUrl ?? '/images/missing.png'}
-            alt={desc}
-            layout="intrinsic"
-            width={285}
-            height={285}
-            placeholder={placeholder}
-            blurDataURL={blurryImageUrl}
-            loader={loader}
-            priority={imagePriority}
-          />
-          <h2 className={styles.musicName}>{name}</h2>
-        </a>
-      </Link>
-      {musicians && (
-        <MusicianLinkList
-          musicians={musicians}
-          nonCanadians={nonCanadians}
-          className={styles.musicianName}
-          shouldConcat
+    <Link href={`/music/m/${id}`}>
+      <a title={desc} className={styles.musicCard}>
+        <Image
+          src={imageUrl ?? '/images/missing.png'}
+          alt={desc}
+          layout="intrinsic"
+          width={285}
+          height={285}
+          placeholder={placeholder}
+          blurDataURL={blurryImageUrl}
+          loader={loader}
+          priority={imagePriority}
         />
-      )}
-      <ul className={styles.desc}>
-        <li className={styles.genre}>
-          {instrumental && 'Instrumental '}
-          {subgenreParsed} {showMusicType && <>{capitalCaseType}</>}
-        </li>
-        <li className={styles.time}>
-          <time>{date}</time>
-        </li>
-      </ul>
-    </div>
+        <div className={styles.info}>
+          <h2 className={styles.musicName}>{name}</h2>
+          <ul className={styles.musicians}>
+            {musicians?.map((m) => (
+              <li key={m.id}>{m.name}</li>
+            ))}
+            {nonCanadians?.map((c) => (
+              <li key={c}>{c}</li>
+            ))}
+          </ul>
+          <ul className={styles.desc}>
+            <li>
+              {instrumental && 'Instrumental '}
+              {subgenreParsed} {showMusicType && <>{capitalCaseType}</>}
+            </li>
+            <li>
+              <time>{date}</time>
+            </li>
+          </ul>
+        </div>
+      </a>
+    </Link>
   );
 };
 
