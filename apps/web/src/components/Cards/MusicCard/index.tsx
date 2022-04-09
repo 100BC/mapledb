@@ -6,7 +6,6 @@ import { MusicType } from '@mooseical/schema/types';
 import useCreateImageUrl from '@utils/hooks/useCreateImageUrl';
 import useParseDate from '@utils/hooks/useParseDate';
 import useCreateMusicianDesc from '@utils/hooks/useCreateMusicianDesc';
-import MusicianLinkList from '@components/MusicianLinkList';
 import useParseMusicType from '@utils/hooks/useParseMusicType';
 import useParseSubgenre from '@utils/hooks/useParseSubgenre';
 import styles from './styles.module.scss';
