@@ -7,6 +7,7 @@ fragment musicianRelease on Music {
   subgenre {
     name
   }
+  musicType
 }
 
 query GetMusic($id: String!) {
@@ -48,29 +49,7 @@ query GetMusician($id: String!) {
     youtubeLink
     isGroup
     disbanded
-    albums: music(type: ALBUM) {
-      ...musicianRelease
-    }
-    eps: music(type: EP) {
-      ...musicianRelease
-    }
-
-    singles: music(type: SINGLE) {
-      ...musicianRelease
-    }
-    live: music(type: LIVE) {
-      ...musicianRelease
-    }
-    other: music(type: OTHER) {
-      ...musicianRelease
-    }
-    remix: music(type: REMIX) {
-      ...musicianRelease
-    }
-    deluxe: music(type: DELUXE) {
-      ...musicianRelease
-    }
-    compilation: music(type: COMPILATION) {
+    music {
       ...musicianRelease
     }
   }

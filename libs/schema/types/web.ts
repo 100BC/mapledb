@@ -7,6 +7,7 @@ export type MusicianReleaseFragment = {
   hasCover: boolean;
   release: string;
   instrumental: boolean;
+  musicType: Types.MusicType;
   subgenre: { name: string };
 };
 
@@ -47,68 +48,13 @@ export type GetMusicianQuery = {
     disbanded: string | null;
     city: { name: string; province: Types.Province };
     latestInfo: { latestRelease: string } | null;
-    albums: Array<{
+    music: Array<{
       id: string;
       name: string;
       hasCover: boolean;
       release: string;
       instrumental: boolean;
-      subgenre: { name: string };
-    }>;
-    eps: Array<{
-      id: string;
-      name: string;
-      hasCover: boolean;
-      release: string;
-      instrumental: boolean;
-      subgenre: { name: string };
-    }>;
-    singles: Array<{
-      id: string;
-      name: string;
-      hasCover: boolean;
-      release: string;
-      instrumental: boolean;
-      subgenre: { name: string };
-    }>;
-    live: Array<{
-      id: string;
-      name: string;
-      hasCover: boolean;
-      release: string;
-      instrumental: boolean;
-      subgenre: { name: string };
-    }>;
-    other: Array<{
-      id: string;
-      name: string;
-      hasCover: boolean;
-      release: string;
-      instrumental: boolean;
-      subgenre: { name: string };
-    }>;
-    remix: Array<{
-      id: string;
-      name: string;
-      hasCover: boolean;
-      release: string;
-      instrumental: boolean;
-      subgenre: { name: string };
-    }>;
-    deluxe: Array<{
-      id: string;
-      name: string;
-      hasCover: boolean;
-      release: string;
-      instrumental: boolean;
-      subgenre: { name: string };
-    }>;
-    compilation: Array<{
-      id: string;
-      name: string;
-      hasCover: boolean;
-      release: string;
-      instrumental: boolean;
+      musicType: Types.MusicType;
       subgenre: { name: string };
     }>;
   };
@@ -229,6 +175,7 @@ export const MusicianRelease = gql`
     subgenre {
       name
     }
+    musicType
   }
 `;
 export const MusicCard = gql`
@@ -304,28 +251,7 @@ export const GetMusicianDocument = gql`
       youtubeLink
       isGroup
       disbanded
-      albums: music(type: ALBUM) {
-        ...musicianRelease
-      }
-      eps: music(type: EP) {
-        ...musicianRelease
-      }
-      singles: music(type: SINGLE) {
-        ...musicianRelease
-      }
-      live: music(type: LIVE) {
-        ...musicianRelease
-      }
-      other: music(type: OTHER) {
-        ...musicianRelease
-      }
-      remix: music(type: REMIX) {
-        ...musicianRelease
-      }
-      deluxe: music(type: DELUXE) {
-        ...musicianRelease
-      }
-      compilation: music(type: COMPILATION) {
+      music {
         ...musicianRelease
       }
     }

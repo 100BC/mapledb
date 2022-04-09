@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { Fragment, useMemo, useState } from 'react';
 import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 
@@ -14,6 +14,9 @@ import DbContainer from '@components/DbComponents/DbContainer';
 import GqlContainer from '@components/GqlContainer';
 import useParseDate, { useParseYear } from '@utils/hooks/useParseDate';
 import { useGetMusicianQuery } from '@graphql/hooks';
+import { conditional } from '@mooseical/style-helpers';
+import GridSvg from '@assets/svg/grid.svg';
+import ListSvg from '@assets/svg/list.svg';
 
 interface Props {
   musicianId: string;
@@ -23,6 +26,7 @@ const MusicianDisplay = ({ musicianId }: Props) => {
   const [{ data, fetching, error }] = useGetMusicianQuery({
     variables: { id: musicianId },
   });
+  const [listView, setListView] = useState(0);
 
   const {
     name,
@@ -34,71 +38,56 @@ const MusicianDisplay = ({ musicianId }: Props) => {
     isGroup,
     disbanded,
     latestInfo,
-    albums,
-    eps,
-    singles,
-    deluxe,
-    compilation,
-    remix,
-    live,
-    other,
+    music,
   } = { ...data?.musician };
   const releaseDate = useParseDate(latestInfo?.latestRelease);
   const pluralMusician = isGroup ? 'Group' : 'Musician';
   const disbandedYear = useParseYear(disbanded);
 
-  const releases = useMemo(
+  const detailedReleases = useMemo(
     () => [
       {
         title: 'Albums',
-        data: albums,
+        data: music?.filter((m) => m.musicType === 'ALBUM'),
         type: MusicType.Album,
-        priority: true,
       },
       {
         title: 'EPs',
-        data: eps,
+        data: music?.filter((m) => m.musicType === 'EP'),
         type: MusicType.Ep,
-        priority: !albums || albums.length === 0,
       },
       {
         title: 'Singles',
-        data: singles,
+        data: music?.filter((m) => m.musicType === 'SINGLE'),
         type: MusicType.Single,
-        priority: !eps || eps.length === 0,
       },
       {
         title: 'Deluxe Editions',
-        data: deluxe,
+        data: music?.filter((m) => m.musicType === 'DELUXE'),
         type: MusicType.Deluxe,
-        priority: !singles || singles.length === 0,
       },
       {
         title: 'Compilations',
-        data: compilation,
+        data: music?.filter((m) => m.musicType === 'COMPILATION'),
         type: MusicType.Compilation,
-        priority: !deluxe || deluxe.length === 0,
       },
       {
         title: 'Remixes',
-        data: remix,
+        data: music?.filter((m) => m.musicType === 'REMIX'),
         type: MusicType.Remix,
-        priority: !compilation || compilation.length === 0,
       },
       {
         title: 'Live Recordings',
-        data: live,
+        data: music?.filter((m) => m.musicType === 'LIVE'),
         type: MusicType.Live,
-        priority: !remix || remix.length === 0,
       },
       {
         title: 'Other Releases',
-        data: other,
+        data: music?.filter((m) => m.musicType === 'OTHER'),
         type: MusicType.Other,
-        priority: !live || live.length === 0,
       },
     ],
-    [albums, eps, singles, deluxe, compilation, remix, live, other]
+    [music]
   );
 
   return (
@@ -158,24 +147,62 @@ const MusicianDisplay = ({ musicianId }: Props) => {
                 )}
               </ul>
             </section>
-            {releases.map((music) =>
-              music.data && music.data.length > 0 ? (
-                <section key={music.type}>
-                  <h2>{music.title}</h2>
-                  <hr />
-                  <DbContainer type="music">
-                    {music.data.map((doc, i) => (
-                      <MusicCard
-                        key={doc.id}
-                        {...doc}
-                        musicType={music.type}
-                        imagePriority={i < 5 && music.priority}
-                      />
-                    ))}
-                  </DbContainer>
-                </section>
-              ) : null
-            )}
+            <section>
+              <h2>Music</h2>
+              <hr />
+              <div className={styles.toggle}>
+                <button
+                  type="button"
+                  onClick={() => setListView(0)}
+                  className={conditional(!listView, styles.active)}
+                >
+                  Grid View
+                  <GridSvg />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setListView(1)}
+                  className={conditional(!!listView, styles.active)}
+                >
+                  List View
+                  <ListSvg />
+                </button>
+              </div>
+
+              {listView ? (
+                <>
+                  {detailedReleases.map((det) =>
+                    det.data && det.data.length > 0 ? (
+                      <Fragment key={det.type}>
+                        <h3 className={styles.subtitle}>{det.title}</h3>
+                        {/* <hr /> */}
+                        <DbContainer type="music">
+                          {det.data.map((doc) => (
+                            <MusicCard
+                              key={doc.id}
+                              {...doc}
+                              musicType={det.type}
+                              showMusicType
+                            />
+                          ))}
+                        </DbContainer>
+                      </Fragment>
+                    ) : null
+                  )}
+                </>
+              ) : (
+                <DbContainer type="music">
+                  {music?.map((doc, i) => (
+                    <MusicCard
+                      key={doc.id}
+                      {...doc}
+                      imagePriority={i < 5}
+                      showMusicType
+                    />
+                  ))}
+                </DbContainer>
+              )}
+            </section>
           </>
         )}
       </GqlContainer>
