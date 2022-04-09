@@ -69,16 +69,16 @@ model Subgenre {
 model Musician {
   id             String          @id @db.VarChar(255)
   name           String          @db.VarChar(255)
-  dateAdded      DateTime        @default(now())
+  dateAdded      DateTime        @default(now()) @map("date_added")
   city           City            @relation(fields: [cityId], references: [id])
-  cityId         Int             @db.SmallInt
+  cityId         Int             @map("city_id") @db.SmallInt
   music          MusicianMusic[]
-  isGroup        Boolean         @default(false)
-  appleLink      String?         @unique @db.VarChar(255)
-  bandcampLink   String?         @unique @db.VarChar(255)
-  soundcloudLink String?         @unique @db.VarChar(255)
-  spotifyLink    String?         @unique @db.VarChar(255)
-  youtubeLink    String?         @unique @db.VarChar(255)
+  isGroup        Boolean         @default(false) @map("is_group")
+  appleLink      String?         @unique @map("apple_link") @db.VarChar(255)
+  bandcampLink   String?         @unique @map("bandcamp_link") @db.VarChar(255)
+  soundcloudLink String?         @unique @map("soundcloud_link") @db.VarChar(255)
+  spotifyLink    String?         @unique @map("spotify_link") @db.VarChar(255)
+  youtubeLink    String?         @unique @map("youtube_link") @db.VarChar(255)
   disbanded      DateTime?       @db.Date
 
   @@map("musician")
@@ -87,20 +87,20 @@ model Musician {
 model Music {
   id             String          @id @db.VarChar(255)
   name           String          @db.VarChar(255)
-  musicType      MusicType
+  musicType      MusicType       @map("music_type")
   release        DateTime        @db.Date
-  dateAdded      DateTime        @default(now())
-  hasCover       Boolean         @default(false)
+  dateAdded      DateTime        @default(now()) @map("date_added")
+  hasCover       Boolean         @default(false) @map("has_cover")
   instrumental   Boolean         @default(false)
   subgenre       Subgenre        @relation(fields: [subgenreId], references: [id])
-  subgenreId     Int             @db.SmallInt
+  subgenreId     Int             @map("subgenre_id") @db.SmallInt
   musicians      MusicianMusic[]
-  nonCanadians   String[]        @db.VarChar(255)
-  appleLink      String?         @unique @db.VarChar(255)
-  bandcampLink   String?         @unique @db.VarChar(255)
-  soundcloudLink String?         @unique @db.VarChar(255)
-  spotifyLink    String?         @unique @db.VarChar(255)
-  youtubeLink    String?         @unique @db.VarChar(255)
+  nonCanadians   String[]        @map("non_canadians") @db.VarChar(255)
+  appleLink      String?         @unique @map("apple_link") @db.VarChar(255)
+  bandcampLink   String?         @unique @map("bandcamp_link") @db.VarChar(255)
+  soundcloudLink String?         @unique @map("soundcloud_link") @db.VarChar(255)
+  spotifyLink    String?         @unique @map("spotify_link") @db.VarChar(255)
+  youtubeLink    String?         @unique @map("youtube_link") @db.VarChar(255)
   copyright      String?         @db.VarChar(255)
 
   @@index([musicType, release(sort: Desc)])
@@ -109,9 +109,9 @@ model Music {
 
 model MusicianMusic {
   musicianRef Musician @relation(fields: [musicianId], references: [id])
-  musicianId  String   @db.VarChar(255)
+  musicianId  String   @map("musician_id") @db.VarChar(255)
   musicRef    Music    @relation(fields: [musicId], references: [id], onDelete: Cascade)
-  musicId     String   @db.VarChar(255)
+  musicId     String   @map("music_id") @db.VarChar(255)
 
   @@id([musicianId, musicId])
   @@map("musician_music")
