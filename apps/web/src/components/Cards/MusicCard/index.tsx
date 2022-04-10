@@ -72,7 +72,9 @@ const MusicCard = ({
               <li key={m.id}>{m.name}</li>
             ))}
             {nonCanadians?.map((c) => (
-              <li key={c}>{c}</li>
+              <li key={c} className={styles.nonCad}>
+                {c}
+              </li>
             ))}
           </ul>
           <ul className={styles.desc}>
