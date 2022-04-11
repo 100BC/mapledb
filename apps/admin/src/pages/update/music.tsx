@@ -4,8 +4,8 @@ import { FormProvider, useForm } from 'react-hook-form';
 import Layout from '@components/Layout';
 import { useGetMusicQuery, useEditMusicMutation } from '@graphql/hooks';
 import Environment from '@components/Environment';
-import { SearchBar } from '@mooseical/shared/components/FormComponents';
-import Spinner from '@mooseical/shared/components/Spinner';
+import { SearchBar } from '@mapledb/shared/components/FormComponents';
+import Spinner from '@mapledb/shared/components/Spinner';
 import MusicFormGeneric, {
   MusicFormProps,
 } from '@components/FormGenerics/Music';

@@ -1,15 +1,15 @@
 import React from 'react';
 import { FieldError, useFormContext } from 'react-hook-form';
 
-import { Province } from '@mooseical/schema/types';
+import { Province } from '@mapledb/schema/types';
 import {
   Checkbox,
   FormError,
   Select,
   TextInput,
-} from '@mooseical/shared/components/FormComponents';
+} from '@mapledb/shared/components/FormComponents';
 import validateLinks from '@utils/validateLinks';
-import Button from '@mooseical/shared/components/Button';
+import Button from '@mapledb/shared/components/Button';
 import styles from '@styles/forms.module.scss';
 
 interface Props {

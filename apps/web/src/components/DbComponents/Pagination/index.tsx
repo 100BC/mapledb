@@ -2,10 +2,10 @@ import React, { useMemo } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { MUSICIAN_QUERY_SIZE, MUSIC_QUERY_SIZE } from '@mooseical/constants';
+import { MUSICIAN_QUERY_SIZE, MUSIC_QUERY_SIZE } from '@mapledb/constants';
 import LeftArrow from '@assets/svg/leftArrow.svg';
 import RightArrow from '@assets/svg/rightArrow.svg';
-import { conditional } from '@mooseical/style-helpers';
+import { conditional } from '@mapledb/style-helpers';
 import { usePagination } from '@utils/hooks/usePagination';
 import styles from './styles.module.scss';
 

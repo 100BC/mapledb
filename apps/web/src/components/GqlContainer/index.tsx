@@ -2,8 +2,8 @@ import React, { ReactNode } from 'react';
 import { CombinedError } from 'urql';
 
 import ErrorComponent from '@components/ErrorComponent';
-import Spinner from '@mooseical/shared/components/Spinner';
-import { AllOrNone } from '@mooseical/generics';
+import Spinner from '@mapledb/shared/components/Spinner';
+import { AllOrNone } from '@mapledb/generics';
 import Head from 'next/head';
 import { DOMAIN_NAME, META_DESCRIPTION, META_TITLE } from '@components/Layout';
 
@@ -27,7 +27,7 @@ const GqlContainer = ({
     return (
       <>
         <Head>
-          <title>Mooseical | Loading</title>
+          <title>MapleDB | Loading</title>
           <meta name="robots" content="noindex" />
 
           <meta property="og:title" content={META_TITLE} />

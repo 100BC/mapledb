@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import Logo from '@components/Logo';
-import { combine, conditional } from '@mooseical/style-helpers';
+import { combine, conditional } from '@mapledb/style-helpers';
 import styles from './styles.module.scss';
 
 const DesktopNav = () => {
@@ -38,7 +38,7 @@ const DesktopNav = () => {
           <Link href="/">
             <a
               className={combine(styles.logo, styles.link)}
-              title="Mooseical Home"
+              title="MapleDB Home"
             >
               <Logo altLogo />
             </a>

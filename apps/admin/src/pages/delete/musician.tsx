@@ -5,10 +5,10 @@ import {
   useDeleteMusicianMutation,
   useGetMusicianNameQuery,
 } from '@graphql/hooks';
-import Spinner from '@mooseical/shared/components/Spinner';
+import Spinner from '@mapledb/shared/components/Spinner';
 import Environment from '@components/Environment';
-import { SearchBar } from '@mooseical/shared/components/FormComponents';
-import Button from '@mooseical/shared/components/Button';
+import { SearchBar } from '@mapledb/shared/components/FormComponents';
+import Button from '@mapledb/shared/components/Button';
 import styles from '@styles/forms.module.scss';
 
 const DeleteMusician = () => {

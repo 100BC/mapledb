@@ -2,7 +2,7 @@ import React, { ChangeEvent } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
-import { conditional } from '@mooseical/style-helpers';
+import { conditional } from '@mapledb/style-helpers';
 import useDbFilter from '@utils/hooks/useDbFilter';
 import styles from './styles.module.scss';
 

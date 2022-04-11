@@ -1,7 +1,7 @@
 {
-  "name": "mooseical",
+  "name": "mapledb",
   "version": "0.0.0",
-  "description": "Mooseical Monorepo",
+  "description": "MapleDB Monorepo",
   "private": true,
   "workspaces": [
     "apps/*",

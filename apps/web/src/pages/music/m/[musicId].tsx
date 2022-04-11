@@ -3,7 +3,7 @@ import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 
 import { gqlClient, ssrCache } from '@graphql/gqlClient';
-import { GetMusicDocument } from '@mooseical/schema/types/web';
+import { GetMusicDocument } from '@mapledb/schema/types/web';
 import styles from '@styles/music.module.scss';
 import ExternalLinks from '@components/ExternalLinks';
 import MusicianLinkList from '@components/MusicianLinkList';
@@ -54,9 +54,9 @@ const MusicDisplay = ({ musicId }: Props) => {
 
   return (
     <Layout
-      title={`Mooseical | ${name}`}
+      title={`MapleDB | ${name}`}
       ogpTitle={name}
-      description={`View information on ${name}, ${musicTypeParsed.sentence} by ${musicianDesc} on Mooseical - Canadian Music Database`}
+      description={`View information on ${name}, ${musicTypeParsed.sentence} by ${musicianDesc} on MapleDB - Canadian Music Database`}
       canonicalUrlPath={`/music/m/${musicId}`}
       ogpImg={fullImageUrl}
       ogpImgAlt={`Cover art for ${name} by ${musicianDesc}`}

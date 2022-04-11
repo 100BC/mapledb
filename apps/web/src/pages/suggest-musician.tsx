@@ -9,8 +9,8 @@ import {
   Select,
   FormWrapper,
   ReCaptcha,
-} from '@mooseical/shared/components/FormComponents';
-import Button from '@mooseical/shared/components/Button';
+} from '@mapledb/shared/components/FormComponents';
+import Button from '@mapledb/shared/components/Button';
 
 interface FormData {
   musician: string;
@@ -79,8 +79,8 @@ const SuggestMusician = () => {
 
   return (
     <Layout
-      title="Mooseical | Suggest a Musician"
-      description="Suggest a Canadian musician to be added to Mooseical's database."
+      title="MapleDB | Suggest a Musician"
+      description="Suggest a Canadian musician to be added to MapleDB's database."
       canonicalUrlPath="/suggest-musician"
     >
       <h1>Suggest a Musician</h1>

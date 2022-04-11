@@ -1,8 +1,8 @@
 import React, { Fragment, HTMLAttributes } from 'react';
 import Link from 'next/link';
 
-import { MusicCardFragment } from '@mooseical/schema/types/web';
-import { combine } from '@mooseical/style-helpers';
+import { MusicCardFragment } from '@mapledb/schema/types/web';
+import { combine } from '@mapledb/style-helpers';
 import styles from './styles.module.scss';
 
 interface Props {

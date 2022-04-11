@@ -7,7 +7,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 const getEmail = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.headers.key === 'allow') {
     res.setHeader('Cache-Control', 'public, s-max-age=31557600, immutable'); // 1 year
-    res.status(200).json({ email: 'contact@mooseical.com' });
+    res.status(200).json({ email: 'contact@mapledb.com' });
   } else {
     res.status(400).json({ email: 'error' });
   }

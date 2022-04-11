@@ -8,7 +8,7 @@ interface Props {
 }
 
 const useCreateImageUrl = ({ musicId, hasCover, maxWidth }: Props) => {
-  const baseCloudinaryUrl = 'https://res.cloudinary.com/mooseical/image/upload';
+  const baseCloudinaryUrl = 'https://res.cloudinary.com/mapledb/image/upload';
   const urlPrepend =
     process.env.NEXT_PUBLIC_NODE_ENV === 'development'
       ? 'development'

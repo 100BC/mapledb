@@ -1,5 +1,5 @@
 {
-  "extends": "@mooseical/tsconfig/node.json",
+  "extends": "@mapledb/tsconfig/node.json",
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "dist"

@@ -3,8 +3,8 @@ import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 
 import { gqlClient, ssrCache } from '@graphql/gqlClient';
-import { MusicType } from '@mooseical/schema/types';
-import { GetMusicianDocument } from '@mooseical/schema/types/web';
+import { MusicType } from '@mapledb/schema/types';
+import { GetMusicianDocument } from '@mapledb/schema/types/web';
 import ExternalLinks from '@components/ExternalLinks';
 import Layout from '@components/Layout';
 import styles from '@styles/musician.module.scss';
@@ -14,7 +14,7 @@ import DbContainer from '@components/DbComponents/DbContainer';
 import GqlContainer from '@components/GqlContainer';
 import useParseDate, { useParseYear } from '@utils/hooks/useParseDate';
 import { useGetMusicianQuery } from '@graphql/hooks';
-import { conditional } from '@mooseical/style-helpers';
+import { conditional } from '@mapledb/style-helpers';
 import GridSvg from '@assets/svg/grid.svg';
 import ListSvg from '@assets/svg/list.svg';
 
@@ -92,13 +92,13 @@ const MusicianDisplay = ({ musicianId }: Props) => {
 
   return (
     <Layout
-      title={`Mooseical | ${name}`}
+      title={`MapleDB | ${name}`}
       ogpTitle={name}
       description={`View information on ${name}, ${
         isGroup ? 'a musical group' : 'a musician'
       } based in ${city?.name}, ${
         city?.province
-      } on Mooseical - Canadian Music Database.`}
+      } on MapleDB - Canadian Music Database.`}
       canonicalUrlPath={`/musicians/m/${musicianId}`}
     >
       <GqlContainer

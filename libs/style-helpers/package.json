@@ -1,5 +1,5 @@
 {
-  "name": "@mooseical/style-helpers",
+  "name": "@mapledb/style-helpers",
   "version": "0.0.0",
   "private": true,
   "main": "index.ts",
@@ -8,8 +8,8 @@
     "lint": "tsc --noEmit --incremental false && eslint --fix '**/*.ts'"
   },
   "devDependencies": {
-    "@mooseical/eslint-config": "workspace:*",
-    "@mooseical/tsconfig": "workspace:*",
+    "@mapledb/eslint-config": "workspace:*",
+    "@mapledb/tsconfig": "workspace:*",
     "typescript": "^4.6.3"
   }
 }

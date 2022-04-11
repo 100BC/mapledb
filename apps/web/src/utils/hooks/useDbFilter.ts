@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useRouter } from 'next/router';
 
-import { Genre, Province } from '@mooseical/schema/types';
+import { Genre, Province } from '@mapledb/schema/types';
 import { capitalCaseEnums } from '@utils/functions/stringFormatters';
 import getProvinceName from '@utils/functions/getProvinceName';
 

@@ -1,5 +1,5 @@
 {
-  // Place your mooseical workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+  // Place your mapledb workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
   // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
   // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
   // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
@@ -19,7 +19,7 @@
   "@use global theme": {
     "scope": "scss",
     "prefix": "gt",
-    "body": ["@use '~@mooseical/theme' as *;"],
+    "body": ["@use '~@mapledb/theme' as *;"],
     "description": "Use global theme defined in libs/theme"
   }
 }

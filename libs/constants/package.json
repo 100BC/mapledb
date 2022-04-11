@@ -1,5 +1,5 @@
 {
-  "name": "@mooseical/constants",
+  "name": "@mapledb/constants",
   "version": "1.0.0",
   "private": true,
   "main": "dist/index.js",
@@ -9,8 +9,8 @@
     "clean": "rm -rf node_modules .turbo .pnpm-debug.log dist"
   },
   "devDependencies": {
-    "@mooseical/eslint-config": "workspace:*",
-    "@mooseical/tsconfig": "workspace:*",
+    "@mapledb/eslint-config": "workspace:*",
+    "@mapledb/tsconfig": "workspace:*",
     "eslint": "^8.13.0",
     "typescript": "^4.6.3"
   }

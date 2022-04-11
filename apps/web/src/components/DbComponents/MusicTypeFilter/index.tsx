@@ -2,8 +2,8 @@ import React, { useCallback } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { MusicType } from '@mooseical/schema/types';
-import { conditional } from '@mooseical/style-helpers';
+import { MusicType } from '@mapledb/schema/types';
+import { conditional } from '@mapledb/style-helpers';
 import { capitalCaseEnums } from '@utils/functions/stringFormatters';
 import styles from './styles.module.scss';
 

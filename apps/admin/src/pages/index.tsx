@@ -10,7 +10,7 @@ import { auth } from '@gcp/client';
 const Home = () => {
   return (
     <Layout noIndex>
-      <h1>Mooseical Admin</h1>
+      <h1>MapleDB Admin</h1>
       <hr />
       <Environment />
       <section className={styles.section}>

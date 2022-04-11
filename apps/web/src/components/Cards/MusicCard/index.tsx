@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { MusicType } from '@mooseical/schema/types';
+import { MusicType } from '@mapledb/schema/types';
 import useCreateImageUrl from '@utils/hooks/useCreateImageUrl';
 import useParseDate from '@utils/hooks/useParseDate';
 import useCreateMusicianDesc from '@utils/hooks/useCreateMusicianDesc';

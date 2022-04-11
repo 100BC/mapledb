@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import Link from 'next/link';
 
-import { MusicianCardFragment } from '@mooseical/schema/types/web';
+import { MusicianCardFragment } from '@mapledb/schema/types/web';
 import useParseDate from '@utils/hooks/useParseDate';
 import { capitalCaseEnums } from '@utils/functions/stringFormatters';
 import styles from './styles.module.scss';

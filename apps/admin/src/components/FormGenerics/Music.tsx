@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { FieldError, useFormContext } from 'react-hook-form';
 
-import { Genre, MusicType } from '@mooseical/schema/types';
-import { AllOrNone } from '@mooseical/generics';
+import { Genre, MusicType } from '@mapledb/schema/types';
+import { AllOrNone } from '@mapledb/generics';
 import {
   Checkbox,
   FormError,
   ImageInput,
   Select,
   TextInput,
-} from '@mooseical/shared/components/FormComponents';
+} from '@mapledb/shared/components/FormComponents';
 import validateLinks from '@utils/validateLinks';
-import Button from '@mooseical/shared/components/Button';
+import Button from '@mapledb/shared/components/Button';
 
 type Props = AllOrNone<{
   isEditing: true;
@@ -41,7 +41,7 @@ export interface MusicFormProps {
   deleteCover?: boolean;
 }
 
-const baseCloudinaryUrl = 'https://res.cloudinary.com/mooseical/image/upload';
+const baseCloudinaryUrl = 'https://res.cloudinary.com/mapledb/image/upload';
 const urlPrepend =
   process.env.NEXT_PUBLIC_NODE_ENV === 'development' ? 'development' : 'music';
 

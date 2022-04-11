@@ -14,14 +14,14 @@ importers:
 
   apps/admin:
     specifiers:
-      '@mooseical/eslint-config': workspace:*
-      '@mooseical/generics': workspace:*
-      '@mooseical/schema': workspace:*
-      '@mooseical/shared': workspace:*
-      '@mooseical/style-helpers': workspace:*
-      '@mooseical/stylelint-config': workspace:*
-      '@mooseical/theme': workspace:*
-      '@mooseical/tsconfig': workspace:*
+      '@mapledb/eslint-config': workspace:*
+      '@mapledb/generics': workspace:*
+      '@mapledb/schema': workspace:*
+      '@mapledb/shared': workspace:*
+      '@mapledb/style-helpers': workspace:*
+      '@mapledb/stylelint-config': workspace:*
+      '@mapledb/theme': workspace:*
+      '@mapledb/tsconfig': workspace:*
       '@svgr/webpack': ^6.2.1
       '@types/node': ^16.11.26
       '@types/react': ^17.0.44
@@ -41,10 +41,10 @@ importers:
       typescript: ^4.6.3
       urql: ^2.2.0
     dependencies:
-      '@mooseical/generics': link:../../libs/generics
-      '@mooseical/schema': link:../../libs/schema
-      '@mooseical/shared': link:../../libs/shared
-      '@mooseical/style-helpers': link:../../libs/style-helpers
+      '@mapledb/generics': link:../../libs/generics
+      '@mapledb/schema': link:../../libs/schema
+      '@mapledb/shared': link:../../libs/shared
+      '@mapledb/style-helpers': link:../../libs/style-helpers
       '@urql/exchange-multipart-fetch': 0.1.14_graphql@16.3.0
       firebase: 9.6.10
       graphql: 16.3.0
@@ -55,10 +55,10 @@ importers:
       react-hook-form: 7.29.0_react@17.0.2
       urql: 2.2.0_graphql@16.3.0+react@17.0.2
     devDependencies:
-      '@mooseical/eslint-config': link:../../config/eslint-config
-      '@mooseical/stylelint-config': link:../../config/stylelint-config
-      '@mooseical/theme': link:../../libs/theme
-      '@mooseical/tsconfig': link:../../config/tsconfig
+      '@mapledb/eslint-config': link:../../config/eslint-config
+      '@mapledb/stylelint-config': link:../../config/stylelint-config
+      '@mapledb/theme': link:../../libs/theme
+      '@mapledb/tsconfig': link:../../config/tsconfig
       '@svgr/webpack': 6.2.1
       '@types/node': 16.11.26
       '@types/react': 17.0.44
@@ -71,9 +71,9 @@ importers:
 
   apps/api:
     specifiers:
-      '@mooseical/constants': workspace:^1.0.0
-      '@mooseical/eslint-config': workspace:*
-      '@mooseical/tsconfig': workspace:*
+      '@mapledb/constants': workspace:^1.0.0
+      '@mapledb/eslint-config': workspace:*
+      '@mapledb/tsconfig': workspace:*
       '@pothos/core': ^3.5.0
       '@pothos/plugin-complexity': ^3.2.0
       '@pothos/plugin-scope-auth': ^3.5.0
@@ -108,7 +108,7 @@ importers:
       typescript: ^4.6.3
       zod: ^3.14.4
     dependencies:
-      '@mooseical/constants': link:../../libs/constants
+      '@mapledb/constants': link:../../libs/constants
       '@pothos/core': 3.5.0_graphql@16.3.0
       '@pothos/plugin-complexity': 3.2.0_graphql@16.3.0
       '@pothos/plugin-scope-auth': 3.5.0_graphql@16.3.0
@@ -130,8 +130,8 @@ importers:
       pino-pretty: 7.6.1
       zod: 3.14.4
     devDependencies:
-      '@mooseical/eslint-config': link:../../config/eslint-config
-      '@mooseical/tsconfig': link:../../config/tsconfig
+      '@mapledb/eslint-config': link:../../config/eslint-config
+      '@mapledb/tsconfig': link:../../config/tsconfig
       '@types/faker': 5.5.3
       '@types/graphql-upload': 8.0.11
       '@types/node': 16.11.26
@@ -148,15 +148,15 @@ importers:
 
   apps/web:
     specifiers:
-      '@mooseical/constants': workspace:*
-      '@mooseical/eslint-config': workspace:*
-      '@mooseical/generics': workspace:*
-      '@mooseical/schema': workspace:*
-      '@mooseical/shared': workspace:*
-      '@mooseical/style-helpers': workspace:*
-      '@mooseical/stylelint-config': workspace:*
-      '@mooseical/theme': workspace:*
-      '@mooseical/tsconfig': workspace:*
+      '@mapledb/constants': workspace:*
+      '@mapledb/eslint-config': workspace:*
+      '@mapledb/generics': workspace:*
+      '@mapledb/schema': workspace:*
+      '@mapledb/shared': workspace:*
+      '@mapledb/style-helpers': workspace:*
+      '@mapledb/stylelint-config': workspace:*
+      '@mapledb/theme': workspace:*
+      '@mapledb/tsconfig': workspace:*
       '@svgr/webpack': ^6.2.1
       '@types/node': ^16.11.26
       '@types/react': ^17.0.44
@@ -175,11 +175,11 @@ importers:
       typescript: ^4.6.3
       urql: ^2.2.0
     dependencies:
-      '@mooseical/constants': link:../../libs/constants
-      '@mooseical/generics': link:../../libs/generics
-      '@mooseical/schema': link:../../libs/schema
-      '@mooseical/shared': link:../../libs/shared
-      '@mooseical/style-helpers': link:../../libs/style-helpers
+      '@mapledb/constants': link:../../libs/constants
+      '@mapledb/generics': link:../../libs/generics
+      '@mapledb/schema': link:../../libs/schema
+      '@mapledb/shared': link:../../libs/shared
+      '@mapledb/style-helpers': link:../../libs/style-helpers
       firebase: 9.6.10
       graphql: 16.3.0
       next: 12.1.4_f8aad44cc74648f939a037a6a21a1e65
@@ -189,10 +189,10 @@ importers:
       react-hook-form: 7.29.0_react@17.0.2
       urql: 2.2.0_graphql@16.3.0+react@17.0.2
     devDependencies:
-      '@mooseical/eslint-config': link:../../config/eslint-config
-      '@mooseical/stylelint-config': link:../../config/stylelint-config
-      '@mooseical/theme': link:../../libs/theme
-      '@mooseical/tsconfig': link:../../config/tsconfig
+      '@mapledb/eslint-config': link:../../config/eslint-config
+      '@mapledb/stylelint-config': link:../../config/stylelint-config
+      '@mapledb/theme': link:../../libs/theme
+      '@mapledb/tsconfig': link:../../config/tsconfig
       '@svgr/webpack': 6.2.1
       '@types/node': 16.11.26
       '@types/react': 17.0.44
@@ -253,24 +253,24 @@ importers:
 
   libs/constants:
     specifiers:
-      '@mooseical/eslint-config': workspace:*
-      '@mooseical/tsconfig': workspace:*
+      '@mapledb/eslint-config': workspace:*
+      '@mapledb/tsconfig': workspace:*
       eslint: ^8.13.0
       typescript: ^4.6.3
     devDependencies:
-      '@mooseical/eslint-config': link:../../config/eslint-config
-      '@mooseical/tsconfig': link:../../config/tsconfig
+      '@mapledb/eslint-config': link:../../config/eslint-config
+      '@mapledb/tsconfig': link:../../config/tsconfig
       eslint: 8.13.0
       typescript: 4.6.3
 
   libs/generics:
     specifiers:
-      '@mooseical/eslint-config': workspace:*
-      '@mooseical/tsconfig': workspace:*
+      '@mapledb/eslint-config': workspace:*
+      '@mapledb/tsconfig': workspace:*
       typescript: ^4.6.3
     devDependencies:
-      '@mooseical/eslint-config': link:../../config/eslint-config
-      '@mooseical/tsconfig': link:../../config/tsconfig
+      '@mapledb/eslint-config': link:../../config/eslint-config
+      '@mapledb/tsconfig': link:../../config/tsconfig
       typescript: 4.6.3
 
   libs/schema:
@@ -281,8 +281,8 @@ importers:
       '@graphql-codegen/typescript-document-nodes': ^2.2.8
       '@graphql-codegen/typescript-operations': ^2.3.5
       '@graphql-codegen/typescript-urql': ^3.5.7
-      '@mooseical/eslint-config': workspace:*
-      '@mooseical/tsconfig': workspace:^0.0.0
+      '@mapledb/eslint-config': workspace:*
+      '@mapledb/tsconfig': workspace:^0.0.0
       eslint: ^8.13.0
       graphql: ^16.3.0
       graphql-tag: ^2.12.6
@@ -297,8 +297,8 @@ importers:
       '@graphql-codegen/typescript-document-nodes': 2.2.8_graphql@16.3.0
       '@graphql-codegen/typescript-operations': 2.3.5_graphql@16.3.0
       '@graphql-codegen/typescript-urql': 3.5.7_e20029557891e0afb887c44ec7f516f8
-      '@mooseical/eslint-config': link:../../config/eslint-config
-      '@mooseical/tsconfig': link:../../config/tsconfig
+      '@mapledb/eslint-config': link:../../config/eslint-config
+      '@mapledb/tsconfig': link:../../config/tsconfig
       eslint: 8.13.0
       graphql: 16.3.0
       prettier: 2.6.2
@@ -306,12 +306,12 @@ importers:
 
   libs/shared:
     specifiers:
-      '@mooseical/eslint-config': workspace:*
-      '@mooseical/generics': workspace:*
-      '@mooseical/style-helpers': workspace:*
-      '@mooseical/stylelint-config': workspace:*
-      '@mooseical/theme': workspace:*
-      '@mooseical/tsconfig': workspace:*
+      '@mapledb/eslint-config': workspace:*
+      '@mapledb/generics': workspace:*
+      '@mapledb/style-helpers': workspace:*
+      '@mapledb/stylelint-config': workspace:*
+      '@mapledb/theme': workspace:*
+      '@mapledb/tsconfig': workspace:*
       '@types/node': ^16.11.26
       '@types/react': ^17.0.44
       '@types/react-dom': ^17.0.15
@@ -326,18 +326,18 @@ importers:
       stylelint: ^14.6.1
       typescript: ^4.6.3
     dependencies:
-      '@mooseical/generics': link:../generics
-      '@mooseical/style-helpers': link:../style-helpers
+      '@mapledb/generics': link:../generics
+      '@mapledb/style-helpers': link:../style-helpers
       next: 12.1.4_f8aad44cc74648f939a037a6a21a1e65
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       react-google-recaptcha: 2.1.0_react@17.0.2
       react-hook-form: 7.29.0_react@17.0.2
     devDependencies:
-      '@mooseical/eslint-config': link:../../config/eslint-config
-      '@mooseical/stylelint-config': link:../../config/stylelint-config
-      '@mooseical/theme': link:../theme
-      '@mooseical/tsconfig': link:../../config/tsconfig
+      '@mapledb/eslint-config': link:../../config/eslint-config
+      '@mapledb/stylelint-config': link:../../config/stylelint-config
+      '@mapledb/theme': link:../theme
+      '@mapledb/tsconfig': link:../../config/tsconfig
       '@types/node': 16.11.26
       '@types/react': 17.0.44
       '@types/react-dom': 17.0.15
@@ -349,23 +349,23 @@ importers:
 
   libs/style-helpers:
     specifiers:
-      '@mooseical/eslint-config': workspace:*
-      '@mooseical/tsconfig': workspace:*
+      '@mapledb/eslint-config': workspace:*
+      '@mapledb/tsconfig': workspace:*
       typescript: ^4.6.3
     devDependencies:
-      '@mooseical/eslint-config': link:../../config/eslint-config
-      '@mooseical/tsconfig': link:../../config/tsconfig
+      '@mapledb/eslint-config': link:../../config/eslint-config
+      '@mapledb/tsconfig': link:../../config/tsconfig
       typescript: 4.6.3
 
   libs/theme:
     specifiers:
-      '@mooseical/stylelint-config': workspace:*
+      '@mapledb/stylelint-config': workspace:*
       sass: ^1.50.0
       stylelint: ^14.6.1
     dependencies:
       sass: 1.50.0
     devDependencies:
-      '@mooseical/stylelint-config': link:../../config/stylelint-config
+      '@mapledb/stylelint-config': link:../../config/stylelint-config
       stylelint: 14.6.1
 
 packages:

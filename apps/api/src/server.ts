@@ -22,7 +22,7 @@ const prisma = new PrismaClient({
 });
 
 Cloudinary.v2.config({
-  cloud_name: 'mooseical',
+  cloud_name: 'mapledb',
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
@@ -66,7 +66,7 @@ fastify.register(helmet, {
 fastify.register(cors, {
   origin: IS_DEV
     ? ['http://localhost:3000', 'http://localhost:3001']
-    : ['https://www.mooseical.com', 'https://admin.mooseical.com'],
+    : ['https://www.mapledb.com', 'https://admin.mapledb.com'],
 });
 
 fastify.register(fastifyRateLimit, {

@@ -1,5 +1,5 @@
 {
-  "extends": "@mooseical/tsconfig/nextjs.json",
+  "extends": "@mapledb/tsconfig/nextjs.json",
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": ".next",

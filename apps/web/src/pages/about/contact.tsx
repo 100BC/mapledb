@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-import Spinner from '@mooseical/shared/components/Spinner';
+import Spinner from '@mapledb/shared/components/Spinner';
 import CopySVG from '@assets/svg/copy.svg';
 import LaunchSVG from '@assets/svg/launch.svg';
 import styles from '@styles/about.module.scss';
 import Layout from '@components/Layout';
-import { Button, ButtonLink } from '@mooseical/shared/components/Button';
+import { Button, ButtonLink } from '@mapledb/shared/components/Button';
 
 const Contact = () => {
   const [loading, setLoading] = useState(false);
@@ -44,8 +44,8 @@ const Contact = () => {
 
   return (
     <Layout
-      title="Mooseical | Contact"
-      description="Contact Mooseical - Canadian Music Database."
+      title="MapleDB | Contact"
+      description="Contact MapleDB - Canadian Music Database."
       canonicalUrlPath="/about/contact"
       className={styles.about}
     >

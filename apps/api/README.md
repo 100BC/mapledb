@@ -1,6 +1,6 @@
-# Mooseical-Server
+# MapleDB-Server
 
-Fastify Server for Mooseical
+Fastify Server for MapleDB
 
 ## Installation
 

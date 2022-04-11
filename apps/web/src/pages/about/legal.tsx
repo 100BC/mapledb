@@ -7,8 +7,8 @@ import Layout from '@components/Layout';
 const Legal = () => {
   return (
     <Layout
-      title="Mooseical | Legal"
-      description="Legal Information of Mooseical - Canadian Music Database."
+      title="MapleDB | Legal"
+      description="Legal Information of MapleDB - Canadian Music Database."
       canonicalUrlPath="/about/legal"
       className={styles.about}
     >
@@ -16,7 +16,7 @@ const Legal = () => {
       <hr />
       <section className={styles.section}>
         <p>
-          The cover art that is displayed on Mooseical is used under the Fair
+          The cover art that is displayed on MapleDB is used under the Fair
           Dealing exception of the Canadian Copyright Act. The images are of low
           quality, compressed and are used solely to promote the music that they
           display. Clicking on the cover art will redirect the user to a page
@@ -27,7 +27,7 @@ const Legal = () => {
         </p>
         <br />
         <p>
-          If you are or represent an artist featured on Mooseical and would like
+          If you are or represent an artist featured on MapleDB and would like
           the music cover art, or the database entry removed from the site,{' '}
           <Link href="/about/contact">
             <a>Contact Me</a>

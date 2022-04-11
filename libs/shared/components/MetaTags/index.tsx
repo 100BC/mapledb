@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-import { AllOrNone } from '@mooseical/generics';
+import { AllOrNone } from '@mapledb/generics';
 
 export type MetaTagProps = {
   title?: string;

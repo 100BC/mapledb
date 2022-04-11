@@ -4,7 +4,7 @@ import { FormProvider, useForm } from 'react-hook-form';
 
 import Layout from '@components/Layout';
 import { useAddMusicianMutation } from '@graphql/hooks';
-import Spinner from '@mooseical/shared/components/Spinner';
+import Spinner from '@mapledb/shared/components/Spinner';
 import Environment from '@components/Environment';
 import MusicianFormGeneric, {
   MusicianFormProps,

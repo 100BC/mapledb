@@ -5,9 +5,9 @@ import Layout from '@components/Layout';
 import {
   FormError,
   TextInput,
-} from '@mooseical/shared/components/FormComponents';
-import Button from '@mooseical/shared/components/Button';
-import Spinner from '@mooseical/shared/components/Spinner';
+} from '@mapledb/shared/components/FormComponents';
+import Button from '@mapledb/shared/components/Button';
+import Spinner from '@mapledb/shared/components/Spinner';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@gcp/client';
 import { FirebaseError } from 'firebase/app';

@@ -1,7 +1,7 @@
 const withTM = require('next-transpile-modules')([
-  '@mooseical/shared',
-  '@mooseical/style-helpers',
-  '@mooseical/schema',
+  '@mapledb/shared',
+  '@mapledb/style-helpers',
+  '@mapledb/schema',
 ]);
 
 module.exports = withTM({

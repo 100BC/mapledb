@@ -1,4 +1,4 @@
-import * as Operations from '@mooseical/schema/types/web';
+import * as Operations from '@mapledb/schema/types/web';
 import * as Urql from 'urql';
 
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;

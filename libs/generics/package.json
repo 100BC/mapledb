@@ -1,5 +1,5 @@
 {
-  "name": "@mooseical/generics",
+  "name": "@mapledb/generics",
   "version": "0.0.0",
   "private": true,
   "main": "index.ts",
@@ -8,8 +8,8 @@
     "clean": "rm -rf node_modules .turbo .pnpm-debug.log"
   },
   "devDependencies": {
-    "@mooseical/eslint-config": "workspace:*",
-    "@mooseical/tsconfig": "workspace:*",
+    "@mapledb/eslint-config": "workspace:*",
+    "@mapledb/tsconfig": "workspace:*",
     "typescript": "^4.6.3"
   }
 }

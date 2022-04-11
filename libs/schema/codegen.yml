@@ -24,7 +24,7 @@ generates:
     config:
       importOperationTypesFrom: Operations
       documentMode: external
-      importDocumentNodeExternallyFrom: '@mooseical/schema/types/web'
+      importDocumentNodeExternallyFrom: '@mapledb/schema/types/web'
 
   types/admin.ts:
     documents: '../../apps/admin/**/*.graphql'
@@ -44,7 +44,7 @@ generates:
     config:
       importOperationTypesFrom: Operations
       documentMode: external
-      importDocumentNodeExternallyFrom: '@mooseical/schema/types/admin'
+      importDocumentNodeExternallyFrom: '@mapledb/schema/types/admin'
 
 config:
   onlyOperationTypes: true

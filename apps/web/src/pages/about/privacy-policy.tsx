@@ -7,8 +7,8 @@ import Layout from '@components/Layout';
 const PrivacyPolicy = () => {
   return (
     <Layout
-      title="Mooseical | Privacy Policy"
-      description="Privacy Policy of Mooseical - Canadian Music Database."
+      title="MapleDB | Privacy Policy"
+      description="Privacy Policy of MapleDB - Canadian Music Database."
       canonicalUrlPath="/about/privacy-policy"
       className={styles.about}
     >
@@ -16,7 +16,7 @@ const PrivacyPolicy = () => {
       <hr />
       <section className={styles.section}>
         <p>
-          Mooseical uses Google reCAPTCHA to prevent spam when suggesting a
+          MapleDB uses Google reCAPTCHA to prevent spam when suggesting a
           musician via the Suggest Musician form. As such your use of reCAPTCHA
           is subject to{' '}
           <a

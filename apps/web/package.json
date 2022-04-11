@@ -1,5 +1,5 @@
 {
-  "name": "@mooseical/web",
+  "name": "@mapledb/web",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -10,11 +10,11 @@
     "clean": "rm -rf node_modules .turbo .pnpm-debug.log .next"
   },
   "dependencies": {
-    "@mooseical/constants": "workspace:*",
-    "@mooseical/generics": "workspace:*",
-    "@mooseical/schema": "workspace:*",
-    "@mooseical/shared": "workspace:*",
-    "@mooseical/style-helpers": "workspace:*",
+    "@mapledb/constants": "workspace:*",
+    "@mapledb/generics": "workspace:*",
+    "@mapledb/schema": "workspace:*",
+    "@mapledb/shared": "workspace:*",
+    "@mapledb/style-helpers": "workspace:*",
     "firebase": "^9.6.10",
     "graphql": "^16.3.0",
     "next": "^12.1.4",
@@ -25,10 +25,10 @@
     "urql": "^2.2.0"
   },
   "devDependencies": {
-    "@mooseical/eslint-config": "workspace:*",
-    "@mooseical/stylelint-config": "workspace:*",
-    "@mooseical/theme": "workspace:*",
-    "@mooseical/tsconfig": "workspace:*",
+    "@mapledb/eslint-config": "workspace:*",
+    "@mapledb/stylelint-config": "workspace:*",
+    "@mapledb/theme": "workspace:*",
+    "@mapledb/tsconfig": "workspace:*",
     "@svgr/webpack": "^6.2.1",
     "@types/node": "^16.11.26",
     "@types/react": "^17.0.44",

@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { MusicType } from '@mooseical/schema/types';
+import { MusicType } from '@mapledb/schema/types';
 
 // sentence is needed for easier Album and EP handling
 const useParseMusicType = (musicType: MusicType | undefined) => {

@@ -7,7 +7,7 @@ import { gqlClient, ssrCache } from '@graphql/gqlClient';
 import 'normalize.css';
 import '@styles/global.scss';
 import useAuth from '@utils/hooks/useAuth';
-import Spinner from '@mooseical/shared/components/Spinner';
+import Spinner from '@mapledb/shared/components/Spinner';
 import SignInForm from '@components/SignInForm';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {

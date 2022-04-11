@@ -1,5 +1,5 @@
 server {
-  server_name www.mooseical.com;
+  server_name www.mapledb.com;
 
   location / {
     proxy_pass http://localhost:3000;
@@ -13,7 +13,7 @@ server {
 }
 
 server {
-  server_name api.mooseical.com;
+  server_name api.mapledb.com;
 
   location / {
     proxy_pass http://localhost:3002/graphql;
@@ -27,7 +27,7 @@ server {
 }
 
 server {
-  server_name admin.mooseical.com;
+  server_name admin.mapledb.com;
 
   location / {
     proxy_pass http://localhost:3001;
@@ -41,7 +41,7 @@ server {
 }
 
 server {
-  server_name mooseical.com;
+  server_name mapledb.com;
 
-	return 301 https://www.mooseical.com$request_uri;
+	return 301 https://www.mapledb.com$request_uri;
 }

@@ -1,5 +1,5 @@
 module.exports = {
-  extends: '@mooseical/eslint-config/node',
+  extends: '@mapledb/eslint-config/node',
   parserOptions: {
     tsconfigRootDir: __dirname,
     project: './tsconfig.json',

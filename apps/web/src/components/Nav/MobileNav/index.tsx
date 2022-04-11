@@ -11,7 +11,7 @@ const MobileNav = () => {
   return (
     <nav className={styles.nav}>
       <Link href="/">
-        <a title="Mooseical Home" aria-label="Mooseical Home">
+        <a title="MapleDB Home" aria-label="MapleDB Home">
           <HomeSvg />
           Home
         </a>

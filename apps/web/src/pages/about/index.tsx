@@ -8,18 +8,18 @@ import Layout from '@components/Layout';
 const About = () => {
   return (
     <Layout
-      title="Mooseical | About"
-      description="Goals and details about Mooseical - Canadian Music Database."
+      title="MapleDB | About"
+      description="Goals and details about MapleDB - Canadian Music Database."
       canonicalUrlPath="/about"
       className={styles.about}
     >
       <h1>About</h1>
       <hr />
       <section className={styles.section}>
-        <h2>Mooseical&apos;s Goal</h2>
+        <h2>MapleDB&apos;s Goal</h2>
         <hr />
         <p>
-          Mooseical is a passion project of mine that aims to promote Canadian
+          MapleDB is a passion project of mine that aims to promote Canadian
           underground music. I offer a database of underground musicians based
           in Canada.
         </p>
@@ -53,7 +53,7 @@ const About = () => {
         </p>
         <br />
         <p>
-          If there is a musician not featured on Mooseical that you think should
+          If there is a musician not featured on MapleDB that you think should
           be, please suggest it to me. If they fit the criteria and/or receive a
           lot of requests, they will be added.{' '}
           <Link href="/suggest-musician">

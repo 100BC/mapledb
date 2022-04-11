@@ -1,5 +1,5 @@
 {
-  "name": "@mooseical/stylelint-config",
+  "name": "@mapledb/stylelint-config",
   "version": "0.0.0",
   "private": true,
   "scripts": {

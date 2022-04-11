@@ -8,7 +8,7 @@ const Header = () => {
     <header className={styles.header}>
       <nav>
         <Link href="/">
-          <a title="Home">Mooseical Admin</a>
+          <a title="Home">MapleDB Admin</a>
         </Link>
       </nav>
     </header>

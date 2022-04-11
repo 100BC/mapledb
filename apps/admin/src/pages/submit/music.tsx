@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 
 import Layout from '@components/Layout';
 import { useAddMusicMutation } from '@graphql/hooks';
-import Spinner from '@mooseical/shared/components/Spinner';
+import Spinner from '@mapledb/shared/components/Spinner';
 import Environment from '@components/Environment';
 import MusicFormGeneric, {
   MusicFormProps,

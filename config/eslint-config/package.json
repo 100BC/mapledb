@@ -1,5 +1,5 @@
 {
-  "name": "@mooseical/eslint-config",
+  "name": "@mapledb/eslint-config",
   "version": "0.0.0",
   "private": true,
   "scripts": {

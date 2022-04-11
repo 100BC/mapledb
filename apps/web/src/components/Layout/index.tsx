@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 
-import MetaTags, { MetaTagProps } from '@mooseical/shared/components/MetaTags';
-import { XOR } from '@mooseical/generics';
+import MetaTags, { MetaTagProps } from '@mapledb/shared/components/MetaTags';
+import { XOR } from '@mapledb/generics';
 import DesktopNav from '@components/Nav/DesktopNav';
 import Footer from '@components/Footer';
 import MobileNav from '@components/Nav/MobileNav';

@@ -3,12 +3,12 @@ import { FormProvider, useForm } from 'react-hook-form';
 
 import Layout from '@components/Layout';
 import { useEditMusicianMutation, useGetMusicianQuery } from '@graphql/hooks';
-import Spinner from '@mooseical/shared/components/Spinner';
+import Spinner from '@mapledb/shared/components/Spinner';
 import Environment from '@components/Environment';
 import MusicianFormGeneric, {
   MusicianFormProps,
 } from '@components/FormGenerics/Musician';
-import { SearchBar } from '@mooseical/shared/components/FormComponents';
+import { SearchBar } from '@mapledb/shared/components/FormComponents';
 import {
   parseNullableDateField,
   parseNullableStringField,

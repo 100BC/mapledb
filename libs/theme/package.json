@@ -1,5 +1,5 @@
 {
-  "name": "@mooseical/theme",
+  "name": "@mapledb/theme",
   "version": "0.0.0",
   "private": true,
   "main": "index.scss",
@@ -14,7 +14,7 @@
     "sass": "^1.50.0"
   },
   "devDependencies": {
-    "@mooseical/stylelint-config": "workspace:*",
+    "@mapledb/stylelint-config": "workspace:*",
     "stylelint": "^14.6.1"
   }
 }

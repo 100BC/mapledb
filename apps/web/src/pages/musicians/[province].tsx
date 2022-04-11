@@ -1,10 +1,10 @@
 import React from 'react';
 import { GetServerSideProps } from 'next';
 
-import { Province } from '@mooseical/schema/types';
-import { GetManyMusiciansDocument } from '@mooseical/schema/types/web';
+import { Province } from '@mapledb/schema/types';
+import { GetManyMusiciansDocument } from '@mapledb/schema/types/web';
 import { gqlClient, ssrCache } from '@graphql/gqlClient';
-import { MUSICIAN_QUERY_SIZE } from '@mooseical/constants';
+import { MUSICIAN_QUERY_SIZE } from '@mapledb/constants';
 import Layout from '@components/Layout';
 import setSSRCache from '@utils/setSSRCache';
 import { DbFilter } from '@components/DbComponents/DbFilter';
@@ -31,8 +31,8 @@ const MusicianGrid = ({ province, skip, currentPage }: Props) => {
 
   return (
     <Layout
-      title={`Mooseical | ${demonym} Musicians Database`}
-      description={`Explore the database of underground musicians based in ${provinceName} on Mooseical - Canadian Music Database.`}
+      title={`MapleDB | ${demonym} Musicians Database`}
+      description={`Explore the database of underground musicians based in ${provinceName} on MapleDB - Canadian Music Database.`}
       canonicalUrlPath={`/musicians/${province?.toLowerCase() ?? 'all'}`}
     >
       <h1>Musician Database</h1>

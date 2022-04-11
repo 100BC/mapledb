@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { MusicCardFragment } from '@mooseical/schema/types/web';
+import { MusicCardFragment } from '@mapledb/schema/types/web';
 
 const useCreateMusicianDesc = (
   musicians: MusicCardFragment['musicians'] | undefined,

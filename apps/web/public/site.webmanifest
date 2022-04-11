@@ -1,6 +1,6 @@
 {
-  "name": "Mooseical",
-  "short_name": "Mooseical",
+  "name": "MapleDB",
+  "short_name": "MapleDB",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -15,6 +15,6 @@
   ],
   "theme_color": "#882020",
   "background_color": "#ffffff",
-  "start_url": "https://www.mooseical.com",
+  "start_url": "https://www.mapledb.com",
   "display": "standalone"
 }

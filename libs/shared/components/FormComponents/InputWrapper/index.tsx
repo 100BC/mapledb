@@ -1,4 +1,4 @@
-import { combine, conditional } from '@mooseical/style-helpers';
+import { combine, conditional } from '@mapledb/style-helpers';
 import React, { ReactNode } from 'react';
 
 import styles from './styles.module.scss';

@@ -3,7 +3,7 @@ import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 
 import { gqlClient, ssrCache } from '@graphql/gqlClient';
-import { GetNewReleasesDocument } from '@mooseical/schema/types/web';
+import { GetNewReleasesDocument } from '@mapledb/schema/types/web';
 import Layout, { DOMAIN_NAME } from '@components/Layout';
 import setSSRCache from '@utils/setSSRCache';
 import DbContainer from '@components/DbComponents/DbContainer';
@@ -24,7 +24,7 @@ const IndexPage = () => {
   return (
     <Layout
       ogpImg={`${DOMAIN_NAME}/OGP.png`}
-      ogpImgAlt="Logo of Mooseical: Red Vinyl with a red silhouette of a moose in the middle"
+      ogpImgAlt="Logo of MapleDB: Red Vinyl with a red silhouette of a moose in the middle"
       ogpImgWidth={1200}
       ogpImgHeight={630}
       twitterCard="summary_large_image"
