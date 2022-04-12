@@ -20,7 +20,7 @@ export const cloudinaryUpload = async (
     {
       public_id: id,
       tags: musicians,
-      upload_preset: IS_DEV ? 'mapledb_development' : 'mapledb_production',
+      upload_preset: IS_DEV ? 'mooseical_development' : 'mooseical_production',
     },
     (error, _result) => {
       if (error) handleError(error);
