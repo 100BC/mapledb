@@ -8,8 +8,9 @@ import {
   Select,
   TextInput,
 } from '@mapledb/shared/components/FormComponents';
-import validateLinks from '@utils/validateLinks';
 import Button from '@mapledb/shared/components/Button';
+
+import validateLinks from '@utils/validateLinks';
 import styles from '@styles/forms.module.scss';
 
 interface Props {

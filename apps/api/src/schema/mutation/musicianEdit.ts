@@ -1,7 +1,8 @@
+import { logger } from '@server';
+
 import builder from '@schema/builder';
 import linksValidator from '@utils/validators/linksValidator';
 import frenchCityParser from '@utils/helpers/frenchCityParser';
-import { logger } from '@server';
 import musicianExistsValidator from '@utils/validators/musicianExistsValidator';
 import { MusicianObject } from '@schema/types/MusicianRef';
 import { ProvinceEnum } from '@schema/types/Enums';

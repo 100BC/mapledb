@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import Logo from '@components/Logo';
 import { combine, conditional } from '@mapledb/style-helpers';
+
+import Logo from '@components/Logo';
+
 import styles from './styles.module.scss';
 
 const DesktopNav = () => {

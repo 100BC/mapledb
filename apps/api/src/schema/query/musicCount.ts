@@ -1,6 +1,7 @@
+import { logger } from '@server';
+
 import builder from '@schema/builder';
 import { GenreEnum, MusicTypeEnum } from '@schema/types/Enums';
-import { logger } from '@server';
 
 export const musicCount = builder.queryField('musicCount', (t) => {
   return t.int({

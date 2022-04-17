@@ -1,4 +1,5 @@
 import fastify from '@server';
+
 import { IS_DEV } from '@utils/constants';
 
 /* INIT */

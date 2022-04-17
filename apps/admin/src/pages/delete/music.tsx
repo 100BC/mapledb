@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 
+import Spinner from '@mapledb/shared/components/Spinner';
+import Button from '@mapledb/shared/components/Button';
+import { SearchBar } from '@mapledb/shared/components/FormComponents';
+
 import Layout from '@components/Layout';
 import { useDeleteMusicMutation, useGetMusicNameQuery } from '@graphql/hooks';
-import Spinner from '@mapledb/shared/components/Spinner';
 import Environment from '@components/Environment';
-import Button from '@mapledb/shared/components/Button';
 import styles from '@styles/forms.module.scss';
-import { SearchBar } from '@mapledb/shared/components/FormComponents';
+
 
 const DeleteMusic = () => {
   const [deleteMusicResults, deleteMusic] = useDeleteMusicMutation();

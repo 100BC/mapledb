@@ -1,6 +1,7 @@
+import { logger } from '@server';
+
 import builder from '@schema/builder';
 import { MusicianObject } from '@schema/types/MusicianRef';
-import { logger } from '@server';
 
 const errorMessage = 'No Musician Found';
 

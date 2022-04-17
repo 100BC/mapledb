@@ -2,9 +2,11 @@ import React, { Fragment, useMemo, useState } from 'react';
 import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 
-import { gqlClient, ssrCache } from '@graphql/gqlClient';
 import { MusicType } from '@mapledb/schema/types';
 import { GetMusicianDocument } from '@mapledb/schema/types/web';
+import { conditional } from '@mapledb/style-helpers';
+
+import { gqlClient, ssrCache } from '@graphql/gqlClient';
 import ExternalLinks from '@components/ExternalLinks';
 import Layout from '@components/Layout';
 import styles from '@styles/musician.module.scss';
@@ -14,7 +16,6 @@ import DbContainer from '@components/DbComponents/DbContainer';
 import GqlContainer from '@components/GqlContainer';
 import useParseDate, { useParseYear } from '@utils/hooks/useParseDate';
 import { useGetMusicianQuery } from '@graphql/hooks';
-import { conditional } from '@mapledb/style-helpers';
 import GridSvg from '@assets/svg/grid.svg';
 import ListSvg from '@assets/svg/list.svg';
 

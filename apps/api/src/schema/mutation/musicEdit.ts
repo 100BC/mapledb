@@ -1,8 +1,9 @@
+import { logger } from '@server';
+
 import builder from '@schema/builder';
 import linksValidator from '@utils/validators/linksValidator';
 import musicExistsValidator from '@utils/validators/musicExistsValidator';
 import manyMusiciansExistsValidator from '@utils/validators/manyMusicianExistsValidator';
-import { logger } from '@server';
 import uploadCover from '@utils/imageUtils/uploadCover';
 import { cloudinaryDelete } from '@utils/imageUtils/cloudinaryFunctions';
 import { MusicObject } from '@schema/types/Music';

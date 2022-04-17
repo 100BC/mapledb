@@ -1,8 +1,10 @@
+import { logger } from '@server';
+
+import { MUSICIAN_QUERY_SIZE } from '@mapledb/constants';
+
 import builder from '@schema/builder';
 import { ProvinceEnum, OrderByArgumentEnum } from '@schema/types/Enums';
 import { MusicianObject } from '@schema/types/MusicianRef';
-import { logger } from '@server';
-import { MUSICIAN_QUERY_SIZE } from '@mapledb/constants';
 
 export const musicianList = builder.queryField('musicianList', (t) => {
   return t.field({

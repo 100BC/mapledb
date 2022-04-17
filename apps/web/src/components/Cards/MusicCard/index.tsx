@@ -3,11 +3,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import { MusicType } from '@mapledb/schema/types';
-import useCreateImageUrl from '@utils/hooks/useCreateImageUrl';
+
 import useParseDate from '@utils/hooks/useParseDate';
+import useCreateImageUrl from '@utils/hooks/useCreateImageUrl';
 import useCreateMusicianDesc from '@utils/hooks/useCreateMusicianDesc';
 import useParseMusicType from '@utils/hooks/useParseMusicType';
 import useParseSubgenre from '@utils/hooks/useParseSubgenre';
+
 import styles from './styles.module.scss';
 
 interface Props {

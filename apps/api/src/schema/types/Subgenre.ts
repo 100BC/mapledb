@@ -1,5 +1,6 @@
 import { Subgenre } from '@prisma/client';
 import builder from '@schema/builder';
+
 import { GenreEnum } from './Enums';
 
 export const SubgenreObject = builder.objectRef<Subgenre>('Subgenre');

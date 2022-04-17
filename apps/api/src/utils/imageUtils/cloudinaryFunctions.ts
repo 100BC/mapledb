@@ -2,6 +2,7 @@ import { cloudinary, logger } from '@server';
 import { UploadApiErrorResponse } from 'cloudinary';
 
 import { IS_DEV } from '@utils/constants';
+
 import { deleteLocalImage } from './imageFunctions';
 
 export const cloudinaryUpload = async (

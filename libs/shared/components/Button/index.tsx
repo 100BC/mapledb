@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import Link from 'next/link';
 
 import { combine } from '@mapledb/style-helpers';
+
 import styles from './styles.module.scss';
 
 interface ButtonProps {

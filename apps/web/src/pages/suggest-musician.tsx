@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { FieldError, useForm } from 'react-hook-form';
 
-import { suggestMusician } from '@gcp/mutations/suggestMusician';
-import Layout from '@components/Layout';
 import {
   TextInput,
   FormError,
@@ -11,6 +9,9 @@ import {
   ReCaptcha,
 } from '@mapledb/shared/components/FormComponents';
 import Button from '@mapledb/shared/components/Button';
+
+import { suggestMusician } from '@gcp/mutations/suggestMusician';
+import Layout from '@components/Layout';
 
 interface FormData {
   musician: string;

@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 
+import Spinner from '@mapledb/shared/components/Spinner';
+import { SearchBar } from '@mapledb/shared/components/FormComponents';
+
 import Layout from '@components/Layout';
 import { useEditMusicianMutation, useGetMusicianQuery } from '@graphql/hooks';
-import Spinner from '@mapledb/shared/components/Spinner';
 import Environment from '@components/Environment';
 import MusicianFormGeneric, {
   MusicianFormProps,
 } from '@components/FormGenerics/Musician';
-import { SearchBar } from '@mapledb/shared/components/FormComponents';
 import {
   parseNullableDateField,
   parseNullableStringField,

@@ -1,8 +1,9 @@
-import SchemaBuilder from '@pothos/core';
 import { FastifyRequest, FastifyReply } from 'fastify';
-import { PrismaClient } from '@prisma/client';
 import { GraphQLDate } from 'graphql-scalars';
 import { FileUpload, GraphQLUpload } from 'graphql-upload';
+
+import { PrismaClient } from '@prisma/client';
+import SchemaBuilder from '@pothos/core';
 import ScopeAuthPlugin from '@pothos/plugin-scope-auth';
 import ComplexityPlugin from '@pothos/plugin-complexity';
 import ValidationPlugin from '@pothos/plugin-validation';

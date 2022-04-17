@@ -1,10 +1,11 @@
 import React, { ReactNode } from 'react';
 import { CombinedError } from 'urql';
+import Head from 'next/head';
 
-import ErrorComponent from '@components/ErrorComponent';
 import Spinner from '@mapledb/shared/components/Spinner';
 import { AllOrNone } from '@mapledb/generics';
-import Head from 'next/head';
+
+import ErrorComponent from '@components/ErrorComponent';
 import { DOMAIN_NAME, META_DESCRIPTION, META_TITLE } from '@components/Layout';
 
 type Props = {

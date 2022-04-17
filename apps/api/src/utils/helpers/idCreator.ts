@@ -1,5 +1,6 @@
-import { PrismaClient } from '@prisma/client';
 import { logger } from '@server';
+
+import { PrismaClient } from '@prisma/client';
 
 // Creates a collision resistant id
 const idCreator = async (

@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 
 import { Genre } from '@mapledb/schema/types';
+
 import { capitalCaseEnums } from '@utils/functions/stringFormatters';
 
 const useParseGenre = (genre: Genre | null) => {

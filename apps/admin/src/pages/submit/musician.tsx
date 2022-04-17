@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { FormProvider, useForm } from 'react-hook-form';
 
+import Spinner from '@mapledb/shared/components/Spinner';
+
 import Layout from '@components/Layout';
 import { useAddMusicianMutation } from '@graphql/hooks';
-import Spinner from '@mapledb/shared/components/Spinner';
 import Environment from '@components/Environment';
 import MusicianFormGeneric, {
   MusicianFormProps,

@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 
 import SearchSvg from '@assets/svg/search.svg';
+
 import styles from './styles.module.scss';
 
 interface Props {

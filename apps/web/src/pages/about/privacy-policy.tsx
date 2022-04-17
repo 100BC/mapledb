@@ -1,7 +1,7 @@
 import React from 'react';
+import Link from 'next/link';
 
 import styles from '@styles/about.module.scss';
-import Link from 'next/link';
 import Layout from '@components/Layout';
 
 const PrivacyPolicy = () => {

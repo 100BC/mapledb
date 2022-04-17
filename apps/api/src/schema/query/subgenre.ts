@@ -1,7 +1,8 @@
+import { logger } from '@server';
+
 import builder from '@schema/builder';
 import { GenreEnum } from '@schema/types/Enums';
 import { SubgenreObject } from '@schema/types/Subgenre';
-import { logger } from '@server';
 
 export const subgenreList = builder.queryField('subgenreList', (t) => {
   return t.field({

@@ -1,5 +1,6 @@
-import { PrismaClient } from '@prisma/client';
 import { logger } from '@server';
+
+import { PrismaClient } from '@prisma/client';
 
 interface Props {
   id: string;

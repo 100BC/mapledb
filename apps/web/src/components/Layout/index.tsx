@@ -2,9 +2,11 @@ import React, { ReactNode } from 'react';
 
 import MetaTags, { MetaTagProps } from '@mapledb/shared/components/MetaTags';
 import { XOR } from '@mapledb/generics';
+
 import DesktopNav from '@components/Nav/DesktopNav';
 import Footer from '@components/Footer';
 import MobileNav from '@components/Nav/MobileNav';
+
 import {
   DOMAIN_NAME,
   META_DESCRIPTION,

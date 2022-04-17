@@ -1,14 +1,14 @@
 import React from 'react';
 import type { AppProps /* AppContext */ } from 'next/app';
 import { Provider as UrqlProvider } from 'urql';
+import 'normalize.css';
+
+import Spinner from '@mapledb/shared/components/Spinner';
 
 import { gqlClient, ssrCache } from '@graphql/gqlClient';
-
-import 'normalize.css';
-import '@styles/global.scss';
 import useAuth from '@utils/hooks/useAuth';
-import Spinner from '@mapledb/shared/components/Spinner';
 import SignInForm from '@components/SignInForm';
+import '@styles/global.scss';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const [currentUser, loading] = useAuth();

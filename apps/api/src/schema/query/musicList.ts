@@ -1,6 +1,8 @@
-import builder from '@schema/builder';
-import { MUSIC_QUERY_SIZE } from '@mapledb/constants';
 import { logger } from '@server';
+
+import { MUSIC_QUERY_SIZE } from '@mapledb/constants';
+
+import builder from '@schema/builder';
 import { MusicObject } from '@schema/types/Music';
 import { GenreEnum, MusicTypeEnum } from '@schema/types/Enums';
 

@@ -1,6 +1,6 @@
 import { Music, Musician } from '@prisma/client';
-
 import builder from '@schema/builder';
+
 import { MusicianObject } from './MusicianRef';
 import { MusicTypeEnum } from './Enums';
 import { SubgenreObject } from './Subgenre';

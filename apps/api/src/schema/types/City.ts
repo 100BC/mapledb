@@ -1,5 +1,6 @@
 import { City } from '@prisma/client';
 import builder from '@schema/builder';
+
 import { ProvinceEnum } from './Enums';
 
 export const CityObject = builder.objectRef<City>('City');

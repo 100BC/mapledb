@@ -2,14 +2,15 @@ import Fastify from 'fastify';
 import Cloudinary from 'cloudinary';
 import mercurius from 'mercurius';
 import cors from 'fastify-cors';
-import { PrismaClient } from '@prisma/client';
 import mercuriusUpload from 'mercurius-upload';
 import compress from 'fastify-compress';
 import helmet from 'fastify-helmet';
 import fastifyRateLimit from 'fastify-rate-limit';
 import altair from 'altair-fastify-plugin';
 
+import { PrismaClient } from '@prisma/client';
 import { IS_DEV } from '@utils/constants';
+
 import schema from './schema';
 
 const prisma = new PrismaClient({

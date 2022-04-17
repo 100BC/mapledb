@@ -1,4 +1,5 @@
 import { createClient, ssrExchange, dedupExchange, cacheExchange } from 'urql';
+
 import { multipartFetchExchange } from '@urql/exchange-multipart-fetch';
 
 const isServerSide = typeof window === 'undefined';

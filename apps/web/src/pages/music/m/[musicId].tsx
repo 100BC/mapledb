@@ -2,8 +2,9 @@ import React from 'react';
 import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 
-import { gqlClient, ssrCache } from '@graphql/gqlClient';
 import { GetMusicDocument } from '@mapledb/schema/types/web';
+
+import { gqlClient, ssrCache } from '@graphql/gqlClient';
 import styles from '@styles/music.module.scss';
 import ExternalLinks from '@components/ExternalLinks';
 import MusicianLinkList from '@components/MusicianLinkList';

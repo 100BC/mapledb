@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import { MusicCardFragment } from '@mapledb/schema/types/web';
 import { combine } from '@mapledb/style-helpers';
+
 import styles from './styles.module.scss';
 
 interface Props {

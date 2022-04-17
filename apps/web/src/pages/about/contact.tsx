@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
 import Spinner from '@mapledb/shared/components/Spinner';
+import { Button, ButtonLink } from '@mapledb/shared/components/Button';
+
 import CopySVG from '@assets/svg/copy.svg';
 import LaunchSVG from '@assets/svg/launch.svg';
 import styles from '@styles/about.module.scss';
 import Layout from '@components/Layout';
-import { Button, ButtonLink } from '@mapledb/shared/components/Button';
 
 const Contact = () => {
   const [loading, setLoading] = useState(false);

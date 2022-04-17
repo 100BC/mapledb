@@ -1,7 +1,8 @@
 import { FileUpload } from 'graphql-upload';
+import { logger } from '@server';
+
 import { Musician } from '@prisma/client';
 
-import { logger } from '@server';
 import { createImageLocally, deleteLocalImage } from './imageFunctions';
 import { cloudinaryUpload } from './cloudinaryFunctions';
 

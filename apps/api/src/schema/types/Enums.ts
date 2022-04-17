@@ -1,4 +1,4 @@
-import builder from '../builder';
+import builder from '@schema/builder';
 
 export const ProvinceEnum = builder.enumType('Province', {
   description: 'Provinces and Territories of Canada',

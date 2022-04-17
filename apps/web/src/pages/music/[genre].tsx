@@ -3,8 +3,9 @@ import { GetServerSideProps } from 'next';
 
 import { Genre, MusicType } from '@mapledb/schema/types';
 import { GetManyMusicDocument } from '@mapledb/schema/types/web';
-import { gqlClient, ssrCache } from '@graphql/gqlClient';
 import { MUSIC_QUERY_SIZE } from '@mapledb/constants';
+
+import { gqlClient, ssrCache } from '@graphql/gqlClient';
 import Layout from '@components/Layout';
 import setSSRCache from '@utils/setSSRCache';
 import MusicTypeFilter from '@components/DbComponents/MusicTypeFilter';

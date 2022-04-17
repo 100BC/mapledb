@@ -1,10 +1,10 @@
-import { Musician } from '@prisma/client';
+import { logger } from '@server';
 
+import { Musician } from '@prisma/client';
 import builder from '@schema/builder';
 import idCreator from '@utils/helpers/idCreator';
 import linksValidator from '@utils/validators/linksValidator';
 import manyMusiciansExistsValidator from '@utils/validators/manyMusicianExistsValidator';
-import { logger } from '@server';
 import uploadCover from '@utils/imageUtils/uploadCover';
 import { GenreEnum, MusicTypeEnum } from '@schema/types/Enums';
 import { MusicObject } from '@schema/types/Music';

@@ -1,6 +1,7 @@
+import { logger } from '@server';
+
 import builder from '@schema/builder';
 import { MusicObject } from '@schema/types/Music';
-import { logger } from '@server';
 import { cloudinaryDelete } from '@utils/imageUtils/cloudinaryFunctions';
 
 export const musicDelete = builder.mutationField('musicDelete', (t) => {

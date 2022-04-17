@@ -1,5 +1,6 @@
 import { Musician } from '@prisma/client';
 import builder from '@schema/builder';
+
 import { LatestInfoType } from './LatestInfo';
 
 type MusicianObjectType = Musician & {

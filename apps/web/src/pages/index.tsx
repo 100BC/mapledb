@@ -2,8 +2,9 @@ import React from 'react';
 import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 
-import { gqlClient, ssrCache } from '@graphql/gqlClient';
 import { GetNewReleasesDocument } from '@mapledb/schema/types/web';
+
+import { gqlClient, ssrCache } from '@graphql/gqlClient';
 import Layout, { DOMAIN_NAME } from '@components/Layout';
 import setSSRCache from '@utils/setSSRCache';
 import DbContainer from '@components/DbComponents/DbContainer';

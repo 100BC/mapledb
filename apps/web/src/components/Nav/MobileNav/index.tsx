@@ -5,6 +5,7 @@ import HomeSvg from '@assets/svg/home.svg';
 import VinylSvg from '@assets/svg/vinyl.svg';
 import MicSvg from '@assets/svg/mic.svg';
 import SuggestSvg from '@assets/svg/suggest.svg';
+
 import styles from './styles.module.scss';
 
 const MobileNav = () => {

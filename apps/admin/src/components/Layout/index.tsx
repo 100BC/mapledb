@@ -2,7 +2,9 @@ import React, { ReactNode } from 'react';
 
 import { XOR } from '@mapledb/generics';
 import MetaTags, { MetaTagProps } from '@mapledb/shared/components/MetaTags';
+
 import Header from '@components/Header';
+
 import { META_TITLE } from './defaults';
 
 export * from './defaults';

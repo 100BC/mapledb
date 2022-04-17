@@ -1,6 +1,7 @@
+import { logger } from '@server';
+
 import builder from '@schema/builder';
 import { ProvinceEnum } from '@schema/types/Enums';
-import { logger } from '@server';
 
 export const musicianCount = builder.queryField('musicianCount', (t) => {
   return t.int({

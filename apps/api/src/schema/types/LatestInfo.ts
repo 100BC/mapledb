@@ -1,5 +1,6 @@
 import { Genre } from '@prisma/client';
 import builder from '@schema/builder';
+
 import { GenreEnum } from './Enums';
 
 export type LatestInfoType = {

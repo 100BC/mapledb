@@ -3,8 +3,9 @@ import { GetServerSideProps } from 'next';
 
 import { Province } from '@mapledb/schema/types';
 import { GetManyMusiciansDocument } from '@mapledb/schema/types/web';
-import { gqlClient, ssrCache } from '@graphql/gqlClient';
 import { MUSICIAN_QUERY_SIZE } from '@mapledb/constants';
+
+import { gqlClient, ssrCache } from '@graphql/gqlClient';
 import Layout from '@components/Layout';
 import setSSRCache from '@utils/setSSRCache';
 import { DbFilter } from '@components/DbComponents/DbFilter';

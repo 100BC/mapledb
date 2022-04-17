@@ -4,7 +4,9 @@ import { useRouter } from 'next/router';
 
 import { MusicType } from '@mapledb/schema/types';
 import { conditional } from '@mapledb/style-helpers';
+
 import { capitalCaseEnums } from '@utils/functions/stringFormatters';
+
 import styles from './styles.module.scss';
 
 interface Props {

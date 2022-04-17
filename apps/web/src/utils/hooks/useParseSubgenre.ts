@@ -1,5 +1,6 @@
-import { capitalCaseWord } from '@utils/functions/stringFormatters';
 import { useMemo } from 'react';
+
+import { capitalCaseWord } from '@utils/functions/stringFormatters';
 
 const useParseSubgenre = (subgenre: string) => {
   const subgenreParsed = useMemo(() => {

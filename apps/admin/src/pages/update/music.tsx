@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 
+import { SearchBar } from '@mapledb/shared/components/FormComponents';
+import Spinner from '@mapledb/shared/components/Spinner';
+
 import Layout from '@components/Layout';
 import { useGetMusicQuery, useEditMusicMutation } from '@graphql/hooks';
 import Environment from '@components/Environment';
-import { SearchBar } from '@mapledb/shared/components/FormComponents';
-import Spinner from '@mapledb/shared/components/Spinner';
 import MusicFormGeneric, {
   MusicFormProps,
 } from '@components/FormGenerics/Music';
