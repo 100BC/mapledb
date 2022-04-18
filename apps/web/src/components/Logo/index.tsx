@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { combine } from '@mapledb/style-helpers';
+import { combine } from '@mapledb/shared/style-helpers';
 
 import LogoSvg from '@assets/svg/logo.svg';
 import LogoAltSvg from '@assets/svg/logo-white.svg';

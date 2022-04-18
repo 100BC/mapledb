@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 
-import { combine, conditional } from '@mapledb/style-helpers';
+import { combine, conditional } from '../../../style-helpers';
 
 import styles from './styles.module.scss';
 

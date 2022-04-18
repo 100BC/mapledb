@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import { MUSICIAN_QUERY_SIZE, MUSIC_QUERY_SIZE } from '@mapledb/constants';
-import { conditional } from '@mapledb/style-helpers';
+import { conditional } from '@mapledb/shared/style-helpers';
 
 import LeftArrow from '@assets/svg/leftArrow.svg';
 import RightArrow from '@assets/svg/rightArrow.svg';

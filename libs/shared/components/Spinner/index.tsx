@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { combine } from '@mapledb/style-helpers';
-
 import LogoSvg from '@assets/svg/logo.svg';
+import { combine } from '../../style-helpers';
 
 import styles from './styles.module.scss';
 

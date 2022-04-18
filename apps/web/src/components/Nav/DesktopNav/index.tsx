@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { combine, conditional } from '@mapledb/style-helpers';
+import { combine, conditional } from '@mapledb/shared/style-helpers';
 
 import Logo from '@components/Logo';
 

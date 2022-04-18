@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { MusicType } from '@mapledb/schema/types';
 import { GetMusicianDocument } from '@mapledb/schema/types/web';
-import { conditional } from '@mapledb/style-helpers';
+import { conditional } from '@mapledb/shared/style-helpers';
 
 import { gqlClient, ssrCache } from '@graphql/gqlClient';
 import ExternalLinks from '@components/ExternalLinks';

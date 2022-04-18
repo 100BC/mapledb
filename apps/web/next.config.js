@@ -1,6 +1,5 @@
 const withTM = require('next-transpile-modules')([
   '@mapledb/shared',
-  '@mapledb/style-helpers',
   '@mapledb/schema',
 ]);
 

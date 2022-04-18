@@ -2,7 +2,7 @@ import React, { Fragment, HTMLAttributes } from 'react';
 import Link from 'next/link';
 
 import { MusicCardFragment } from '@mapledb/schema/types/web';
-import { combine } from '@mapledb/style-helpers';
+import { combine } from '@mapledb/shared/style-helpers';
 
 import styles from './styles.module.scss';
 

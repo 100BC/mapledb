@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import { MusicType } from '@mapledb/schema/types';
-import { conditional } from '@mapledb/style-helpers';
+import { conditional } from '@mapledb/shared/style-helpers';
 
 import { capitalCaseEnums } from '@utils/functions/stringFormatters';
 

@@ -4,7 +4,7 @@
   "private": true,
   "files": [
     "components/**/*.tsx",
-    "hooks/**/*.ts"
+    "style-helpers"
   ],
   "scripts": {
     "lint": "tsc --noEmit --incremental false && eslint --fix '**/*.{ts,tsx}' && stylelint --fix '**/*.scss'",
@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@mapledb/generics": "workspace:*",
-    "@mapledb/style-helpers": "workspace:*",
     "next": "^12.1.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
