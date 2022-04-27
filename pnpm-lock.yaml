@@ -69,6 +69,10 @@ importers:
 
   apps/api:
     specifiers:
+      '@fastify/compress': ^5.0.0
+      '@fastify/cors': ^7.0.0
+      '@fastify/helmet': ^8.0.0
+      '@fastify/rate-limit': ^6.0.0
       '@mapledb/constants': workspace:^1.0.0
       '@mapledb/eslint-config': workspace:*
       '@mapledb/tsconfig': workspace:*
@@ -88,10 +92,6 @@ importers:
       eslint: ^8.14.0
       faker: 5.5.3
       fastify: ^3.28.0
-      fastify-compress: ^4.1.0
-      fastify-cors: ^6.1.0
-      fastify-helmet: ^7.1.0
-      fastify-rate-limit: ^5.9.0
       graphql: ^16.4.0
       graphql-scalars: ^1.17.0
       graphql-upload: ^13.0.0
@@ -106,6 +106,10 @@ importers:
       typescript: ^4.6.3
       zod: ^3.14.4
     dependencies:
+      '@fastify/compress': 5.0.0
+      '@fastify/cors': 7.0.0
+      '@fastify/helmet': 8.0.0
+      '@fastify/rate-limit': 6.0.0
       '@mapledb/constants': link:../../libs/constants
       '@pothos/core': 3.8.0_graphql@16.4.0
       '@pothos/plugin-complexity': 3.3.0_6f7ecda7dddda3dbfb50104c8d92b5b9
@@ -116,10 +120,6 @@ importers:
       cloudinary: 1.29.1
       dotenv: 16.0.0
       fastify: 3.28.0
-      fastify-compress: 4.1.0
-      fastify-cors: 6.1.0
-      fastify-helmet: 7.1.0
-      fastify-rate-limit: 5.9.0
       graphql: 16.4.0
       graphql-scalars: 1.17.0_graphql@16.4.0
       graphql-upload: 13.0.0_graphql@16.4.0
@@ -1740,6 +1740,46 @@ packages:
     resolution: {integrity: sha512-gvCOUNpXsWrIQ3A4aXCLIdblL0tDq42BG/2Xw7oxbil9h11uow10ztS2GuFazNBfjbrsZ5nl+nPl5jDSjj5TSg==}
     dependencies:
       ajv: 6.12.6
+    dev: false
+
+  /@fastify/compress/5.0.0:
+    resolution: {integrity: sha512-A0acEHP55+h7XDeWFFbSwZUYya7IK/E7IP9h+/iQxYBQeLY+AKF9Ya00ddMTAd/BpJuQvqUgGjefFXgzza3e8Q==}
+    engines: {node: '>=10.16'}
+    dependencies:
+      encoding-negotiator: 2.0.1
+      fastify-plugin: 3.0.1
+      into-stream: 6.0.0
+      is-deflate: 1.0.0
+      is-gzip: 2.0.0
+      is-zip: 1.0.0
+      mime-db: 1.52.0
+      minipass: 3.1.6
+      peek-stream: 1.1.3
+      pump: 3.0.0
+      pumpify: 2.0.1
+      string-to-stream: 3.0.1
+    dev: false
+
+  /@fastify/cors/7.0.0:
+    resolution: {integrity: sha512-nlo6ScwagBNJacAZD3KX90xjWLIoV0vN9QqoX1wUE9ZeZMdvkVkMZCGlxEtr00NshV0X5wDge4w5rwox7rRzSg==}
+    dependencies:
+      fastify-plugin: 3.0.1
+      vary: 1.1.2
+    dev: false
+
+  /@fastify/helmet/8.0.0:
+    resolution: {integrity: sha512-ZH44iLUmXNfYDyfHDbTTbewKrrGG/SBAkgju5RiIYVbOfyKfXGzxq1Om9RyXTSn5fKvNT//Ew71dPdiKg0fjoQ==}
+    dependencies:
+      fastify-plugin: 3.0.1
+      helmet: 5.0.2
+    dev: false
+
+  /@fastify/rate-limit/6.0.0:
+    resolution: {integrity: sha512-EZ0TI7Mpo5aK/QaooSt3U0cAGSFjrN51vwj6osgBF1KrnLVSmRA7KPYhPimMoL9YFu9GH53aiNU0H1qTLh7s1Q==}
+    dependencies:
+      fastify-plugin: 3.0.1
+      ms: 2.1.3
+      tiny-lru: 8.0.2
     dev: false
 
   /@firebase/analytics-compat/0.1.9_4806ef38eb920aae9b1aba6665b35f7f:
@@ -5723,46 +5763,6 @@ packages:
     resolution: {integrity: sha512-On2N+BpYJ15xIC974QNVuYGMOlEVt4s0EOI3wwMqOmK1fdDY+FN/zltPV8vosq4ad4c/gJ1KHScUn/6AWIgiow==}
     dev: true
 
-  /fastify-compress/4.0.1:
-    resolution: {integrity: sha512-3ABDmLS3CVZpP9VyhpPsYy1ID771i92ftZ320Qq68lGLQ+kUqHIAWeTcik+KM8UycY8Ad+baECBHZpXDHvG0Eg==}
-    engines: {node: '>=10.16'}
-    dependencies:
-      encoding-negotiator: 2.0.1
-      fastify-plugin: 3.0.1
-      into-stream: 6.0.0
-      is-deflate: 1.0.0
-      is-gzip: 2.0.0
-      is-stream: 2.0.1
-      is-zip: 1.0.0
-      mime-db: 1.52.0
-      minipass: 3.1.6
-      peek-stream: 1.1.3
-      pump: 3.0.0
-      pumpify: 2.0.1
-      string-to-stream: 3.0.1
-    dev: false
-
-  /fastify-compress/4.1.0:
-    resolution: {integrity: sha512-dFuw7kFVE5PtQg52rMZ75ZngDA1vVMLuWbUqT4QumJqnm04ksrg8n1W7NX92Bj4szBX4wyYwWWua7+wy1Ml4iw==}
-    dependencies:
-      fastify-compress-deprecated: /fastify-compress/4.0.1
-      process-warning: 1.0.0
-    dev: false
-
-  /fastify-cors/6.0.3:
-    resolution: {integrity: sha512-fMbXubKKyBHHCfSBtsCi3+7VyVRdhJQmGes5gM+eGKkRErCdm0NaYO0ozd31BQBL1ycoTIjbqOZhJo4RTF/Vlg==}
-    dependencies:
-      fastify-plugin: 3.0.1
-      vary: 1.1.2
-    dev: false
-
-  /fastify-cors/6.1.0:
-    resolution: {integrity: sha512-QBKz32IoY/iuT74CunRY1XOSpjSTIOh9E3FxulXIBhd0D2vdgG0kDvy0eG6HA/88sRfWHeba43LkGEXPz0Rh8g==}
-    dependencies:
-      fastify-cors-deprecated: /fastify-cors/6.0.3
-      process-warning: 1.0.0
-    dev: false
-
   /fastify-error/0.3.1:
     resolution: {integrity: sha512-oCfpcsDndgnDVgiI7bwFKAun2dO+4h84vBlkWsWnz/OUK9Reff5UFoFl241xTiLeHWX/vU9zkDVXqYUxjOwHcQ==}
     dev: false
@@ -5778,20 +5778,6 @@ packages:
       process-warning: 1.0.0
     dev: false
 
-  /fastify-helmet/7.0.1:
-    resolution: {integrity: sha512-/PSKDJZkBhJ0ioY1swOUfYNYQRfRnXD5X2eKD9TSVBuPKbH+OYg/IYBxad33uaOGlWn28MNOd+kw5sQKSWY1yA==}
-    dependencies:
-      fastify-plugin: 3.0.1
-      helmet: 5.0.2
-    dev: false
-
-  /fastify-helmet/7.1.0:
-    resolution: {integrity: sha512-rgSYdx42+Rq4EETbJXMCWtsvYtZdstEuaDBiwFAiNJhjjqgf2AllrdDYEUb5nUA/FXSrfP4MKnpa3ZgyLd/nRQ==}
-    dependencies:
-      fastify-helmet-deprecated: /fastify-helmet/7.0.1
-      process-warning: 1.0.0
-    dev: false
-
   /fastify-plugin/2.3.4:
     resolution: {integrity: sha512-I+Oaj6p9oiRozbam30sh39BiuiqBda7yK2nmSPVwDCfIBlKnT8YB3MY+pRQc2Fcd07bf6KPGklHJaQ2Qu81TYQ==}
     dependencies:
@@ -5800,21 +5786,6 @@ packages:
 
   /fastify-plugin/3.0.1:
     resolution: {integrity: sha512-qKcDXmuZadJqdTm6vlCqioEbyewF60b/0LOFCcYN1B6BIZGlYJumWWOYs70SFYLDAH4YqdE1cxH/RKMG7rFxgA==}
-    dev: false
-
-  /fastify-rate-limit/5.8.0:
-    resolution: {integrity: sha512-sln2ZbEG1cb0Ok4pn+tXrZIU0zJUWEimANWB/Bq+z/Ad5fBys9YsmCySrPqhUdBcZHwk9ymX22wbgZvvNLokyQ==}
-    dependencies:
-      fastify-plugin: 3.0.1
-      ms: 2.1.3
-      tiny-lru: 8.0.2
-    dev: false
-
-  /fastify-rate-limit/5.9.0:
-    resolution: {integrity: sha512-v+w/Q7wUWEdefvhUtqEhUyjg4DThjGQTlfYDOR0tgave6MbsBnCwZhRoEF1mVVa3mLb4eHXY9WH8TaRDvZt8Lg==}
-    dependencies:
-      fastify-rate-limit-deprecated: /fastify-rate-limit/5.8.0
-      process-warning: 1.0.0
     dev: false
 
   /fastify-static/4.6.1:
@@ -6950,11 +6921,6 @@ packages:
     resolution: {integrity: sha1-EtSj3U5o4Lec6428hBc66A2RykQ=}
     engines: {node: '>=0.10.0'}
     dev: true
-
-  /is-stream/2.0.1:
-    resolution: {integrity: sha512-hFoiJiTl63nn+kstHGBtewWSKnQLpyb155KHheA1l39uvtO9nWIop1p3udqPcUd/xbF1VLMO4n7OI6p7RbngDg==}
-    engines: {node: '>=8'}
-    dev: false
 
   /is-string/1.0.7:
     resolution: {integrity: sha512-tE2UXzivje6ofPW7l23cjDOMa09gb7xlAqG6jG5ej6uPV32TlWP3NKPigtaGeHNu9fohccRYvIiZMfOOnOYUtg==}
