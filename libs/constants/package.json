@@ -11,7 +11,7 @@
   "devDependencies": {
     "@mapledb/eslint-config": "workspace:*",
     "@mapledb/tsconfig": "workspace:*",
-    "eslint": "^8.13.0",
+    "eslint": "^8.14.0",
     "typescript": "^4.6.3"
   }
 }
