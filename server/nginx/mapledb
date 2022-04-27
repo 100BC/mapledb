@@ -1,5 +1,5 @@
 server {
-  server_name www.mapledb.com;
+  server_name www.mapledb.ca;
 
   location / {
     proxy_pass http://localhost:3000;
@@ -13,7 +13,7 @@ server {
 }
 
 server {
-  server_name api.mapledb.com;
+  server_name api.mapledb.ca;
 
   location / {
     proxy_pass http://localhost:3002/graphql;
@@ -27,7 +27,7 @@ server {
 }
 
 server {
-  server_name admin.mapledb.com;
+  server_name admin.mapledb.ca;
 
   location / {
     proxy_pass http://localhost:3001;
@@ -41,7 +41,7 @@ server {
 }
 
 server {
-  server_name mapledb.com;
+  server_name mapledb.ca;
 
-	return 301 https://www.mapledb.com$request_uri;
+	return 301 https://www.mapledb.ca$request_uri;
 }
