@@ -67,7 +67,7 @@ fastify.register(helmet, {
 fastify.register(cors, {
   origin: IS_DEV
     ? ['http://localhost:3000', 'http://localhost:3001']
-    : ['https://www.mapledb.com', 'https://admin.mapledb.com'],
+    : ['https://www.mapledb.ca', 'https://admin.mapledb.ca'],
 });
 
 fastify.register(fastifyRateLimit, {
