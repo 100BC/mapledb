@@ -92,4 +92,4 @@ jobs:
         run: pnpm db:deploy
 
       - name: Start
-        run: cd ~ && pm2 reload ecosystem.config.js
+        run: pm2 reload ${{ github.workspace }}/server/pm2/ecosystem.config.js
