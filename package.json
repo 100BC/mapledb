@@ -16,7 +16,7 @@
     "generate": "turbo run generate",
     "codegen": "turbo run codegen",
     "clean": "turbo run clean && rm -rf node_modules .turbo .pnpm-debug.log",
-    "clean:install": "turbo run clean && pnpm install && turbo run generate",
+    "clean:install": "pnpm clean && pnpm install && turbo run generate",
     "kill-ports": "kill-port 3000 3001 3002",
     "lint": "turbo run lint",
     "format": "prettier --write '**/*.{ts,tsx,md}'",
