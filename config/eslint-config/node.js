@@ -34,18 +34,6 @@ module.exports = {
     'arrow-body-style': 0,
     'import/prefer-default-export': 0,
     'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
-    'import/order': [
-      'error',
-      {
-        groups: ['builtin', 'external', 'internal', 'parent', 'sibling'],
-        pathGroups: [
-          { pattern: '@mapledb/**', group: 'internal' },
-          { pattern: '@*/**', group: 'parent' },
-        ],
-        'newlines-between': 'always',
-        pathGroupsExcludedImportTypes: ['@mapledb/**'],
-      },
-    ],
   },
   ignorePatterns: ['node_modules', '.turbo', 'dist', '.eslintrc.js', 'prisma'],
 };

@@ -58,18 +58,6 @@ module.exports = {
         aspects: ['invalidHref', 'preferButton'],
       },
     ],
-    'import/order': [
-      'error',
-      {
-        groups: ['builtin', 'external', 'internal', 'parent', 'sibling'],
-        pathGroups: [
-          { pattern: '@mapledb/**', group: 'internal' },
-          { pattern: '@*/**', group: 'parent' },
-        ],
-        'newlines-between': 'always',
-        pathGroupsExcludedImportTypes: ['@mapledb/**'],
-      },
-    ],
   },
   ignorePatterns: [
     'node_modules',
