@@ -4,7 +4,7 @@ import { FormProvider, useForm } from 'react-hook-form';
 
 import Spinner from '@mapledb/shared/components/Spinner';
 
-import Layout from '@components/Layout';
+import MainLayout from '@layouts/main';
 import { useAddMusicianMutation } from '@graphql/hooks';
 import Environment from '@components/Environment';
 import MusicianFormGeneric, {
@@ -46,7 +46,7 @@ const SubmitMusician = () => {
   };
 
   return (
-    <Layout noIndex>
+    <MainLayout noIndex>
       <h1>Submit Musician</h1>
       <hr />
       <Environment />
@@ -78,7 +78,7 @@ const SubmitMusician = () => {
           </form>
         </FormProvider>
       )}
-    </Layout>
+    </MainLayout>
   );
 };
 

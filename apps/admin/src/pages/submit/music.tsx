@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 
 import Spinner from '@mapledb/shared/components/Spinner';
 
-import Layout from '@components/Layout';
+import MainLayout from '@layouts/main';
 import { useAddMusicMutation } from '@graphql/hooks';
 import Environment from '@components/Environment';
 import MusicFormGeneric, {
@@ -58,7 +58,7 @@ const SubmitMusic = () => {
   };
 
   return (
-    <Layout noIndex>
+    <MainLayout noIndex>
       <h1>Submit Music</h1>
       <hr />
       <Environment />
@@ -87,7 +87,7 @@ const SubmitMusic = () => {
           </form>
         </FormProvider>
       )}
-    </Layout>
+    </MainLayout>
   );
 };
 

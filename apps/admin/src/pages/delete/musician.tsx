@@ -4,7 +4,7 @@ import Spinner from '@mapledb/shared/components/Spinner';
 import { SearchBar } from '@mapledb/shared/components/FormComponents';
 import Button from '@mapledb/shared/components/Button';
 
-import Layout from '@components/Layout';
+import MainLayout from '@layouts/main';
 import {
   useDeleteMusicianMutation,
   useGetMusicianNameQuery,
@@ -43,7 +43,7 @@ const DeleteMusician = () => {
   };
 
   return (
-    <Layout>
+    <MainLayout>
       <h1>Delete Musician</h1>
       <hr />
       <Environment />
@@ -87,7 +87,7 @@ const DeleteMusician = () => {
           )}
         </div>
       )}
-    </Layout>
+    </MainLayout>
   );
 };
 

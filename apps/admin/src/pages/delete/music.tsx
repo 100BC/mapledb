@@ -4,11 +4,10 @@ import Spinner from '@mapledb/shared/components/Spinner';
 import Button from '@mapledb/shared/components/Button';
 import { SearchBar } from '@mapledb/shared/components/FormComponents';
 
-import Layout from '@components/Layout';
+import MainLayout from '@layouts/main';
 import { useDeleteMusicMutation, useGetMusicNameQuery } from '@graphql/hooks';
 import Environment from '@components/Environment';
 import styles from '@styles/forms.module.scss';
-
 
 const DeleteMusic = () => {
   const [deleteMusicResults, deleteMusic] = useDeleteMusicMutation();
@@ -40,7 +39,7 @@ const DeleteMusic = () => {
   };
 
   return (
-    <Layout noIndex>
+    <MainLayout noIndex>
       <h1>Delete Music</h1>
       <hr />
       <Environment />
@@ -90,7 +89,7 @@ const DeleteMusic = () => {
           )}
         </div>
       )}
-    </Layout>
+    </MainLayout>
   );
 };
 

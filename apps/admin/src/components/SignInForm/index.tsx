@@ -10,9 +10,8 @@ import {
 import Button from '@mapledb/shared/components/Button';
 import Spinner from '@mapledb/shared/components/Spinner';
 
-import Layout from '@components/Layout';
+import MainLayout from '@layouts/main';
 import { auth } from '@gcp/client';
-
 
 interface Form {
   email: string;
@@ -44,7 +43,7 @@ const SignInForm = () => {
   };
 
   return (
-    <Layout>
+    <MainLayout>
       <h1>Sign In</h1>
       {submitting ? (
         <Spinner />
@@ -82,7 +81,7 @@ const SignInForm = () => {
           </Button>
         </form>
       )}
-    </Layout>
+    </MainLayout>
   );
 };
 

@@ -4,7 +4,7 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { SearchBar } from '@mapledb/shared/components/FormComponents';
 import Spinner from '@mapledb/shared/components/Spinner';
 
-import Layout from '@components/Layout';
+import MainLayout from '@layouts/main';
 import { useGetMusicQuery, useEditMusicMutation } from '@graphql/hooks';
 import Environment from '@components/Environment';
 import MusicFormGeneric, {
@@ -112,7 +112,7 @@ const UpdateMusic = () => {
   };
 
   return (
-    <Layout noIndex>
+    <MainLayout noIndex>
       <h1>Update Music</h1>
       <hr />
       <Environment />
@@ -151,7 +151,7 @@ const UpdateMusic = () => {
           </form>
         </FormProvider>
       )}
-    </Layout>
+    </MainLayout>
   );
 };
 

@@ -2,14 +2,14 @@ import React from 'react';
 import Link from 'next/link';
 import { signOut } from 'firebase/auth';
 
-import Layout from '@components/Layout';
+import MainLayout from '@layouts/main';
 import styles from '@styles/home.module.scss';
 import Environment from '@components/Environment';
 import { auth } from '@gcp/client';
 
 const Home = () => {
   return (
-    <Layout noIndex>
+    <MainLayout noIndex>
       <h1>MapleDB Admin</h1>
       <hr />
       <Environment />
@@ -47,7 +47,7 @@ const Home = () => {
           Sign Out
         </button>
       </section>
-    </Layout>
+    </MainLayout>
   );
 };
 
