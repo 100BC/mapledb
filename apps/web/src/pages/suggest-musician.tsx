@@ -11,7 +11,7 @@ import {
 import Button from '@mapledb/shared/components/Button';
 
 import { suggestMusician } from '@gcp/mutations/suggestMusician';
-import Layout from '@components/Layout';
+import MainLayout from '@layouts/Main';
 
 interface FormData {
   musician: string;
@@ -79,7 +79,7 @@ const SuggestMusician = () => {
   };
 
   return (
-    <Layout
+    <MainLayout
       title="MapleDB | Suggest a Musician"
       description="Suggest a Canadian musician to be added to MapleDB's database."
       canonicalUrlPath="/suggest-musician"
@@ -201,7 +201,7 @@ const SuggestMusician = () => {
           Submit
         </Button>
       </FormWrapper>
-    </Layout>
+    </MainLayout>
   );
 };
 

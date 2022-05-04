@@ -11,7 +11,7 @@ interface Props {
   tag?: keyof JSX.IntrinsicElements;
 }
 
-const DbContainer = ({
+const CardGridLayout = ({
   children,
   type,
   tag: Tag = 'div',
@@ -30,4 +30,4 @@ const DbContainer = ({
   );
 };
 
-export default DbContainer;
+export default CardGridLayout;

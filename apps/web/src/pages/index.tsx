@@ -5,14 +5,14 @@ import Link from 'next/link';
 import { GetNewReleasesDocument } from '@mapledb/schema/types/web';
 
 import { gqlClient, ssrCache } from '@graphql/gqlClient';
-import Layout, { DOMAIN_NAME } from '@components/Layout';
+import MainLayout, { DOMAIN_NAME } from '@layouts/Main';
 import setSSRCache from '@utils/setSSRCache';
-import DbContainer from '@components/DbComponents/DbContainer';
+import CardGridLayout from '@layouts/CardGrid';
 import MusicCard from '@components/Cards/MusicCard';
 import MusicianCard from '@components/Cards/MusicianCard';
 import styles from '@styles/home.module.scss';
 import Logo from '@components/Logo';
-import GqlContainer from '@components/GqlContainer';
+import UrqlStateLayout from '@layouts/UrqlState';
 import { useGetNewReleasesQuery } from '@graphql/hooks';
 
 const gqlVariables = { takeMusic: 4, takeMusicians: 4 };
@@ -23,14 +23,14 @@ const IndexPage = () => {
   });
 
   return (
-    <Layout
+    <MainLayout
       ogpImg={`${DOMAIN_NAME}/OGP.png`}
       ogpImgAlt="Logo of MapleDB: Red Vinyl with a red silhouette of a moose in the middle"
       ogpImgWidth={1200}
       ogpImgHeight={630}
       twitterCard="summary_large_image"
     >
-      <GqlContainer
+      <UrqlStateLayout
         fetching={fetching}
         error={error}
         errorComponent
@@ -52,11 +52,11 @@ const IndexPage = () => {
               </h1>
               <hr />
 
-              <DbContainer type="music" autoFill>
+              <CardGridLayout type="music" autoFill>
                 {data.singleList.map((doc) => (
                   <MusicCard key={doc.id} {...doc} imagePriority />
                 ))}
-              </DbContainer>
+              </CardGridLayout>
             </section>
             <section className={styles.section}>
               <h1>
@@ -66,11 +66,11 @@ const IndexPage = () => {
               </h1>
               <hr />
 
-              <DbContainer type="music" autoFill>
+              <CardGridLayout type="music" autoFill>
                 {data.albumList.map((doc) => (
                   <MusicCard key={doc.id} {...doc} />
                 ))}
-              </DbContainer>
+              </CardGridLayout>
             </section>
 
             <section className={styles.section}>
@@ -81,11 +81,11 @@ const IndexPage = () => {
               </h1>
               <hr />
 
-              <DbContainer type="music" autoFill>
+              <CardGridLayout type="music" autoFill>
                 {data.epList.map((doc) => (
                   <MusicCard key={doc.id} {...doc} />
                 ))}
-              </DbContainer>
+              </CardGridLayout>
             </section>
 
             <section className={styles.section}>
@@ -96,16 +96,16 @@ const IndexPage = () => {
               </h1>
               <hr />
 
-              <DbContainer type="musician">
+              <CardGridLayout type="musician">
                 {data.musicianList.map((musician) => (
                   <MusicianCard key={musician.id} {...musician} />
                 ))}
-              </DbContainer>
+              </CardGridLayout>
             </section>
           </>
         )}
-      </GqlContainer>
-    </Layout>
+      </UrqlStateLayout>
+    </MainLayout>
   );
 };
 

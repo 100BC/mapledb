@@ -2,11 +2,11 @@ import React from 'react';
 import Link from 'next/link';
 
 import styles from '@styles/about.module.scss';
-import Layout from '@components/Layout';
+import MainLayout from '@layouts/Main';
 
 const PrivacyPolicy = () => {
   return (
-    <Layout
+    <MainLayout
       title="MapleDB | Privacy Policy"
       description="Privacy Policy of MapleDB - Canadian Music Database."
       canonicalUrlPath="/about/privacy-policy"
@@ -36,7 +36,7 @@ const PrivacyPolicy = () => {
         </p>
       </section>
       <time className={styles.lastUpdated}>Last Updated: 2022-03-29</time>
-    </Layout>
+    </MainLayout>
   );
 };
 

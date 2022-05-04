@@ -2,11 +2,11 @@ import React from 'react';
 import Link from 'next/link';
 
 import styles from '@styles/about.module.scss';
-import Layout from '@components/Layout';
+import MainLayout from '@layouts/Main';
 
 const Legal = () => {
   return (
-    <Layout
+    <MainLayout
       title="MapleDB | Legal"
       description="Legal Information of MapleDB - Canadian Music Database."
       canonicalUrlPath="/about/legal"
@@ -36,7 +36,7 @@ const Legal = () => {
         </p>
       </section>
       <time className={styles.lastUpdated}>Last Updated: 2021-12-04</time>
-    </Layout>
+    </MainLayout>
   );
 };
 

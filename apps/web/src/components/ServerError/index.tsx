@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-import { DOMAIN_NAME, META_DESCRIPTION, META_TITLE } from '@components/Layout';
+import { DOMAIN_NAME, META_DESCRIPTION, META_TITLE } from '@layouts/Main';
 
 import styles from './styles.module.scss';
 
@@ -10,7 +10,7 @@ interface Props {
   errorNum?: number;
 }
 
-const ErrorComponent = ({ error, errorNum = 404 }: Props) => {
+const ServerError = ({ error, errorNum = 404 }: Props) => {
   return (
     <>
       <Head>
@@ -48,4 +48,4 @@ const ErrorComponent = ({ error, errorNum = 404 }: Props) => {
   );
 };
 
-export default ErrorComponent;
+export default ServerError;

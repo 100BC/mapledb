@@ -22,7 +22,7 @@ type Props = {
 } & MetaTagProps &
   XOR<{ canonicalUrl?: string }, { canonicalUrlPath?: string }>;
 
-const Layout = (props: Props) => {
+const MainLayout = (props: Props) => {
   const {
     title = META_TITLE,
     description = META_DESCRIPTION,
@@ -52,4 +52,4 @@ const Layout = (props: Props) => {
   );
 };
 
-export default Layout;
+export default MainLayout;

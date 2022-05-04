@@ -8,12 +8,12 @@ import { conditional } from '@mapledb/shared/style-helpers';
 
 import { gqlClient, ssrCache } from '@graphql/gqlClient';
 import ExternalLinks from '@components/ExternalLinks';
-import Layout from '@components/Layout';
+import MainLayout from '@layouts/Main';
 import styles from '@styles/musician.module.scss';
 import setSSRCache from '@utils/setSSRCache';
 import MusicCard from '@components/Cards/MusicCard';
-import DbContainer from '@components/DbComponents/DbContainer';
-import GqlContainer from '@components/GqlContainer';
+import CardGridLayout from '@layouts/CardGrid';
+import UrqlStateLayout from '@layouts/UrqlState';
 import useParseDate, { useParseYear } from '@utils/hooks/useParseDate';
 import { useGetMusicianQuery } from '@graphql/hooks';
 import GridSvg from '@assets/svg/grid.svg';
@@ -92,7 +92,7 @@ const MusicianDisplay = ({ musicianId }: Props) => {
   );
 
   return (
-    <Layout
+    <MainLayout
       title={`MapleDB | ${name}`}
       ogpTitle={name}
       description={`View information on ${name}, ${
@@ -102,7 +102,7 @@ const MusicianDisplay = ({ musicianId }: Props) => {
       } on MapleDB - Canadian Music Database.`}
       canonicalUrlPath={`/musicians/m/${musicianId}`}
     >
-      <GqlContainer
+      <UrqlStateLayout
         fetching={fetching}
         error={error}
         errorComponent
@@ -177,7 +177,7 @@ const MusicianDisplay = ({ musicianId }: Props) => {
                       <Fragment key={det.type}>
                         <h3 className={styles.subtitle}>{det.title}</h3>
                         {/* <hr /> */}
-                        <DbContainer type="music">
+                        <CardGridLayout type="music">
                           {det.data.map((doc) => (
                             <MusicCard
                               key={doc.id}
@@ -186,13 +186,13 @@ const MusicianDisplay = ({ musicianId }: Props) => {
                               showMusicType
                             />
                           ))}
-                        </DbContainer>
+                        </CardGridLayout>
                       </Fragment>
                     ) : null
                   )}
                 </>
               ) : (
-                <DbContainer type="music">
+                <CardGridLayout type="music">
                   {music?.map((doc, i) => (
                     <MusicCard
                       key={doc.id}
@@ -201,13 +201,13 @@ const MusicianDisplay = ({ musicianId }: Props) => {
                       showMusicType
                     />
                   ))}
-                </DbContainer>
+                </CardGridLayout>
               )}
             </section>
           </>
         )}
-      </GqlContainer>
-    </Layout>
+      </UrqlStateLayout>
+    </MainLayout>
   );
 };
 

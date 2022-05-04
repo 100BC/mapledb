@@ -3,11 +3,11 @@ import Link from 'next/link';
 
 import styles from '@styles/about.module.scss';
 import LaunchSVG from '@assets/svg/launch.svg';
-import Layout from '@components/Layout';
+import MainLayout from '@layouts/Main';
 
 const About = () => {
   return (
-    <Layout
+    <MainLayout
       title="MapleDB | About"
       description="Goals and details about MapleDB - Canadian Music Database."
       canonicalUrlPath="/about"
@@ -146,7 +146,7 @@ const About = () => {
         <p>:(</p>
       </section>
       <time className={styles.lastUpdated}>Last Updated: 2021-12-04</time>
-    </Layout>
+    </MainLayout>
   );
 };
 

@@ -6,14 +6,14 @@ import { GetManyMusiciansDocument } from '@mapledb/schema/types/web';
 import { MUSICIAN_QUERY_SIZE } from '@mapledb/constants';
 
 import { gqlClient, ssrCache } from '@graphql/gqlClient';
-import Layout from '@components/Layout';
+import MainLayout from '@layouts/Main';
 import setSSRCache from '@utils/setSSRCache';
-import { DbFilter } from '@components/DbComponents/DbFilter';
-import DbContainer from '@components/DbComponents/DbContainer';
+import { DbFilter } from '@components/DatabaseFilters/DbFilter';
+import CardGridLayout from '@layouts/CardGrid';
 import MusicianCard from '@components/Cards/MusicianCard';
-import Pagination from '@components/DbComponents/Pagination';
+import Pagination from '@components/DatabaseFilters/Pagination';
 import musicianSSRValidator from '@utils/validators/musicianSSRValidator';
-import GqlContainer from '@components/GqlContainer';
+import UrqlStateLayout from '@layouts/UrqlState';
 import useParseProvince from '@utils/hooks/useParseProvince';
 import { useGetManyMusiciansQuery } from '@graphql/hooks';
 
@@ -31,7 +31,7 @@ const MusicianGrid = ({ province, skip, currentPage }: Props) => {
   const { name: provinceName, demonym } = useParseProvince(province);
 
   return (
-    <Layout
+    <MainLayout
       title={`MapleDB | ${demonym} Musicians Database`}
       description={`Explore the database of underground musicians based in ${provinceName} on MapleDB - Canadian Music Database.`}
       canonicalUrlPath={`/musicians/${province?.toLowerCase() ?? 'all'}`}
@@ -40,19 +40,19 @@ const MusicianGrid = ({ province, skip, currentPage }: Props) => {
       <hr />
       <h2>{provinceName}</h2>
       <DbFilter page="musicians" />
-      <GqlContainer fetching={fetching} error={error}>
-        <DbContainer type="musician" tag="section">
+      <UrqlStateLayout fetching={fetching} error={error}>
+        <CardGridLayout type="musician" tag="section">
           {data?.musicianList.map((doc) => (
             <MusicianCard key={doc.id} {...doc} />
           ))}
-        </DbContainer>
+        </CardGridLayout>
         <Pagination
           pageType="musician"
           currentPage={currentPage || 1}
           totalCount={data?.musicianCount || 1}
         />
-      </GqlContainer>
-    </Layout>
+      </UrqlStateLayout>
+    </MainLayout>
   );
 };
 

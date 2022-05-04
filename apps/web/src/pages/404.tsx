@@ -1,13 +1,13 @@
 import React from 'react';
 
-import ErrorComponent from '@components/ErrorComponent';
-import Layout from '@components/Layout';
+import ServerError from '@components/ServerError';
+import MainLayout from '@layouts/Main';
 
 const Custom404 = () => {
   return (
-    <Layout>
-      <ErrorComponent errorNum={404} />
-    </Layout>
+    <MainLayout>
+      <ServerError errorNum={404} />
+    </MainLayout>
   );
 };
 

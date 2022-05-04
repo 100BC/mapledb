@@ -6,7 +6,7 @@ import { Button, ButtonLink } from '@mapledb/shared/components/Button';
 import CopySVG from '@assets/svg/copy.svg';
 import LaunchSVG from '@assets/svg/launch.svg';
 import styles from '@styles/about.module.scss';
-import Layout from '@components/Layout';
+import MainLayout from '@layouts/Main';
 
 const Contact = () => {
   const [loading, setLoading] = useState(false);
@@ -44,7 +44,7 @@ const Contact = () => {
   };
 
   return (
-    <Layout
+    <MainLayout
       title="MapleDB | Contact"
       description="Contact MapleDB - Canadian Music Database."
       canonicalUrlPath="/about/contact"
@@ -86,7 +86,7 @@ const Contact = () => {
           )}
         </div>
       </section>
-    </Layout>
+    </MainLayout>
   );
 };
 

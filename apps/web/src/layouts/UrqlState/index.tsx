@@ -5,8 +5,8 @@ import Head from 'next/head';
 import Spinner from '@mapledb/shared/components/Spinner';
 import { AllOrNone } from '@mapledb/generics';
 
-import ErrorComponent from '@components/ErrorComponent';
-import { DOMAIN_NAME, META_DESCRIPTION, META_TITLE } from '@components/Layout';
+import ServerError from '@components/ServerError';
+import { DOMAIN_NAME, META_DESCRIPTION, META_TITLE } from '@layouts/Main';
 
 type Props = {
   fetching: boolean;
@@ -17,7 +17,7 @@ type Props = {
   errorStatusCode?: number;
 }>;
 
-const GqlContainer = ({
+const UrqlStateLayout = ({
   fetching,
   error,
   children,
@@ -46,9 +46,7 @@ const GqlContainer = ({
 
   if (error) {
     if (errorComponent)
-      return (
-        <ErrorComponent error={error.message} errorNum={errorStatusCode} />
-      );
+      return <ServerError error={error.message} errorNum={errorStatusCode} />;
 
     return <>{error.message}</>;
   }
@@ -56,4 +54,4 @@ const GqlContainer = ({
   return <>{children}</>;
 };
 
-export default GqlContainer;
+export default UrqlStateLayout;

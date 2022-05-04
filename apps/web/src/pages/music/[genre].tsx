@@ -6,14 +6,14 @@ import { GetManyMusicDocument } from '@mapledb/schema/types/web';
 import { MUSIC_QUERY_SIZE } from '@mapledb/constants';
 
 import { gqlClient, ssrCache } from '@graphql/gqlClient';
-import Layout from '@components/Layout';
+import MainLayout from '@layouts/Main';
 import setSSRCache from '@utils/setSSRCache';
-import MusicTypeFilter from '@components/DbComponents/MusicTypeFilter';
-import { DbFilter } from '@components/DbComponents/DbFilter';
+import MusicTypeFilter from '@components/DatabaseFilters/MusicTypeFilter';
+import { DbFilter } from '@components/DatabaseFilters/DbFilter';
 import musicSSRValidator from '@utils/validators/musicSSRValidator';
-import GqlContainer from '@components/GqlContainer';
-import DbContainer from '@components/DbComponents/DbContainer';
-import Pagination from '@components/DbComponents/Pagination';
+import UrqlStateLayout from '@layouts/UrqlState';
+import CardGridLayout from '@layouts/CardGrid';
+import Pagination from '@components/DatabaseFilters/Pagination';
 import MusicCard from '@components/Cards/MusicCard';
 import useParseGenre from '@utils/hooks/useParseGenre';
 import { useGetManyMusicQuery } from '@graphql/hooks';
@@ -37,7 +37,7 @@ const MusicGrid = ({ genre, musicTypes, skip, currentPage }: Props) => {
   const [capitalGenre, lowerCaseGenre] = useParseGenre(genre);
 
   return (
-    <Layout
+    <MainLayout
       title={`MapleDB | ${capitalGenre} Music Database`}
       description={`Explore the database of ${lowerCaseGenre} music released by Underground Canadian Musicians on MapleDB - Canadian Music Database.`}
       canonicalUrlPath={`/music/${lowerCaseGenre || 'all'}`}
@@ -47,8 +47,8 @@ const MusicGrid = ({ genre, musicTypes, skip, currentPage }: Props) => {
       <h2>{capitalGenre ? `${capitalGenre} Music` : 'All Genres'}</h2>
       <DbFilter page="music" />
       <MusicTypeFilter musicTypes={musicTypes} />
-      <GqlContainer fetching={fetching} error={error}>
-        <DbContainer type="music" tag="section">
+      <UrqlStateLayout fetching={fetching} error={error}>
+        <CardGridLayout type="music" tag="section">
           {data?.musicList.map((doc, i) => (
             <MusicCard
               showMusicType
@@ -57,14 +57,14 @@ const MusicGrid = ({ genre, musicTypes, skip, currentPage }: Props) => {
               imagePriority={i < 5}
             />
           ))}
-        </DbContainer>
+        </CardGridLayout>
         <Pagination
           pageType="music"
           currentPage={currentPage || 1}
           totalCount={data?.musicCount || 0}
         />
-      </GqlContainer>
-    </Layout>
+      </UrqlStateLayout>
+    </MainLayout>
   );
 };
 

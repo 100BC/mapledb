@@ -8,9 +8,9 @@ import { gqlClient, ssrCache } from '@graphql/gqlClient';
 import styles from '@styles/music.module.scss';
 import ExternalLinks from '@components/ExternalLinks';
 import MusicianLinkList from '@components/MusicianLinkList';
-import Layout from '@components/Layout';
+import MainLayout from '@layouts/Main';
 import setSSRCache from '@utils/setSSRCache';
-import GqlContainer from '@components/GqlContainer';
+import UrqlStateLayout from '@layouts/UrqlState';
 import useCreateImageUrl from '@utils/hooks/useCreateImageUrl';
 import useParseDate from '@utils/hooks/useParseDate';
 import useCreateMusicianDesc from '@utils/hooks/useCreateMusicianDesc';
@@ -54,7 +54,7 @@ const MusicDisplay = ({ musicId }: Props) => {
   const musicTypeParsed = useParseMusicType(musicType);
 
   return (
-    <Layout
+    <MainLayout
       title={`MapleDB | ${name}`}
       ogpTitle={name}
       description={`View information on ${name}, ${musicTypeParsed.sentence} by ${musicianDesc} on MapleDB - Canadian Music Database`}
@@ -64,7 +64,7 @@ const MusicDisplay = ({ musicId }: Props) => {
       ogpImgWidth={400}
       ogpImgHeight={400}
     >
-      <GqlContainer
+      <UrqlStateLayout
         fetching={fetching}
         error={error}
         errorComponent
@@ -120,8 +120,8 @@ const MusicDisplay = ({ musicId }: Props) => {
             )}
           </>
         )}
-      </GqlContainer>
-    </Layout>
+      </UrqlStateLayout>
+    </MainLayout>
   );
 };
 
