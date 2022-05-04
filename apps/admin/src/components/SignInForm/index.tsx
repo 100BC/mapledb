@@ -43,7 +43,7 @@ const SignInForm = () => {
   };
 
   return (
-    <MainLayout>
+    <MainLayout noIndex>
       <h1>Sign In</h1>
       {submitting ? (
         <Spinner />
