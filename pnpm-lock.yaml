@@ -23,8 +23,8 @@ importers:
       '@mapledb/tsconfig': workspace:*
       '@svgr/webpack': ^6.2.1
       '@types/node': ^16.11.33
-      '@types/react': ^17.0.44
-      '@types/react-dom': ^17.0.16
+      '@types/react': ^18.0.0
+      '@types/react-dom': ^18.0.0
       '@urql/exchange-multipart-fetch': ^0.1.14
       eslint: ^8.14.0
       firebase: ^9.7.0
@@ -32,8 +32,8 @@ importers:
       next: ^12.1.6
       next-transpile-modules: ^9.0.0
       normalize.css: ^8.0.1
-      react: ^17.0.2
-      react-dom: ^17.0.2
+      react: ^18.0.0
+      react-dom: ^18.0.0
       react-hook-form: ^7.30.0
       sass: ^1.51.0
       stylelint: ^14.8.2
@@ -46,12 +46,12 @@ importers:
       '@urql/exchange-multipart-fetch': 0.1.14_graphql@16.4.0
       firebase: 9.7.0
       graphql: 16.4.0
-      next: 12.1.6_dmi2t66wvavvdsdvw6dn5lzaaa
+      next: 12.1.6_achxnsjje7b5gy3iikucscdeta
       normalize.css: 8.0.1
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
-      react-hook-form: 7.30.0_react@17.0.2
-      urql: 2.2.0_sqwnk3obm2acmtkqkr5eiemxsu
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+      react-hook-form: 7.30.0_react@18.1.0
+      urql: 2.2.0_cxfcglayresyyxxylwnor5zopi
     devDependencies:
       '@mapledb/eslint-config': link:../../config/eslint-config
       '@mapledb/stylelint-config': link:../../config/stylelint-config
@@ -59,8 +59,8 @@ importers:
       '@mapledb/tsconfig': link:../../config/tsconfig
       '@svgr/webpack': 6.2.1
       '@types/node': 16.11.33
-      '@types/react': 17.0.44
-      '@types/react-dom': 17.0.16
+      '@types/react': 18.0.8
+      '@types/react-dom': 18.0.3
       eslint: 8.14.0
       next-transpile-modules: 9.0.0
       sass: 1.51.0
@@ -102,7 +102,7 @@ importers:
       prisma: ^3.13.0
       ts-node: ^10.7.0
       tsc-alias: ^1.6.7
-      tsconfig-paths: ^3.14.1
+      tsconfig-paths: ^4.0.0
       typescript: ^4.6.4
       zod: ^3.14.4
     dependencies:
@@ -141,7 +141,7 @@ importers:
       prisma: 3.13.0
       ts-node: 10.7.0_7vfv75elicf7ijnl73ckmqo2cm
       tsc-alias: 1.6.7
-      tsconfig-paths: 3.14.1
+      tsconfig-paths: 4.0.0
       typescript: 4.6.4
 
   apps/web:
@@ -156,16 +156,16 @@ importers:
       '@mapledb/tsconfig': workspace:*
       '@svgr/webpack': ^6.2.1
       '@types/node': ^16.11.33
-      '@types/react': ^17.0.44
-      '@types/react-dom': ^17.0.16
+      '@types/react': ^18.0.0
+      '@types/react-dom': ^18.0.0
       eslint: ^8.14.0
       firebase: ^9.7.0
       graphql: ^16.4.0
       next: ^12.1.6
       next-transpile-modules: ^9.0.0
       normalize.css: ^8.0.1
-      react: ^17.0.2
-      react-dom: ^17.0.2
+      react: ^18.0.0
+      react-dom: ^18.0.0
       react-hook-form: ^7.30.0
       sass: ^1.51.0
       stylelint: ^14.8.2
@@ -178,12 +178,12 @@ importers:
       '@mapledb/shared': link:../../libs/shared
       firebase: 9.7.0
       graphql: 16.4.0
-      next: 12.1.6_dmi2t66wvavvdsdvw6dn5lzaaa
+      next: 12.1.6_achxnsjje7b5gy3iikucscdeta
       normalize.css: 8.0.1
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
-      react-hook-form: 7.30.0_react@17.0.2
-      urql: 2.2.0_sqwnk3obm2acmtkqkr5eiemxsu
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+      react-hook-form: 7.30.0_react@18.1.0
+      urql: 2.2.0_cxfcglayresyyxxylwnor5zopi
     devDependencies:
       '@mapledb/eslint-config': link:../../config/eslint-config
       '@mapledb/stylelint-config': link:../../config/stylelint-config
@@ -191,8 +191,8 @@ importers:
       '@mapledb/tsconfig': link:../../config/tsconfig
       '@svgr/webpack': 6.2.1
       '@types/node': 16.11.33
-      '@types/react': 17.0.44
-      '@types/react-dom': 17.0.16
+      '@types/react': 18.0.8
+      '@types/react-dom': 18.0.3
       eslint: 8.14.0
       next-transpile-modules: 9.0.0
       sass: 1.51.0
@@ -308,13 +308,13 @@ importers:
       '@mapledb/theme': workspace:*
       '@mapledb/tsconfig': workspace:*
       '@types/node': ^16.11.33
-      '@types/react': ^17.0.44
-      '@types/react-dom': ^17.0.16
+      '@types/react': ^18.0.0
+      '@types/react-dom': ^18.0.0
       '@types/react-google-recaptcha': ^2.1.5
       eslint: ^8.14.0
       next: ^12.1.6
-      react: ^17.0.2
-      react-dom: ^17.0.2
+      react: ^18.0.0
+      react-dom: ^18.0.0
       react-google-recaptcha: ^2.1.0
       react-hook-form: ^7.30.0
       sass: ^1.51.0
@@ -322,19 +322,19 @@ importers:
       typescript: ^4.6.4
     dependencies:
       '@mapledb/generics': link:../generics
-      next: 12.1.6_dmi2t66wvavvdsdvw6dn5lzaaa
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
-      react-google-recaptcha: 2.1.0_react@17.0.2
-      react-hook-form: 7.30.0_react@17.0.2
+      next: 12.1.6_achxnsjje7b5gy3iikucscdeta
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+      react-google-recaptcha: 2.1.0_react@18.1.0
+      react-hook-form: 7.30.0_react@18.1.0
     devDependencies:
       '@mapledb/eslint-config': link:../../config/eslint-config
       '@mapledb/stylelint-config': link:../../config/stylelint-config
       '@mapledb/theme': link:../theme
       '@mapledb/tsconfig': link:../../config/tsconfig
       '@types/node': 16.11.33
-      '@types/react': 17.0.44
-      '@types/react-dom': 17.0.16
+      '@types/react': 18.0.8
+      '@types/react-dom': 18.0.3
       '@types/react-google-recaptcha': 2.1.5
       eslint: 8.14.0
       sass: 1.51.0
@@ -3376,6 +3376,7 @@ packages:
 
   /@types/json5/0.0.29:
     resolution: {integrity: sha1-7ihweulOEdK4J7y+UnC86n8+ce4=}
+    dev: false
 
   /@types/jsonwebtoken/8.5.8:
     resolution: {integrity: sha512-zm6xBQpFDIDM6o9r6HSgDeIcLy82TKWctCXEPbJJcXb5AKmi5BNNdLXneixK4lplX3PqIVcwLBCGE/kAGnlD4A==}
@@ -3439,20 +3440,20 @@ packages:
   /@types/range-parser/1.2.4:
     resolution: {integrity: sha512-EEhsLsD6UsDM1yFhAvy0Cjr6VwmpMWqFBCb9w07wVugF7w9nfajxLuVmngTIpgS6svCnm6Vaw+MZhoDCKnOfsw==}
 
-  /@types/react-dom/17.0.16:
-    resolution: {integrity: sha512-DWcXf8EbMrO/gWnQU7Z88Ws/p16qxGpPyjTKTpmBSFKeE+HveVubqGO1CVK7FrwlWD5MuOcvh8gtd0/XO38NdQ==}
+  /@types/react-dom/18.0.3:
+    resolution: {integrity: sha512-1RRW9kst+67gveJRYPxGmVy8eVJ05O43hg77G2j5m76/RFJtMbcfAs2viQ2UNsvvDg8F7OfQZx8qQcl6ymygaQ==}
     dependencies:
-      '@types/react': 17.0.44
+      '@types/react': 18.0.8
     dev: true
 
   /@types/react-google-recaptcha/2.1.5:
     resolution: {integrity: sha512-iWTjmVttlNgp0teyh7eBXqNOQzVq2RWNiFROWjraOptRnb1OcHJehQnji0sjqIRAk9K0z8stjyhU+OLpPb0N6w==}
     dependencies:
-      '@types/react': 17.0.44
+      '@types/react': 18.0.8
     dev: true
 
-  /@types/react/17.0.44:
-    resolution: {integrity: sha512-Ye0nlw09GeMp2Suh8qoOv0odfgCoowfM/9MG6WeRD60Gq9wS90bdkdRtYbRkNhXOpG4H+YXGvj4wOWhAC0LJ1g==}
+  /@types/react/18.0.8:
+    resolution: {integrity: sha512-+j2hk9BzCOrrOSJASi5XiOyBbERk9jG5O73Ya4M0env5Ixi6vUNli4qy994AINcEF+1IEHISYFfIT4zwr++LKw==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
@@ -6998,6 +6999,7 @@ packages:
     hasBin: true
     dependencies:
       minimist: 1.2.6
+    dev: false
 
   /json5/2.2.1:
     resolution: {integrity: sha512-1hqLFMSrGHRHxav9q9gNjJ5EXznIxGVO09xQRrwplcS8qs28pZ8s8hupZAmqDwZUmVZ2Qb2jnyPOWcDH8m8dlA==}
@@ -7586,7 +7588,7 @@ packages:
       escalade: 3.1.1
     dev: true
 
-  /next/12.1.6_dmi2t66wvavvdsdvw6dn5lzaaa:
+  /next/12.1.6_achxnsjje7b5gy3iikucscdeta:
     resolution: {integrity: sha512-cebwKxL3/DhNKfg9tPZDQmbRKjueqykHHbgaoG4VBRH3AHQJ2HO0dbKFiS1hPhe1/qgc2d/hFeadsbPicmLD+A==}
     engines: {node: '>=12.22.0'}
     hasBin: true
@@ -7609,10 +7611,10 @@ packages:
       '@next/env': 12.1.6
       caniuse-lite: 1.0.30001335
       postcss: 8.4.5
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
       sass: 1.51.0
-      styled-jsx: 5.0.2_react@17.0.2
+      styled-jsx: 5.0.2_react@18.1.0
     optionalDependencies:
       '@next/swc-android-arm-eabi': 12.1.6
       '@next/swc-android-arm64': 12.1.6
@@ -8409,7 +8411,7 @@ packages:
       strip-json-comments: 2.0.1
     dev: true
 
-  /react-async-script/1.2.0_react@17.0.2:
+  /react-async-script/1.2.0_react@18.1.0:
     resolution: {integrity: sha512-bCpkbm9JiAuMGhkqoAiC0lLkb40DJ0HOEJIku+9JDjxX3Rcs+ztEOG13wbrOskt3n2DTrjshhaQ/iay+SnGg5Q==}
     peerDependencies:
       react: '>=16.4.1'
@@ -8419,24 +8421,23 @@ packages:
     dependencies:
       hoist-non-react-statics: 3.3.2
       prop-types: 15.8.1
-      react: 17.0.2
+      react: 18.1.0
     dev: false
 
-  /react-dom/17.0.2_react@17.0.2:
-    resolution: {integrity: sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==}
+  /react-dom/18.1.0_react@18.1.0:
+    resolution: {integrity: sha512-fU1Txz7Budmvamp7bshe4Zi32d0ll7ect+ccxNu9FlObT605GOEB8BfO4tmRJ39R5Zj831VCpvQ05QPBW5yb+w==}
     peerDependencies:
-      react: 17.0.2
+      react: ^18.1.0
     peerDependenciesMeta:
       react:
         optional: true
     dependencies:
       loose-envify: 1.4.0
-      object-assign: 4.1.1
-      react: 17.0.2
-      scheduler: 0.20.2
+      react: 18.1.0
+      scheduler: 0.22.0
     dev: false
 
-  /react-google-recaptcha/2.1.0_react@17.0.2:
+  /react-google-recaptcha/2.1.0_react@18.1.0:
     resolution: {integrity: sha512-K9jr7e0CWFigi8KxC3WPvNqZZ47df2RrMAta6KmRoE4RUi7Ys6NmNjytpXpg4HI/svmQJLKR+PncEPaNJ98DqQ==}
     peerDependencies:
       react: '>=16.4.1'
@@ -8445,11 +8446,11 @@ packages:
         optional: true
     dependencies:
       prop-types: 15.8.1
-      react: 17.0.2
-      react-async-script: 1.2.0_react@17.0.2
+      react: 18.1.0
+      react-async-script: 1.2.0_react@18.1.0
     dev: false
 
-  /react-hook-form/7.30.0_react@17.0.2:
+  /react-hook-form/7.30.0_react@18.1.0:
     resolution: {integrity: sha512-DzjiM6o2vtDGNMB9I4yCqW8J21P314SboNG1O0obROkbg7KVS0I7bMtwSdKyapnCPjHgnxc3L7E5PEdISeEUcQ==}
     engines: {node: '>=12.22.0'}
     peerDependencies:
@@ -8458,19 +8459,18 @@ packages:
       react:
         optional: true
     dependencies:
-      react: 17.0.2
+      react: 18.1.0
     dev: false
 
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: false
 
-  /react/17.0.2:
-    resolution: {integrity: sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==}
+  /react/18.1.0:
+    resolution: {integrity: sha512-4oL8ivCz5ZEPyclFQXaNksK3adutVS8l2xzZU0cqEFrE9Sb7fC0EFK5uEk74wIreL1DERyjvsU915j1pcT2uEQ==}
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-      object-assign: 4.1.1
     dev: false
 
   /read-pkg-up/7.0.1:
@@ -8802,11 +8802,10 @@ packages:
       immutable: 4.0.0
       source-map-js: 1.0.2
 
-  /scheduler/0.20.2:
-    resolution: {integrity: sha512-2eWfGgAqqWFGqtdMmcL5zCMK1U8KlXv8SQFGglL3CEtd0aDVDWgeF/YoCmvln55m5zSk3J/20hTaSBeSObsQDQ==}
+  /scheduler/0.22.0:
+    resolution: {integrity: sha512-6QAm1BgQI88NPYymgGQLCZgvep4FyePDWFpXVK+zNSUgHwlqpJy8VEh8Et0KxTACS4VWwMousBElAZOH9nkkoQ==}
     dependencies:
       loose-envify: 1.4.0
-      object-assign: 4.1.1
     dev: false
 
   /scuid/1.1.0:
@@ -9235,7 +9234,7 @@ packages:
     resolution: {integrity: sha1-eVjHk+R+MuB9K1yv5cC/jhLneQI=}
     dev: true
 
-  /styled-jsx/5.0.2_react@17.0.2:
+  /styled-jsx/5.0.2_react@18.1.0:
     resolution: {integrity: sha512-LqPQrbBh3egD57NBcHET4qcgshPks+yblyhPlH2GY8oaDgKs8SK4C3dBh3oSJjgzJ3G5t1SYEZGHkP+QEpX9EQ==}
     engines: {node: '>= 12.0.0'}
     peerDependencies:
@@ -9250,7 +9249,7 @@ packages:
       react:
         optional: true
     dependencies:
-      react: 17.0.2
+      react: 18.1.0
     dev: false
 
   /stylelint-config-prettier/9.0.3_stylelint@14.8.2:
@@ -9665,6 +9664,15 @@ packages:
       json5: 1.0.1
       minimist: 1.2.6
       strip-bom: 3.0.0
+    dev: false
+
+  /tsconfig-paths/4.0.0:
+    resolution: {integrity: sha512-SLBg2GBKlR6bVtMgJJlud/o3waplKtL7skmLkExomIiaAtLGtVsoXIqP3SYdjbcH9lq/KVv7pMZeCBpLYOit6Q==}
+    dependencies:
+      json5: 2.2.1
+      minimist: 1.2.6
+      strip-bom: 3.0.0
+    dev: true
 
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
@@ -10002,7 +10010,7 @@ packages:
       querystring: 0.2.0
     dev: false
 
-  /urql/2.2.0_sqwnk3obm2acmtkqkr5eiemxsu:
+  /urql/2.2.0_cxfcglayresyyxxylwnor5zopi:
     resolution: {integrity: sha512-36wnWqDrpXqhwT5r2/qRSZXhb7Y4sXA0nLlYEd3uLgvfIdOA8kUaPdfTujzfrvfCcfiVVFxhzqVAhc8r17NMwQ==}
     peerDependencies:
       graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0 || 16
@@ -10013,7 +10021,7 @@ packages:
     dependencies:
       '@urql/core': 2.4.4_graphql@16.4.0
       graphql: 16.4.0
-      react: 17.0.2
+      react: 18.1.0
       wonka: 4.0.15
     dev: false
 
