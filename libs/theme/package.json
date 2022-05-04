@@ -15,6 +15,6 @@
   },
   "devDependencies": {
     "@mapledb/stylelint-config": "workspace:*",
-    "stylelint": "^14.8.0"
+    "stylelint": "^14.8.2"
   }
 }
