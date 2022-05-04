@@ -102,7 +102,7 @@ importers:
       prisma: ^3.13.0
       ts-node: ^10.7.0
       tsc-alias: ^1.6.7
-      tsconfig-paths: ^3.14.1
+      tsconfig-paths: ^4.0.0
       typescript: ^4.6.4
       zod: ^3.14.4
     dependencies:
@@ -141,7 +141,7 @@ importers:
       prisma: 3.13.0
       ts-node: 10.7.0_7vfv75elicf7ijnl73ckmqo2cm
       tsc-alias: 1.6.7
-      tsconfig-paths: 3.14.1
+      tsconfig-paths: 4.0.0
       typescript: 4.6.4
 
   apps/web:
@@ -3376,6 +3376,7 @@ packages:
 
   /@types/json5/0.0.29:
     resolution: {integrity: sha1-7ihweulOEdK4J7y+UnC86n8+ce4=}
+    dev: false
 
   /@types/jsonwebtoken/8.5.8:
     resolution: {integrity: sha512-zm6xBQpFDIDM6o9r6HSgDeIcLy82TKWctCXEPbJJcXb5AKmi5BNNdLXneixK4lplX3PqIVcwLBCGE/kAGnlD4A==}
@@ -6998,6 +6999,7 @@ packages:
     hasBin: true
     dependencies:
       minimist: 1.2.6
+    dev: false
 
   /json5/2.2.1:
     resolution: {integrity: sha512-1hqLFMSrGHRHxav9q9gNjJ5EXznIxGVO09xQRrwplcS8qs28pZ8s8hupZAmqDwZUmVZ2Qb2jnyPOWcDH8m8dlA==}
@@ -9665,6 +9667,15 @@ packages:
       json5: 1.0.1
       minimist: 1.2.6
       strip-bom: 3.0.0
+    dev: false
+
+  /tsconfig-paths/4.0.0:
+    resolution: {integrity: sha512-SLBg2GBKlR6bVtMgJJlud/o3waplKtL7skmLkExomIiaAtLGtVsoXIqP3SYdjbcH9lq/KVv7pMZeCBpLYOit6Q==}
+    dependencies:
+      json5: 2.2.1
+      minimist: 1.2.6
+      strip-bom: 3.0.0
+    dev: true
 
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
