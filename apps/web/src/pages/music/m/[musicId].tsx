@@ -16,6 +16,7 @@ import useParseDate from '@utils/hooks/useParseDate';
 import useCreateMusicianDesc from '@utils/hooks/useCreateMusicianDesc';
 import useParseMusicType from '@utils/hooks/useParseMusicType';
 import { useGetMusicQuery } from '@graphql/hooks';
+import useParseSubgenre from '@utils/hooks/useParseSubgenre';
 
 interface Props {
   musicId: string;
@@ -52,6 +53,7 @@ const MusicDisplay = ({ musicId }: Props) => {
   const musicianDesc = useCreateMusicianDesc(musicians, nonCanadians);
   const date = useParseDate(release);
   const musicTypeParsed = useParseMusicType(musicType);
+  const subgenreParsed = useParseSubgenre(subgenre?.name);
 
   return (
     <MainLayout
@@ -107,7 +109,7 @@ const MusicDisplay = ({ musicId }: Props) => {
                 <span>genre:</span>&nbsp;
                 <span>
                   {instrumental && 'instrumental '}
-                  {subgenre?.name}
+                  {subgenreParsed}
                 </span>
               </li>
               <li>
