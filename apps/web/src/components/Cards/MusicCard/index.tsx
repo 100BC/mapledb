@@ -76,6 +76,7 @@ const MusicCard = ({
         musicians={musicians}
         nonCanadians={nonCanadians}
         shouldConcat
+        className={styles.musicians}
       />
       <ul className={styles.desc}>
         <li>
