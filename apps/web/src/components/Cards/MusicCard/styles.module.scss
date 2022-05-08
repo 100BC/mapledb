@@ -1,22 +1,5 @@
 @use '~@mapledb/theme' as *;
 
-.musicCard {
-  text-align: start;
-  background: $bg-300;
-  border-radius: 10px;
-  box-shadow: 0 0 10px $black;
-
-  &:hover {
-    > div > *:not(h2) {
-      color: $white;
-    }
-  }
-}
-
-.info {
-  padding: 0 5px 1rem;
-}
-
 .musicName {
   margin: 0 0 1rem;
   font-size: 2rem;
@@ -30,24 +13,5 @@
   > li {
     margin: 0.8rem 0 0;
     font-weight: 300;
-  }
-}
-
-.musicians {
-  > li {
-    display: inline;
-    font-size: 1.8rem;
-    line-height: 1.4;
-  }
-
-  > li.nonCad {
-    font-weight: 300;
-  }
-
-  > li + li {
-    &::before {
-      color: $theme-400;
-      content: ' & ';
-    }
   }
 }

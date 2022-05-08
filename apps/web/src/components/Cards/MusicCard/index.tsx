@@ -9,6 +9,7 @@ import useCreateImageUrl from '@utils/hooks/useCreateImageUrl';
 import useCreateMusicianDesc from '@utils/hooks/useCreateMusicianDesc';
 import useParseMusicType from '@utils/hooks/useParseMusicType';
 import useParseSubgenre from '@utils/hooks/useParseSubgenre';
+import MusicianLinkList from '@components/MusicianLinkList';
 
 import styles from './styles.module.scss';
 
@@ -54,43 +55,38 @@ const MusicCard = ({
   );
 
   return (
-    <Link href={`/music/m/${id}`}>
-      <a title={desc} className={styles.musicCard}>
-        <Image
-          src={imageUrl ?? '/images/missing.png'}
-          alt={desc}
-          layout="intrinsic"
-          width={285}
-          height={285}
-          placeholder={placeholder}
-          blurDataURL={blurryImageUrl}
-          loader={loader}
-          priority={imagePriority}
-        />
-        <div className={styles.info}>
+    <div>
+      <Link href={`/music/m/${id}`}>
+        <a title={desc}>
+          <Image
+            src={imageUrl ?? '/images/missing.png'}
+            alt={desc}
+            layout="intrinsic"
+            width={285}
+            height={285}
+            placeholder={placeholder}
+            blurDataURL={blurryImageUrl}
+            loader={loader}
+            priority={imagePriority}
+          />
           <h2 className={styles.musicName}>{name}</h2>
-          <ul className={styles.musicians}>
-            {musicians?.map((m) => (
-              <li key={m.id}>{m.name}</li>
-            ))}
-            {nonCanadians?.map((c) => (
-              <li key={c} className={styles.nonCad}>
-                {c}
-              </li>
-            ))}
-          </ul>
-          <ul className={styles.desc}>
-            <li>
-              {instrumental && 'Instrumental '}
-              {subgenreParsed} {showMusicType && <>{capitalCaseType}</>}
-            </li>
-            <li>
-              <time>{date}</time>
-            </li>
-          </ul>
-        </div>
-      </a>
-    </Link>
+        </a>
+      </Link>
+      <MusicianLinkList
+        musicians={musicians}
+        nonCanadians={nonCanadians}
+        shouldConcat
+      />
+      <ul className={styles.desc}>
+        <li>
+          {instrumental && 'Instrumental '}
+          {subgenreParsed} {showMusicType && <>{capitalCaseType}</>}
+        </li>
+        <li>
+          <time>{date}</time>
+        </li>
+      </ul>
+    </div>
   );
 };
 
