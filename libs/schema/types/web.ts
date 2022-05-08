@@ -1,5 +1,4 @@
 import gql from 'graphql-tag';
-
 import * as Types from '.';
 
 export type MusicianReleaseFragment = {
