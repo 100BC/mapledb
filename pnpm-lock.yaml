@@ -35,7 +35,7 @@ importers:
       react: ^17.0.2
       react-dom: ^17.0.2
       react-hook-form: ^7.30.0
-      sass: ^1.51.0
+      sass: ^1.53.0
       stylelint: ^14.9.1
       typescript: ^4.7.4
       urql: ^2.2.0
@@ -46,7 +46,7 @@ importers:
       '@urql/exchange-multipart-fetch': 0.1.14_graphql@16.5.0
       firebase: 9.8.0
       graphql: 16.5.0
-      next: 12.1.6_dmi2t66wvavvdsdvw6dn5lzaaa
+      next: 12.1.6_352uutu4og2bvewd2z7ffpt77y
       normalize.css: 8.0.1
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
@@ -63,7 +63,7 @@ importers:
       '@types/react-dom': 17.0.16
       eslint: 8.19.0
       next-transpile-modules: 9.0.0
-      sass: 1.51.0
+      sass: 1.53.0
       stylelint: 14.9.1
       typescript: 4.7.4
 
@@ -167,7 +167,7 @@ importers:
       react: ^17.0.2
       react-dom: ^17.0.2
       react-hook-form: ^7.30.0
-      sass: ^1.51.0
+      sass: ^1.53.0
       stylelint: ^14.9.1
       typescript: ^4.7.4
       urql: ^2.2.0
@@ -178,7 +178,7 @@ importers:
       '@mapledb/shared': link:../../libs/shared
       firebase: 9.8.0
       graphql: 16.5.0
-      next: 12.1.6_dmi2t66wvavvdsdvw6dn5lzaaa
+      next: 12.1.6_352uutu4og2bvewd2z7ffpt77y
       normalize.css: 8.0.1
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
@@ -195,7 +195,7 @@ importers:
       '@types/react-dom': 17.0.16
       eslint: 8.19.0
       next-transpile-modules: 9.0.0
-      sass: 1.51.0
+      sass: 1.53.0
       stylelint: 14.9.1
       typescript: 4.7.4
 
@@ -317,12 +317,12 @@ importers:
       react-dom: ^17.0.2
       react-google-recaptcha: ^2.1.0
       react-hook-form: ^7.30.0
-      sass: ^1.51.0
+      sass: ^1.53.0
       stylelint: ^14.9.1
       typescript: ^4.7.4
     dependencies:
       '@mapledb/generics': link:../generics
-      next: 12.1.6_dmi2t66wvavvdsdvw6dn5lzaaa
+      next: 12.1.6_352uutu4og2bvewd2z7ffpt77y
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       react-google-recaptcha: 2.1.0_react@17.0.2
@@ -337,17 +337,17 @@ importers:
       '@types/react-dom': 17.0.16
       '@types/react-google-recaptcha': 2.1.5
       eslint: 8.19.0
-      sass: 1.51.0
+      sass: 1.53.0
       stylelint: 14.9.1
       typescript: 4.7.4
 
   libs/theme:
     specifiers:
       '@mapledb/stylelint-config': workspace:*
-      sass: ^1.51.0
+      sass: ^1.53.0
       stylelint: ^14.9.1
     dependencies:
-      sass: 1.51.0
+      sass: 1.53.0
     devDependencies:
       '@mapledb/stylelint-config': link:../../config/stylelint-config
       stylelint: 14.9.1
@@ -8172,7 +8172,7 @@ packages:
       escalade: 3.1.1
     dev: true
 
-  /next/12.1.6_dmi2t66wvavvdsdvw6dn5lzaaa:
+  /next/12.1.6_352uutu4og2bvewd2z7ffpt77y:
     resolution: {integrity: sha512-cebwKxL3/DhNKfg9tPZDQmbRKjueqykHHbgaoG4VBRH3AHQJ2HO0dbKFiS1hPhe1/qgc2d/hFeadsbPicmLD+A==}
     engines: {node: '>=12.22.0'}
     hasBin: true
@@ -8197,7 +8197,7 @@ packages:
       postcss: 8.4.5
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
-      sass: 1.51.0
+      sass: 1.53.0
       styled-jsx: 5.0.2_react@17.0.2
     optionalDependencies:
       '@next/swc-android-arm-eabi': 12.1.6
@@ -9315,8 +9315,8 @@ packages:
   /safer-buffer/2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  /sass/1.51.0:
-    resolution: {integrity: sha512-haGdpTgywJTvHC2b91GSq+clTKGbtkkZmVAb82jZQN/wTy6qs8DdFm2lhEQbEwrY0QDRgSQ3xDurqM977C3noA==}
+  /sass/1.53.0:
+    resolution: {integrity: sha512-zb/oMirbKhUgRQ0/GFz8TSAwRq2IlR29vOUJZOx0l8sV+CkHUfHa4u5nqrG+1VceZp7Jfj59SVW9ogdhTvJDcQ==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
