@@ -7,12 +7,12 @@
   },
   "main": "index.json",
   "dependencies": {
-    "postcss": "^8.4.13",
+    "postcss": "^8.4.14",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recess-order": "^3.0.0",
-    "stylelint-config-standard-scss": "^3.0.0"
+    "stylelint-config-standard-scss": "^4.0.0"
   },
   "devDependencies": {
-    "stylelint": "^14.8.2"
+    "stylelint": "^14.9.1"
   }
 }
