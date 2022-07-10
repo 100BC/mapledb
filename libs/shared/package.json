@@ -13,8 +13,8 @@
   "dependencies": {
     "@mapledb/generics": "workspace:0.0.0",
     "next": "^12.2.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "react-google-recaptcha": "^2.1.0",
     "react-hook-form": "^7.33.1"
   },
@@ -24,8 +24,8 @@
     "@mapledb/theme": "workspace:0.0.0",
     "@mapledb/tsconfig": "workspace:0.0.0",
     "@types/node": "^16.11.43",
-    "@types/react": "^17.0.47",
-    "@types/react-dom": "^17.0.17",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
     "@types/react-google-recaptcha": "^2.1.5",
     "eslint": "^8.19.0",
     "sass": "^1.53.0",
