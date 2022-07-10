@@ -1,11 +1,80 @@
 generator client {
-  provider        = "prisma-client-js"
-  previewFeatures = ["extendedIndexes"]
+  provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model City {
+  id        Int        @id @default(autoincrement()) @db.SmallInt
+  name      String     @db.VarChar(255)
+  province  Province
+  musicians Musician[]
+
+  @@unique([name, province])
+  @@map("city")
+}
+
+model Subgenre {
+  id    Int     @id @default(autoincrement()) @db.SmallInt
+  name  String  @unique @db.VarChar(255)
+  genre Genre
+  music Music[]
+
+  @@map("subgenre")
+}
+
+model Musician {
+  id             String          @id @db.VarChar(255)
+  name           String          @db.VarChar(255)
+  dateAdded      DateTime        @default(now()) @map("date_added")
+  cityId         Int             @map("city_id") @db.SmallInt
+  isGroup        Boolean         @default(false) @map("is_group")
+  appleLink      String?         @unique @map("apple_link") @db.VarChar(255)
+  bandcampLink   String?         @unique @map("bandcamp_link") @db.VarChar(255)
+  soundcloudLink String?         @unique @map("soundcloud_link") @db.VarChar(255)
+  spotifyLink    String?         @unique @map("spotify_link") @db.VarChar(255)
+  youtubeLink    String?         @unique @map("youtube_link") @db.VarChar(255)
+  disbanded      DateTime?       @db.Date
+  city           City            @relation(fields: [cityId], references: [id])
+  music          MusicianMusic[]
+
+  @@map("musician")
+}
+
+model Music {
+  id             String          @id @db.VarChar(255)
+  name           String          @db.VarChar(255)
+  musicType      MusicType       @map("music_type")
+  release        DateTime        @db.Date
+  dateAdded      DateTime        @default(now()) @map("date_added")
+  instrumental   Boolean         @default(false)
+  subgenreId     Int             @map("subgenre_id") @db.SmallInt
+  nonCanadians   String[]        @map("non_canadians") @db.VarChar(255)
+  appleLink      String?         @unique @map("apple_link") @db.VarChar(255)
+  bandcampLink   String?         @unique @map("bandcamp_link") @db.VarChar(255)
+  soundcloudLink String?         @unique @map("soundcloud_link") @db.VarChar(255)
+  spotifyLink    String?         @unique @map("spotify_link") @db.VarChar(255)
+  youtubeLink    String?         @unique @map("youtube_link") @db.VarChar(255)
+  hasCover       Boolean         @default(false) @map("has_cover")
+  copyright      String?         @db.VarChar(255)
+  subgenre       Subgenre        @relation(fields: [subgenreId], references: [id])
+  musicians      MusicianMusic[]
+
+  @@index([musicType, release(sort: Desc)])
+  @@map("music")
+}
+
+model MusicianMusic {
+  musicianId  String   @map("musician_id") @db.VarChar(255)
+  musicId     String   @map("music_id") @db.VarChar(255)
+  musicRef    Music    @relation(fields: [musicId], references: [id], onDelete: Cascade)
+  musicianRef Musician @relation(fields: [musicianId], references: [id])
+
+  @@id([musicianId, musicId])
+  @@map("musician_music")
 }
 
 enum Province {
@@ -45,74 +114,4 @@ enum MusicType {
   DELUXE
   REMIX
   COMPILATION
-}
-
-model City {
-  id        Int        @id @default(autoincrement()) @db.SmallInt
-  name      String     @db.VarChar(255)
-  province  Province
-  musicians Musician[]
-
-  @@unique([name, province])
-  @@map("city")
-}
-
-model Subgenre {
-  id    Int     @id @default(autoincrement()) @db.SmallInt
-  name  String  @unique @db.VarChar(255)
-  genre Genre
-  music Music[]
-
-  @@map("subgenre")
-}
-
-model Musician {
-  id             String          @id @db.VarChar(255)
-  name           String          @db.VarChar(255)
-  dateAdded      DateTime        @default(now()) @map("date_added")
-  city           City            @relation(fields: [cityId], references: [id])
-  cityId         Int             @map("city_id") @db.SmallInt
-  music          MusicianMusic[]
-  isGroup        Boolean         @default(false) @map("is_group")
-  appleLink      String?         @unique @map("apple_link") @db.VarChar(255)
-  bandcampLink   String?         @unique @map("bandcamp_link") @db.VarChar(255)
-  soundcloudLink String?         @unique @map("soundcloud_link") @db.VarChar(255)
-  spotifyLink    String?         @unique @map("spotify_link") @db.VarChar(255)
-  youtubeLink    String?         @unique @map("youtube_link") @db.VarChar(255)
-  disbanded      DateTime?       @db.Date
-
-  @@map("musician")
-}
-
-model Music {
-  id             String          @id @db.VarChar(255)
-  name           String          @db.VarChar(255)
-  musicType      MusicType       @map("music_type")
-  release        DateTime        @db.Date
-  dateAdded      DateTime        @default(now()) @map("date_added")
-  hasCover       Boolean         @default(false) @map("has_cover")
-  instrumental   Boolean         @default(false)
-  subgenre       Subgenre        @relation(fields: [subgenreId], references: [id])
-  subgenreId     Int             @map("subgenre_id") @db.SmallInt
-  musicians      MusicianMusic[]
-  nonCanadians   String[]        @map("non_canadians") @db.VarChar(255)
-  appleLink      String?         @unique @map("apple_link") @db.VarChar(255)
-  bandcampLink   String?         @unique @map("bandcamp_link") @db.VarChar(255)
-  soundcloudLink String?         @unique @map("soundcloud_link") @db.VarChar(255)
-  spotifyLink    String?         @unique @map("spotify_link") @db.VarChar(255)
-  youtubeLink    String?         @unique @map("youtube_link") @db.VarChar(255)
-  copyright      String?         @db.VarChar(255)
-
-  @@index([musicType, release(sort: Desc)])
-  @@map("music")
-}
-
-model MusicianMusic {
-  musicianRef Musician @relation(fields: [musicianId], references: [id])
-  musicianId  String   @map("musician_id") @db.VarChar(255)
-  musicRef    Music    @relation(fields: [musicId], references: [id], onDelete: Cascade)
-  musicId     String   @map("music_id") @db.VarChar(255)
-
-  @@id([musicianId, musicId])
-  @@map("musician_music")
 }
