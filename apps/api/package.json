@@ -29,7 +29,7 @@
     "@fastify/cors": "^7.0.0",
     "@fastify/helmet": "^8.0.0",
     "@fastify/rate-limit": "^6.0.0",
-    "@mapledb/constants": "workspace:^1.0.0",
+    "@mapledb/constants": "workspace:0.0.0",
     "@pothos/core": "^3.10.1",
     "@pothos/plugin-complexity": "^3.3.0",
     "@pothos/plugin-scope-auth": "^3.8.1",
