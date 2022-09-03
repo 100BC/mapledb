@@ -48,10 +48,10 @@ export function useEditMusicianMutation() {
 export function useGetMusicQuery(
   options: Omit<Urql.UseQueryArgs<Operations.GetMusicQueryVariables>, 'query'>
 ) {
-  return Urql.useQuery<Operations.GetMusicQuery>({
-    query: Operations.GetMusicDocument,
-    ...options,
-  });
+  return Urql.useQuery<
+    Operations.GetMusicQuery,
+    Operations.GetMusicQueryVariables
+  >({ query: Operations.GetMusicDocument, ...options });
 }
 
 export function useGetMusicNameQuery(
@@ -60,10 +60,10 @@ export function useGetMusicNameQuery(
     'query'
   >
 ) {
-  return Urql.useQuery<Operations.GetMusicNameQuery>({
-    query: Operations.GetMusicNameDocument,
-    ...options,
-  });
+  return Urql.useQuery<
+    Operations.GetMusicNameQuery,
+    Operations.GetMusicNameQueryVariables
+  >({ query: Operations.GetMusicNameDocument, ...options });
 }
 
 export function useGetMusicianQuery(
@@ -72,10 +72,10 @@ export function useGetMusicianQuery(
     'query'
   >
 ) {
-  return Urql.useQuery<Operations.GetMusicianQuery>({
-    query: Operations.GetMusicianDocument,
-    ...options,
-  });
+  return Urql.useQuery<
+    Operations.GetMusicianQuery,
+    Operations.GetMusicianQueryVariables
+  >({ query: Operations.GetMusicianDocument, ...options });
 }
 
 export function useGetMusicianNameQuery(
@@ -84,8 +84,8 @@ export function useGetMusicianNameQuery(
     'query'
   >
 ) {
-  return Urql.useQuery<Operations.GetMusicianNameQuery>({
-    query: Operations.GetMusicianNameDocument,
-    ...options,
-  });
+  return Urql.useQuery<
+    Operations.GetMusicianNameQuery,
+    Operations.GetMusicianNameQueryVariables
+  >({ query: Operations.GetMusicianNameDocument, ...options });
 }
