@@ -19,15 +19,9 @@ export const musicDelete = builder.mutationField('musicDelete', (t) => {
 
       const { id } = args;
 
-      const musicInfo = await ctx.prisma.music
-        .findUnique({
-          where: { id: args.id },
-          rejectOnNotFound: true,
-        })
-        .catch((err) => {
-          logger.error(err);
-          throw new Error(err?.message);
-        });
+      const musicInfo = await ctx.prisma.music.findUniqueOrThrow({
+        where: { id: args.id },
+      });
 
       if (musicInfo.hasCover) await cloudinaryDelete(args.id);
 

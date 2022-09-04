@@ -86,15 +86,9 @@ export const musicEdit = builder.mutationField('musicEdit', (t) => {
 
       let newGenre = genre;
       if (subgenre && !newGenre) {
-        const genreData = await ctx.prisma.subgenre
-          .findUnique({
-            where: { id: musicInfo.subgenreId },
-            rejectOnNotFound: true,
-          })
-          .catch((err) => {
-            logger.error(err);
-            throw new Error(err);
-          });
+        const genreData = await ctx.prisma.subgenre.findUniqueOrThrow({
+          where: { id: musicInfo.subgenreId },
+        });
         newGenre = genreData.genre;
       }
 

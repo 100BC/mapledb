@@ -58,15 +58,9 @@ export const musicianEdit = builder.mutationField('musicianEdit', (t) => {
 
       let newProvince = province;
       if (city && !newProvince) {
-        const cityData = await ctx.prisma.city
-          .findUnique({
-            where: { id: musicianInfo.cityId },
-            rejectOnNotFound: true,
-          })
-          .catch((err) => {
-            logger.error(err);
-            throw new Error(err);
-          });
+        const cityData = await ctx.prisma.city.findUniqueOrThrow({
+          where: { id: musicianInfo.cityId },
+        });
         newProvince = cityData.province;
       }
 

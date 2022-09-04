@@ -3,8 +3,6 @@ import { logger } from '@server';
 import builder from '@schema/builder';
 import { MusicObject } from '@schema/types/Music';
 
-const errorMessage = 'No Music Found';
-
 export const music = builder.queryField('music', (t) => {
   return t.field({
     type: MusicObject,
@@ -14,12 +12,8 @@ export const music = builder.queryField('music', (t) => {
     },
     resolve: (_parent, args, ctx) => {
       logger.info(`Querying Music: ${args.id}`);
-      return ctx.prisma.music.findUnique({
+      return ctx.prisma.music.findUniqueOrThrow({
         where: { id: args.id },
-        rejectOnNotFound: () => {
-          logger.error(errorMessage);
-          throw new Error(errorMessage);
-        },
       });
     },
   });

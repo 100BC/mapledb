@@ -1,5 +1,3 @@
-import { logger } from '@server';
-
 import { PrismaClient } from '@prisma/client';
 
 interface Props {
@@ -7,18 +5,10 @@ interface Props {
   prisma: PrismaClient;
 }
 
-const errorMessage = "One or more Musician doesn't Exist in the DB";
-
 const musicianExistsValidator = async ({ musicianId, prisma }: Props) => {
-  const musician = prisma.musician
-    .findUnique({
-      where: { id: musicianId },
-      rejectOnNotFound: true,
-    })
-    .catch(() => {
-      logger.error(errorMessage);
-      throw new Error(errorMessage);
-    });
+  const musician = prisma.musician.findUniqueOrThrow({
+    where: { id: musicianId },
+  });
 
   return musician;
 };

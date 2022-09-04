@@ -31,7 +31,7 @@ Cloudinary.v2.config({
 const fastify = Fastify({
   logger: {
     level: IS_DEV ? 'debug' : 'info',
-    redact: ['req.headers', 'hostname'],
+    redact: ['hostname'].concat(IS_DEV ? [] : ['req.headers']),
     transport: {
       target: 'pino-pretty',
       options: {
@@ -47,6 +47,7 @@ const fastify = Fastify({
           url: request.url,
           remoteAddress: request.headers.forwarded || request.ip,
           remotePort: request.socket.remotePort,
+          headers: request.headers,
         };
       },
     },
