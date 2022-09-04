@@ -8,8 +8,8 @@
     "clean": "rm -rf node_modules .turbo .pnpm-debug.log"
   },
   "devDependencies": {
-    "@mapledb/eslint-config": "workspace:*",
-    "@mapledb/tsconfig": "workspace:*",
-    "typescript": "^4.7.4"
+    "@mapledb/eslint-config": "workspace:0.0.0",
+    "@mapledb/tsconfig": "workspace:0.0.0",
+    "typescript": "^4.8.2"
   }
 }

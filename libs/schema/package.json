@@ -20,7 +20,7 @@
     "@graphql-codegen/typescript": "^2.7.3",
     "@graphql-codegen/typescript-document-nodes": "^2.3.3",
     "@graphql-codegen/typescript-operations": "^2.5.3",
-    "@graphql-codegen/typescript-urql": "^3.6.4",
+    "@graphql-codegen/typescript-urql": "^3.7.0",
     "@mapledb/eslint-config": "workspace:0.0.0",
     "@mapledb/tsconfig": "workspace:0.0.0",
     "eslint": "^8.23.0",

@@ -11,10 +11,10 @@
     "lint": "stylelint --fix '**/*.scss'"
   },
   "dependencies": {
-    "sass": "^1.53.0"
+    "sass": "^1.54.8"
   },
   "devDependencies": {
-    "@mapledb/stylelint-config": "workspace:*",
-    "stylelint": "^14.9.1"
+    "@mapledb/stylelint-config": "workspace:0.0.0",
+    "stylelint": "^14.11.0"
   }
 }

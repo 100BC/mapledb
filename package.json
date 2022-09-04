@@ -23,7 +23,7 @@
     "db:deploy": "turbo run db:deploy"
   },
   "devDependencies": {
-    "kill-port": "^1.6.1",
+    "kill-port": "^2.0.1",
     "prettier": "^2.7.1",
     "turbo": "latest"
   },
