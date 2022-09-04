@@ -8,6 +8,6 @@ fastify.get('/*', async (_request, reply) => {
   return reply.callNotFound();
 });
 
-fastify.listen(3002, (err, _address) => {
+fastify.listen({ port: 3002 }, (err, _address) => {
   if (err) throw err;
 });

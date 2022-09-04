@@ -30,20 +30,21 @@ Cloudinary.v2.config({
 
 const fastify = Fastify({
   logger: {
-    prettyPrint: {
-      translateTime: 'yyyy-mm-dd HH:MM:ss Z',
-      colorize: true,
-      ignore:
-        'pid,hostname,req.headers.authorization,req.headers.forwarded,req.headers.host',
-    },
     level: IS_DEV ? 'debug' : 'info',
+    redact: ['req.headers', 'hostname'],
+    transport: {
+      target: 'pino-pretty',
+      options: {
+        translateTime: IS_DEV ? 'SYS:hh:MM:ss' : 'UTC:yyyy-mm-dd HH:MM:ss Z',
+        colorize: true,
+        ignore: 'pid,hostname',
+      },
+    },
     serializers: {
       req(request) {
         return {
           method: request.method,
           url: request.url,
-          headers: request.headers,
-          hostname: request.hostname,
           remoteAddress: request.headers.forwarded || request.ip,
           remotePort: request.socket.remotePort,
         };
