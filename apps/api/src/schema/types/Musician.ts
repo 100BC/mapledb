@@ -13,9 +13,8 @@ export const Music = MusicianObject.implement({
       type: CityObject,
       complexity: 2,
       resolve: (parent, _args, ctx) => {
-        return ctx.prisma.city.findUnique({
+        return ctx.prisma.city.findUniqueOrThrow({
           where: { id: parent.cityId },
-          rejectOnNotFound: true,
         });
       },
     }),

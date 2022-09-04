@@ -23,9 +23,8 @@ MusicObject.implement({
       type: SubgenreObject,
       complexity: 2,
       resolve: (parent, _args, ctx) => {
-        return ctx.prisma.subgenre.findUnique({
+        return ctx.prisma.subgenre.findUniqueOrThrow({
           where: { id: parent.subgenreId },
-          rejectOnNotFound: true,
         });
       },
     }),
