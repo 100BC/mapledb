@@ -1,4 +1,4 @@
-import React, { Fragment, useMemo, useState } from 'react';
+import { Fragment, useMemo, useState } from 'react';
 import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Spinner from '@mapledb/shared/components/Spinner';
 import { SearchBar } from '@mapledb/shared/components/FormComponents';

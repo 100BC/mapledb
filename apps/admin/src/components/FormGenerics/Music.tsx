@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FieldError, useFormContext } from 'react-hook-form';
 
 import { Genre, MusicType } from '@mapledb/schema/types';

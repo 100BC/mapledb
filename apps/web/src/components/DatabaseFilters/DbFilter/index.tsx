@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import { ChangeEvent } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 

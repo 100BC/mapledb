@@ -1,5 +1,3 @@
-import React from 'react';
-
 import styles from '@styles/about.module.scss';
 import LaunchSVG from '@assets/svg/launch.svg';
 import MainLayout from '@layouts/Main';

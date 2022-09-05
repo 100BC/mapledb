@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 import { combine, conditional } from '@mapledb/shared/style-helpers';
 

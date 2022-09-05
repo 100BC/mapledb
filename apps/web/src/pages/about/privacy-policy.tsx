@@ -1,5 +1,3 @@
-import React from 'react';
-
 import styles from '@styles/about.module.scss';
 import MainLayout from '@layouts/Main';
 

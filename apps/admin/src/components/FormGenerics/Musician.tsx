@@ -1,4 +1,3 @@
-import React from 'react';
 import { FieldError, useFormContext } from 'react-hook-form';
 
 import { Province } from '@mapledb/schema/types';

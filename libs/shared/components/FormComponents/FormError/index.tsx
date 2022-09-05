@@ -1,4 +1,3 @@
-import React from 'react';
 import { FieldError } from 'react-hook-form';
 
 import styles from './styles.module.scss';

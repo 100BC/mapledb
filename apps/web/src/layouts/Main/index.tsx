@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 import MetaTags, { MetaTagProps } from '@mapledb/shared/components/MetaTags';
 import { XOR } from '@mapledb/generics';

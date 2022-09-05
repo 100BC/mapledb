@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef, InputHTMLAttributes } from 'react';
+import { ForwardedRef, forwardRef, InputHTMLAttributes } from 'react';
 
 import InputWrapper from '../InputWrapper';
 

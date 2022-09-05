@@ -1,4 +1,3 @@
-import React from 'react';
 import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 

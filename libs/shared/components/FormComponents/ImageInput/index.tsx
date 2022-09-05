@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef, InputHTMLAttributes } from 'react';
+import { ForwardedRef, forwardRef, InputHTMLAttributes } from 'react';
 import Image from 'next/image';
 
 import styles from './styles.module.scss';

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import LogoSvg from '@assets/svg/logo.svg';
 import { combine } from '../../style-helpers';
 

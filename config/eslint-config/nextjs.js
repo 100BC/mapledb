@@ -25,6 +25,10 @@ module.exports = {
     },
   },
   rules: {
+    /* React 17 */
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
+
     /* Prefer TypeScript */
     'react/require-default-props': 0,
     '@typescript-eslint/no-unused-vars': 0,

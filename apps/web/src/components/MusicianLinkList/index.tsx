@@ -1,4 +1,4 @@
-import React, { Fragment, HTMLAttributes } from 'react';
+import { Fragment, HTMLAttributes } from 'react';
 import Link from 'next/link';
 
 import { MusicCardFragment } from '@mapledb/schema/types/web';

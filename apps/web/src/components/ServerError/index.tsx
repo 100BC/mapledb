@@ -1,4 +1,3 @@
-import React from 'react';
 import Head from 'next/head';
 
 import { DOMAIN_NAME, META_DESCRIPTION, META_TITLE } from '@layouts/Main';

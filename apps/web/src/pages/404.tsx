@@ -1,5 +1,3 @@
-import React from 'react';
-
 import ServerError from '@components/ServerError';
 import MainLayout from '@layouts/Main';
 
