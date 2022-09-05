@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 
 import styles from '@styles/about.module.scss';
 import LaunchSVG from '@assets/svg/launch.svg';
@@ -24,21 +23,13 @@ const About = () => {
           in Canada.
         </p>
         <br />
-        <p>
-          This website is still in it&apos;s infancy, therefore it has a long
-          way to go. Help me promote Canadian music by offering suggestions and
-          recommendation in order to best do my goal.
-        </p>
+        <p>I update this website from time to time whenever I feel like it.</p>
         <br />
         <p>I currently working on the following features to add to the site:</p>
         <ul>
           <li>Expand database filtering to include multiple sub categories</li>
           <li>Add a search feature</li>
         </ul>
-        <p>
-          I aim to add a new artist at least once every few days. I am open to
-          any and all suggestions when it comes to improving this website.
-        </p>
       </section>
       <section className={styles.section}>
         <h2>Which Musicians are Featured?</h2>
@@ -51,16 +42,6 @@ const About = () => {
           need my help to discover Drake. Secondly, I wish to promote musicians
           and new music that will appeal to other musicheads.
         </p>
-        <br />
-        <p>
-          If there is a musician not featured on MapleDB that you think should
-          be, please suggest it to me. If they fit the criteria and/or receive a
-          lot of requests, they will be added.{' '}
-          <Link href="/suggest-musician">
-            <a>Click here to suggest an Musician.</a>
-          </Link>
-        </p>
-        <br />
         <ul>
           <li>
             Priority is given to musicians who have released new music recently
@@ -79,14 +60,14 @@ const About = () => {
         <h2>Why only Musicians based in Canada?</h2>
         <hr />
         <p>
-          I started this because my favourite musicians didn&apos;t tour in my
-          city even though it is one of the larger cities here in Canada. I
-          tried finding active Canadian musicians since they&apos;d be the ones
-          most likely to tour here. But I found that the other music database
-          websites either did a poor job of helping me find Canadian musicians,
-          or if it did help me find Canadians, it did a poor job helping me find
-          Canadians that I&apos;d like. So here I am trying to fix that, at
-          least for myself.
+          I started this because my favourite musicians didn&apos;t tour in
+          Canada outside of Toronto and maybe Montreal. I tried finding active
+          Canadian musicians since they&apos;d be the ones most likely to tour
+          Canada-wide. But I found that the other music database websites either
+          did a poor job of helping me find Canadian musicians, or if it did
+          help me find Canadians, it did a poor job helping me find Canadians
+          that I&apos;d like. So here I am trying to fix that, at least for
+          myself.
         </p>
       </section>
       <section className={styles.section}>

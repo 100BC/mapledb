@@ -4,7 +4,6 @@ import Link from 'next/link';
 import HomeSvg from '@assets/svg/home.svg';
 import VinylSvg from '@assets/svg/vinyl.svg';
 import MicSvg from '@assets/svg/mic.svg';
-import SuggestSvg from '@assets/svg/suggest.svg';
 
 import styles from './styles.module.scss';
 
@@ -27,12 +26,6 @@ const MobileNav = () => {
         <a title="Musicians Database" aria-label="Musicians Database">
           <MicSvg />
           Musicians
-        </a>
-      </Link>
-      <Link href="/suggest-musician">
-        <a title="Suggest a Musician" aria-label="Suggest a Musician">
-          <SuggestSvg />
-          Suggest
         </a>
       </Link>
     </nav>

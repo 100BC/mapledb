@@ -61,13 +61,6 @@ const DesktopNav = () => {
               </a>
             </Link>
           </li>
-          <li>
-            <Link href="/suggest-musician">
-              <a title="Suggest a Musician" className={styles.link}>
-                Suggest&nbsp;Musician
-              </a>
-            </Link>
-          </li>
         </ul>
       </nav>
     </header>

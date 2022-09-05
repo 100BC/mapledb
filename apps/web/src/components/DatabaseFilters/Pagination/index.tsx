@@ -113,11 +113,6 @@ const Pagination = ({ pageType, currentPage, totalCount }: Props) => {
           </li>
         </ul>
       )}
-      <Link href="/suggest-musician">
-        <a className={styles.suggest}>
-          Want to expand this list? Suggest a musician.
-        </a>
-      </Link>
     </>
   );
 };
